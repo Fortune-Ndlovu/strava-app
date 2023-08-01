@@ -1,4 +1,5 @@
 import React from 'react';
+//importing compents
 import Header from './components/Header';
 
 function App() {
