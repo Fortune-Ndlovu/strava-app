@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-// import stravaLogo from '../images/strava_logo.png';
+import stravaLogo from '../images/strava_logo.svg';
 
 const Header = () => {
     return (
@@ -11,7 +11,7 @@ const Header = () => {
             <Navbar expand="lg" className="bg-body-tertiary">
                 <Container>
                     <Navbar.Brand href="#home">
-                        {/* <img src={stravaLogo} alt='company brand logo that is the word strava.' width={10} height={40} /> */}
+                        <img src={stravaLogo} alt='company brand logo that is the word strava.'/>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
