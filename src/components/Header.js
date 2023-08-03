@@ -18,7 +18,7 @@ const Header = () => {
                         <Nav className="me-auto">
                             {/* Search functionality */}
                             <form>
-                                <button id='open-global-search-btn'>Open Search</button>
+                                {/* <button id='open-global-search-btn'>Open Search</button>
                                 <div>
                                     <input typeof='text' id='global-search-input'><button id='global-search-btn'>Search</button></input>
                                     <button id='close-global-search-btn'>Close search</button>
@@ -27,7 +27,7 @@ const Header = () => {
                                         <option>Athletes</option>
                                         <option>Clubs</option>
                                     </input>
-                                </div>
+                                </div> */}
                             </form>
                         <Nav.Link href="#home">Dashboard</Nav.Link>
                         <Nav.Link href="#link">Link</Nav.Link>
