@@ -17,11 +17,20 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                        
                         <Nav.Link href="#home"><FiSearch className='open-search-icon' /></Nav.Link>
-                        <Nav.Link href="#home">Dashboard</Nav.Link>
                             
-                        <Nav.Link href="#link">Link</Nav.Link>
+                        <NavDropdown title="Dashboard" id="dashboard-dropdown">
+                            <NavDropdown.Item href="#activityFeed">Activity Feed</NavDropdown.Item>
+                            <NavDropdown.Item href="#mySegments">My Segments</NavDropdown.Item>
+                                <NavDropdown.Item href="#myRoutes">My Routes</NavDropdown.Item>
+                                <div className='dashboard-dropdown-subscription'>
+                                   <NavDropdown.Item><h6>SUBSCRIPTION</h6></NavDropdown.Item>
+                                    <NavDropdown.Item href="#myGoals">My Goals</NavDropdown.Item>
+                                    <NavDropdown.Item href="#Heatmaps">Heatmaps</NavDropdown.Item> 
+                                 </div>         
+                        </NavDropdown>
+                            
+                            
                         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">
@@ -33,6 +42,8 @@ const Header = () => {
                             Separated link
                         </NavDropdown.Item>
                         </NavDropdown>
+                            
+                        <Nav.Link href="#challenges">Challenges</Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
