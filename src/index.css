@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* search icon */
+.open-search-icon {
+  font-size: 20px;
+  transform: rotate(55deg);
+
+}
