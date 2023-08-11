@@ -42,7 +42,6 @@ const Header = () => {
                         >
                             <NavDropdown.Item href="#activityFeed">Activity Feed</NavDropdown.Item>
                             <NavDropdown.Item href="#mySegments">My Segments</NavDropdown.Item>
-
                             <div className='dashboard-dropdown-subscription'>
                                 <h6>SUBSCRIPTION</h6>
                                 <NavDropdown.Item href="#myGoals">My Goals</NavDropdown.Item>
@@ -50,16 +49,27 @@ const Header = () => {
                             </div>
                         </NavDropdown>
 
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                        <NavDropdown
+                            onMouseEnter={handleDashboardHover}
+                            onMouseLeave={handleDashboardLeave}
+                            show={showDashboardItems}
+                            id="dashboard-dropdown"
+                            title={<div className="d-flex align-items-center">
+                            Training <RiArrowDropDownLine className="dashboard-dropdown-icon" />
+                        </div>}
+                        >
+
+                            <NavDropdown.Item href="#action/3.1">Training Calendar</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">
-                                Another action
+                                My Activities
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">
-                                Separated link
-                            </NavDropdown.Item>
+                            <div className='dashboard-dropdown-subscription'>
+                                <h6>SUBSCRIPTION</h6>
+                                <NavDropdown.Item href="#myGoals">Training Log</NavDropdown.Item>
+                                <NavDropdown.Item href="#Heatmaps">Training Plans</NavDropdown.Item>
+                                <NavDropdown.Item href="#Heatmaps">Power Curve</NavDropdown.Item>
+                                <NavDropdown.Item href="#Heatmaps">Fitness & Freshness</NavDropdown.Item>
+                            </div>
                         </NavDropdown>
 
                         <Nav.Link href="#challenges">Challenges</Nav.Link>

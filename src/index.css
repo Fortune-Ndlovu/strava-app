@@ -14,20 +14,21 @@ code {
 }
 
 /* MAIN NAVBAR STYLES */
-nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
-    height: 55px;
-}
-
 /* search icon */
 .open-search-icon {
-  font-size: 20px;
+  font-size: 24px;
   transform: rotate(55deg); 
+}
+
+nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
+    height: 55px;
 }
 
 /* dropdown */
 .dropdown-menu.show {
   border-bottom: 2px solid #fc5200;
 }
+
 .dropdown-menu.show:hover {
     display: block;
 }
@@ -36,6 +37,7 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
 .dashboard-dropdown-subscription {
   background-color: #f7f7fa;
 }
+
 .dashboard-dropdown-subscription h6 {
   font-size: 10px;
   padding: 12px 12px 0;
