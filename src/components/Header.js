@@ -5,9 +5,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import stravaLogo from '../images/strava_logo.svg';
 import { FiSearch } from 'react-icons/fi';
+import { RiArrowDropDownLine } from 'react-icons/ri';
 
 const Header = () => {
-    const [showDashboardItems, setShowDashboardItems] = useState(false); // state to track hover
+    const [showDashboardItems, setShowDashboardItems] = useState(false);
 
     const handleDashboardHover = () => {
         setShowDashboardItems(true);
@@ -29,17 +30,21 @@ const Header = () => {
                         <Nav.Link href="#home"><FiSearch className='open-search-icon' /></Nav.Link>
 
                         <NavDropdown
-                            title="Dashboard"
                             id="dashboard-dropdown"
                             onMouseEnter={handleDashboardHover}
                             onMouseLeave={handleDashboardLeave}
-                            show={showDashboardItems} // Show items based on state
+                            show={showDashboardItems}
+                            title={
+                                <div className="d-flex align-items-center">
+                                    Dashboard <RiArrowDropDownLine className="dashboard-dropdown-icon" />
+                                </div>
+                            }
                         >
                             <NavDropdown.Item href="#activityFeed">Activity Feed</NavDropdown.Item>
                             <NavDropdown.Item href="#mySegments">My Segments</NavDropdown.Item>
-                            <NavDropdown.Divider />
+
                             <div className='dashboard-dropdown-subscription'>
-                                <NavDropdown.Item><h6>SUBSCRIPTION</h6></NavDropdown.Item>
+                                <h6>SUBSCRIPTION</h6>
                                 <NavDropdown.Item href="#myGoals">My Goals</NavDropdown.Item>
                                 <NavDropdown.Item href="#Heatmaps">Heatmaps</NavDropdown.Item>
                             </div>
