@@ -3,20 +3,15 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import stravaLogo from '../images/strava_logo.svg';
 import { FiSearch } from 'react-icons/fi';
 import { RiArrowDropDownLine } from 'react-icons/ri';
+import {MdOutlineNotificationsNone} from 'react-icons/md';
+import stravaLogo from '../images/strava_logo.svg';
 
 const Header = () => {
     const [showDashboardItems, setShowDashboardItems] = useState(false);
-
-    const handleDashboardHover = () => {
-        setShowDashboardItems(true);
-    };
-
-    const handleDashboardLeave = () => {
-        setShowDashboardItems(false);
-    };
+    const [showTrainingItems, setTrainingItems] = useState(false);
+    const [showExploreItems, setExploreItems] = useState(false);
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
@@ -30,9 +25,9 @@ const Header = () => {
                         <Nav.Link href="#home"><FiSearch className='open-search-icon' /></Nav.Link>
 
                         <NavDropdown
-                            id="dashboard-dropdown"
-                            onMouseEnter={handleDashboardHover}
-                            onMouseLeave={handleDashboardLeave}
+                            id="dashboardDropdown"
+                            onMouseEnter={() => setShowDashboardItems(true)}
+                            onMouseLeave={() => setShowDashboardItems(false)}
                             show={showDashboardItems}
                             title={
                                 <div className="d-flex align-items-center">
@@ -50,29 +45,51 @@ const Header = () => {
                         </NavDropdown>
 
                         <NavDropdown
-                            onMouseEnter={handleDashboardHover}
-                            onMouseLeave={handleDashboardLeave}
-                            show={showDashboardItems}
-                            id="dashboard-dropdown"
+                            onMouseEnter={() => setTrainingItems(true)}
+                            onMouseLeave={() => setTrainingItems(false)}
+                            show={showTrainingItems}
+                            id="trainingDropdown"
                             title={<div className="d-flex align-items-center">
-                            Training <RiArrowDropDownLine className="dashboard-dropdown-icon" />
+                            Training <RiArrowDropDownLine className="training-dropdown-icon" />
                         </div>}
                         >
 
                             <NavDropdown.Item href="#action/3.1">Training Calendar</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
-                                My Activities
-                            </NavDropdown.Item>
-                            <div className='dashboard-dropdown-subscription'>
+                            <NavDropdown.Item href="#action/3.2">My Activities</NavDropdown.Item>
+                            <div className='training-dropdown-subscription'>
                                 <h6>SUBSCRIPTION</h6>
-                                <NavDropdown.Item href="#myGoals">Training Log</NavDropdown.Item>
-                                <NavDropdown.Item href="#Heatmaps">Training Plans</NavDropdown.Item>
-                                <NavDropdown.Item href="#Heatmaps">Power Curve</NavDropdown.Item>
-                                <NavDropdown.Item href="#Heatmaps">Fitness & Freshness</NavDropdown.Item>
+                                <NavDropdown.Item href="#trainingLog">Training Log</NavDropdown.Item>
+                                <NavDropdown.Item href="#trainingPlans">Training Plans</NavDropdown.Item>
+                                <NavDropdown.Item href="#powerCurve">Power Curve</NavDropdown.Item>
+                                <NavDropdown.Item href="#fitnessAndFreshness">Fitness & Freshness</NavDropdown.Item>
                             </div>
                         </NavDropdown>
 
-                        <Nav.Link href="#challenges">Challenges</Nav.Link>
+                        <NavDropdown
+                            onMouseEnter={() => setExploreItems(true)}
+                            onMouseLeave={() => setExploreItems(false)}
+                            show={showExploreItems}
+                            id="exploreDropdown"
+                            title={<div className="d-flex align-items-center">
+                            Explore <RiArrowDropDownLine className="explore-dropdown-icon" />
+                        </div>}
+                        >
+                            <NavDropdown.Item href="#action/3.1">Segment Explore</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.2">Segment Search</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.2">Athlete Search</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.2">Clubs</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.2">Apps</NavDropdown.Item>
+                            <div className='explore-dropdown-subscription'>
+                                <h6>SUBSCRIPTION</h6>
+                                <NavDropdown.Item href="#trainingLog">Create a Route</NavDropdown.Item>
+                                <NavDropdown.Item href="#trainingPlans">Subscriber Perks</NavDropdown.Item>
+                            </div>
+                        </NavDropdown>
+                        <Nav.Link href="#challenges" id="exploreDropdown" className="d-flex align-items-center">Challenges</Nav.Link>
+                    </Nav>
+                    <Nav>
+                        <Nav.Link href="#home" className="experiment btn btn-sm btn-primary d-flex align-items-center">Start Trial</Nav.Link>
+                        <Nav.Link href="#challenges" id="notification" className="d-flex align-items-center">  <MdOutlineNotificationsNone /></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

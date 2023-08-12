@@ -34,20 +34,43 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
 }
 
 /* Dashboard */
-.dashboard-dropdown-subscription {
+.dashboard-dropdown-subscription,
+.training-dropdown-subscription,
+.explore-dropdown-subscription {
   background-color: #f7f7fa;
 }
 
-.dashboard-dropdown-subscription h6 {
+.dashboard-dropdown-subscription h6,
+.training-dropdown-subscription h6,
+.explore-dropdown-subscription h6 {
   font-size: 10px;
   padding: 12px 12px 0;
 }
 
 /* Remove the ::after content from dropdown-toggle */
-.navbar .nav-link.dropdown-toggle::after {
+.navbar .nav-link.dropdown-toggle::after,
+.navbar .nav-link.training-toggle::after,
+.navbar .nav-link.explore-toggle::after{
     content: none;
 }
 
-svg.dashboard-dropdown-icon {
+svg.dashboard-dropdown-icon,
+svg.training-dropdown-icon,
+svg.explore-dropdown-icon {
     font-size: 32px;
+}
+
+.experiment.btn {
+    background-color: #fc5200;
+    border-color: #fc5200;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px 20px 5px 20px;
+}
+
+.experiment.btn:hover {
+    background-color: rgb(211, 70, 1);
+    border-color: rgb(187, 62, 1);
+    color: rgb(242, 240, 237);
 }
