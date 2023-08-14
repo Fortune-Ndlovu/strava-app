@@ -5,7 +5,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FiSearch } from 'react-icons/fi';
 import { RiArrowDropDownLine } from 'react-icons/ri';
-import {MdOutlineNotificationsNone} from 'react-icons/md';
+import { MdOutlineNotificationsNone } from 'react-icons/md';
+import { BiSolidUserCircle } from 'react-icons/bi';
 import stravaLogo from '../images/strava_logo.svg';
 
 const Header = () => {
@@ -90,6 +91,7 @@ const Header = () => {
                     <Nav>
                         <Nav.Link href="#home" className="experiment btn btn-sm btn-primary d-flex align-items-center">Start Trial</Nav.Link>
                         <Nav.Link href="#challenges" id="notification" className="d-flex align-items-center">  <MdOutlineNotificationsNone /></Nav.Link>
+                        <Nav.Link href="#challenges" id="notification" className="d-flex align-items-center">  <BiSolidUserCircle /></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
