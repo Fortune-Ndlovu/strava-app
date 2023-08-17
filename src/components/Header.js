@@ -13,6 +13,7 @@ const Header = () => {
     const [showDashboardItems, setShowDashboardItems] = useState(false);
     const [showTrainingItems, setTrainingItems] = useState(false);
     const [showExploreItems, setExploreItems] = useState(false);
+    const [showuserAvatar, setuserAvatar] = useState(false);
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
@@ -99,9 +100,9 @@ const Header = () => {
                         <div>
 
                             <NavDropdown
-                                onMouseEnter={() => setExploreItems(true)}
-                                onMouseLeave={() => setExploreItems(false)}
-                                show={showExploreItems}
+                                onMouseEnter={() => setuserAvatar(true)}
+                                onMouseLeave={() => setuserAvatar(false)}
+                                show={showuserAvatar}
                                 id="userAvatar"
                                 title={<div className='d-flex align-items-center'> <BiSolidUserCircle /> <RiArrowDropDownLine className="explore-dropdown-icon" /> </div>}
                             >
@@ -109,7 +110,7 @@ const Header = () => {
                                 <NavDropdown.Item href="#action/3.2">My Profile</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Log Out</NavDropdown.Item>
-                                
+
                             </NavDropdown>
                         </div>
                     </Nav>
