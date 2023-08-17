@@ -60,6 +60,8 @@ svg.explore-dropdown-icon {
     font-size: 32px;
 }
 
+
+/* user side navigation */
 .experiment.btn {
     background-color: #fc5200;
     border-color: #fc5200;
@@ -73,4 +75,13 @@ svg.explore-dropdown-icon {
     background-color: rgb(211, 70, 1);
     border-color: rgb(187, 62, 1);
     color: rgb(242, 240, 237);
+}
+
+#notifications {
+    margin-left: 24px;
+}
+
+#notifications,
+#userAvatar {
+  font-size: 22px;
 }

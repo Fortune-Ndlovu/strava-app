@@ -86,12 +86,32 @@ const Header = () => {
                                 <NavDropdown.Item href="#trainingPlans">Subscriber Perks</NavDropdown.Item>
                             </div>
                         </NavDropdown>
+
                         <Nav.Link href="#challenges" id="exploreDropdown" className="d-flex align-items-center">Challenges</Nav.Link>
                     </Nav>
-                    <Nav>
-                        <Nav.Link href="#home" className="experiment btn btn-sm btn-primary d-flex align-items-center">Start Trial</Nav.Link>
-                        <Nav.Link href="#challenges" id="notification" className="d-flex align-items-center">  <MdOutlineNotificationsNone /></Nav.Link>
-                        <Nav.Link href="#challenges" id="notification" className="d-flex align-items-center">  <BiSolidUserCircle /></Nav.Link>
+                    <Nav className="me-auto d-flex align-items-center">
+                        <div>
+                            <Nav.Link href="#home" className="experiment btn btn-sm btn-primary d-flex align-items-center">Start Trial</Nav.Link>
+                         </div>
+                        <div>
+                            <Nav.Link href="#challenges" id="notifications" className="d-flex align-items-center">  <MdOutlineNotificationsNone /></Nav.Link>
+                        </div>
+                        <div>
+
+                            <NavDropdown
+                                onMouseEnter={() => setExploreItems(true)}
+                                onMouseLeave={() => setExploreItems(false)}
+                                show={showExploreItems}
+                                id="userAvatar"
+                                title={<div className='d-flex align-items-center'> <BiSolidUserCircle /> <RiArrowDropDownLine className="explore-dropdown-icon" /> </div>}
+                            >
+                                <NavDropdown.Item href="#action/3.1">Find Friends</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">My Profile</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Log Out</NavDropdown.Item>
+                                
+                            </NavDropdown>
+                        </div>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
