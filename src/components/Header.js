@@ -7,8 +7,7 @@ import { FiSearch } from 'react-icons/fi';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { MdOutlineNotificationsNone } from 'react-icons/md';
 import { BiSolidUserCircle } from 'react-icons/bi';
-import { BsPlusCircleFill } from 'react-icons/bs';
-import { BsPlusCircle } from 'react-icons/bs';
+import { BsPlusCircle, BsPlusCircleFill } from 'react-icons/bs';
 import stravaLogo from '../images/strava_logo.svg';
 
 const Header = () => {
@@ -18,14 +17,6 @@ const Header = () => {
     const [showUserAvatar, setUserAvatar] = useState(false);
     const [showUploadButton, setUploadButton] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
-
-    const handleMouseOver = () => {
-        setIsHovering(true);
-    };
-
-    const handleMouseOut = () => { 
-        setIsHovering(false);
-    };
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
@@ -129,19 +120,20 @@ const Header = () => {
                                 onMouseLeave={() => setUploadButton(false)}
                                 show={showUploadButton}
                                 id="userUpload"
+                                className='flipped-dropdown-horizontal'
                                 title={
                                     <div className='d-flex align-items-center'
-                                        onMouseOver={handleMouseOver}
-                                        onMouseOut={handleMouseOut}
+                                        onMouseOver={() => setIsHovering(true)}
+                                        onMouseOut={() => setIsHovering(false)}
                                     >
                                         {isHovering ? (<BsPlusCircleFill/> ) : ( <BsPlusCircle/>  ) }
                                     </div>
                                 }
                             >
-                                <NavDropdown.Item href="#action/3.1">Upload activity</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Add manual Entry</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Create route</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Create post</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.1" className='flipped-text'>Upload activity</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.2" className='flipped-text'>Add manual Entry</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.2" className='flipped-text'>Create route</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.2" className='flipped-text'>Create post</NavDropdown.Item>
                             </NavDropdown>
                         </div>
                     </Nav>
