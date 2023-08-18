@@ -7,7 +7,7 @@ import { FiSearch } from 'react-icons/fi';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { MdOutlineNotificationsNone } from 'react-icons/md';
 import { BiSolidUserCircle } from 'react-icons/bi';
-import { BsPlusCircle, BsPlusCircleFill } from 'react-icons/bs';
+import { BsPlusCircle, BsPlusCircleFill, BsArrowUpCircle } from 'react-icons/bs';
 import stravaLogo from '../images/strava_logo.svg';
 
 const Header = () => {
@@ -130,7 +130,7 @@ const Header = () => {
                                     </div>
                                 }
                             >
-                                    <NavDropdown.Item href="#action/3.1" className='flipped-text'>Upload activity</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.1" className='flipped-text'><BsArrowUpCircle/>Upload activity</NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.2" className='flipped-text'>Add manual Entry</NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.2" className='flipped-text'>Create route</NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.2" className='flipped-text'>Create post</NavDropdown.Item>
