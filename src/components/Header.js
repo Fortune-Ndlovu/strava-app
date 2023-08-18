@@ -93,7 +93,7 @@ const Header = () => {
 
                         <Nav.Link href="#challenges" id="exploreDropdown" className="d-flex align-items-center">Challenges</Nav.Link>
                     </Nav>
-                    <Nav className="me-auto d-flex align-items-center">
+                    <Nav className="d-flex align-items-center">
                         <div>
                             <Nav.Link href="#home" className="experiment btn btn-sm btn-primary d-flex align-items-center">Start Trial</Nav.Link>
                          </div>
@@ -120,7 +120,7 @@ const Header = () => {
                                 onMouseLeave={() => setUploadButton(false)}
                                 show={showUploadButton}
                                 id="userUpload"
-                                className='flipped-dropdown-horizontal'
+                                className="flipped-dropdown-horizontal"
                                 title={
                                     <div className='d-flex align-items-center'
                                         onMouseOver={() => setIsHovering(true)}

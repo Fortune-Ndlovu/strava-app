@@ -91,13 +91,7 @@ svg.explore-dropdown-icon {
   font-size: 25px;
 }
 
-
 .flipped-dropdown-horizontal,
 .flipped-text {
   transform: scaleX(-1);
-}
-
-
-.flipped-text {
-  transform: scaleX(1);
 }
