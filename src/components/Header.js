@@ -15,7 +15,17 @@ const Header = () => {
     const [showDashboardItems, setShowDashboardItems] = useState(false);
     const [showTrainingItems, setTrainingItems] = useState(false);
     const [showExploreItems, setExploreItems] = useState(false);
-    const [showUserAvatar, setUserAvatars] = useState(false);
+    const [showUserAvatar, setUserAvatar] = useState(false);
+    const [showUploadButton, setUploadButton] = useState(false);
+    const [isHovering, setIsHovering] = useState(false);
+
+    const handleMouseOver = () => {
+        setIsHovering(true);
+    };
+
+    const handleMouseOut = () => { 
+        setIsHovering(false);
+    };
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
@@ -101,8 +111,8 @@ const Header = () => {
                         </div>
                         <div>
                             <NavDropdown
-                                onMouseEnter={() => setUserAvatars(true)}
-                                onMouseLeave={() => setUserAvatars(false)}
+                                onMouseEnter={() => setUserAvatar(true)}
+                                onMouseLeave={() => setUserAvatar(false)}
                                 show={showUserAvatar}
                                 id="userAvatar"
                                 title={<div className='d-flex align-items-center'> <BiSolidUserCircle /> <RiArrowDropDownLine className="explore-dropdown-icon" /> </div>}
@@ -111,22 +121,27 @@ const Header = () => {
                                 <NavDropdown.Item href="#action/3.2">My Profile</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Log Out</NavDropdown.Item>
-
                             </NavDropdown>
                         </div>
                         <div>
-                          <NavDropdown
-                                onMouseEnter={() => setUserAvatars(true)}
-                                onMouseLeave={() => setUserAvatars(false)}
-                                show={showUserAvatar}
+                            <NavDropdown
+                                onMouseEnter={() => setUploadButton(true)}
+                                onMouseLeave={() => setUploadButton(false)}
+                                show={showUploadButton}
                                 id="userUpload"
-                                title={<div className='d-flex align-items-center'> <BsPlusCircleFill /> </div>}
+                                title={
+                                    <div className='d-flex align-items-center'
+                                        onMouseOver={handleMouseOver}
+                                        onMouseOut={handleMouseOut}
+                                    >
+                                        {isHovering ? (<BsPlusCircleFill/> ) : ( <BsPlusCircle/>  ) }
+                                    </div>
+                                }
                             >
                                 <NavDropdown.Item href="#action/3.1">Upload activity</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Add manual Entry</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Create route</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Create post</NavDropdown.Item>
-
                             </NavDropdown>
                         </div>
                     </Nav>
