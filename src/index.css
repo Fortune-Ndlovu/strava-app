@@ -82,6 +82,11 @@ svg.explore-dropdown-icon {
 }
 
 #notifications,
-#userAvatar {
+#userAvatar,
+#userUpload {
   font-size: 22px;
+}
+
+#userAvatar{
+  font-size: 25px;
 }

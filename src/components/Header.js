@@ -7,13 +7,15 @@ import { FiSearch } from 'react-icons/fi';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { MdOutlineNotificationsNone } from 'react-icons/md';
 import { BiSolidUserCircle } from 'react-icons/bi';
+import { BsPlusCircleFill } from 'react-icons/bs';
+import { BsPlusCircle } from 'react-icons/bs';
 import stravaLogo from '../images/strava_logo.svg';
 
 const Header = () => {
     const [showDashboardItems, setShowDashboardItems] = useState(false);
     const [showTrainingItems, setTrainingItems] = useState(false);
     const [showExploreItems, setExploreItems] = useState(false);
-    const [showuserAvatar, setuserAvatar] = useState(false);
+    const [showUserAvatar, setUserAvatars] = useState(false);
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
@@ -98,11 +100,10 @@ const Header = () => {
                             <Nav.Link href="#challenges" id="notifications" className="d-flex align-items-center">  <MdOutlineNotificationsNone /></Nav.Link>
                         </div>
                         <div>
-
                             <NavDropdown
-                                onMouseEnter={() => setuserAvatar(true)}
-                                onMouseLeave={() => setuserAvatar(false)}
-                                show={showuserAvatar}
+                                onMouseEnter={() => setUserAvatars(true)}
+                                onMouseLeave={() => setUserAvatars(false)}
+                                show={showUserAvatar}
                                 id="userAvatar"
                                 title={<div className='d-flex align-items-center'> <BiSolidUserCircle /> <RiArrowDropDownLine className="explore-dropdown-icon" /> </div>}
                             >
@@ -110,6 +111,21 @@ const Header = () => {
                                 <NavDropdown.Item href="#action/3.2">My Profile</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Log Out</NavDropdown.Item>
+
+                            </NavDropdown>
+                        </div>
+                        <div>
+                          <NavDropdown
+                                onMouseEnter={() => setUserAvatars(true)}
+                                onMouseLeave={() => setUserAvatars(false)}
+                                show={showUserAvatar}
+                                id="userUpload"
+                                title={<div className='d-flex align-items-center'> <BsPlusCircleFill /> </div>}
+                            >
+                                <NavDropdown.Item href="#action/3.1">Upload activity</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Add manual Entry</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Create route</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Create post</NavDropdown.Item>
 
                             </NavDropdown>
                         </div>
