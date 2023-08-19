@@ -5,9 +5,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FiSearch } from 'react-icons/fi';
 import { RiArrowDropDownLine } from 'react-icons/ri';
-import { MdOutlineNotificationsNone } from 'react-icons/md';
+import { MdOutlineNotificationsNone, MdMonitorHeart } from 'react-icons/md';
 import { BiSolidUserCircle } from 'react-icons/bi';
-import { BsPlusCircle, BsPlusCircleFill, BsArrowUpCircle } from 'react-icons/bs';
+import { BsPlusCircle, BsPlusCircleFill, BsArrowUpCircle, BsLayoutTextWindow } from 'react-icons/bs';
+import { TbRoute } from 'react-icons/tb';
 import stravaLogo from '../images/strava_logo.svg';
 
 const Header = () => {
@@ -22,12 +23,12 @@ const Header = () => {
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
                 <Navbar.Brand href="#home">
-                    <img src={stravaLogo} alt='Company brand logo that simply says strava.'/>
+                    <img src={stravaLogo} alt="Company brand logo that simply says strava."/>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#home"><FiSearch className='open-search-icon' /></Nav.Link>
+                        <Nav.Link href="#home"><FiSearch className="open-search-icon" /></Nav.Link>
 
                         <NavDropdown
                             id="dashboardDropdown"
@@ -72,7 +73,10 @@ const Header = () => {
 
                         <NavDropdown
                             onMouseEnter={() => setExploreItems(true)}
-                            onMouseLeave={() => setExploreItems(false)}
+                            onMouseLeave={() => {
+                                setExploreItems(false)
+                                
+                            }}
                             show={showExploreItems}
                             id="exploreDropdown"
                             title={<div className="d-flex align-items-center">
@@ -98,7 +102,7 @@ const Header = () => {
                             <Nav.Link href="#home" className="experiment btn btn-sm btn-primary d-flex align-items-center">Start Trial</Nav.Link>
                          </div>
                         <div>
-                            <Nav.Link href="#challenges" id="notifications" className="d-flex align-items-center">  <MdOutlineNotificationsNone /></Nav.Link>
+                            <Nav.Link href="#challenges" id="notifications" className="d-flex align-items-center">  <MdOutlineNotificationsNone className="mdOutlineNotificationsNone-icon"/></Nav.Link>
                         </div>
                         <div>
                             <NavDropdown
@@ -106,12 +110,15 @@ const Header = () => {
                                 onMouseLeave={() => setUserAvatar(false)}
                                 show={showUserAvatar}
                                 id="userAvatar"
-                                title={<div className='d-flex align-items-center'> <BiSolidUserCircle /> <RiArrowDropDownLine className="explore-dropdown-icon" /> </div>}
+                                className="flipped-dropdown-horizontal"
+                                title={<div className='d-flex align-items-center' >
+                                    <RiArrowDropDownLine className="explore-dropdown-icon" /> <BiSolidUserCircle className="biSolidUserCircle-icon" />
+                                </div>}
                             >
-                                <NavDropdown.Item href="#action/3.1">Find Friends</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">My Profile</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Log Out</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.1" className="flipped-text">Find Friends</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2" className="flipped-text">My Profile</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2" className="flipped-text">Settings</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2" className="flipped-text">Log Out</NavDropdown.Item>
                             </NavDropdown>
                         </div>
                         <div>
@@ -130,10 +137,26 @@ const Header = () => {
                                     </div>
                                 }
                             >
-                                    <NavDropdown.Item href="#action/3.1" className='flipped-text'><BsArrowUpCircle/>Upload activity</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className='flipped-text'>Add manual Entry</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className='flipped-text'>Create route</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className='flipped-text'>Create post</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.1" className="flipped-text">
+                                    <div className="upload-center-wrapper">
+                                        <BsArrowUpCircle className='upload-icons'/> Upload activity
+                                    </div>
+                                </NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2" className="flipped-text">
+                                    <div className="upload-center-wrapper">
+                                        <MdMonitorHeart className='upload-icons'/> Add manual Entry
+                                    </div>
+                                </NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2" className="flipped-text">
+                                    <div className="upload-center-wrapper">
+                                        <TbRoute className='upload-icons'/> Create route
+                                    </div>
+                                </NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2" className="flipped-text">
+                                    <div className="upload-center-wrapper">
+                                        <BsLayoutTextWindow className='upload-icons'/> Create post
+                                    </div>
+                                </NavDropdown.Item>
                             </NavDropdown>
                         </div>
                     </Nav>

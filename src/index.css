@@ -79,6 +79,7 @@ svg.explore-dropdown-icon {
 
 #notifications {
     margin-left: 24px;
+    font-size: 26px;
 }
 
 #notifications,
@@ -87,11 +88,74 @@ svg.explore-dropdown-icon {
   font-size: 22px;
 }
 
-#userAvatar{
-  font-size: 25px;
+.mdOutlineNotificationsNone-icon {
+  font-size: 26px;
 }
 
 .flipped-dropdown-horizontal,
 .flipped-text {
   transform: scaleX(-1);
 }
+
+.upload-center-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.upload-icons{
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.biSolidUserCircle-icon {
+  padding-right: 5px;
+  font-size: 32px;
+}
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+/* Add this to your existing CSS */
+/* Navbar items */
+.navbar .nav-link {
+  position: relative;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Pseudo-elements for border lines */
+.navbar .nav-link::before,
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+/* Left border */
+.navbar .nav-link::before {
+  left: -2px;
+}
+
+/* Right border */
+.navbar .nav-link::after {
+  right: -2px;
+}
+
+/* Hover effect */
+.navbar .nav-link:hover::before,
+.navbar .nav-link:hover::after {
+  background-color: lightgray; /* Your desired border color */
+}
+
+
+/* xxxxxxxxxxxxxxxxxx */
+/* Add this to your existing CSS */
+/* Adjust dropdown menu position */
+/* .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateY(2px);
+  border-top: 2px solid #fc5200; /* Add a border to the top of the dropdown */
+  
