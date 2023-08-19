@@ -32,10 +32,6 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
 }
 
 /* CSS transitions to smoothly animate changes */
-.nav-item.dropdown {
-  transition: lightgrey 0.3s ease;
-}
-
 .dropdown-menu {
   transition: opacity 0.3s ease, transform 0.3s ease;
   transform-origin: top;
@@ -50,7 +46,7 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
 
 /* Remove the border from the default state of .nav-item.dropdown: */
 .nav-item.dropdown {
-  transition: border-color 0.3s ease;
+  transition: lightgrey 0.3s ease;
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
 }

@@ -42,7 +42,6 @@ const Header = () => {
                             }
                             
                         >
-                            
                            <div className="dropdownEffect">
                                 <NavDropdown.Item href="#activityFeed">Activity Feed</NavDropdown.Item>
                                 <NavDropdown.Item href="#mySegments">My Segments</NavDropdown.Item>
@@ -65,15 +64,18 @@ const Header = () => {
                                 </div>
                             }
                         >
-                            <NavDropdown.Item href="#action/3.1">Training Calendar</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">My Activities</NavDropdown.Item>
-                            <div className="training-dropdown-subscription">
-                                <h6>SUBSCRIPTION</h6>
-                                <NavDropdown.Item href="#trainingLog">Training Log</NavDropdown.Item>
-                                <NavDropdown.Item href="#trainingPlans">Training Plans</NavDropdown.Item>
-                                <NavDropdown.Item href="#powerCurve">Power Curve</NavDropdown.Item>
-                                <NavDropdown.Item href="#fitnessAndFreshness">Fitness & Freshness</NavDropdown.Item>
+                            <div className="dropdownEffect">
+                                <NavDropdown.Item href="#action/3.1">Training Calendar</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">My Activities</NavDropdown.Item>
+                                <div className="training-dropdown-subscription">
+                                    <h6>SUBSCRIPTION</h6>
+                                    <NavDropdown.Item href="#trainingLog">Training Log</NavDropdown.Item>
+                                    <NavDropdown.Item href="#trainingPlans">Training Plans</NavDropdown.Item>
+                                    <NavDropdown.Item href="#powerCurve">Power Curve</NavDropdown.Item>
+                                    <NavDropdown.Item href="#fitnessAndFreshness">Fitness & Freshness</NavDropdown.Item>
+                                </div>
                             </div>
+                                
                         </NavDropdown>
 
                         <NavDropdown
@@ -87,15 +89,17 @@ const Header = () => {
                                 </div>
                             }
                         >
-                            <NavDropdown.Item href="#action/3.1">Segment Explore</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Segment Search</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Athlete Search</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Clubs</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Apps</NavDropdown.Item>
-                            <div className="explore-dropdown-subscription">
-                                <h6>SUBSCRIPTION</h6>
-                                <NavDropdown.Item href="#trainingLog">Create a Route</NavDropdown.Item>
-                                <NavDropdown.Item href="#trainingPlans">Subscriber Perks</NavDropdown.Item>
+                            <div className="dropdownEffect">
+                                <NavDropdown.Item href="#action/3.1">Segment Explore</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Segment Search</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Athlete Search</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Clubs</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Apps</NavDropdown.Item>
+                                <div className="explore-dropdown-subscription">
+                                    <h6>SUBSCRIPTION</h6>
+                                    <NavDropdown.Item href="#trainingLog">Create a Route</NavDropdown.Item>
+                                    <NavDropdown.Item href="#trainingPlans">Subscriber Perks</NavDropdown.Item>
+                                </div>
                             </div>
                         </NavDropdown>
 
@@ -122,10 +126,12 @@ const Header = () => {
                                     </div>
                                 }
                             >
-                                <NavDropdown.Item href="#action/3.1" className="flipped-text">Find Friends</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2" className="flipped-text">My Profile</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2" className="flipped-text">Settings</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2" className="flipped-text">Log Out</NavDropdown.Item>
+                                <div className="dropdownEffect">
+                                    <NavDropdown.Item href="#action/3.1" className="flipped-text">Find Friends</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">My Profile</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">Settings</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">Log Out</NavDropdown.Item>
+                                </div>
                             </NavDropdown>
                         </div>
                         <div>
@@ -143,27 +149,29 @@ const Header = () => {
                                         {isHovering ? (<BsPlusCircleFill/> ) : ( <BsPlusCircle/>  ) }
                                     </div>
                                 }
-                            >
-                                <NavDropdown.Item href="#action/3.1" className="flipped-text">
-                                    <div className="upload-center-wrapper">
-                                        <BsArrowUpCircle className="upload-icons"/> Upload activity
-                                    </div>
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2" className="flipped-text">
-                                    <div className="upload-center-wrapper">
-                                        <MdMonitorHeart className="upload-icons"/> Add manual Entry
-                                    </div>
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2" className="flipped-text">
-                                    <div className="upload-center-wrapper">
-                                        <TbRoute className="upload-icons"/> Create route
-                                    </div>
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2" className="flipped-text">
-                                    <div className="upload-center-wrapper">
-                                        <BsLayoutTextWindow className="upload-icons"/> Create post
-                                    </div>
-                                </NavDropdown.Item>
+                            >   
+                                <div className="dropdownEffect">
+                                    <NavDropdown.Item href="#action/3.1" className="flipped-text">
+                                        <div className="upload-center-wrapper">
+                                            <BsArrowUpCircle className="upload-icons"/> Upload activity
+                                        </div>
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">
+                                        <div className="upload-center-wrapper">
+                                            <MdMonitorHeart className="upload-icons"/> Add manual Entry
+                                        </div>
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">
+                                        <div className="upload-center-wrapper">
+                                            <TbRoute className="upload-icons"/> Create route
+                                        </div>
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">
+                                        <div className="upload-center-wrapper">
+                                            <BsLayoutTextWindow className="upload-icons"/> Create post
+                                        </div>
+                                    </NavDropdown.Item>
+                                </div>
                             </NavDropdown>
                         </div>
                     </Nav>
