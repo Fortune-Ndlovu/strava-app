@@ -15,18 +15,52 @@ code {
 
 /* MAIN NAVBAR STYLES */
 /* search icon */
+nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
+    height: 55px;
+}
+
 .open-search-icon {
   font-size: 24px;
   transform: rotate(55deg); 
 }
 
-nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
-    height: 55px;
-}
-
 /* dropdown */
 .dropdown-menu.show {
   border-bottom: 2px solid #fc5200;
+  border-radius: 0px 0px 4px 4px;
+  border-top: none;
+}
+
+/* CSS transitions to smoothly animate changes */
+.nav-item.dropdown {
+  transition: lightgrey 0.3s ease;
+}
+
+.dropdown-menu {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform-origin: top;
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* Remove the border from the default state of .nav-item.dropdown: */
+.nav-item.dropdown {
+  transition: border-color 0.3s ease;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+}
+
+.nav-item.dropdown:hover {
+  border-color: lightgray; /* Change border color on hover */
+}
+
+.dropdownEffect {
+  margin-top: -10px;
 }
 
 .dropdown-menu.show:hover {
@@ -111,51 +145,3 @@ svg.explore-dropdown-icon {
   padding-right: 5px;
   font-size: 32px;
 }
-
-/* xxxxxxxxxxxxxxxxxxxxxxxxxxxx */
-
-/* Add this to your existing CSS */
-/* Navbar items */
-.navbar .nav-link {
-  position: relative;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-/* Pseudo-elements for border lines */
-.navbar .nav-link::before,
-.navbar .nav-link::after {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 1px;
-  background-color: transparent;
-  transition: background-color 0.3s;
-}
-
-/* Left border */
-.navbar .nav-link::before {
-  left: -2px;
-}
-
-/* Right border */
-.navbar .nav-link::after {
-  right: -2px;
-}
-
-/* Hover effect */
-.navbar .nav-link:hover::before,
-.navbar .nav-link:hover::after {
-  background-color: lightgray; /* Your desired border color */
-}
-
-
-/* xxxxxxxxxxxxxxxxxx */
-/* Add this to your existing CSS */
-/* Adjust dropdown menu position */
-/* .dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  transform: translateY(2px);
-  border-top: 2px solid #fc5200; /* Add a border to the top of the dropdown */
-  

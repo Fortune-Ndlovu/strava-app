@@ -40,13 +40,17 @@ const Header = () => {
                                     Dashboard <RiArrowDropDownLine className="dashboard-dropdown-icon" />
                                 </div>
                             }
+                            
                         >
-                            <NavDropdown.Item href="#activityFeed">Activity Feed</NavDropdown.Item>
-                            <NavDropdown.Item href="#mySegments">My Segments</NavDropdown.Item>
-                            <div className='dashboard-dropdown-subscription'>
-                                <h6>SUBSCRIPTION</h6>
-                                <NavDropdown.Item href="#myGoals">My Goals</NavDropdown.Item>
-                                <NavDropdown.Item href="#Heatmaps">Heatmaps</NavDropdown.Item>
+                            
+                           <div className="dropdownEffect">
+                                <NavDropdown.Item href="#activityFeed">Activity Feed</NavDropdown.Item>
+                                <NavDropdown.Item href="#mySegments">My Segments</NavDropdown.Item>
+                                <div className="dashboard-dropdown-subscription">
+                                    <h6>SUBSCRIPTION</h6>
+                                    <NavDropdown.Item href="#myGoals">My Goals</NavDropdown.Item>
+                                    <NavDropdown.Item href="#Heatmaps">Heatmaps</NavDropdown.Item>
+                                </div>
                             </div>
                         </NavDropdown>
 
@@ -55,14 +59,15 @@ const Header = () => {
                             onMouseLeave={() => setTrainingItems(false)}
                             show={showTrainingItems}
                             id="trainingDropdown"
-                            title={<div className="d-flex align-items-center">
-                            Training <RiArrowDropDownLine className="training-dropdown-icon" />
-                        </div>}
+                            title={
+                                <div className="d-flex align-items-center">
+                                    Training <RiArrowDropDownLine className="training-dropdown-icon" />
+                                </div>
+                            }
                         >
-
                             <NavDropdown.Item href="#action/3.1">Training Calendar</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">My Activities</NavDropdown.Item>
-                            <div className='training-dropdown-subscription'>
+                            <div className="training-dropdown-subscription">
                                 <h6>SUBSCRIPTION</h6>
                                 <NavDropdown.Item href="#trainingLog">Training Log</NavDropdown.Item>
                                 <NavDropdown.Item href="#trainingPlans">Training Plans</NavDropdown.Item>
@@ -73,22 +78,21 @@ const Header = () => {
 
                         <NavDropdown
                             onMouseEnter={() => setExploreItems(true)}
-                            onMouseLeave={() => {
-                                setExploreItems(false)
-                                
-                            }}
+                            onMouseLeave={() => setExploreItems(false)}
                             show={showExploreItems}
                             id="exploreDropdown"
-                            title={<div className="d-flex align-items-center">
-                            Explore <RiArrowDropDownLine className="explore-dropdown-icon" />
-                        </div>}
+                            title={
+                                <div className="d-flex align-items-center">
+                                    Explore <RiArrowDropDownLine className="explore-dropdown-icon" />
+                                </div>
+                            }
                         >
                             <NavDropdown.Item href="#action/3.1">Segment Explore</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Segment Search</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Athlete Search</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Clubs</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Apps</NavDropdown.Item>
-                            <div className='explore-dropdown-subscription'>
+                            <div className="explore-dropdown-subscription">
                                 <h6>SUBSCRIPTION</h6>
                                 <NavDropdown.Item href="#trainingLog">Create a Route</NavDropdown.Item>
                                 <NavDropdown.Item href="#trainingPlans">Subscriber Perks</NavDropdown.Item>
@@ -97,6 +101,7 @@ const Header = () => {
 
                         <Nav.Link href="#challenges" id="exploreDropdown" className="d-flex align-items-center">Challenges</Nav.Link>
                     </Nav>
+                    
                     <Nav className="d-flex align-items-center">
                         <div>
                             <Nav.Link href="#home" className="experiment btn btn-sm btn-primary d-flex align-items-center">Start Trial</Nav.Link>
@@ -111,9 +116,11 @@ const Header = () => {
                                 show={showUserAvatar}
                                 id="userAvatar"
                                 className="flipped-dropdown-horizontal"
-                                title={<div className='d-flex align-items-center' >
-                                    <RiArrowDropDownLine className="explore-dropdown-icon" /> <BiSolidUserCircle className="biSolidUserCircle-icon" />
-                                </div>}
+                                title={
+                                    <div className="d-flex align-items-center" >
+                                        <RiArrowDropDownLine className="explore-dropdown-icon" /> <BiSolidUserCircle className="biSolidUserCircle-icon" />
+                                    </div>
+                                }
                             >
                                 <NavDropdown.Item href="#action/3.1" className="flipped-text">Find Friends</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2" className="flipped-text">My Profile</NavDropdown.Item>
@@ -129,7 +136,7 @@ const Header = () => {
                                 id="userUpload"
                                 className="flipped-dropdown-horizontal"
                                 title={
-                                    <div className='d-flex align-items-center'
+                                    <div className="d-flex align-items-center"
                                         onMouseOver={() => setIsHovering(true)}
                                         onMouseOut={() => setIsHovering(false)}
                                     >
@@ -139,22 +146,22 @@ const Header = () => {
                             >
                                 <NavDropdown.Item href="#action/3.1" className="flipped-text">
                                     <div className="upload-center-wrapper">
-                                        <BsArrowUpCircle className='upload-icons'/> Upload activity
+                                        <BsArrowUpCircle className="upload-icons"/> Upload activity
                                     </div>
                                 </NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2" className="flipped-text">
                                     <div className="upload-center-wrapper">
-                                        <MdMonitorHeart className='upload-icons'/> Add manual Entry
+                                        <MdMonitorHeart className="upload-icons"/> Add manual Entry
                                     </div>
                                 </NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2" className="flipped-text">
                                     <div className="upload-center-wrapper">
-                                        <TbRoute className='upload-icons'/> Create route
+                                        <TbRoute className="upload-icons"/> Create route
                                     </div>
                                 </NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2" className="flipped-text">
                                     <div className="upload-center-wrapper">
-                                        <BsLayoutTextWindow className='upload-icons'/> Create post
+                                        <BsLayoutTextWindow className="upload-icons"/> Create post
                                     </div>
                                 </NavDropdown.Item>
                             </NavDropdown>
