@@ -29,7 +29,6 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="#home"><FiSearch className="open-search-icon" /></Nav.Link>
-                    <div id='test'>
                         <NavDropdown
                             id="dashboardDropdown"
                             onMouseEnter={() => setShowDashboardItems(true)}
@@ -52,14 +51,13 @@ const Header = () => {
                                 </div>
                             </div>
                         </NavDropdown>
-                    </div>
                         <NavDropdown
                             onMouseEnter={() => setTrainingItems(true)}
                             onMouseLeave={() => setTrainingItems(false)}
                             show={showTrainingItems}
                             id="trainingDropdown"
                             title={
-                                <div className="d-flex align-items-center">
+                                <div className="d-flex align-items-center nav-title">
                                     Training <RiArrowDropDownLine className="training-dropdown-icon" />
                                 </div>
                             }
@@ -121,9 +119,9 @@ const Header = () => {
                                 id="userAvatar"
                                 className="flipped-dropdown-horizontal"
                                 title={
-                                    <div className="d-flex align-items-center" >
-                                        <RiArrowDropDownLine className="explore-dropdown-icon" /> <BiSolidUserCircle className="biSolidUserCircle-icon" />
-                                    </div>
+                                        <div className={`d-flex align-items-center ${showUserAvatar ? 'hovered' : ''}`}>
+                                            <RiArrowDropDownLine className="explore-dropdown-icon" /> <BiSolidUserCircle className="biSolidUserCircle-icon" />
+                                        </div>
                                 }
                             >
                                 <div className="dropdownEffect">
@@ -143,6 +141,7 @@ const Header = () => {
                                 className="flipped-dropdown-horizontal"
                                 title={
                                     <div className="d-flex align-items-center"
+
                                         onMouseOver={() => setIsHovering(true)}
                                         onMouseOut={() => setIsHovering(false)}
                                     >

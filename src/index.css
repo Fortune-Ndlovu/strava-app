@@ -149,3 +149,20 @@ svg.explore-dropdown-icon {
   padding-right: 5px;
   font-size: 32px;
 }
+
+/* .nav-title:hover {
+  color: #fc5200;
+    transition: opacity 1 ease, transform 0.3s ease;
+} */
+a#dashboardDropdown:hover,
+a#trainingDropdown:hover,
+a#exploreDropdown:hover,
+a#notifications:hover {
+    color: #fc5200;
+    transition: 0.1s ease;
+}
+
+#userUpload,
+.hovered .explore-dropdown-icon {
+  color: #fc5200;
+}
