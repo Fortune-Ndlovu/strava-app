@@ -31,6 +31,12 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
   border-top: none;
 }
 
+
+.dropdownEffect {
+    border-top: 1px solid lightgray;
+    /* z-index: 2; */
+}
+
 /* CSS transitions to smoothly animate changes */
 .dropdown-menu {
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -44,12 +50,15 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
   transform: scaleY(1);
 }
 
+
 /* Remove the border from the default state of .nav-item.dropdown: */
 .nav-item.dropdown {
   transition: lightgrey 0.3s ease;
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
 }
+
+
 
 .nav-item.dropdown:hover {
   border-color: lightgray; /* Change border color on hover */
@@ -89,7 +98,6 @@ svg.training-dropdown-icon,
 svg.explore-dropdown-icon {
     font-size: 32px;
 }
-
 
 /* user side navigation */
 .experiment.btn {

@@ -29,7 +29,7 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="#home"><FiSearch className="open-search-icon" /></Nav.Link>
-
+                    <div id='test'>
                         <NavDropdown
                             id="dashboardDropdown"
                             onMouseEnter={() => setShowDashboardItems(true)}
@@ -52,7 +52,7 @@ const Header = () => {
                                 </div>
                             </div>
                         </NavDropdown>
-
+                    </div>
                         <NavDropdown
                             onMouseEnter={() => setTrainingItems(true)}
                             onMouseLeave={() => setTrainingItems(false)}
