@@ -141,11 +141,8 @@ const Header = () => {
                                 className="flipped-dropdown-horizontal"
                                 title={
                                     <div className="d-flex align-items-center"
-
-                                        onMouseOver={() => setIsHovering(true)}
-                                        onMouseOut={() => setIsHovering(false)}
                                     >
-                                        {isHovering ? (<BsPlusCircleFill/> ) : ( <BsPlusCircle/>  ) }
+                                        {showUploadButton ? (<BsPlusCircleFill/> ) : ( <BsPlusCircle/>  ) }
                                     </div>
                                 }
                             >   
