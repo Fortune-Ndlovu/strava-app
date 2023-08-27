@@ -17,7 +17,6 @@ const Header = () => {
     const [showExploreItems, setExploreItems] = useState(false);
     const [showUserAvatar, setUserAvatar] = useState(false);
     const [showUploadButton, setUploadButton] = useState(false);
-    const [isHovering, setIsHovering] = useState(false);
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
