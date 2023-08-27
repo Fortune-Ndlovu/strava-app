@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SearchBar from './SearchBar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -12,11 +13,27 @@ import { TbRoute } from 'react-icons/tb';
 import stravaLogo from '../images/strava_logo.svg';
 
 const Header = () => {
+    const [showSearch, setShowSearch] = useState(false);
     const [showDashboardItems, setShowDashboardItems] = useState(false);
     const [showTrainingItems, setTrainingItems] = useState(false);
     const [showExploreItems, setExploreItems] = useState(false);
     const [showUserAvatar, setUserAvatar] = useState(false);
     const [showUploadButton, setUploadButton] = useState(false);
+
+    // Called when search icon is clicked and toggles the states on/off
+    const handleSearchIconClick = () => { 
+        setShowSearch(true);
+        setShowDashboardItems(false);
+        setTrainingItems(false);
+        setExploreItems(false);
+    }
+
+    const handleSearchCancel = () => {
+        setShowSearch(false);
+        setShowDashboardItems(true);
+        setTrainingItems(true);
+        setExploreItems(true);
+    }
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
@@ -27,7 +44,12 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#home"><FiSearch className="open-search-icon" /></Nav.Link>
+
+                        {showSearch ? (<SearchBar onCancel={handleSearchCancel} />
+                        ) : (
+                            <Nav.Link href="#home" onClick={handleSearchIconClick}><FiSearch className="open-search-icon" /></Nav.Link>
+                        ) }
+
                         <NavDropdown
                             id="dashboardDropdown"
                             onMouseEnter={() => setShowDashboardItems(true)}
