@@ -28,6 +28,7 @@ const Header = () => {
         setExploreItems(false);
     }
 
+    // Called when the user clicks cancel, the function assigns a false value to the state variable 
     const handleSearchCancel = () => {
         setShowSearch(false);
         setShowDashboardItems(true);
