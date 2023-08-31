@@ -34,7 +34,7 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
 
 .dropdownEffect {
     border-top: 1px solid lightgray;
-    /* z-index: 2; */
+    margin-top: -10px;
 }
 
 /* CSS transitions to smoothly animate changes */
@@ -62,10 +62,6 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
 
 .nav-item.dropdown:hover {
   border-color: lightgray; /* Change border color on hover */
-}
-
-.dropdownEffect {
-  margin-top: -10px;
 }
 
 .dropdown-menu.show:hover {
@@ -150,10 +146,6 @@ svg.explore-dropdown-icon {
   font-size: 32px;
 }
 
-/* .nav-title:hover {
-  color: #fc5200;
-    transition: opacity 1 ease, transform 0.3s ease;
-} */
 a#dashboardDropdown:hover,
 a#trainingDropdown:hover,
 a#exploreDropdown:hover,

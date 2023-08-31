@@ -48,7 +48,7 @@ const Header = () => {
                         {showSearch ? (<SearchBar onCancel={handleSearchCancel} />
                         ) : (
                             <Nav.Link href="#home" onClick={handleSearchIconClick}><FiSearch className="open-search-icon" /></Nav.Link>
-                        ) }
+                        )}
 
                         <NavDropdown
                             id="dashboardDropdown"
@@ -59,8 +59,7 @@ const Header = () => {
                                 <div className="d-flex align-items-center">
                                     Dashboard <RiArrowDropDownLine className="dashboard-dropdown-icon" />
                                 </div>
-                            }
-                            
+                            } 
                         >
                            <div className="dropdownEffect">
                                 <NavDropdown.Item href="#activityFeed">Activity Feed</NavDropdown.Item>
