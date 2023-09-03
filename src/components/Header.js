@@ -20,16 +20,6 @@ const Header = () => {
     const [showUserAvatar, setUserAvatar] = useState(false);
     const [showUploadButton, setUploadButton] = useState(false);
 
-    // Called when search icon is clicked and toggles the states on/off
-    const handleSearchIconClick = () => { 
-        setShowSearch(true);
-    }
-
-    // Called when the user clicks cancel, the function assigns a false value to the state variable 
-    const handleSearchCancel = () => {
-        setShowSearch(false);
-    }
-
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
@@ -40,9 +30,9 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
 
-                        {showSearch ? (<SearchBar onCancel={handleSearchCancel} />
+                        {showSearch ? (<SearchBar onCancel={() => setShowSearch(false)} />
                         ) : (
-                            <Nav.Link href="#home" onClick={handleSearchIconClick}><FiSearch className="open-search-icon" /></Nav.Link>
+                            <Nav.Link href="#home" onClick={() => setShowSearch(true)}><FiSearch className="open-search-icon" /></Nav.Link>
                         )}
 
                         {!showSearch && (
@@ -164,7 +154,7 @@ const Header = () => {
                                 title={
                                     <div className="d-flex align-items-center"
                                     >
-                                        {showUploadButton ? (<BsPlusCircleFill/> ) : ( <BsPlusCircle/>  ) }
+                                        {showUploadButton ? (<BsPlusCircleFill/> ) : ( <BsPlusCircle/> )}
                                     </div>
                                 }
                             >   

@@ -25,7 +25,6 @@ const SearchBar = ({ onCancel }) => {
             <button onClick={handleCancel}>Cancel</button>
         </div>
     )
-
 }
 
 export default SearchBar;
