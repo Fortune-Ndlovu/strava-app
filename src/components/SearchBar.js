@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FiSearch } from 'react-icons/fi';
+
 
 // functional component that takes a single prop called onCancel
 const SearchBar = ({ onCancel }) => {
@@ -26,7 +28,7 @@ const SearchBar = ({ onCancel }) => {
     }
 
     return (
-         <div className="search-bar">
+         <div className="search-bar d-flex align-items-center">
             <div className="input-group">
                 <select className="form-select" value={selectedOption} onChange={handleOptionChange}>
                     <option value="Activities">Activities</option>
@@ -34,9 +36,9 @@ const SearchBar = ({ onCancel }) => {
                     <option value="Clubs">Clubs</option>
                     <option value="Segments">Segments</option>
                 </select>
-                
+
                 <input type="text" className="form-control" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
-                <button type="button" className="btn btn-primary">S</button>
+                <button type="button" className="btn"><FiSearch className="open-search-icon" /></button>
             </div>
             <button onClick={handleCancel} className="btn btn-danger">X</button>
         </div>
