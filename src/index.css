@@ -32,6 +32,10 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
   border-color:#f7f7fa00;
 }
 
+.select-input {
+    padding-right: 12px;
+}
+
 /* dropdown */
 .dropdown-menu.show {
   border-bottom: 2px solid #fc5200;
