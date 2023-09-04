@@ -96,19 +96,28 @@ svg.explore-dropdown-icon {
 }
 
 /* user side navigation */
-.experiment.btn {
+/* Override Bootstrap styles for the button */
+.experiment.btn.btn-primary:focus,
+.experiment.btn.btn-primary:active {
+    background-color: #fc5200 !important;
+    border-color: #fc5200 !important;
+    color: #fff !important;
+}
+
+.experiment.btn.btn-primary:hover {
+    background-color: rgb(211, 70, 1);
+    border-color: rgb(187, 62, 1);
+    color: rgb(242, 240, 237);
+}
+
+/* Keep the normal state styles */
+.experiment.btn.btn-primary {
     background-color: #fc5200;
     border-color: #fc5200;
     color: #fff;
     font-size: 12px;
     font-weight: 900;
     padding: 5px 20px 5px 20px;
-}
-
-.experiment.btn:hover {
-    background-color: rgb(211, 70, 1);
-    border-color: rgb(187, 62, 1);
-    color: rgb(242, 240, 237);
 }
 
 #notifications {
