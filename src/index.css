@@ -149,7 +149,8 @@ svg.explore-dropdown-icon {
 a#dashboardDropdown:hover,
 a#trainingDropdown:hover,
 a#exploreDropdown:hover,
-a#notifications:hover {
+a#notifications:hover,
+a#challengesLink:hover {
     color: #fc5200;
     transition: 0.1s ease;
 }
