@@ -30,13 +30,14 @@ const SearchBar = ({ onCancel }) => {
     return (
          <div className="search-bar d-flex align-items-center">
             <div className="input-group">
-                <select className="form-select" value={selectedOption} onChange={handleOptionChange}>
-                    <option value="Activities">Activities</option>
-                    <option value="Athletes">Athletes</option>
-                    <option value="Clubs">Clubs</option>
-                    <option value="Segments">Segments</option>
-                </select>
-
+                <div className="select-input">
+                    <select className="form-select" value={selectedOption} onChange={handleOptionChange}>
+                        <option value="Activities">Activities</option>
+                        <option value="Athletes">Athletes</option>
+                        <option value="Clubs">Clubs</option>
+                        <option value="Segments">Segments</option>
+                    </select>
+                </div>
                 <input type="text" className="form-control" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
                 <button type="button" className="btn"><FiSearch className="open-search-icon" /></button>
             </div>
