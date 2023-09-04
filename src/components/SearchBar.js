@@ -28,15 +28,13 @@ const SearchBar = ({ onCancel }) => {
     return (
          <div className="search-bar">
             <div className="input-group">
-                {/* Select dropdown for search options */}
                 <select className="form-select" value={selectedOption} onChange={handleOptionChange}>
                     <option value="Activities">Activities</option>
                     <option value="Athletes">Athletes</option>
                     <option value="Clubs">Clubs</option>
                     <option value="Segments">Segments</option>
-                    {/* Add more option elements here */}
                 </select>
-                {/* Search input */}
+                
                 <input type="text" className="form-control" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
                 <button type="button" className="btn btn-primary">S</button>
             </div>
