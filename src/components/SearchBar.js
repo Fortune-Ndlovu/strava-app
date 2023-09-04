@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
-
+import { HiOutlineX } from 'react-icons/hi';
 
 // functional component that takes a single prop called onCancel
 const SearchBar = ({ onCancel }) => {
@@ -40,7 +40,7 @@ const SearchBar = ({ onCancel }) => {
                 <input type="text" className="form-control" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
                 <button type="button" className="btn"><FiSearch className="open-search-icon" /></button>
             </div>
-            <button onClick={handleCancel} className="btn btn-danger">X</button>
+            <button onClick={handleCancel} className="cancel-search-btn"><HiOutlineX className="cancel-search-icon"/></button>
         </div>
     )
 }

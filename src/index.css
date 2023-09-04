@@ -24,6 +24,14 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
   transform: rotate(55deg); 
 }
 
+.cancel-search-icon {
+  font-size: 24px;
+}
+.cancel-search-btn {
+  background-color: #f7f7fa00;
+  border-color:#f7f7fa00;
+}
+
 /* dropdown */
 .dropdown-menu.show {
   border-bottom: 2px solid #fc5200;
