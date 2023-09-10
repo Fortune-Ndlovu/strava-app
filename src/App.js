@@ -3,9 +3,10 @@ import Header from './components/Header';
 
 function App() {
 
-  const [isLoading, setIsLoading] = useState(true)
-  const [activities, setActivities] = useState([]);
-  const [athlete, setAthlete] = useState({});
+  // State variables
+  const [isLoading, setIsLoading] = useState(true) // Boolean flag that indicates whether the data is loading
+  const [activities, setActivities] = useState([]); // An array to store the retrieved activities data from strava
+  const [athlete, setAthlete] = useState({}); // An object to store the retrieved athlete(profile) data from strava
 
   // Strava Credentials
   const clientID = "113235";
