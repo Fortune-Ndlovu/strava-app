@@ -4,16 +4,16 @@ import Header from './components/Header';
 function App() {
 
   // State variables
-  const [isLoading, setIsLoading] = useState(true) // Boolean flag that indicates whether the data is loading
-  const [activities, setActivities] = useState([]); // An array to store the retrieved activities data from Strava
-  const [athlete, setAthlete] = useState({}); // An object to store the retrieved athlete(profile) data from Strava
+  const [isLoading, setIsLoading] = useState(true) // Boolean flag that indicates whether the data is loading.
+  const [activities, setActivities] = useState([]); // An array to store the retrieved activities data from Strava.
+  const [athlete, setAthlete] = useState({}); // An object to store the retrieved athlete(profile) data from Strava.
 
   // Strava Credentials, These are necessary for authentication and accessing Strava data.
   const clientID = "113235";
   const clientSecret = "4069d12e70c672a834bf7161d0652abd413c92d6";
   const refreshToken = "a93df7afd0f962f71ed0ec01948c9ece96ff1a72";
 
-  // API Endpoints for Strava
+  // API Endpoints for Strava.
   // `callRefresh`: This endpoint is used to refresh our access token. We provide our client ID, client secret, and refresh token as parameters.
   // `callActivities:` This is the endpoint for retrieving our activities. We will include the access token when making the actual request.
   // `callAthlete:` This is the endpoint for retrieving our athlete (profile) data.
@@ -24,6 +24,8 @@ function App() {
   // useEffect Hook: This hook is used to perform side effects in our component.
   // In this case, it's responsible for fetching data from the Strava API.
   useEffect(() => {
+
+    // Fetching our activities data using the `callActivities` endpoint and the `access` token.
     function getActivities(access) {
       fetch(`${callActivities}?access_token=${access}`)
         .then((res) => res.json())
@@ -31,6 +33,7 @@ function App() {
         .catch((e) => console.log(e));
     }
 
+    // Fetching our athlete (profile) data using the `callAthlete` endpoint and the `access` token.
     function getAthleteData(access) {
       fetch(`${callAthlete}?access_token=${access}`)
         .then((res) => res.json())
