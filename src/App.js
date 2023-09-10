@@ -41,6 +41,11 @@ function App() {
         .catch((e) => console.log(e));
     }
 
+    /**
+     * The fetch method is used to make POST requests to the callRefresh endpoint to obtain an access token.
+     * Once the access token is obtained, both getActivities and getAthleteData functions are called to fetch the corresponding data.
+     * Finally, setIsLoading(false) is called to indicate that data fetching is complete.
+     */
     fetch(callRefresh, {
       method: 'POST',
     })
