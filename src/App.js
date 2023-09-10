@@ -21,6 +21,8 @@ function App() {
   const callActivities = "https://www.strava.com/api/v3/athlete/activities";
   const callAthlete = "https://www.strava.com/api/v3/athlete";
 
+  // useEffect Hook: This hook is used to perform side effects in our component.
+  // In this case, it's responsible for fetching data from the Strava API.
   useEffect(() => {
     function getActivities(access) {
       fetch(`${callActivities}?access_token=${access}`)
