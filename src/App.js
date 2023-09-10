@@ -57,8 +57,11 @@ function App() {
       });
   }, [callRefresh]);
 
-  // Rendering two functions, `showActivities` and `showAthleteData`, to display the fetched data
-  // This function displays the number of activities if data is available, or it shows "LOADING..." if data is still being fetched. It also logs the activities array to the console.
+
+  /** Rendering two functions, `showActivities` and `showAthleteData`, to display the fetched data.
+   * This function displays the number of activities if data is available,
+   * or it shows "LOADING..." if data is still being fetched. It also logs the activities array to the console. 
+  */ 
   function showActivities() {
     if (isLoading) return <p>LOADING...</p>;
     if (!isLoading) {
@@ -67,7 +70,10 @@ function App() {
     }
   }
 
-  // This function displays various athlete (profile) data fields such as name, bio, and city. Like showActivities, it also checks whether data is still loading and logs the athlete object to the console.
+  /**
+   * This function displays various athlete (profile) data fields such as name, bio, and city.
+   * Like showActivities, it also checks whether data is still loading and logs the athlete object to the console.
+  */ 
   function showAthleteData() {
     if (isLoading) return <p>LOADING...</p>;
     if (!isLoading) {
@@ -88,10 +94,12 @@ function App() {
       <Header />
       <div>
         <h2>Your Activities</h2>
+        {/* displaying your activities using the showActivities function. */}
         {showActivities()}
       </div>
       <div>
         <h2>Your Profile</h2>
+        {/*  displaying your athlete (profile) data using the showAthleteData function. */}
         {showAthleteData()}
       </div>
     </div>
