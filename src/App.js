@@ -14,11 +14,11 @@ function App() {
   const refreshToken = "a93df7afd0f962f71ed0ec01948c9ece96ff1a72";
 
   // API Endpoints for Strava
-  // `callRefresh`: This endpoint is used to refresh your access token. You provide your client ID, client secret, and refresh token as parameters.
-  // `callActivities:` This is the endpoint for retrieving your activities. You will include the access token when making the actual request.
-  // `callAthlete:` This is the endpoint for retrieving your athlete (profile) data.
+  // `callRefresh`: This endpoint is used to refresh our access token. We provide our client ID, client secret, and refresh token as parameters.
+  // `callActivities:` This is the endpoint for retrieving our activities. We will include the access token when making the actual request.
+  // `callAthlete:` This is the endpoint for retrieving our athlete (profile) data.
   const callRefresh = `https://www.strava.com/oauth/token?client_id=${clientID}&client_secret=${clientSecret}&refresh_token=${refreshToken}&grant_type=refresh_token`;
-  const callActivities = "https://www.strava.com/api/v3/athlete/activities"; // Do not include access_token here
+  const callActivities = "https://www.strava.com/api/v3/athlete/activities";
   const callAthlete = "https://www.strava.com/api/v3/athlete";
 
   useEffect(() => {
