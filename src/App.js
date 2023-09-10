@@ -8,7 +8,7 @@ function App() {
   const [activities, setActivities] = useState([]); // An array to store the retrieved activities data from strava
   const [athlete, setAthlete] = useState({}); // An object to store the retrieved athlete(profile) data from strava
 
-  // Strava Credentials
+  // Strava Credentials, These are necessary for authentication and accessing Strava data.
   const clientID = "113235";
   const clientSecret = "4069d12e70c672a834bf7161d0652abd413c92d6";
   const refreshToken = "a93df7afd0f962f71ed0ec01948c9ece96ff1a72";
