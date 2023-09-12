@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Strava Replica in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Strava Replica project in React! This project is a recreation of the Strava web application, aiming to provide a similar user experience and functionality to the original platform. Below, you will find an overview of the project's goals, iterations, and how to get started with development.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+The Strava Replica project is a part of my final year in the Creative Media and Design program. It's a comprehensive project that involves coding, design, and a user-centric approach. The project is divided into iterations, each building upon the previous one to ultimately recreate the core features of the Strava platform.
 
-### `npm start`
+## Iterations
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Iteration 1: Basic UI Setup, Header, Footer, and Routes with Strava API Integration
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Set up the foundational structure of the application, including the header, footer, and routing system.
+- Integrate the Strava API to retrieve and display users' activity data.
 
-### `npm test`
+### Iteration 2: Implementing Activity Creation and Deletion
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Allow users to create and delete activities within the application.
+- Note that this iteration does not involve user authentication but focuses on activity management.
 
-### `npm run build`
+### Iteration 3: Activity Details and Analysis
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Implement the display of detailed activity information and analysis, such as distance, pace, and elevation.
+- This iteration does not involve user authentication but focuses on enhancing activity details.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Iteration 4: Implement Heart Rate Monitor Integration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Integrate data from a heart rate monitor into the application, providing users with valuable fitness data.
+- This iteration does not involve user authentication but focuses on fitness data integration.
 
-### `npm run eject`
+### Iteration 5: Social Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Implement a friend/follower system, allowing users to connect with others and share activities.
+- This iteration does not involve user authentication but focuses on enhancing social features.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Iteration 6: User Authentication Enhancement
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Enhance the existing user authentication system, potentially adding social login options and refining the logout process.
+- This iteration builds upon the authentication implemented in Iteration 1, improving the user experience.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Final Refinements and Testing Iterations
 
-## Learn More
+- Conduct a series of final iterations to refine and optimize the application.
+- Focus on performance, usability, and addressing any feedback received during the development process.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To start working on this project, follow these steps:
 
-### Code Splitting
+1. **Clone the Repository:** Clone this GitHub repository to your local development environment.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   git clone https://github.com/yourusername/strava-app.git
+   ```
 
-### Analyzing the Bundle Size
+2. **Set Up the Environment:** Make sure you have Node.js and npm installed on your system. If not, you can download them from [https://nodejs.org/](https://nodejs.org/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. **Install Dependencies:** Navigate to the project directory and install the project dependencies.
 
-### Making a Progressive Web App
+   ```bash
+   cd strava-app
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. **Start the Development Server:** Launch the development server to run the application locally.
 
-### Advanced Configuration
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+5. **Access the Application:** Open your web browser and go to [http://localhost:3000](http://localhost:3000) to view and interact with the Strava Replica application.
 
-### Deployment
+## Contribution Guidelines
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+If you'd like to contribute to this project, please follow these guidelines:
 
-### `npm run build` fails to minify
+- Create a new branch for each feature or bug fix.
+- Write clear and concise commit messages.
+- Submit a pull request for review and potential inclusion into the main branch.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Feedback and Issues
+
+If you encounter any issues or have feedback on the project, please feel free to [create an issue](https://github.com/yourusername/strava-app/issues). Your input is valuable in making this project better!
+
+Thank you for your interest and contribution to the Strava Replica project. Let's work together to create an amazing application for sports and fitness enthusiasts!
