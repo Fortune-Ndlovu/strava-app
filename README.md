@@ -41,7 +41,7 @@ The Strava Replica project is a part of my final year in the Level 8 BSc (Hons) 
 ### Final Refinements and Testing Iterations
 
 - Conduct a series of final iterations to refine and optimize the application.
-- Focus on performance, usability, and addressing any feedback received during the development process.
+- Focus on Accessibility, performance, usability, and addressing any feedback received during the development process.
 
 ## Getting Started
 
