@@ -4,7 +4,7 @@ Welcome to the Strava Replica project in React! This project is a recreation of 
 
 ## Project Overview
 
-The Strava Replica project is a part of my final year in the Creative Media and Design program. It's a comprehensive project that involves coding, design, and a user-centric approach. The project is divided into iterations, each building upon the previous one to ultimately recreate the core features of the Strava platform.
+The Strava Replica project is a part of my final year in the Level 8 BSc (Hons) Creative Media and Design program at the Technology University of the Shannon: Midland Midwest (TUS). It's a comprehensive project that involves coding, design, and a user-centric approach. The project is divided into iterations, each building upon the previous one to ultimately recreate the core features of the Strava platform.
 
 ## Iterations
 
