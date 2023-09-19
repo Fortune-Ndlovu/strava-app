@@ -6,37 +6,44 @@ Welcome to the Strava Replica project in React! This project is a recreation of 
 
 The Strava Replica project is a part of my final year in the Level 8 BSc (Hons) Creative Media and Design program at the Technology University of the Shannon: Midland Midwest (TUS). It's a comprehensive project that involves coding, design, and a user-centric approach. The project is divided into iterations, each building upon the previous one to ultimately recreate the core features of the Strava platform.
 
-## Iterations
+## Project Iterations
 
-### Iteration 1: Basic UI Setup, Header, Footer, and Routes with Strava API Integration
+### Iteration 1: Basic UI Setup, Header, Footer, Routes, and Strava API Integration (Minimum Viable Product)
 
-- Set up the foundational structure of the application, including the header, footer, and routing system.
-- Integrate the Strava API to retrieve and display users' activity data.
+- Set up the basic UI structure, including a header and footer.
+- Create a landing page that displays essential information about the user (name, profile picture) retrieved from the Strava API.
+- Implement routing to enable navigation within the application.
+- Integrate the Strava API to fetch and display the user's basic activity data (e.g., recent activities).
 
-### Iteration 2: Implementing Activity Creation and Deletion
+### Iteration 2: Activity Management
 
-- Allow users to create and delete activities within the application.
-- Note that this iteration does not involve user authentication but focuses on activity management.
+- Allow users to create new activities, specifying type, duration, and date.
+- Implement the functionality to delete activities.
+- Ensure seamless integration with the Strava API for activity data synchronization.
 
 ### Iteration 3: Activity Details and Analysis
 
-- Implement the display of detailed activity information and analysis, such as distance, pace, and elevation.
-- This iteration does not involve user authentication but focuses on enhancing activity details.
+- Design and implement a dedicated page to display detailed activity information.
+- Integrate analysis features, such as distance, speed, and elevation data for each activity.
+- Ensure a smooth transition from activity listing to detailed view.
 
-### Iteration 4: Implement Heart Rate Monitor Integration
+### Iteration 4: Heart Rate Monitor Integration
 
-- Integrate data from a heart rate monitor into the application, providing users with valuable fitness data.
-- This iteration does not involve user authentication but focuses on fitness data integration.
+- Integrate a heart rate monitor API to collect real-time heart rate data during activities.
+- Display the heart rate data appropriately on the activity detail page.
+- Ensure compatibility and accuracy with various heart rate monitor devices.
 
-### Iteration 5: Social Features
+### Iteration 5: Social Features and Interaction
 
-- Implement a friend/follower system, allowing users to connect with others and share activities.
-- This iteration does not involve user authentication but focuses on enhancing social features.
+- Implement a friend/follower system, allowing users to connect with each other.
+- Enable users to share their activities and interact by liking and commenting on them.
+- Implement real-time notifications for social interactions within the platform.
 
-### Iteration 6: User Authentication Enhancement
+### Iteration 6: Authentication Enhancement and User Profiles
 
-- Enhance the existing user authentication system, potentially adding social login options and refining the logout process.
-- This iteration builds upon the authentication implemented in Iteration 1, improving the user experience.
+- Enhance user authentication with features like email verification and password reset.
+- Implement social login options, such as Google and Facebook authentication.
+- Enhance the user profile with customizable avatars, activity history, and user statistics.
 
 ### Final Refinements and Testing Iterations
 
