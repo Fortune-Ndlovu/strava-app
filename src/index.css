@@ -26,6 +26,10 @@ div.container-fluid {
   display: flex;
   align-items: center;
  }
+
+ .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  --bs-gutter-x: 0rem !important;
+}
  
  .navbar {
    --bs-navbar-padding-y: 0rem !important;
@@ -35,7 +39,12 @@ div.container-fluid {
  
  a.mr-auto.navbar-brand {
    height: 55px;
+   padding-left: 8px;
  }
+
+ button.navbar-toggler {
+  margin-right: 18px;
+}
 
 .open-search-icon {
   font-size: 24px;
@@ -199,3 +208,9 @@ a#challengesLink:hover {
   color: #fc5200;
 }
 
+/* dropdown styles */
+div#basic-navbar-nav {
+  background-color: #f8f9fa;
+  padding-left: 20px !important;
+
+}
