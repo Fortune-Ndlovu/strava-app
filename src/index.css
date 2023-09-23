@@ -180,3 +180,18 @@ a#challengesLink:hover {
 .hovered .explore-dropdown-icon {
   color: #fc5200;
 }
+
+div.container-fluid {
+ height: 55px !important; 
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  --bs-navbar-padding-y: 0rem !important;
+  --bs-navbar-toggler-padding-y: 0rem !important;
+} 
+
+a.mr-auto.navbar-brand {
+  height: 55px;
+}

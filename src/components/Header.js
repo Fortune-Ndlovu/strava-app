@@ -22,9 +22,9 @@ const Header = () => {
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
-            <Container>
-                <Navbar.Brand href="#home">
-                    <img src={stravaLogo} alt="Company brand logo that simply says strava."/>
+            <Container fluid>
+                <Navbar.Brand href="#home" className="mr-auto">
+                    <img src={stravaLogo} id="strava-logo" alt="Company brand logo that simply says strava." width={110} height={55}/>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
