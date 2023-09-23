@@ -19,6 +19,24 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
     height: 55px;
 }
 
+/* container that wraps around the nav elements */
+div.container-fluid {
+  height: 55px !important; 
+  max-width: 1248px !important;
+  display: flex;
+  align-items: center;
+ }
+ 
+ .navbar {
+   --bs-navbar-padding-y: 0rem !important;
+   --bs-navbar-toggler-padding-y: 0rem !important;
+   --bs-navbar-brand-padding-y: 0rem !important;
+ } 
+ 
+ a.mr-auto.navbar-brand {
+   height: 55px;
+ }
+
 .open-search-icon {
   font-size: 24px;
   transform: rotate(55deg); 
@@ -181,17 +199,3 @@ a#challengesLink:hover {
   color: #fc5200;
 }
 
-div.container-fluid {
- height: 55px !important; 
-  display: flex;
-  align-items: center;
-}
-
-.navbar {
-  --bs-navbar-padding-y: 0rem !important;
-  --bs-navbar-toggler-padding-y: 0rem !important;
-} 
-
-a.mr-auto.navbar-brand {
-  height: 55px;
-}
