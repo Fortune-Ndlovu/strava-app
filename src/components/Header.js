@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -13,30 +13,46 @@ import { TbRoute } from 'react-icons/tb';
 import stravaLogo from '../images/strava_logo.svg';
 
 const Header = () => {
-    const [showSearch, setShowSearch] = useState(false);
     const [showDashboardItems, setShowDashboardItems] = useState(false);
     const [showTrainingItems, setTrainingItems] = useState(false);
     const [showExploreItems, setExploreItems] = useState(false);
     const [showUserAvatar, setUserAvatar] = useState(false);
     const [showUploadButton, setUploadButton] = useState(false);
 
+    const [showSearch, setShowSearch] = useState(window.innerWidth <= 992); // Initially show on smaller screens
+
+    const handleResize = () => {
+        setShowSearch(window.innerWidth <= 992);
+    }
+
+     // Listen for window resize events
+     useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []); // Clean up the event listener on component unmount
+
+
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
+           
+
                 <Navbar.Brand href="#home" className="mr-auto">
                     <img src={stravaLogo} id="strava-logo" alt="Company brand logo that simply says strava." width={110} height={55}/>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-
-                        {showSearch ? (<SearchBar onCancel={() => setShowSearch(false)} />
-                        ) : (
-                            <Nav.Link href="#home" onClick={() => setShowSearch(true)}><FiSearch className="open-search-icon" /></Nav.Link>
-                        )}
+                    {showSearch && <SearchBar onCancel={() => setShowSearch(false)} />}
 
                         {!showSearch && (
-                            <>
+                            <Nav.Link href="#home" onClick={() => setShowSearch(true)}>
+                                <FiSearch className="open-search-icon" />
+                            </Nav.Link>
+                        )}
+
                                 <NavDropdown
                                     id="dashboardDropdown"
                                     onMouseEnter={() => setShowDashboardItems(true)}
@@ -110,9 +126,7 @@ const Header = () => {
                                 </NavDropdown>
 
                                 <Nav.Link href="#challenges" id="challengesLink" className="d-flex align-items-center">Challenges</Nav.Link>
-                            </>
-                        )}
-                        
+                     
                     </Nav>
                     
                     <Nav className="d-flex align-items-center">

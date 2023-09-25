@@ -28,7 +28,7 @@ const SearchBar = ({ onCancel }) => {
     }
 
     return (
-         <div className="search-bar d-flex align-items-center">
+        <div className="search-bar d-flex align-items-center">
             <div className="input-group">
                 <div className="select-input">
                     <select className="form-select" value={selectedOption} onChange={handleOptionChange}>
@@ -41,9 +41,9 @@ const SearchBar = ({ onCancel }) => {
                 <input type="text" className="form-control" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
                 <button type="button" className="btn"><FiSearch className="open-search-icon" /></button>
             </div>
-            <button onClick={handleCancel} className="cancel-search-btn"><HiOutlineX className="cancel-search-icon"/></button>
+            <button onClick={handleCancel} className="cancel-search-btn"><HiOutlineX className="cancel-search-icon" /></button>
         </div>
-    )
+    );
 }
 
 export default SearchBar;
