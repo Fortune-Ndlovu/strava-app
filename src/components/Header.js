@@ -20,9 +20,10 @@ const Header = () => {
     const [showUploadButton, setUploadButton] = useState(false);
 
     const [showSearch, setShowSearch] = useState(window.innerWidth <= 992); // Initially show on smaller screens
-
+    const [isHamburger, setIsHamburger] = useState(window.innerWidth <= 992); // Initially show on smaller screens
+    
     const handleResize = () => {
-        setShowSearch(window.innerWidth <= 992);
+        setIsHamburger(window.innerWidth <= 992);
     }
 
      // Listen for window resize events
@@ -33,6 +34,7 @@ const Header = () => {
         };
     }, []); // Clean up the event listener on component unmount
 
+    console.log('HB ' + isHamburger);
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
@@ -45,14 +47,15 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                    {showSearch && <SearchBar onCancel={() => setShowSearch(false)} />}
-
-                        {!showSearch && (
+                    {(showSearch || isHamburger) && <SearchBar onCancel={() => setShowSearch(false)} />}
+                        {/* window.innerWidth <= 992 || showSearch */}
+                        {(!isHamburger && !showSearch) && (
                             <Nav.Link href="#home" onClick={() => setShowSearch(true)}>
                                 <FiSearch className="open-search-icon" />
                             </Nav.Link>
                         )}
-
+                        {(isHamburger || !showSearch) && (
+                            <React.Fragment>
                                 <NavDropdown
                                     id="dashboardDropdown"
                                     onMouseEnter={() => setShowDashboardItems(true)}
@@ -124,8 +127,9 @@ const Header = () => {
                                         </div>
                                     </div>
                                 </NavDropdown>
-
                                 <Nav.Link href="#challenges" id="challengesLink" className="d-flex align-items-center">Challenges</Nav.Link>
+                            </React.Fragment>
+                        )}
                      
                     </Nav>
                     
