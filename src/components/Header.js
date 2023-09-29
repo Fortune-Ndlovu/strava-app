@@ -69,21 +69,16 @@ const Header = () => {
                                         </div>
                                     } 
                                 >
-                            
-                                {/* Showing Dashboard's dropdown when on smaller screen sizes */}
-                                {isHamburger && (
-                                    <React.Fragment>    
-                                        <div className="dropdownEffect">
-                                            <NavDropdown.Item href="#activityFeed">Activity Feed</NavDropdown.Item>
-                                            <NavDropdown.Item href="#mySegments">My Segments</NavDropdown.Item>
+                              
+                                    <div className="dropdownEffect">
+                                        <NavDropdown.Item href="#activityFeed">Activity Feed</NavDropdown.Item>
+                                        <NavDropdown.Item href="#mySegments">My Segments</NavDropdown.Item>
                                         <div className="dashboard-dropdown-subscription">
                                             <h6>SUBSCRIPTION</h6>
                                             <NavDropdown.Item href="#myGoals">My Goals</NavDropdown.Item>
                                             <NavDropdown.Item href="#Heatmaps">Heatmaps</NavDropdown.Item>
                                         </div>
                                     </div>
-                                    </React.Fragment>
-                                )}
                                 </NavDropdown>
                                         
                                 <NavDropdown
@@ -141,7 +136,7 @@ const Header = () => {
                      
                     </Nav>
                     
-                    <Nav className="d-flex align-items-center">
+                    <Nav className={`d-flex ${isHamburger ? 'align-items-start' : 'align-items-center'}`}>
                         <div>
                             <Nav.Link href="#home" className="experiment btn btn-sm btn-primary d-flex align-items-center">Start Trial</Nav.Link>
                          </div>

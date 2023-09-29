@@ -216,6 +216,18 @@ div#basic-navbar-nav {
 }
 
 
+/* We are aligning our userAvatar and userProfiles based on screen sizes */
+.align-left {
+  justify-content: flex-start;
+}
+
+.align-center {
+  justify-content: center;
+}
+
+
+
+
 @media screen and (max-width: 992px){
   button.cancel-search-btn {
     display: none;
