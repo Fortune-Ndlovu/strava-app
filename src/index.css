@@ -215,8 +215,13 @@ div#basic-navbar-nav {
 
 }
 
+
 @media screen and (max-width: 992px){
   button.cancel-search-btn {
     display: none;
+  }
+
+  .dropdown-menu.show {
+    display: contents !important;
   }
 }

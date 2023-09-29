@@ -18,7 +18,6 @@ const Header = () => {
     const [showExploreItems, setExploreItems] = useState(false);
     const [showUserAvatar, setUserAvatar] = useState(false);
     const [showUploadButton, setUploadButton] = useState(false);
-
     const [showSearch, setShowSearch] = useState(window.innerWidth <= 992); // Initially show on smaller screens
     const [isHamburger, setIsHamburger] = useState(window.innerWidth <= 992); // Initially show on smaller screens
     
@@ -28,19 +27,23 @@ const Header = () => {
 
      // Listen for window resize events
      useEffect(() => {
+        // if the hamburger is true that means we can show the navigation dropdowns
+        setShowDashboardItems(isHamburger);
+        setTrainingItems(isHamburger);
+        setExploreItems(isHamburger);
+        setUserAvatar(isHamburger);
+        setUploadButton(isHamburger);
+         
         window.addEventListener('resize', handleResize);
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []); // Clean up the event listener on component unmount
-
-    console.log('HB ' + isHamburger);
+         
+    }, [isHamburger]);
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
-           
-
                 <Navbar.Brand href="#home" className="mr-auto">
                     <img src={stravaLogo} id="strava-logo" alt="Company brand logo that simply says strava." width={110} height={55}/>
                 </Navbar.Brand>
@@ -48,7 +51,6 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                     {(showSearch || isHamburger) && <SearchBar onCancel={() => setShowSearch(false)} />}
-                        {/* window.innerWidth <= 992 || showSearch */}
                         {(!isHamburger && !showSearch) && (
                             <Nav.Link href="#home" onClick={() => setShowSearch(true)}>
                                 <FiSearch className="open-search-icon" />
@@ -67,17 +69,23 @@ const Header = () => {
                                         </div>
                                     } 
                                 >
-                                <div className="dropdownEffect">
-                                        <NavDropdown.Item href="#activityFeed">Activity Feed</NavDropdown.Item>
-                                        <NavDropdown.Item href="#mySegments">My Segments</NavDropdown.Item>
+                            
+                                {/* Showing Dashboard's dropdown when on smaller screen sizes */}
+                                {isHamburger && (
+                                    <React.Fragment>    
+                                        <div className="dropdownEffect">
+                                            <NavDropdown.Item href="#activityFeed">Activity Feed</NavDropdown.Item>
+                                            <NavDropdown.Item href="#mySegments">My Segments</NavDropdown.Item>
                                         <div className="dashboard-dropdown-subscription">
                                             <h6>SUBSCRIPTION</h6>
                                             <NavDropdown.Item href="#myGoals">My Goals</NavDropdown.Item>
                                             <NavDropdown.Item href="#Heatmaps">Heatmaps</NavDropdown.Item>
                                         </div>
                                     </div>
+                                    </React.Fragment>
+                                )}
                                 </NavDropdown>
-                    
+                                        
                                 <NavDropdown
                                     onMouseEnter={() => setTrainingItems(true)}
                                     onMouseLeave={() => setTrainingItems(false)}
