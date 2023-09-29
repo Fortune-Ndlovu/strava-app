@@ -5,9 +5,6 @@
 /.pnp
 .pnp.js
 
-# Ignore config.json file
-config.json
-
 # testing
 /coverage
 
