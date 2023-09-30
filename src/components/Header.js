@@ -137,10 +137,10 @@ const Header = () => {
                     </Nav>
                     
                     <Nav className={`d-flex ${isHamburger ? 'align-items-start' : 'align-items-center'}`}>
-                        <div>
+                        <div className="start-trial-btn">
                             <Nav.Link href="#home" className="experiment btn btn-sm btn-primary d-flex align-items-center">Start Trial</Nav.Link>
                          </div>
-                        <div>
+                        <div className="notifications-wrapper">
                             <Nav.Link href="#challenges" id="notifications" className="d-flex align-items-center">  <MdOutlineNotificationsNone className="mdOutlineNotificationsNone-icon"/></Nav.Link>
                         </div>
                         <div>
@@ -178,7 +178,7 @@ const Header = () => {
                                     </div>
                                 }
                             >   
-                                <div className="dropdownEffect">
+                                <div className="dropdownEffect" id="userUploadWrapper">
                                     <NavDropdown.Item href="#action/3.1" className="flipped-text">
                                         <div className="upload-center-wrapper">
                                             <BsArrowUpCircle className="upload-icons"/> Upload activity

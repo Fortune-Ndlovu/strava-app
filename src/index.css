@@ -216,7 +216,7 @@ div#basic-navbar-nav {
 }
 
 
-/* We are aligning our userAvatar and userProfiles based on screen sizes */
+/* We are aligning our userAvatar and userProfiles based on screen sizes. */
 .align-left {
   justify-content: flex-start;
 }
@@ -225,15 +225,38 @@ div#basic-navbar-nav {
   justify-content: center;
 }
 
-
-
-
 @media screen and (max-width: 992px){
-  button.cancel-search-btn {
+  /* Showing the dropdown items content by default when the hamburger is open. */
+  .dropdown-menu.show {
+    display: contents !important;
+  }
+
+  .dropdownEffect {
+    border: none;
+  }
+
+  /* Displaying the start trial btn center and breathing space top & bottom. */
+  .start-trial-btn {
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  /* Hiding the cancel btn, notifications, userAvatar and userUpload icons on smaller screens. */
+  button.cancel-search-btn,
+  .notifications-wrapper,
+  a#userAvatar,
+  a#userUpload {
     display: none;
   }
 
-  .dropdown-menu.show {
-    display: contents !important;
+  /* Giving User upload some breathing space at the top. */
+  #userUploadWrapper {
+    padding-top: 30px;
+  }
+
+  /* Making the userAvatar and userUpload links text be fixed to left */
+  .flipped-text {
+    padding-left: 0px !important;
   }
 }
