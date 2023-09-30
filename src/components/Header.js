@@ -41,7 +41,19 @@ const Header = () => {
             window.removeEventListener('resize', handleResize);
         };
          
-    }, [isHamburger]);
+     }, [isHamburger]);
+    
+     const handleDashboardIconClick = () => {
+        setShowDashboardItems(!showDashboardItems);
+     };
+    
+     const handleDropdownIconKeyPress = (event, toggleDropdown) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            toggleDropdown();
+        }
+    };
+
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
@@ -81,7 +93,17 @@ const Header = () => {
                                     show={showDashboardItems}
                                     title={
                                         <div className="d-flex align-items-center">
-                                            Dashboard <RiArrowDropDownLine className="dashboard-dropdown-icon" />
+                                            Dashboard{' '}
+                                            <button
+                                            onClick={handleDashboardIconClick}
+                                            onKeyDown={(e) =>
+                                                handleDropdownIconKeyPress(e, handleDashboardIconClick)
+                                            }
+                                            className="icon-button"
+                                            aria-label="Toggle Dashboard Dropdown"
+                                            >
+                                                <RiArrowDropDownLine className="dashboard-dropdown-icon" />
+                                            </button>
                                         </div>
                                     } 
                                 >
