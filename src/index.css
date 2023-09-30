@@ -273,6 +273,12 @@ button.navbar-toggler.collapsed {
   border: transparent;
 }
 
+button.icon-button {
+  background-color: transparent;
+  border: none;
+  padding-left: 0px;
+  z-index: 999;
+}
 
 @media screen and (max-width: 992px){
   /* Showing the dropdown items content by default when the hamburger is open. */
