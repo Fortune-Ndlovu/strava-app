@@ -251,7 +251,7 @@ button:focus:not(:focus-visible) {
 }
 
 .menu-icon-close .bar1 {
-  transform: rotate(-40deg) translate(-6px, 5px);
+  transform: rotate(-45deg) translate(-6px, 5px);
 }
 
 .menu-icon-close .bar2 {
@@ -259,7 +259,7 @@ button:focus:not(:focus-visible) {
 }
 
 .menu-icon-close .bar3 {
-  transform: rotate(40deg) translate(-6px, -6px);
+  transform: rotate(45deg) translate(-6px, -6px);
 }
 
 #xHamburger {
