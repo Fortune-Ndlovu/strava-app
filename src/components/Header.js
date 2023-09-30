@@ -143,7 +143,7 @@ const Header = () => {
                         <div className="notifications-wrapper">
                             <Nav.Link href="#challenges" id="notifications" className="d-flex align-items-center">  <MdOutlineNotificationsNone className="mdOutlineNotificationsNone-icon"/></Nav.Link>
                         </div>
-                        <div>
+                        <div className="flex-fill" id="fullWidthUserAvatar">
                             <NavDropdown
                                 onMouseEnter={() => setUserAvatar(true)}
                                 onMouseLeave={() => setUserAvatar(false)}
@@ -164,7 +164,7 @@ const Header = () => {
                                 </div>
                             </NavDropdown>
                         </div>
-                        <div>
+                        <div className="flex-fill" id="fullWidthUserUpload">
                             <NavDropdown
                                 onMouseEnter={() => setUploadButton(true)}
                                 onMouseLeave={() => setUploadButton(false)}

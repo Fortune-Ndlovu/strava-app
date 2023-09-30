@@ -255,8 +255,16 @@ div#basic-navbar-nav {
     padding-top: 30px;
   }
 
-  /* Making the userAvatar and userUpload links text be fixed to left */
+  /* Making the userAvatar and userUpload links text be fixed to left. */
   .flipped-text {
     padding-left: 0px !important;
   }
+
+  /* Making the userAvatar and upload clickable from a full width perspective. */
+  #fullWidthUserAvatar,
+  #fullWidthUserUpload {
+    width: 100%;
+    display: block;
+  }
+
 }
