@@ -14,6 +14,7 @@ code {
 }
 
 /* MAIN NAVBAR STYLES */
+
 /* search icon */
 nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
     height: 55px;
@@ -44,6 +45,7 @@ div.container-fluid {
 
  button.navbar-toggler {
   margin-right: 18px;
+  border: none;
 }
 
 .open-search-icon {
@@ -212,9 +214,9 @@ a#challengesLink:hover {
 div#basic-navbar-nav {
   background-color: #f8f9fa;
   padding-left: 20px !important;
+  padding-right: 14px;
 
 }
-
 
 /* We are aligning our userAvatar and userProfiles based on screen sizes. */
 .align-left {
@@ -224,6 +226,53 @@ div#basic-navbar-nav {
 .align-center {
   justify-content: center;
 }
+
+/* CSS styles for the hamburger icon and the X icon. */
+.menu-icon {
+  display: inline-block;
+  cursor: pointer;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 22px;
+  height: 2px;
+  background-color: rgb(24, 26, 27);
+  border-color: rgb(115, 107, 94);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.menu-icon-close .bar1 {
+  transform: rotate(-40deg) translate(-6px, 5px);
+}
+
+.menu-icon-close .bar2 {
+  opacity: 0;
+}
+
+.menu-icon-close .bar3 {
+  transform: rotate(40deg) translate(-6px, -6px);
+}
+
+#xHamburger {
+  display: block;
+  justify-content: center;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+button.navbar-toggler.collapsed {
+  border: transparent;
+}
+
 
 @media screen and (max-width: 992px){
   /* Showing the dropdown items content by default when the hamburger is open. */
@@ -241,6 +290,10 @@ div#basic-navbar-nav {
     padding-top: 20px;
     padding-bottom: 20px;
   }
+
+  a.experiment.btn.btn-sm.btn-primary.d-flex.align-items-center.nav-link {
+    padding: 12px 32px;
+}
 
   /* Hiding the cancel btn, notifications, userAvatar and userUpload icons on smaller screens. */
   button.cancel-search-btn,

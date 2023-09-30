@@ -20,6 +20,8 @@ const Header = () => {
     const [showUploadButton, setUploadButton] = useState(false);
     const [showSearch, setShowSearch] = useState(window.innerWidth <= 992); // Initially show on smaller screens
     const [isHamburger, setIsHamburger] = useState(window.innerWidth <= 992); // Initially show on smaller screens
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     
     const handleResize = () => {
         setIsHamburger(window.innerWidth <= 992);
@@ -47,7 +49,21 @@ const Header = () => {
                 <Navbar.Brand href="#home" className="mr-auto">
                     <img src={stravaLogo} id="strava-logo" alt="Company brand logo that simply says strava." width={110} height={55}/>
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+                {/* Toggling the menu state when clicked. */}
+                <Navbar.Toggle
+                    aria-controls="basic-navbar-nav"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                >
+                    {/* Changing the hamburger icon to an X when the menu is open. */}
+                    <div className={isMenuOpen ? 'menu-icon menu-icon-close' : 'menu-icon'} id="xHamburger">
+                        <div className="bar1"></div>
+                        <div className="bar2"></div>
+                        <div className="bar3"></div>
+                    </div>
+                </Navbar.Toggle>
+
+                
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                     {(showSearch || isHamburger) && <SearchBar onCancel={() => setShowSearch(false)} />}
