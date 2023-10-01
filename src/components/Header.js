@@ -43,18 +43,22 @@ const Header = () => {
          
      }, [isHamburger]);
     
-     const handleDashboardIconClick = () => {
-        setShowDashboardItems(!showDashboardItems);
-     };
-    
-     const handleDropdownIconKeyPress = (event, toggleDropdown) => {
+     const toggleDropdownVisibility = (showStateSetter) => {
+        return () => {
+            showStateSetter((prevShowState) => !prevShowState);
+        };
+    };
+    const handleDashboardDropdownToggle = toggleDropdownVisibility(setShowDashboardItems);
+    const handleTrainingDropdownToggle = toggleDropdownVisibility(setTrainingItems);
+    const handleExploreDropdownToggle = toggleDropdownVisibility(setExploreItems);
+
+    const handleDropdownIconKeyPress = (event, toggleDropdown) => {
         if (event.key === 'Enter') {
             event.preventDefault();
             toggleDropdown();
         }
     };
-
-
+    
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
@@ -95,15 +99,16 @@ const Header = () => {
                                         <div className="d-flex align-items-center">
                                             Dashboard{' '}
                                             <button
-                                            onClick={handleDashboardIconClick}
-                                            onKeyDown={(e) =>
-                                                handleDropdownIconKeyPress(e, handleDashboardIconClick)
-                                            }
-                                            className="icon-button"
-                                            aria-label="Toggle Dashboard Dropdown"
+                                                onClick={handleDashboardDropdownToggle}
+                                                onKeyDown={(event) => handleDropdownIconKeyPress(event, handleDashboardDropdownToggle)}
+                                                className="icon-button"
+                                                aria-label="Toggle Dashboard Dropdown"
+                                                tabIndex={0}
                                             >
                                                 <RiArrowDropDownLine className="dashboard-dropdown-icon" />
                                             </button>
+
+
                                         </div>
                                     } 
                                 >
@@ -126,7 +131,16 @@ const Header = () => {
                                     id="trainingDropdown"
                                     title={
                                         <div className="d-flex align-items-center nav-title">
-                                            Training <RiArrowDropDownLine className="training-dropdown-icon" />
+                                            Training{' '}
+                                            <button
+                                                onClick={handleTrainingDropdownToggle}
+                                                onKeyDown={(event) => handleDropdownIconKeyPress(event, handleTrainingDropdownToggle)}
+                                                className="icon-button"
+                                                aria-label="Toggle Dashboard Dropdown"
+                                                tabIndex={0}
+                                            >
+                                                <RiArrowDropDownLine className="dashboard-dropdown-icon" />
+                                            </button>
                                         </div>
                                     }
                                 >
@@ -151,7 +165,16 @@ const Header = () => {
                                     id="exploreDropdown"
                                     title={
                                         <div className="d-flex align-items-center">
-                                            Explore <RiArrowDropDownLine className="explore-dropdown-icon" />
+                                            Explore{' '}
+                                            <button
+                                                onClick={handleExploreDropdownToggle}
+                                                onKeyDown={(event) => handleDropdownIconKeyPress(event, handleExploreDropdownToggle)}
+                                                className="icon-button"
+                                                aria-label="Toggle Dashboard Dropdown"
+                                                tabIndex={0}
+                                            >
+                                                <RiArrowDropDownLine className="dashboard-dropdown-icon" />
+                                            </button>
                                         </div>
                                     }
                                 >
