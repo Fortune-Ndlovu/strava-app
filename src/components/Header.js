@@ -51,6 +51,7 @@ const Header = () => {
     const handleDashboardDropdownToggle = toggleDropdownVisibility(setShowDashboardItems);
     const handleTrainingDropdownToggle = toggleDropdownVisibility(setTrainingItems);
     const handleExploreDropdownToggle = toggleDropdownVisibility(setExploreItems);
+    const handleUserAvatarDropdownToggle = toggleDropdownVisibility(setUserAvatar);
 
     const handleDropdownIconKeyPress = (event, toggleDropdown) => {
         if (event.key === 'Enter') {
@@ -62,7 +63,7 @@ const Header = () => {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
-                <Navbar.Brand href="#home" className="mr-auto">
+                <Navbar.Brand title="Return to the Strava home page" href="#home" className="mr-auto">
                     <img src={stravaLogo} id="strava-logo" alt="Company brand logo that simply says strava." width={110} height={55}/>
                 </Navbar.Brand>
 
@@ -84,7 +85,7 @@ const Header = () => {
                     <Nav className="me-auto">
                     {(showSearch || isHamburger) && <SearchBar onCancel={() => setShowSearch(false)} />}
                         {(!isHamburger && !showSearch) && (
-                            <Nav.Link href="#home" onClick={() => setShowSearch(true)}>
+                            <Nav.Link title="Search" href="#home" onClick={() => setShowSearch(true)}>
                                 <FiSearch className="open-search-icon" />
                             </Nav.Link>
                         )}
@@ -99,6 +100,7 @@ const Header = () => {
                                         <div className="d-flex align-items-center">
                                             Dashboard{' '}
                                             <button
+                                                title="Expand dashboard menu"
                                                 onClick={handleDashboardDropdownToggle}
                                                 onKeyDown={(event) => handleDropdownIconKeyPress(event, handleDashboardDropdownToggle)}
                                                 className="icon-button"
@@ -133,6 +135,7 @@ const Header = () => {
                                         <div className="d-flex align-items-center nav-title">
                                             Training{' '}
                                             <button
+                                                title="Expand training menu"
                                                 onClick={handleTrainingDropdownToggle}
                                                 onKeyDown={(event) => handleDropdownIconKeyPress(event, handleTrainingDropdownToggle)}
                                                 className="icon-button"
@@ -167,6 +170,7 @@ const Header = () => {
                                         <div className="d-flex align-items-center">
                                             Explore{' '}
                                             <button
+                                                title="Expand explore menu"
                                                 onClick={handleExploreDropdownToggle}
                                                 onKeyDown={(event) => handleDropdownIconKeyPress(event, handleExploreDropdownToggle)}
                                                 className="icon-button"
@@ -202,7 +206,7 @@ const Header = () => {
                             <Nav.Link href="#home" className="experiment btn btn-sm btn-primary d-flex align-items-center">Start Trial</Nav.Link>
                          </div>
                         <div className="notifications-wrapper">
-                            <Nav.Link href="#challenges" id="notifications" className="d-flex align-items-center">  <MdOutlineNotificationsNone className="mdOutlineNotificationsNone-icon"/></Nav.Link>
+                            <Nav.Link title="0 new notifications" href="#challenges" id="notifications" className="d-flex align-items-center">  <MdOutlineNotificationsNone className="mdOutlineNotificationsNone-icon"/></Nav.Link>
                         </div>
                         <div className="flex-fill" id="fullWidthUserAvatar">
                             <NavDropdown
@@ -212,8 +216,17 @@ const Header = () => {
                                 id="userAvatar"
                                 className="flipped-dropdown-horizontal"
                                 title={
-                                        <div className={`d-flex align-items-center ${showUserAvatar ? 'hovered' : ''}`}>
+                                    <div className={`d-flex align-items-center ${showUserAvatar ? 'hovered' : ''}`}>
+                                        <button
+                                                title="Expand profile menu"
+                                                onClick={handleUserAvatarDropdownToggle}
+                                                onKeyDown={(event) => handleDropdownIconKeyPress(event, handleUserAvatarDropdownToggle)}
+                                                className="icon-button"
+                                                aria-label="Toggle Dashboard Dropdown"
+                                                tabIndex={0}
+                                        >
                                             <RiArrowDropDownLine className="explore-dropdown-icon" /> <BiSolidUserCircle className="biSolidUserCircle-icon" />
+                                            </button>
                                         </div>
                                 }
                             >

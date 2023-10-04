@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f7f7fa;
+  background-color: #f9f8f5 !important;
 }
 
 code {
@@ -16,8 +16,16 @@ code {
 /* MAIN NAVBAR STYLES */
 
 /* search icon */
+
+/* Making header fixed for scrolling*/
 nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
     height: 55px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
+    background-color: #f7f7fa;
 }
 
 /* container that wraps around the nav elements */
@@ -279,6 +287,8 @@ button.icon-button {
   padding-left: 0px;
   z-index: 999;
 }
+
+
 
 @media screen and (max-width: 992px){
   /* Showing the dropdown items content by default when the hamburger is open. */

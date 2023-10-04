@@ -39,9 +39,9 @@ const SearchBar = ({ onCancel }) => {
                     </select>
                 </div>
                 <input type="text" className="form-control" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
-                <button type="button" className="btn"><FiSearch className="open-search-icon" /></button>
+                <button type="button" title="Search" className="btn"><FiSearch className="open-search-icon" /></button>
             </div>
-            <button onClick={handleCancel} className="cancel-search-btn"><HiOutlineX className="cancel-search-icon" /></button>
+            <button type="button" title="Cancel" onClick={handleCancel} className="cancel-search-btn"><HiOutlineX className="cancel-search-icon" /></button>
         </div>
     );
 }
