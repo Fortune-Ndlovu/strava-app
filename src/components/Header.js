@@ -18,36 +18,42 @@ const Header = () => {
     const [showExploreItems, setExploreItems] = useState(false);
     const [showUserAvatar, setUserAvatar] = useState(false);
     const [showUploadButton, setUploadButton] = useState(false);
-    const [showSearch, setShowSearch] = useState(window.innerWidth <= 992); // Initially show on smaller screens
-    const [isHamburger, setIsHamburger] = useState(window.innerWidth <= 992); // Initially show on smaller screens
+    const [showSearch, setShowSearch] = useState(window.innerWidth <= 992); // Initially show on smaller screens.
+    const [isHamburger, setIsHamburger] = useState(window.innerWidth <= 992); // Initially show on smaller screens.
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
     
+    // Responsible for updating the isHamburger state based on the window width.
     const handleResize = () => {
         setIsHamburger(window.innerWidth <= 992);
     }
 
-     // Listen for window resize events
+     // Listen for window resize events.
      useEffect(() => {
-        // if the hamburger is true that means we can show the navigation dropdowns
+        // if the hamburger is true that means we can show the navigation dropdowns.
         setShowDashboardItems(isHamburger);
         setTrainingItems(isHamburger);
         setExploreItems(isHamburger);
         setUserAvatar(isHamburger);
         setUploadButton(isHamburger);
          
+        // When the window is resized the handleResize func will be called.
         window.addEventListener('resize', handleResize);
         return () => {
+            // Removing the resized handleResize func when the useEffect Hook is runs again to prevent unnecessary function calls.
             window.removeEventListener('resize', handleResize);
         };
          
+        // The useEffect will be re-executed whenever the isHamburger changes.
      }, [isHamburger]);
     
+    // Setting the dropdowns to be toggled based on their previous state.
      const toggleDropdownVisibility = (showStateSetter) => {
         return () => {
             showStateSetter((prevShowState) => !prevShowState);
         };
-    };
+     };
+    
+    // Wether the navigation items I mouse clicked or tabbed toggle their dropdown menus.
     const handleDashboardDropdownToggle = toggleDropdownVisibility(setShowDashboardItems);
     const handleTrainingDropdownToggle = toggleDropdownVisibility(setTrainingItems);
     const handleExploreDropdownToggle = toggleDropdownVisibility(setExploreItems);
@@ -67,11 +73,10 @@ const Header = () => {
                     <img src={stravaLogo} id="strava-logo" alt="Company brand logo that simply says strava." width={110} height={55}/>
                 </Navbar.Brand>
 
-                {/* Toggling the menu state when clicked. */}
-                <Navbar.Toggle
-                    aria-controls="basic-navbar-nav"
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                >
+                {/* Toggling the menu state when clicked. When we first click on the hamburger icon,
+                    !isMenuOpen will be true because !false is true. So,
+                    the onClick function will set isMenuOpen to true. After the first click, isMenuOpen is now true. vice-versa. */}
+                <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                     {/* Changing the hamburger icon to an X when the menu is open. */}
                     <div className={isMenuOpen ? 'menu-icon menu-icon-close' : 'menu-icon'} id="xHamburger">
                         <div className="bar1"></div>
@@ -80,19 +85,25 @@ const Header = () => {
                     </div>
                 </Navbar.Toggle>
 
-                
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                    {(showSearch || isHamburger) && <SearchBar onCancel={() => setShowSearch(false)} />}
+
+                        {/* When we are on both small and large view-ports we want to show the search component. */}
+                        {(showSearch || isHamburger) && <SearchBar onCancel={() => setShowSearch(false)} />}
+                        
+                        {/* When the hamburger and the search component are not showing, then show the search icon. */}
                         {(!isHamburger && !showSearch) && (
                             <Nav.Link title="Search" href="#home" onClick={() => setShowSearch(true)}>
                                 <FiSearch className="open-search-icon" />
                             </Nav.Link>
                         )}
+
+                        {/* When the hamburger is true or when the search component is false then show the navigation dropdowns. */}
                         {(isHamburger || !showSearch) && (
                             <React.Fragment>
                                 <NavDropdown
                                     id="dashboardDropdown"
+                                    // When we hover over the navigation Dashboard, dropdown items show the dropdown and when we leave do not show them.
                                     onMouseEnter={() => setShowDashboardItems(true)}
                                     onMouseLeave={() => setShowDashboardItems(false)}
                                     show={showDashboardItems}
