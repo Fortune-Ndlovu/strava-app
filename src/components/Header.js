@@ -28,7 +28,7 @@ const Header = () => {
     }
 
      // Listen for window resize events.
-     useEffect(() => {
+    useEffect(() => {
         // if the hamburger is true that means we can show the navigation dropdowns.
         setShowDashboardItems(isHamburger);
         setTrainingItems(isHamburger);
@@ -44,7 +44,7 @@ const Header = () => {
         };
          
         // The useEffect will be re-executed whenever the isHamburger changes.
-     }, [isHamburger]);
+    }, [isHamburger]);
     
     // Setting the dropdowns to be toggled based on their previous state.
      const toggleDropdownVisibility = (showStateSetter) => {
@@ -58,6 +58,7 @@ const Header = () => {
     const handleTrainingDropdownToggle = toggleDropdownVisibility(setTrainingItems);
     const handleExploreDropdownToggle = toggleDropdownVisibility(setExploreItems);
     const handleUserAvatarDropdownToggle = toggleDropdownVisibility(setUserAvatar);
+    const handleUserUploadDropdownToggle = toggleDropdownVisibility(setUploadButton);
 
     const handleDropdownIconKeyPress = (event, toggleDropdown) => {
         if (event.key === 'Enter') {
@@ -120,8 +121,6 @@ const Header = () => {
                                             >
                                                 <RiArrowDropDownLine className="dashboard-dropdown-icon" />
                                             </button>
-
-
                                         </div>
                                     } 
                                 >
@@ -150,10 +149,10 @@ const Header = () => {
                                                 onClick={handleTrainingDropdownToggle}
                                                 onKeyDown={(event) => handleDropdownIconKeyPress(event, handleTrainingDropdownToggle)}
                                                 className="icon-button"
-                                                aria-label="Toggle Dashboard Dropdown"
+                                                aria-label="Toggle Training Dropdown"
                                                 tabIndex={0}
                                             >
-                                                <RiArrowDropDownLine className="dashboard-dropdown-icon" />
+                                                <RiArrowDropDownLine className="training-dropdown-icon" />
                                             </button>
                                         </div>
                                     }
@@ -171,7 +170,6 @@ const Header = () => {
                                     </div>   
                                 </NavDropdown>
                             
-
                                 <NavDropdown
                                     onMouseEnter={() => setExploreItems(true)}
                                     onMouseLeave={() => setExploreItems(false)}
@@ -185,10 +183,10 @@ const Header = () => {
                                                 onClick={handleExploreDropdownToggle}
                                                 onKeyDown={(event) => handleDropdownIconKeyPress(event, handleExploreDropdownToggle)}
                                                 className="icon-button"
-                                                aria-label="Toggle Dashboard Dropdown"
+                                                aria-label="Toggle Explore Dropdown"
                                                 tabIndex={0}
                                             >
-                                                <RiArrowDropDownLine className="dashboard-dropdown-icon" />
+                                                <RiArrowDropDownLine className="explore-dropdown-icon" />
                                             </button>
                                         </div>
                                     }
@@ -209,15 +207,15 @@ const Header = () => {
                                 <Nav.Link href="#challenges" id="challengesLink" className="d-flex align-items-center">Challenges</Nav.Link>
                             </React.Fragment>
                         )}
-                     
                     </Nav>
                     
+                    {/* Whenever we are in smaller screens align items at the start and whenever we are on large screens align items at the centre. */}
                     <Nav className={`d-flex ${isHamburger ? 'align-items-start' : 'align-items-center'}`}>
                         <div className="start-trial-btn">
                             <Nav.Link href="#home" className="experiment btn btn-sm btn-primary d-flex align-items-center">Start Trial</Nav.Link>
                          </div>
                         <div className="notifications-wrapper">
-                            <Nav.Link title="0 new notifications" href="#challenges" id="notifications" className="d-flex align-items-center">  <MdOutlineNotificationsNone className="mdOutlineNotificationsNone-icon"/></Nav.Link>
+                            <Nav.Link title="0 new notifications" href="#challenges" id="notifications" className="d-flex align-items-center"> <MdOutlineNotificationsNone className="mdOutlineNotificationsNone-icon"/> </Nav.Link>
                         </div>
                         <div className="flex-fill" id="fullWidthUserAvatar">
                             <NavDropdown
@@ -227,18 +225,19 @@ const Header = () => {
                                 id="userAvatar"
                                 className="flipped-dropdown-horizontal"
                                 title={
+                                    // Whenever we hover over the icon we changes is color to orange.
                                     <div className={`d-flex align-items-center ${showUserAvatar ? 'hovered' : ''}`}>
                                         <button
                                                 title="Expand profile menu"
                                                 onClick={handleUserAvatarDropdownToggle}
                                                 onKeyDown={(event) => handleDropdownIconKeyPress(event, handleUserAvatarDropdownToggle)}
                                                 className="icon-button"
-                                                aria-label="Toggle Dashboard Dropdown"
+                                                aria-label="Toggle user avatar dropdown"
                                                 tabIndex={0}
                                         >
                                             <RiArrowDropDownLine className="explore-dropdown-icon" /> <BiSolidUserCircle className="biSolidUserCircle-icon" />
-                                            </button>
-                                        </div>
+                                        </button>
+                                    </div>
                                 }
                             >
                                 <div className="dropdownEffect">
@@ -257,9 +256,32 @@ const Header = () => {
                                 id="userUpload"
                                 className="flipped-dropdown-horizontal"
                                 title={
-                                    <div className="d-flex align-items-center"
-                                    >
-                                        {showUploadButton ? (<BsPlusCircleFill/> ) : ( <BsPlusCircle/> )}
+                                    <div className="d-flex align-items-center">
+                                        {/* Whenever we hover over the icon we want to change it to another icon. */}
+                                        {showUploadButton ? (
+                                            <button
+                                                type="button"
+                                                onClick={handleUserUploadDropdownToggle}
+                                                onKeyDown={(event) => handleDropdownIconKeyPress(event, handleUserUploadDropdownToggle)}
+                                                className="icon-button"
+                                                aria-label="Toggle user upload dropdown"
+                                                tabIndex={0}
+                                            >
+                                                <BsPlusCircleFill />
+                                            </button>
+                                            ):(
+                                            <button
+                                                type="button"
+                                                onClick={handleUserUploadDropdownToggle}
+                                                onKeyDown={(event) => handleDropdownIconKeyPress(event, handleUserUploadDropdownToggle)}
+                                                className="icon-button"
+                                                aria-label="Toggle user upload dropdown"
+                                                tabIndex={0}
+                                            >
+                                                <BsPlusCircle />
+                                            </button>
+                                            )
+                                        }
                                     </div>
                                 }
                             >   
