@@ -67,6 +67,13 @@ const Header = () => {
         }
     };
     
+    // When the screen sizes are large we want to be able to hover over the dropdown
+    const handleDropdownHover = (handler, event) => {
+        if (!isHamburger) {
+            handler(event);
+        }
+    };
+
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
@@ -105,8 +112,8 @@ const Header = () => {
                                 <NavDropdown
                                     id="dashboardDropdown"
                                     // When we hover over the navigation Dashboard, dropdown items show the dropdown and when we leave do not show them.
-                                    onMouseEnter={() => setShowDashboardItems(true)}
-                                    onMouseLeave={() => setShowDashboardItems(false)}
+                                    onMouseEnter={(e) => handleDropdownHover(() => setShowDashboardItems(true), e)}
+                                    onMouseLeave={(e) => handleDropdownHover(() => setShowDashboardItems(false), e)}                        
                                     show={showDashboardItems}
                                     title={
                                         <div className="d-flex align-items-center">
@@ -137,8 +144,8 @@ const Header = () => {
                                 </NavDropdown>
                                         
                                 <NavDropdown
-                                    onMouseEnter={() => setTrainingItems(true)}
-                                    onMouseLeave={() => setTrainingItems(false)}
+                                    onMouseEnter={(e) => handleDropdownHover(() => setTrainingItems(true), e)}
+                                    onMouseLeave={(e) => handleDropdownHover(() => setTrainingItems(false), e)}                         
                                     show={showTrainingItems}
                                     id="trainingDropdown"
                                     title={
@@ -171,8 +178,8 @@ const Header = () => {
                                 </NavDropdown>
                             
                                 <NavDropdown
-                                    onMouseEnter={() => setExploreItems(true)}
-                                    onMouseLeave={() => setExploreItems(false)}
+                                    onMouseEnter={(e) => handleDropdownHover(() => setExploreItems(true), e)}
+                                    onMouseLeave={(e) => handleDropdownHover(() => setExploreItems(false), e)}                         
                                     show={showExploreItems}
                                     id="exploreDropdown"
                                     title={
@@ -219,8 +226,8 @@ const Header = () => {
                         </div>
                         <div className="flex-fill" id="fullWidthUserAvatar">
                             <NavDropdown
-                                onMouseEnter={() => setUserAvatar(true)}
-                                onMouseLeave={() => setUserAvatar(false)}
+                                onMouseEnter={(e) => handleDropdownHover(() => setUserAvatar(true), e)}
+                                onMouseLeave={(e) => handleDropdownHover(() => setUserAvatar(false), e)}                     
                                 show={showUserAvatar}
                                 id="userAvatar"
                                 className="flipped-dropdown-horizontal"
@@ -250,8 +257,8 @@ const Header = () => {
                         </div>
                         <div className="flex-fill" id="fullWidthUserUpload">
                             <NavDropdown
-                                onMouseEnter={() => setUploadButton(true)}
-                                onMouseLeave={() => setUploadButton(false)}
+                                onMouseEnter={(e) => handleDropdownHover(() => setUploadButton(true), e)}
+                                onMouseLeave={(e) => handleDropdownHover(() => setUploadButton(false), e)}  
                                 show={showUploadButton}
                                 id="userUpload"
                                 className="flipped-dropdown-horizontal"

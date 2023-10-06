@@ -20,10 +20,10 @@ code {
 /* Making header fixed for scrolling*/
 nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
     height: 55px;
-    position: fixed;
+    /* position: fixed;
     top: 0;
     left: 0;
-    right: 0;
+    right: 0; */
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
     background-color: #f7f7fa;
 }
