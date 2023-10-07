@@ -8,6 +8,12 @@ body {
   background-color: #f9f8f5 !important;
 }
 
+/* When text is highlight apply style */
+::selection {
+  color: #fff;
+  background-color: #fc5200;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -288,6 +294,9 @@ button.icon-button {
   z-index: 999;
 }
 
+.icon-button.user-upload {
+  color: #fc5200;
+}
 
 
 @media screen and (max-width: 992px){
