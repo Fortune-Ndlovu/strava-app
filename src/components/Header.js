@@ -270,7 +270,7 @@ const Header = () => {
                                                 type="button"
                                                 onClick={handleUserUploadDropdownToggle}
                                                 onKeyDown={(event) => handleDropdownIconKeyPress(event, handleUserUploadDropdownToggle)}
-                                                className="icon-button"
+                                                className="icon-button color"
                                                 aria-label="Toggle user upload dropdown"
                                                 tabIndex={0}
                                             >
@@ -281,7 +281,7 @@ const Header = () => {
                                                 type="button"
                                                 onClick={handleUserUploadDropdownToggle}
                                                 onKeyDown={(event) => handleDropdownIconKeyPress(event, handleUserUploadDropdownToggle)}
-                                                className="icon-button"
+                                                className="icon-button color"
                                                 aria-label="Toggle user upload dropdown"
                                                 tabIndex={0}
                                             >

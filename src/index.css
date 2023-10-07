@@ -294,7 +294,8 @@ button.icon-button {
   z-index: 999;
 }
 
-.icon-button.user-upload {
+.icon-button.user-upload,
+.icon-button.color {
   color: #fc5200;
 }
 
