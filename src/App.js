@@ -7,7 +7,6 @@ import { getActivities, getAthleteData } from './stravaApi';
 // Configuration data required for Strava API authentication and access.
 import config from './config.json';
 import Header from './components/Header';
-import Q from 'q';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
