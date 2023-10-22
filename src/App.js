@@ -8,7 +8,7 @@ import { getActivities, getAthleteData } from './stravaApi';
 import config from './config.json';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
+import { IoMdArrowDropdown } from 'react-icons/io';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [activities, setActivities] = useState([]);
@@ -76,6 +76,7 @@ function App() {
       <Header />
       <div>
         <h2>Your Activities</h2>
+
         {showActivities()}
       </div>
       <div>

@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useState }from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import stravaLogoFooter from '../images/stravaLogoFooter.svg'
+import languagesData from '../languages.json'; 
 
 const Footer = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const { languages } = languagesData; // Extract the 'languages' array from the imported data
+  const [selectedLanguage, setSelectedLanguage] = useState('English (US)'); // Default language
+  const toggleDropdown = () => {
+      setShowDropdown(!showDropdown);
+    };
+    
+    const selectLanguage = (language) => {
+        setSelectedLanguage(language);
+        setShowDropdown(false);
+        console.log("langs", languages);
+
+    // Implement logic to change the site language based on the selected language
+    // You may use a library like react-i18next or your own translation mechanism.
+  };
+
     return (
-        <footer className="bg-dark text-white">
+        <footer className="main-footer">
             <div className="container">
                 <div className="row">
                     <div className="col-md-2">
-                        <p>&copy; 2023 Strava</p>
+                        <Navbar.Brand title="Return to the Strava home page" href="#home" id="footer-strava-logo">
+                            <img src={stravaLogoFooter} id="strava-logo-footer" alt="Company brand logo that simply says strava." width={150} height={95}/>
+                        </Navbar.Brand>
+                            <p>&copy; 2023 Strava</p>
                         {/* You can replace this with the Strava logo */}
                     </div>
                     <div className="col-md-2">
@@ -61,6 +83,29 @@ const Footer = () => {
                             <li><a href="http://labs.strava.com/developers">Developers</a></li>
                             <li><a href="http://labs.strava.com">Labs</a></li>
                             <li><a href="/community-standards">Strava Community Standards</a></li>
+                            {/* Render the language dropdown when the button is clicked */}
+                            <li>
+                                <button
+                                className="btn btn-default btn-xs dropdown-selection btn-white selection"
+                                onClick={toggleDropdown}
+                                >
+                                {selectedLanguage}
+                                </button>
+                                {showDropdown && (
+                                <ul className="language-dropdown">
+                                    {languages.map((language) => (
+                                    <li key={language}>
+                                        <button
+                                        className="btn btn-default btn-xs"
+                                        onClick={() => selectLanguage(language)}
+                                        >
+                                        {language}
+                                        </button>
+                                    </li>
+                                    ))}
+                                </ul>
+                                )}
+                            </li>
                         </ul>
                     </div>
                 </div>
