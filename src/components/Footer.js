@@ -40,7 +40,7 @@ const Footer = () => {
                         <ul className="list-unstyled">
                             <li><a target="_blank" href="http://www.facebook.com/Strava">Facebook</a></li>
                             <li><a target="_blank" href="http://twitter.com/strava">Twitter</a></li>
-                            <li><a target="_blank" href="http://instagram.com/strava">Instagram</a></li>
+                            <li><a target="_blank" href="http://instagram.com/strava" rel="noreferrer">Instagram</a></li>
                             <li><a target="_blank" href="http://www.youtube.com/stravainc">YouTube</a></li>
                             <li><a target="_blank" href="https://www.linkedin.com/company/strava-inc./">LinkedIn</a></li>
                             <li><a href="https://stories.strava.com">Stories</a></li>
