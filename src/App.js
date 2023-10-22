@@ -7,6 +7,7 @@ import { getActivities, getAthleteData } from './stravaApi';
 // Configuration data required for Strava API authentication and access.
 import config from './config.json';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -81,6 +82,7 @@ function App() {
         <h2>Your Profile</h2>
         {showAthleteData()}
       </div>
+      <Footer />
     </div>
   );
 }
