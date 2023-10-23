@@ -299,6 +299,70 @@ button.icon-button {
   color: #fc5200;
 }
 
+/* footer styles */
+.main-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f9f8f5;
+  color: #494950;
+  padding: 20px;
+}
+.main-footer a {
+  color: #494950;
+  text-decoration: none;
+}
+
+img#strava-logo-footer {
+  padding-right: 24px;
+  margin-top: -62px;
+}
+.selection {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #242428;
+}
+
+
+.dropdown-wrapper {
+  position: relative;
+}
+
+.language-dropdown {
+  position: absolute;
+  /* Position above the button */
+  bottom: 108px;
+  /* bottom: 100%; */
+  top: initial;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #fff; /* Customize the dropdown style as needed */
+  border: 1px solid #ccc; /* Add borders, padding, and styling as desired */
+  max-height: 460px; /* Set the maximum height for the dropdown */
+  overflow-y: auto; /* Enable vertical scrolling when the content exceeds the max height */
+  scrollbar-width: thin; /* Set the scrollbar to be thinner (Firefox) */
+  border-radius: 4px;
+}
+/* Footer.css */
+
+/* Webkit (Chrome, Safari) */
+.language-dropdown::-webkit-scrollbar {
+  width: 3px; /* Set the width of the scrollbar */
+}
+
+.language-dropdown::-webkit-scrollbar-thumb {
+  background-color: #494950; /* Set the color of the scrollbar thumb */
+  border-radius: 4px; /* Add a border-radius to the thumb */
+}
+
+.language-dropdown::-webkit-scrollbar-track {
+  background-color: #fff; /* Set the color of the scrollbar track */
+}
+
+
+
 
 @media screen and (max-width: 992px){
   /* Showing the dropdown items content by default when the hamburger is open. */
