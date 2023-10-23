@@ -110,7 +110,7 @@ const Footer = () => {
                                         onClick={toggleDropdown}
                                     >
                                         {selectedLanguage}
-                                        <RiArrowDropDownFill/>
+                                        <RiArrowDropDownFill className="languages-dropdown-icon"/>
                                     </button>
                                     {showDropdown && (
                                     <ul className="language-dropdown">

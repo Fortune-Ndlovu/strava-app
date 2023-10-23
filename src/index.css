@@ -300,11 +300,16 @@ button.icon-button {
 }
 
 /* footer styles */
+#promos-footer {
+  background-color: #fff;
+  color: #494950;
+}
+
 .main-footer {
-  position: fixed;
+  /* position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; */
   background-color: #f9f8f5;
   color: #494950;
   padding: 20px;
@@ -318,12 +323,13 @@ img#strava-logo-footer {
   padding-right: 24px;
   margin-top: -62px;
 }
+
+/* Dropdown styles for for the languages button in the footer */
 .selection {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid #242428;
 }
-
 
 .dropdown-wrapper {
   position: relative;
@@ -332,20 +338,53 @@ img#strava-logo-footer {
 .language-dropdown {
   position: absolute;
   /* Position above the button */
-  bottom: 108px;
+  /* bottom: 108px; */
   /* bottom: 100%; */
-  top: initial;
+  /* top: initial; */
+  top: 290px !important;
+  z-index: 1;
+
   list-style: none;
   padding: 0;
   margin: 0;
-  background-color: #fff; /* Customize the dropdown style as needed */
-  border: 1px solid #ccc; /* Add borders, padding, and styling as desired */
-  max-height: 460px; /* Set the maximum height for the dropdown */
-  overflow-y: auto; /* Enable vertical scrolling when the content exceeds the max height */
-  scrollbar-width: thin; /* Set the scrollbar to be thinner (Firefox) */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  max-height: 460px;
+  overflow-y: auto;
+  scrollbar-width: thin;
   border-radius: 4px;
 }
-/* Footer.css */
+
+button#languages-btn {
+  background-color: #fff;
+  color: #000;
+  position: relative;
+  display: inline-block;
+  font-size: 13px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+button#languages-btn:hover {
+  color: #000;
+  background-color: #e6e6e6;
+  border-color: #e0e0e0;
+}
+
+button#languages-btn:focus {
+  outline: 2px rgba(0,127,182,0.5) solid;
+    outline-offset: 1px;
+}
+
+.languages-dropdown-icon {
+  margin-top: -2px;
+  margin-left: 5px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #242428;
+}
 
 /* Webkit (Chrome, Safari) */
 .language-dropdown::-webkit-scrollbar {
@@ -361,8 +400,10 @@ img#strava-logo-footer {
   background-color: #fff; /* Set the color of the scrollbar track */
 }
 
-
-
+ul.language-dropdown button {
+  width: 100%;
+  display: flex;
+}
 
 @media screen and (max-width: 992px){
   /* Showing the dropdown items content by default when the hamburger is open. */
@@ -411,3 +452,4 @@ img#strava-logo-footer {
   }
 
 }
+
