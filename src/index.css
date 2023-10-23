@@ -6,6 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f9f8f5 !important;
+  font-size: 14px;
+  line-height: 18px;
 }
 
 /* When text is highlight apply style */
@@ -25,19 +27,17 @@ code {
 
 /* Making header fixed for scrolling*/
 nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
-    height: 55px;
-    /* position: fixed;
-    top: 0;
-    left: 0;
-    right: 0; */
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
-    background-color: #f7f7fa;
+  height: 55px;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.068);
 }
 
 /* container that wraps around the nav elements */
 div.container-fluid {
   height: 55px !important; 
-  max-width: 1248px !important;
+  max-width: 1206px !important;
   display: flex;
   align-items: center;
  }
@@ -300,9 +300,20 @@ button.icon-button {
 }
 
 /* footer styles */
+footer h4 {
+  font-size: 20px !important;
+  line-height: 18px;
+  color: #000;
+}
+
 #promos-footer {
   background-color: #fff;
   color: #494950;
+  padding: 24px 0;
+}
+
+.col-md-4.promo {
+  padding: 16px;
 }
 
 .main-footer {
@@ -315,8 +326,25 @@ button.icon-button {
   padding: 20px;
 }
 .main-footer a {
+  color: #6d6d78;
+  text-decoration: none;
+}
+
+#promos-footer .light {
+  color: #6d6d78;
+}
+
+#promos-footer .promo a {
   color: #494950;
   text-decoration: none;
+}
+
+.row {
+  margin-left: -16px;
+  margin-right: -16px;
+}
+.main-footer li {
+  padding-bottom: 5px;
 }
 
 img#strava-logo-footer {
@@ -337,13 +365,8 @@ img#strava-logo-footer {
 
 .language-dropdown {
   position: absolute;
-  /* Position above the button */
-  /* bottom: 108px; */
-  /* bottom: 100%; */
-  /* top: initial; */
-  top: 290px !important;
+  top: 100%;
   z-index: 1;
-
   list-style: none;
   padding: 0;
   margin: 0;
@@ -405,6 +428,18 @@ ul.language-dropdown button {
   display: flex;
 }
 
+@media screen and (max-width: 1880px) {
+  .language-dropdown {
+    top: 238px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .language-dropdown {
+    top: 282px;
+  }
+}
+
 @media screen and (max-width: 992px){
   /* Showing the dropdown items content by default when the hamburger is open. */
   .dropdown-menu.show {
@@ -450,6 +485,27 @@ ul.language-dropdown button {
     width: 100%;
     display: block;
   }
-
 }
 
+@media screen and (max-width: 768px) {
+  .language-dropdown {
+    top: 396px;
+  }
+
+  img#strava-logo-footer {
+    padding-right: 40px;
+    margin-top: -58px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .language-dropdown {
+    top: 1196px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .language-dropdown {
+    top: 1266px;
+  }
+}

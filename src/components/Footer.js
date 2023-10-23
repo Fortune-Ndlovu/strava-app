@@ -24,12 +24,12 @@ const Footer = () => {
             <div id="promos-footer">
                 <div className="container">
                     <div className="row">
-                    <div className="col-md-3">
+                    <div className="col-md-4 promo">
                         <h4 className="topless">Your Recent Activities</h4>
                         <p className="light">No recent activities found</p>
-                        <p className="light">No recent activities found</p>
+                        <a href="#home">Upload an activity</a>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-4 promo">
                         <h4 className="topless">Strava Stories</h4>
                         <p>
                             With athlete profiles, training tips and advice, and the latest product updates, <a href="https://stories.strava.com">Strava Stories</a> is the place to discover the latest content from Strava.
