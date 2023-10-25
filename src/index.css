@@ -427,6 +427,14 @@ ul.language-dropdown button {
   width: 100%;
   display: flex;
 }
+select {
+  position: relative;
+}
+
+select option {
+  position: absolute;
+  top: 100%;
+}
 
 @media screen and (max-width: 1880px) {
   .language-dropdown {
