@@ -17,8 +17,7 @@ const Footer = () => {
                         <div className="col-md-4 promo">
                             <h4 className="topless">Strava Stories</h4>
                             <p>
-                                With athlete profiles, training tips and advice, and the latest product updates,
-                                <a href="https://stories.strava.com">Strava Stories</a>
+                                With athlete profiles, training tips and advice, and the latest product updates, <a href="#">Strava Stories</a>
                                 is the place to discover the latest content from Strava.
                             </p>
                         </div>
@@ -39,8 +38,7 @@ const Footer = () => {
                                     height={95}/>
                             </Navbar.Brand>
                             <p>&copy; 2023 Strava</p>
-                            {/* You can replace this with the Strava logo */}
-                        </div>
+                            {/* You can replace this with the Strava logo */} </div>
                         <div className="col-md-2">
                             <h5>About</h5>
                             <ul className="list-unstyled">
@@ -97,19 +95,19 @@ const Footer = () => {
                             <h5>Follow</h5>
                             <ul className="list-unstyled">
                                 <li>
-                                    <a href="http://www.facebook.com/Strava">Facebook</a>
+                                    <a href="#home">Facebook</a>
                                 </li>
                                 <li>
-                                    <a href="http://instagram.com/strava">Instagram</a>
+                                    <a href="#home">Instagram</a>
                                 </li>
                                 <li>
-                                    <a href="http://twitter.com/strava">Twitter</a>
+                                    <a href="#home">Twitter</a>
                                 </li>
                                 <li>
-                                    <a href="http://www.youtube.com/stravainc">YouTube</a>
+                                    <a href="#home">YouTube</a>
                                 </li>
                                 <li>
-                                    <a href="https://www.linkedin.com/company/strava-inc./">LinkedIn</a>
+                                    <a href="#home">LinkedIn</a>
                                 </li>
                                 <li>
                                     <a href="https://stories.strava.com">Stories</a>
@@ -147,15 +145,23 @@ const Footer = () => {
                                 </li>
                                 {/* Render the language dropdown when the button is clicked */}
                                 <li>
-                                    <div class="custom-dropdown">
-                                        <select name="pets" id="pet-select">
-                                        <option value="dog">English (US)</option>
-                                        <option value="dog">Dog</option>
-                                        <option value="cat">Cat</option>
-                                        <option value="hamster">Hamster</option>
-                                        <option value="parrot">Parrot</option>
-                                        <option value="spider">Spider</option>
-                                        <option value="goldfish">Goldfish</option>
+                                    <div className="languages-dropdown">
+                                        <select name="languages" id="languages-select">
+                                            <option value="English (US)">English (US)</option>
+                                            <option value="British English">British English</option>
+                                            <option value="Deutsch">Deutsch</option>
+                                            <option value="English (US)">English (US)</option>
+                                            <option value="español">español</option>
+                                            <option value="español latinoamericano">español latinoamericano</option>
+                                            <option value="français">français</option>
+                                            <option value="italiano">italiano</option>
+                                            <option value="Nederlands">Nederlands</option>
+                                            <option value="português">português</option>
+                                            <option value="português do Brasil">português do Brasil</option>
+                                            <option value="русский">русский</option>
+                                            <option value="日本語">日本語</option>
+                                            <option value="简体中文">简体中文</option>
+                                            <option value="繁體中文">繁體中文</option>
                                         </select>
                                     </div>
                                 </li>
