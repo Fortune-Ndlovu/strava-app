@@ -8,6 +8,9 @@ import { getActivities, getAthleteData } from './stravaApi';
 import config from './config.json';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import LeftDashboardAthleteSidebar from './components/LeftDashboardAthleteSidebar';
+import CenterDashboardAthleteSidebar from './components/CenterDashboardAthleteSidebar';
+import RightDashboardAthleteSidebar from './components/RightDashboardAthleteSidebar';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -55,35 +58,26 @@ function App() {
 
   }, [clientID, clientSecret, refreshToken]); //When any of these dependencies change, the useEffect hook will re-run.
 
-  function showActivities() {
-    if (isLoading) return <p>LOADING...</p>;
-    return <p>Number of Activities: {activities.length}</p>;
-  }
 
-  function showAthleteData() {
-    if (isLoading) return <p>LOADING...</p>;
-    return (
-      <div>
-        <p>Name: {athlete.firstname} {athlete.lastname}</p>
-        <p>Bio: {athlete.bio}</p>
-        <p>City: {athlete.city}</p>
-      </div>
-    );
-  }
 
   return (
     <div className="App">
       <Header />
-      <div>
-        <h2>Your Activities</h2>
-
-        {showActivities()}
+      <div className="dashboard-container">
+        <div className="LeftDashboardAthleteSidebar">
+          <h2>Your Activities</h2>
+          <LeftDashboardAthleteSidebar athlete={athlete} activities={activities} isLoading={isLoading} />
+        </div>
+        <div className="CenterDashboardAthleteSidebar">
+          <h2>Main Dashboard</h2>
+          <CenterDashboardAthleteSidebar athlete={athlete} activities={activities} isLoading={isLoading} />
+        </div>
+        <div className="RightDashboardAthleteSidebar">
+          <h2>Challenges</h2>
+          <RightDashboardAthleteSidebar athlete={athlete} activities={activities} isLoading={isLoading} />
+        </div>
       </div>
-      <div>
-        <h2>Your Profile</h2>
-        {showAthleteData()}
-      </div>
-      <Footer />
+        <Footer />
     </div>
   );
 }
