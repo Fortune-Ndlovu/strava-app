@@ -415,6 +415,22 @@ select#languages-select {
   width: 120%; 
 }
 
+/* LeftDashboardAthleteSidebar component */
+img.card-img-top {
+  border-radius: 50%;
+  /* display: block; */
+  height: 100%;
+  /* object-fit: cover; */
+  /* object-position: center; */
+  width: 100%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 111px;
+  margin-top: -30px;
+}
 @media screen and (max-width: 1880px) {
   .language-dropdown {
     top: 238px;

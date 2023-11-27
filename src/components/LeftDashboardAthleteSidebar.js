@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+import fortunendlovu from '../images/fortunendlovu.jpg';
 
 function LeftDashboardAthleteSidebar({ athlete, activities, isLoading }) {
   return (
@@ -7,13 +10,22 @@ function LeftDashboardAthleteSidebar({ athlete, activities, isLoading }) {
       {isLoading ? (
         <p>LOADING...</p>
       ) : (
-        <div>
-          <div>
-            <p>Number of Activities: {activities.length}</p>
-          </div>
-          <p>Name: {athlete.firstname} {athlete.lastname}</p>
-          <p>Bio: {athlete.bio}</p>
-          <p>City: {athlete.city}</p>
+        <div>            
+            <Card style={{ width: '18rem' }}>
+              <Card.Img variant="top" src={fortunendlovu} className="mx-auto d-block" />
+              <Card.Body>
+                <Card.Title>{athlete.firstname} {athlete.lastname}</Card.Title>
+                <Card.Text>
+                  {activities.length}
+                </Card.Text>
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item>Latest Activity</ListGroup.Item>
+              </ListGroup>
+              <Card.Body>
+                <Card.Link href="#">Your Training Log</Card.Link>
+              </Card.Body>
+            </Card>
         </div>
       )}
     </div>
