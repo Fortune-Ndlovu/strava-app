@@ -68,11 +68,9 @@ function App() {
           <LeftDashboardAthleteSidebar athlete={athlete} activities={activities} isLoading={isLoading} />
         </div>
         <div className="CenterDashboardAthleteSidebar">
-          <h2>Main Dashboard</h2>
           <CenterDashboardAthleteSidebar athlete={athlete} activities={activities} isLoading={isLoading} />
         </div>
         <div className="RightDashboardAthleteSidebar">
-          <h2>Challenges</h2>
           <RightDashboardAthleteSidebar athlete={athlete} activities={activities} isLoading={isLoading} />
         </div>
       </div>

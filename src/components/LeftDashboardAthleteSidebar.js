@@ -21,7 +21,9 @@ function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
             isLoading ? (
                 <p>LOADING...</p>
             ) : (
-                <div>
+                <div className="LeftDashboardAthleteSidebarWrapper" style={
+                    {width: '18rem'}
+                    }>
                     <Card className="athlete-stats-card"
                         style={
                             {width: '18rem'}

@@ -539,6 +539,10 @@ ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
   outline-offset: 1px;
 }
 
+.LeftDashboardAthleteSidebarWrapper {
+  float: right;
+}
+
 @media screen and (max-width: 1880px) {
   .language-dropdown {
     top: 238px;
