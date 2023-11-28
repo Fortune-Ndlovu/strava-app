@@ -416,6 +416,10 @@ select#languages-select {
 }
 
 /* LeftDashboardAthleteSidebar component */
+.athlete-stats-card {
+  margin-bottom: 20px;
+}
+
 img.card-img-top {
   border-radius: 50%;
   width: 64px;
@@ -423,6 +427,73 @@ img.card-img-top {
   margin-top: -30px;
 }
 
+.card-title.h5 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  line-height: 110%;
+  font-weight: 800;
+  text-align: center;
+}
+
+.dashboard-stats {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: row;
+  align-items: stretch;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  flex-wrap: nowrap;
+}
+
+.dashboard-stats span {
+  font-size: 12px;
+  line-height: 16px;
+  color: #525252;
+  font-weight: 300;
+}
+
+svg.trainingLogIcon {
+  font-size: 32px;
+  rotate: -90deg;
+  margin-left: 90px;
+}
+
+.dashboard-stats li {
+  width: 33.333%;
+  justify-content: center;
+  position: relative;
+  display: flex;
+  border-right: 1px solid #f0f0f5;
+  margin: 0 !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+li.activities-stat {
+  border-right: none;
+}
+
+.dashboard-stats a,
+.list-group-flush a,
+.training-log .card-link{
+  text-decoration: none;
+  color: #525252;
+}
+
+.training-log .card-link:hover,
+.dashboard-stats p:hover {
+  color: #0d6efd;
+}
+.dashboard-stats p {
+  color: #000;
+}
+
+.list-group-flush a:hover {
+  color: #fc5200;
+}
 @media screen and (max-width: 1880px) {
   .language-dropdown {
     top: 238px;

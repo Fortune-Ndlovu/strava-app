@@ -65,7 +65,6 @@ function App() {
       <Header />
       <div className="dashboard-container">
         <div className="LeftDashboardAthleteSidebar">
-          <h2>Your Activities</h2>
           <LeftDashboardAthleteSidebar athlete={athlete} activities={activities} isLoading={isLoading} />
         </div>
         <div className="CenterDashboardAthleteSidebar">
