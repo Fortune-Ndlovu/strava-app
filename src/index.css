@@ -32,6 +32,7 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
   position: fixed;
   top: 0px;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.068);
+  z-index: 1;
 }
 
 /* container that wraps around the nav elements */
@@ -402,32 +403,145 @@ select#languages-select {
     outline-offset: 1px;
 }
 
-/* Webkit (Chrome, Safari) */
-/* #languages-select::-webkit-scrollbar {
-  width: 3px; 
-}
-
-#languages-select option::-webkit-scrollbar-thumb {
-  background-color: #494950; 
-  border-radius: 4px;
-}
-
-.language-dropdown::-webkit-scrollbar-track {
-  background-color: #fff; 
-} */
-
-/* ul.language-dropdown button {
-  width: 100%;
+/* Home Dashboard styling */
+.dashboard-container {
   display: flex;
-}
-select {
-  position: relative;
+  justify-content: space-between;
+  margin-top: 100px;
+  gap: 30px;
 }
 
-select option {
-  position: absolute;
-  top: 100%;
-} */
+.LeftDashboardAthleteSidebar,
+.RightDashboardAthleteSidebar {
+  width: 120%; 
+}
+
+/* LeftDashboardAthleteSidebar component */
+.athlete-stats-card {
+  margin-bottom: 20px;
+}
+
+img.card-img-top {
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  margin-top: -30px;
+}
+
+.card-title.h5 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  line-height: 110%;
+  font-weight: 800;
+  text-align: center;
+}
+
+.dashboard-stats {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: row;
+  align-items: stretch;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  flex-wrap: nowrap;
+}
+
+.dashboard-stats span {
+  font-size: 12px;
+  line-height: 16px;
+  color: #525252;
+  font-weight: 300;
+}
+
+svg.trainingLogIcon {
+  font-size: 32px;
+  rotate: -90deg;
+  margin-left: 90px;
+}
+
+.dashboard-stats li {
+  width: 33.333%;
+  justify-content: center;
+  position: relative;
+  display: flex;
+  border-right: 1px solid #f0f0f5;
+  margin: 0 !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+li.activities-stat {
+  border-right: none;
+}
+
+.dashboard-stats a,
+.list-group-flush a,
+.training-log .card-link{
+  text-decoration: none;
+  color: #525252;
+}
+
+.training-log .card-link:hover,
+.dashboard-stats p:hover {
+  color: #0d6efd;
+}
+.dashboard-stats p {
+  color: #000;
+}
+
+.list-group-flush a:hover {
+  color: #fc5200;
+}
+
+svg.informationIcon {
+  margin-left: 144px;
+  font-size: 18px;
+}
+
+.relativeEffortTitleStyle {
+  background-color: white;
+  width: 18rem;
+  padding-top: 10px;
+}
+
+.arrowIcon {
+  font-size: 22px;
+  color: #fc5200;
+}
+
+ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
+  margin-bottom: 0!important;
+}
+
+#recoveryWeekImg {
+  width: 100%;
+  height: 129px;
+  margin-bottom: 24px;
+}
+
+#startFreeTrialBtn {
+  width: 100%;
+  background-color: #ffffff;
+  color: #000;
+  border-color: #f0f0f5;
+}
+
+#startFreeTrialBtn:hover, #startFreeTrialBtn:active, #startFreeTrialBtn:focus  {
+  background-color: #f0f0f5;
+  color: #000;
+}
+
+#startFreeTrialBtn:focus {
+  outline: 2px rgba(0,127,182,0.5) solid;
+  outline-offset: 1px;
+}
+
+.LeftDashboardAthleteSidebarWrapper {
+  float: right;
+}
 
 @media screen and (max-width: 1880px) {
   .language-dropdown {
