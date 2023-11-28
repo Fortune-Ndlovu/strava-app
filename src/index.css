@@ -32,6 +32,7 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
   position: fixed;
   top: 0px;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.068);
+  z-index: 1;
 }
 
 /* container that wraps around the nav elements */
@@ -494,6 +495,50 @@ li.activities-stat {
 .list-group-flush a:hover {
   color: #fc5200;
 }
+
+svg.informationIcon {
+  margin-left: 144px;
+  font-size: 18px;
+}
+
+.relativeEffortTitleStyle {
+  background-color: white;
+  width: 18rem;
+  padding-top: 10px;
+}
+
+.arrowIcon {
+  font-size: 22px;
+  color: #fc5200;
+}
+
+ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
+  margin-bottom: 0!important;
+}
+
+#recoveryWeekImg {
+  width: 100%;
+  height: 129px;
+  margin-bottom: 24px;
+}
+
+#startFreeTrialBtn {
+  width: 100%;
+  background-color: #ffffff;
+  color: #000;
+  border-color: #f0f0f5;
+}
+
+#startFreeTrialBtn:hover, #startFreeTrialBtn:active, #startFreeTrialBtn:focus  {
+  background-color: #f0f0f5;
+  color: #000;
+}
+
+#startFreeTrialBtn:focus {
+  outline: 2px rgba(0,127,182,0.5) solid;
+  outline-offset: 1px;
+}
+
 @media screen and (max-width: 1880px) {
   .language-dropdown {
     top: 238px;

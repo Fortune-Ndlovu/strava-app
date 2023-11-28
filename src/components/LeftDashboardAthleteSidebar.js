@@ -14,7 +14,6 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import fortunendlovu from '../images/fortunendlovu.jpg';
 import recoveryweek from '../images/recoveryweek.png';
-import {ListGroupItem} from 'react-bootstrap';
 
 function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
     return (
@@ -31,12 +30,10 @@ function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
                             src={fortunendlovu}
                             className="mx-auto d-block"/>
                         <Card.Body>
-                            <Card.Title>{
-                                athlete.firstname
-                            }
-                                {
-                                athlete.lastname
-                            }</Card.Title>
+                            <Card.Title>
+                                    {athlete.firstname}{" "}
+                                    {athlete.lastname}
+                            </Card.Title>
                             <Card.Text>
                                 <ul className="dashboard-stats">
                                     <li className="following-stat">
@@ -89,14 +86,16 @@ function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
                             {width: '18rem'}
                         }
                         defaultActiveKey="profile"
-                        id="fill-tab-example"
-                        className="mb-3"
+                        id="fill-tab-recoveryWeek"
+                        className="mb-3 recoveryWeek"
                         fill>
                         <Tab eventKey="home"
-                            title={<CgNotes/>}>
-                            <MdDoubleArrow/>
-                            Relative Effort
-                            <IoIosInformationCircleOutline/>
+                                title={<CgNotes />}>
+                            <div className="relativeEffortTitleStyle">        
+                                <MdDoubleArrow className="arrowIcon"/>
+                                Relative Effort
+                                <IoIosInformationCircleOutline className="informationIcon"/>
+                            </div>
                             <Card style={
                                 {width: '18rem'}
                             }>
@@ -109,12 +108,12 @@ function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
                                     <Card.Text>
                                         Based on your heart rate data, your training last week was less intense than usual. Way to recover intelligently.
                                     </Card.Text>
-                                    <Card.Img variant="top"
+                                    <Card.Img variant="top" id="recoveryWeekImg"
                                         src={recoveryweek}/>
                                     <Card.Text>
                                         To get current insights and analysis from features like Relative Effort, try a subscription for free.
                                     </Card.Text>
-                                    <Button variant="primary">Go somewhere</Button>
+                                    <Button variant="primary" id="startFreeTrialBtn">Go somewhere</Button>
                                 </Card.Body>
                                 <Card.Body className="training-log">
                                     
