@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div id="promos-footer">
-                <div className="container">
+                <div className="container footerMaxWidth">
                     <div className="row">
                         <div className="col-md-4 promo">
                             <h4 className="topless">Your Recent Activities</h4>
@@ -23,11 +23,10 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div className="main-footer">
-                <div className="container">
+                <div className="container footerMaxWidth">
                     <div className="row">
                         <div className="col-md-2">
                             <Navbar.Brand title="Return to the Strava home page" href="#home" id="footer-strava-logo">

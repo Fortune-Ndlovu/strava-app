@@ -38,7 +38,7 @@ nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
 /* container that wraps around the nav elements */
 div.container-fluid {
   height: 55px !important; 
-  max-width: 1206px !important;
+  max-width: 1260px !important;
   display: flex;
   align-items: center;
  }
@@ -411,11 +411,6 @@ select#languages-select {
   gap: 30px;
 }
 
-.LeftDashboardAthleteSidebar,
-.RightDashboardAthleteSidebar {
-  width: 120%; 
-}
-
 /* LeftDashboardAthleteSidebar component */
 .athlete-stats-card {
   margin-bottom: 20px;
@@ -539,8 +534,12 @@ ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
   outline-offset: 1px;
 }
 
-.LeftDashboardAthleteSidebarWrapper {
-  float: right;
+/* Home page structure */
+.App .mt-5.container,
+.container.footerMaxWidth {
+  max-width: 1254px !important;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 @media screen and (max-width: 1880px) {
@@ -549,10 +548,32 @@ ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .RightDashboardAthleteSidebar-Col {
+    display: none;
+  }
+
+  .centerResize.col-lg-6.col-md-12.col-12 {
+    width: 63%;
+  }
+
+div.container-fluid,
+.container.footerMaxWidth {
+  max-width: 1040px !important;
+}
+}
+
+@media screen and (max-width: 1091px) {
+  .centerResize.col-lg-6.col-md-12.col-12 {
+    width: 73%;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .language-dropdown {
     top: 282px;
   }
+
 }
 
 @media screen and (max-width: 992px){
@@ -564,7 +585,13 @@ ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
   .dropdownEffect {
     border: none;
   }
-
+ /* home page break points */
+  .LeftDashboardAthleteSidebar-Col {
+    display: none;
+  }
+  .centerResize.col-lg-6.col-md-12.col-12 {
+    width: 100%;
+}
   /* Displaying the start trial btn center and breathing space top & bottom. */
   .start-trial-btn {
     margin: auto;
