@@ -29,7 +29,7 @@ function CenterDashboardAthleteSidebar({athlete, activities, isLoading}) {
                         </select>
                     </div>
                     <Card style={
-                        {width: '40rem'}
+                        {width: 'auto'}
                     }>
                         <Card.Body>
                             <Card.Title>

@@ -12,9 +12,7 @@ function RightDashboardAthleteSidebar({isLoading}) {
                 <p>LOADING...</p>
             ) : (
                 <div>
-                    <Card style={
-                        {width: '18rem'}
-                    }>
+                    <Card>
                         <Card.Header>Challenges</Card.Header>
                         <ListGroup variant="flush">
                             <ListGroup.Item>Join a run or cycling Challenge to stay on top of your game, earn new achievements and see how you stack up.

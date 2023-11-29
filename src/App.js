@@ -61,39 +61,44 @@ function App() {
         <div className="App">
             <Header/>
             <div className="dashboard-container">
+                    <Container className="mt-5">
+                <div id="text">
+                        <Row className="justify-content-center">
+                            <Col xs={12}
+                                md={6}
+                                lg={3}
+                                className="LeftDashboardAthleteSidebar-Col"
+                            >
 
-                <Container className="mt-5">
-                    <Row className="justify-content-center">
-                        <Col xs={12}
-                            md={6}
-                            lg={4}>
-
-                            <div className="LeftDashboardAthleteSidebar">
-                                <LeftDashboardAthleteSidebar athlete={athlete}
-                                    activities={activities}
-                                    isLoading={isLoading}/>
-                            </div>
-                        </Col>
-                        <Col xs={12}
-                            md={6}
-                            lg={4}>
-                            <div className="CenterDashboardAthleteSidebar">
-                                <CenterDashboardAthleteSidebar athlete={athlete}
-                                    activities={activities}
-                                    isLoading={isLoading}/>
-                            </div>
-                        </Col>
-                        <Col xs={12}
-                            md={6}
-                            lg={4}>
-                            <div className="RightDashboardAthleteSidebar">
-                                <RightDashboardAthleteSidebar athlete={athlete}
-                                    activities={activities}
-                                    isLoading={isLoading}/>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
+                                <div className="LeftDashboardAthleteSidebar">
+                                    <LeftDashboardAthleteSidebar athlete={athlete}
+                                        activities={activities}
+                                        isLoading={isLoading}/>
+                                </div>
+                            </Col>
+                            <Col xs={12}
+                                md={12}
+                                lg={6}
+                                className="centerResize">
+                                <div className="CenterDashboardAthleteSidebar">
+                                    <CenterDashboardAthleteSidebar athlete={athlete}
+                                        activities={activities}
+                                        isLoading={isLoading}/>
+                                </div>
+                            </Col>
+                            <Col xs={12}
+                                md={6}
+                                lg={3}
+                                className="RightDashboardAthleteSidebar-Col">
+                                <div className="RightDashboardAthleteSidebar">
+                                    <RightDashboardAthleteSidebar athlete={athlete}
+                                        activities={activities}
+                                        isLoading={isLoading}/>
+                                </div>
+                            </Col>
+                        </Row>
+                </div>
+                    </Container>
             </div>
             <Footer/>
         </div>
