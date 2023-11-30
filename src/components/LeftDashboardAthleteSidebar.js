@@ -11,9 +11,9 @@ import Tabs from 'react-bootstrap/Tabs';
 import fortunendlovu from '../images/fortunendlovu.jpg';
 import recoveryweek from '../images/recoveryweek.png';
 
-function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
-    return (<div> {
-        isLoading ? (<p>LOADING...</p>) : (<div>
+function LeftDashboardAthleteSidebar({athlete, activities}) {
+    return (
+        <div>
             <Card className="athlete-stats-card">
                 <Card.Img variant="top"
                     src={fortunendlovu}
@@ -78,7 +78,7 @@ function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
             <Tabs style={
                     {width: '18rem'}
                 }
-                defaultActiveKey="recoveryWeek"
+                defaultActiveKey="profile"
                 id="fill-tab-recoveryWeek"
                 className="mb-3 recoveryWeek"
                 fill>
@@ -260,8 +260,8 @@ function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
                     </Card>
                 </Tab>
             </Tabs>
-        </div>)
-    } </div>);
+        </div>
+    );
 }
 
 LeftDashboardAthleteSidebar.propTypes = {
@@ -274,8 +274,7 @@ LeftDashboardAthleteSidebar.propTypes = {
             // Add other properties as needed
         }
     ).isRequired,
-    activities: PropTypes.array.isRequired,
-    isLoading: PropTypes.bool.isRequired
+    activities: PropTypes.array.isRequired
 };
 
 export default LeftDashboardAthleteSidebar;
