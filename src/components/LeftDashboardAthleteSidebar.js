@@ -57,12 +57,12 @@ function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroup.Item>Latest Activity
+                    <ListGroup.Item><span className="latestActivityText">Latest Activity</span>
                         <br></br>
                         <a href="home">
                             <strong>Morning run
                             </strong>
-                            <span>
+                            <span className="dotSpan">
                                 •
                             </span>
                             <time dateTime="Sep 22, 2023">Sep 22, 2023</time>
@@ -78,7 +78,7 @@ function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
             <Tabs style={
                     {width: '18rem'}
                 }
-                defaultActiveKey="profile"
+                defaultActiveKey="recoveryWeek"
                 id="fill-tab-recoveryWeek"
                 className="mb-3 recoveryWeek"
                 fill>
@@ -94,10 +94,10 @@ function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
                     } id="recoveryWeek-cardStyle">
 
                         <Card.Body>
-                            <Card.Text>
+                            <Card.Text className="recoveryLastWeekText">
                                 LAST WEEK
                             </Card.Text>
-                            <Card.Title>Recovery Week</Card.Title>
+                            <Card.Title className="recoveryLastWeekTitle">Recovery Week</Card.Title>
                             <Card.Text>
                                 Based on your heart rate data, your training last week was less intense than usual. Way to recover intelligently.
                             </Card.Text>
