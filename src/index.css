@@ -8,6 +8,7 @@ body {
   background-color: #f9f8f5 !important;
   font-size: 14px;
   line-height: 18px;
+  color: #000;
 }
 
 /* When text is highlight apply style */
@@ -551,6 +552,9 @@ svg.informationIcon {
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
+
+  display: flex;
+
 }
 
 .arrowIcon {
@@ -582,6 +586,82 @@ ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
 #startFreeTrialBtn:focus {
   outline: 2px rgba(0,127,182,0.5) solid;
   outline-offset: 1px;
+}
+
+/* Goals tab */
+.relativeEffortTitleStyle p {
+  font-size: 12px;
+  color: grey;
+}
+
+.goals-tab-text {
+  background-color: #f9f8f5;
+  padding: 1rem;
+}
+
+.goals-tab-text p {
+  margin-bottom: 0px;
+  line-height: initial;
+}
+
+.thisWeek-para {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.thisWeek-numbers {
+  font-size: 20px;
+}
+
+.goals-tab-stats {
+  line-height: initial;
+}
+
+.goals-tab-text a {
+  color: #fc5200;
+  text-decoration: none;
+}
+
+.goals-tab-text a:hover {
+  text-decoration: underline;
+}
+
+.goals-tab-cardText {
+  border-bottom: 1px solid #f0f0f5;
+  padding-bottom: 20px;
+}
+
+p.weekStats-cardText.card-text,
+p.weekStats-cardText-second.card-text {
+  text-align: center;
+}
+
+p.weekStats-cardText-second.card-text {
+  border-top: 1px solid #f0f0f5;
+  border-bottom: 10px solid #d3d1cd;
+  padding-top: 20px;
+  margin-bottom: 40px;
+}
+
+.goals-tab-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#rangeSpan {
+  padding-right: 10px;
+}
+
+#mileSpan {
+  border-left: 2px solid #f3f2ed;
+  padding-left: 10px;
+}
+
+svg.runningIcon, 
+svg.bikingIcon,
+svg.swimmingWaveIcon {
+  margin-left: 20px;
 }
 
 /* Home page structure */
