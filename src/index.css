@@ -318,10 +318,6 @@ footer h4 {
 }
 
 .main-footer {
-  /* position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0; */
   background-color: #f9f8f5;
   color: #494950;
   padding: 20px;
@@ -416,7 +412,7 @@ select#languages-select {
   margin-bottom: 20px;
 }
 
-img.card-img-top {
+#athleteStatsCardImg {
   border-radius: 50%;
   width: 64px;
   height: 64px;
@@ -512,9 +508,7 @@ ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
 }
 
 #recoveryWeekImg {
-  width: 100%;
-  height: 129px;
-  margin-bottom: 24px;
+  padding-bottom: 24px;
 }
 
 #startFreeTrialBtn {
