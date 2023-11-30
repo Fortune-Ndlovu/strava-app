@@ -484,7 +484,7 @@ a#goals-log-link  .trainingLogIcon {
 #goals-log-link:hover .trainingLogIcon {
   opacity: 2;
   transform: translateY(2.5px) scale(1.5);
-  transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+  transition: opacity 0.2s ease-in, transform 0.2s ease-in;
 }
 
 
