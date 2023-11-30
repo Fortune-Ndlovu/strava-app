@@ -21,7 +21,8 @@ function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
             <Card className="athlete-stats-card">
                 <Card.Img variant="top"
                     src={fortunendlovu}
-                    className="mx-auto d-block" id="athleteStatsCardImg"/>
+                    className="mx-auto d-block"
+                    id="athleteStatsCardImg"/>
                 <Card.Body>
                     <Card.Title> {
                         athlete.firstname
@@ -94,7 +95,7 @@ function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
                     </div>
                     <Card style={
                         {width: '18rem'}
-                    }>
+                    } id="recoveryWeek-cardStyle">
 
                         <Card.Body>
                             <Card.Text>

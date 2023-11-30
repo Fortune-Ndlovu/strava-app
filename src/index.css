@@ -408,12 +408,20 @@ select#languages-select {
 }
 
 /* LeftDashboardAthleteSidebar component */
-.athlete-stats-card.card {
+.athlete-stats-card.card,
+.card {
   background-color: #fff;
     box-shadow: 0 8px 24px rgba(13,13,18,.04);
     position: relative;
     border: none;
 }
+#recoveryWeek-cardStyle {
+  background-color: #fff;
+    box-shadow: 0 8px 24px rgba(13,13,18,.04);
+    border: none;
+}
+/* second half of the LeftDashboardAthleteSidebar */
+
 
 .athlete-stats-card {
   margin-bottom: 20px;
@@ -530,7 +538,7 @@ li.activities-stat {
 }
 
 svg.informationIcon {
-  margin-left: 144px;
+  margin-left: 114px;
   font-size: 18px;
 }
 
@@ -538,11 +546,14 @@ svg.informationIcon {
   background-color: white;
   width: 18rem;
   padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .arrowIcon {
   font-size: 22px;
   color: #fc5200;
+  margin-right: 8px;
 }
 
 ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
