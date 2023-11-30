@@ -16,9 +16,7 @@ const Footer = () => {
                         </div>
                         <div className="col-md-4 promo">
                             <h4 className="topless">Strava Stories</h4>
-                            <p>
-                                With athlete profiles, training tips and advice, and the latest product updates, <a href="#">Strava Stories</a>
-                                is the place to discover the latest content from Strava.
+                            <p>With athlete profiles, training tips and advice, and the latest product updates, <a href="home"> Strava Stories</a> is the place to discover the latest content from Strava.
                             </p>
                         </div>
                     </div>

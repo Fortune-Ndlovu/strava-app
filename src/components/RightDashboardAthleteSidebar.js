@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+
 function RightDashboardAthleteSidebar({isLoading}) {
     return (
         <div> {
@@ -127,7 +126,6 @@ RightDashboardAthleteSidebar.propTypes = {
             // Add other properties as needed
         }
     ).isRequired,
-    activities: PropTypes.array.isRequired,
     isLoading: PropTypes.bool.isRequired
 };
 
