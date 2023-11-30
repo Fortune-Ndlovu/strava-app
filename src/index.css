@@ -408,6 +408,13 @@ select#languages-select {
 }
 
 /* LeftDashboardAthleteSidebar component */
+.athlete-stats-card.card {
+  background-color: #fff;
+    box-shadow: 0 8px 24px rgba(13,13,18,.04);
+    position: relative;
+    border: none;
+}
+
 .athlete-stats-card {
   margin-bottom: 20px;
 }
@@ -453,7 +460,7 @@ svg.trainingLogIcon {
 }
 
 .training-log.card-body {
-  border-top: 1px solid;
+  border-top: 1px solid #f0f0f5;
 }
 
 a#goals-log-link,
