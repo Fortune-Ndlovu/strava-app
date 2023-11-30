@@ -73,7 +73,7 @@ function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
                     </ListGroup.Item>
                 </ListGroup>
                 <Card.Body className="training-log">
-                    <Card.Link href="#">Your Training Log
+                    <Card.Link href="home" id="training-log-link">Your Training Log
                         <RiArrowDropDownLine className="trainingLogIcon"/></Card.Link>
                 </Card.Body>
             </Card>
@@ -113,7 +113,7 @@ function LeftDashboardAthleteSidebar({athlete, activities, isLoading}) {
                         </Card.Body>
                         <Card.Body className="training-log">
 
-                            <Card.Link href="#">Your Training Log
+                            <Card.Link href="home" id="goals-log-link">Manage Your Goals
                                 <RiArrowDropDownLine className="trainingLogIcon"/>
                             </Card.Link>
                         </Card.Body>

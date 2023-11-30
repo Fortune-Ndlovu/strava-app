@@ -450,8 +450,43 @@ select#languages-select {
 svg.trainingLogIcon {
   font-size: 32px;
   rotate: -90deg;
-  margin-left: 90px;
 }
+
+.training-log.card-body {
+  border-top: 1px solid;
+}
+
+a#goals-log-link,
+a#training-log-link {
+  display: flex;
+  align-items: center;
+  gap: 85px;
+}
+
+a#goals-log-link  .trainingLogIcon {
+  float: right;
+}
+
+#training-log-link:hover, 
+#goals-log-link:hover {
+  color: #007FB6
+}
+
+/* smooth button transition on the LeftDashboardAthleteSidebar */
+#training-log-link .trainingLogIcon,
+#goals-log-link .trainingLogIcon {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+}
+
+#training-log-link:hover .trainingLogIcon,
+#goals-log-link:hover .trainingLogIcon {
+  opacity: 2;
+  transform: translateY(2.5px) scale(1.5);
+  transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+}
+
 
 .dashboard-stats li {
   width: 33.333%;
