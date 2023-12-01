@@ -8,6 +8,7 @@ body {
   background-color: #f9f8f5 !important;
   font-size: 14px;
   line-height: 18px;
+  color: #000;
 }
 
 /* When text is highlight apply style */
@@ -318,10 +319,6 @@ footer h4 {
 }
 
 .main-footer {
-  /* position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0; */
   background-color: #f9f8f5;
   color: #494950;
   padding: 20px;
@@ -412,11 +409,40 @@ select#languages-select {
 }
 
 /* LeftDashboardAthleteSidebar component */
+.athlete-stats-card.card,
+.card {
+  background-color: #fff;
+    box-shadow: 0 8px 24px rgba(13,13,18,.04);
+    position: relative;
+    border: none;
+}
+#recoveryWeek-cardStyle {
+  background-color: #fff;
+    box-shadow: 0 8px 24px rgba(13,13,18,.04);
+    border: none;
+}
+
+.latestActivityText {
+  font-size: 12px;
+}
+
+.dotSpan {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 12px;
+}
+
+/* second half of the LeftDashboardAthleteSidebar */
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active,
+ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
+  border: none;
+}
+
 .athlete-stats-card {
   margin-bottom: 20px;
 }
 
-img.card-img-top {
+#athleteStatsCardImg {
   border-radius: 50%;
   width: 64px;
   height: 64px;
@@ -454,8 +480,43 @@ img.card-img-top {
 svg.trainingLogIcon {
   font-size: 32px;
   rotate: -90deg;
-  margin-left: 90px;
 }
+
+.training-log.card-body {
+  border-top: 1px solid #f0f0f5;
+}
+
+a#goals-log-link,
+a#training-log-link {
+  display: flex;
+  align-items: center;
+  gap: 85px;
+}
+
+a#goals-log-link  .trainingLogIcon {
+  float: right;
+}
+
+#training-log-link:hover, 
+#goals-log-link:hover {
+  color: #007FB6
+}
+
+/* smooth button transition on the LeftDashboardAthleteSidebar */
+#training-log-link .trainingLogIcon,
+#goals-log-link .trainingLogIcon {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+}
+
+#training-log-link:hover .trainingLogIcon,
+#goals-log-link:hover .trainingLogIcon {
+  opacity: 2;
+  transform: translateY(2.5px) scale(1.5);
+  transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+}
+
 
 .dashboard-stats li {
   width: 33.333%;
@@ -492,7 +553,7 @@ li.activities-stat {
 }
 
 svg.informationIcon {
-  margin-left: 144px;
+  margin-left: 114px;
   font-size: 18px;
 }
 
@@ -500,11 +561,17 @@ svg.informationIcon {
   background-color: white;
   width: 18rem;
   padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: -10px;
+  display: flex;
+
 }
 
 .arrowIcon {
   font-size: 22px;
   color: #fc5200;
+  margin-right: 8px;
 }
 
 ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
@@ -512,9 +579,7 @@ ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
 }
 
 #recoveryWeekImg {
-  width: 100%;
-  height: 129px;
-  margin-bottom: 24px;
+  padding-bottom: 24px;
 }
 
 #startFreeTrialBtn {
@@ -534,12 +599,103 @@ ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
   outline-offset: 1px;
 }
 
+/* Goals tab */
+.relativeEffortTitleStyle p {
+  font-size: 12px;
+  color: grey;
+}
+
+.goals-tab-text {
+  background-color: #f9f8f5;
+  padding: 1rem;
+}
+
+.goals-tab-text p {
+  margin-bottom: 0px;
+  line-height: initial;
+}
+
+.thisWeek-para {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.recoveryLastWeekText {
+  font-size: 12px;
+}
+
+.recoveryLastWeekTitle.card-title.h5 {
+  color: rgb(171, 169, 165);
+  font-size: 20px;
+  text-align: start;
+}
+
+.thisWeek-numbers {
+  font-size: 20px;
+}
+
+.goals-tab-stats {
+  line-height: initial;
+}
+
+.goals-tab-text a {
+  color: #fc5200;
+  text-decoration: none;
+}
+
+.goals-tab-text a:hover {
+  text-decoration: underline;
+}
+
+.goals-tab-cardText {
+  border-bottom: 1px solid #f0f0f5;
+  padding-bottom: 20px;
+}
+
+p.weekStats-cardText.card-text,
+p.weekStats-cardText-second.card-text {
+  text-align: center;
+}
+
+p.weekStats-cardText-second.card-text {
+  border-top: 1px solid #f0f0f5;
+  border-bottom: 10px solid #d3d1cd;
+  padding-top: 20px;
+  margin-bottom: 40px;
+}
+
+.goals-tab-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#rangeSpan {
+  padding-right: 10px;
+}
+
+#mileSpan {
+  border-left: 2px solid #f3f2ed;
+  padding-left: 10px;
+}
+
+svg.runningIcon, 
+svg.bikingIcon,
+svg.swimmingWaveIcon {
+  margin-left: 20px;
+}
+
+.nav {
+  --bs-nav-link-color: #000!important;
+  --bs-nav-link-hover-color: #000!important;
+}
 /* Home page structure */
 .App .mt-5.container,
 .container.footerMaxWidth {
   max-width: 1254px !important;
   padding-right: 20px;
   padding-left: 20px;
+  padding-bottom: 4rem;
 }
 
 @media screen and (max-width: 1880px) {
