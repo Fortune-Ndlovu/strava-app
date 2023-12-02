@@ -309,19 +309,19 @@ footer h4 {
 }
 
 #promos-footer {
-  background-color: #fff;
+  background-color: #f7f7fa;
   color: #494950;
   padding: 24px 0;
 }
 
 .col-md-4.promo {
-  padding: 16px;
+  padding: 16px 16px 0px 16px;
 }
 
 .main-footer {
   background-color: #f9f8f5;
   color: #494950;
-  padding: 20px;
+  padding: 50px 20px 20px 20px;
 }
 .main-footer a {
   color: #6d6d78;
@@ -364,6 +364,21 @@ html, body {
 
 .footer {
   margin-top: auto;
+  padding-top: 40px;
+}
+
+.promo-link {
+  font-size: 15px;
+}
+
+.promo-link:hover,
+a.strava-stories-link:hover {
+  color: #007FB6!important;
+}
+
+p.strava-stories-para {
+  color: #000;
+  font-size: 15px;
 }
 
 /* Dropdown styles for for the languages button in the footer */
@@ -382,9 +397,10 @@ html, body {
   color: #000;
   position: relative;
   display: inline-block;
-  font-size: 13px;
+  font-size: 12px;
   padding-top: 0px;
   padding-bottom: 0px;
+  border: none;
 }
 select#languages-select {
   border-radius: 5px;
@@ -734,7 +750,10 @@ svg.swimmingWaveIcon {
   max-width: 1254px !important;
   padding-right: 20px;
   padding-left: 20px;
-  padding-bottom: 4rem;
+}
+
+.container.footerMaxWidth {
+  font-size: 15px;
 }
 
 /* RightDashboardAthleteSidebar component styles */
