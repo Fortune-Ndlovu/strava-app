@@ -1001,6 +1001,10 @@ a.dropdown-item {
   font-size: 28px;
   margin-right: -10px;
 }
+.uiSocialsBtn-dropdownUp-icon {
+  font-size: 28px;
+  margin-right: 0px;
+}
 
 .strava-copy-right {
   padding-top: 10px;
@@ -1044,6 +1048,13 @@ img#feed-ui-user-image {
 
 p.feed-ui-user-name {
   margin-bottom: 0px;
+  color: #525252;
+  font-weight: 700;
+}
+
+p.feed-ui-user-location {
+  font-size: 14px;
+  color: #525252;
 }
 
 @media screen and (max-width: 1880px) {
