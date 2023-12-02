@@ -67,7 +67,7 @@ function CenterDashboardAthleteSidebar({athlete, activities}) {
                                 <div className="feed-ui-card-external-socialsBtn-wrapper">
                                     <Dropdown id="uiSocialsBtn">
                                         <Dropdown.Toggle variant="success" id="uiSocialsBtn-dropdownBtn-list">
-                                            <RiArrowDropDownLine className="dropdownUp-icon"/>
+                                            <RiArrowDropDownLine className="uiSocialsBtn-dropdownUp-icon"/>
                                         </Dropdown.Toggle>
 
                                         <Dropdown.Menu id="module-btn-list-dropdown">
