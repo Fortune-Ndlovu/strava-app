@@ -698,6 +698,100 @@ svg.swimmingWaveIcon {
   padding-bottom: 4rem;
 }
 
+/* RightDashboardAthleteSidebar component styles */
+.challenges-header-wrapper,
+.find-FriendsIcon-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+}
+.view-all-friends-btn-wrapper {
+  margin-right: -26px;
+}
+.challengesIcon {
+  border: 1px solid #d3d1cd;
+  border-radius: 50%;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.find-FriendsIcon {
+    border: 1px solid #d3d1cd;
+    background-color: #fff;
+    height: -webkit-fill-available;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.challenges-wrapper h4 {
+  font-size: 18px;
+}
+.challenges-wrapper p,
+.find-Friends-wrapper p {
+  font-size: 14px;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+button.view-all-challenges-btn,
+button.view-all-friends-btn {
+  color: #fc5200;
+  background-color: rgba(0,0,0,0);
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 2px;
+}
+
+button.view-all-challenges-btn:hover,
+button.view-all-friends-btn:hover {
+  background-color: #ffe1d2;
+  color: #fc5200;
+  border: none;
+}
+
+/* RightDashboardAthleteSidebar component - Your Goals card section */
+
+h5.your-goals-heading,
+h5.find-Friends-heading {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.your-goals-image-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+img#vikingMarathonImg,
+img#witArenaImg {
+  width: 80%;
+}
+
+button.view-all-clubs-btn,
+button.view-all-clubs-btn:after {
+  background-color: #fff;
+  border-color: #b6b3ac;
+  color: #2b2b2b;
+  font-size: 14px;
+  padding: 5px 8px 5px 8px;
+  font-weight: 700;
+  margin-top: 8px;
+  border-radius: 4px;
+}
+
+button.view-all-clubs-btn:hover,
+button.view-all-clubs-btn:visited,
+button.view-all-clubs-btn:focus {
+  background-color: #e6e6e6;
+  border-color: #d3d1cd;
+  color: #2b2b2b;
+  --bs-btn-active-color: #2b2b2b;
+  --bs-btn-active-bg: #d3d1cd;
+  --bs-btn-active-border-color: #d3d1cd;
+}
+
 @media screen and (max-width: 1880px) {
   .language-dropdown {
     top: 238px;
