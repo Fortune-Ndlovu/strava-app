@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import stravaLogoFooter from '../images/stravaLogoFooter.svg'
+import Dropdown from 'react-bootstrap/Dropdown';
+import { RiArrowDropDownLine } from 'react-icons/ri';
 
 const Footer = () => {
+
+    const [selectedLanguage, setSelectedLanguage] = useState('English (US)');
+
+    const handleLanguageChange = (value) => {
+      setSelectedLanguage(value);
+    };
 
     return (
         <footer className="footer">
@@ -10,13 +18,13 @@ const Footer = () => {
                 <div className="container footerMaxWidth">
                     <div className="row">
                         <div className="col-md-4 promo">
-                            <h4 className="topless">Your Recent Activities</h4>
+                            <h4>Your Recent Activities</h4>
                             <p className="light">No recent activities found</p>
-                            <a href="#home">Upload an activity</a>
+                            <a href="#home" className="promo-link">Upload an activity</a>
                         </div>
                         <div className="col-md-4 promo">
-                            <h4 className="topless">Strava Stories</h4>
-                            <p>With athlete profiles, training tips and advice, and the latest product updates, <a href="home"> Strava Stories</a> is the place to discover the latest content from Strava.
+                            <h4 className="strava-stories-heading">Strava Stories</h4>
+                            <p className="strava-stories-para">With athlete profiles, training tips and advice, and the latest product updates, <a href="home" className="strava-stories-link"> Strava Stories</a> is the place to discover the latest content from Strava.
                             </p>
                         </div>
                     </div>
@@ -72,7 +80,7 @@ const Footer = () => {
                             <h5>Explore</h5>
                             <ul className="list-unstyled">
                                 <li>
-                                    <a href="/routes/hiking/usa">Explore</a>
+                                    <a href="/routes/hiking/usa">Routes</a>
                                 </li>
                                 <li>
                                     <a href="/events/paris-marathon">Paris 2023 Marathon</a>
@@ -115,7 +123,7 @@ const Footer = () => {
                             <h5>Help</h5>
                             <ul className="list-unstyled">
                                 <li>
-                                    <a href="https://strava.zendesk.com/home">Help</a>
+                                    <a href="https://strava.zendesk.com/home">Strava Support</a>
                                 </li>
                             </ul>
                         </div>
@@ -142,25 +150,28 @@ const Footer = () => {
                                 </li>
                                 {/* Render the language dropdown when the button is clicked */}
                                 <li>
-                                    <div className="languages-dropdown">
-                                        <select name="languages" id="languages-select">
-                                            <option value="English (US)">English (US)</option>
-                                            <option value="British English">British English</option>
-                                            <option value="Deutsch">Deutsch</option>
-                                            <option value="English (US)">English (US)</option>
-                                            <option value="español">español</option>
-                                            <option value="español latinoamericano">español latinoamericano</option>
-                                            <option value="français">français</option>
-                                            <option value="italiano">italiano</option>
-                                            <option value="Nederlands">Nederlands</option>
-                                            <option value="português">português</option>
-                                            <option value="português do Brasil">português do Brasil</option>
-                                            <option value="русский">русский</option>
-                                            <option value="日本語">日本語</option>
-                                            <option value="简体中文">简体中文</option>
-                                            <option value="繁體中文">繁體中文</option>
-                                        </select>
-                                    </div>
+                                    <Dropdown drop="up" id="dropdownUp">
+                                        <Dropdown.Toggle variant="success" id="languages-select">
+                                                    {selectedLanguage}
+                                                    <RiArrowDropDownLine className="dropdownUp-icon"/>
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu id="module-btn-list-dropdown">
+                                            <Dropdown.Item href="#/action-1" onClick={() => handleLanguageChange('English (US)')} value="English (US)">English (US)</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-1" onClick={() => handleLanguageChange('British English')} value="British English">British English</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('español')} value="español">español</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('español latinoamericano')} value="español latinoamericano">Deutsch</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('français')} value="français">français</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('italiano')} value="italiano">italiano</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('Nederlands')} value="Nederlands">Nederlands</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('português')} value="português">português</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('português do Brasil')} value="português do Brasil">português do Brasil</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('русский')} value="русский">русский</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('日本語')} value="日本語">日本語</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('简体中文')} value="简体中文">简体中文</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('繁體中文')} value="繁體中文">繁體中文</Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
                                 </li>
                             </ul>
                         </div>

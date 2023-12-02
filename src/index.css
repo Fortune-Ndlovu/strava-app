@@ -309,19 +309,19 @@ footer h4 {
 }
 
 #promos-footer {
-  background-color: #fff;
+  background-color: #f7f7fa;
   color: #494950;
   padding: 24px 0;
 }
 
 .col-md-4.promo {
-  padding: 16px;
+  padding: 16px 16px 0px 16px;
 }
 
 .main-footer {
   background-color: #f9f8f5;
   color: #494950;
-  padding: 20px;
+  padding: 50px 20px 20px 20px;
 }
 .main-footer a {
   color: #6d6d78;
@@ -364,6 +364,21 @@ html, body {
 
 .footer {
   margin-top: auto;
+  padding-top: 40px;
+}
+
+.promo-link {
+  font-size: 15px;
+}
+
+.promo-link:hover,
+a.strava-stories-link:hover {
+  color: #007FB6!important;
+}
+
+p.strava-stories-para {
+  color: #000;
+  font-size: 15px;
 }
 
 /* Dropdown styles for for the languages button in the footer */
@@ -382,9 +397,10 @@ html, body {
   color: #000;
   position: relative;
   display: inline-block;
-  font-size: 13px;
+  font-size: 12px;
   padding-top: 0px;
   padding-bottom: 0px;
+  border: none;
 }
 select#languages-select {
   border-radius: 5px;
@@ -416,6 +432,12 @@ select#languages-select {
     position: relative;
     border: none;
 }
+
+#athlete-stats-body-wrapper {
+  border-bottom: 1px solid #f0f0f5;
+  padding-bottom: 0px;
+}
+
 #recoveryWeek-cardStyle {
   background-color: #fff;
     box-shadow: 0 8px 24px rgba(13,13,18,.04);
@@ -426,11 +448,33 @@ select#languages-select {
   font-size: 12px;
 }
 
+a.morningRun-style {
+  font-size: 16px;
+}
+
+a.morning-run-link {
+  color: #000!important;
+  font-size: 18px;
+} 
+
+.morning-run-time {
+  font-size: 14px;
+}
+
 .dotSpan {
   padding-left: 5px;
   padding-right: 5px;
   font-size: 12px;
 }
+
+p.recovery-week-first-para {
+  font-size: 14px;
+} 
+p.recovery-week-second-para {
+  font-size: 15px;
+  color: #525252;
+}
+
 
 /* second half of the LeftDashboardAthleteSidebar */
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active,
@@ -471,10 +515,14 @@ ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
 }
 
 .dashboard-stats span {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 16px;
   color: #525252;
   font-weight: 300;
+}
+
+ul.dashboard-stats p {
+  font-size: 20px;
 }
 
 svg.trainingLogIcon {
@@ -501,7 +549,9 @@ a#goals-log-link  .trainingLogIcon {
 #goals-log-link:hover {
   color: #007FB6
 }
-
+a#goals-log-link {
+  color: #000;
+}
 /* smooth button transition on the LeftDashboardAthleteSidebar */
 #training-log-link .trainingLogIcon,
 #goals-log-link .trainingLogIcon {
@@ -613,6 +663,11 @@ ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
 .goals-tab-text p {
   margin-bottom: 0px;
   line-height: initial;
+    font-size: 15px;
+}
+
+p.recoveryLastWeekText.card-text {
+  color: grey;
 }
 
 .thisWeek-para {
@@ -695,7 +750,300 @@ svg.swimmingWaveIcon {
   max-width: 1254px !important;
   padding-right: 20px;
   padding-left: 20px;
-  padding-bottom: 4rem;
+}
+
+.container.footerMaxWidth {
+  font-size: 15px;
+}
+
+/* RightDashboardAthleteSidebar component styles */
+.challenges-header-wrapper,
+.find-FriendsIcon-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.RightDashboardAthleteSidebar-Col.col-lg-3.col-md-6.col-12 {
+  padding-left: 0px;
+  margin-left: -4px;
+}
+
+.find-FriendsIcon-wrapper {
+  padding-top: 22px;
+}
+.view-all-friends-btn-wrapper {
+  margin-right: -26px;
+}
+.challengesIcon {
+  border: 1px solid #d3d1cd;
+  border-radius: 50%;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.find-FriendsIcon {
+    border: 1px solid #d3d1cd;
+    background-color: #fff;
+    height: -webkit-fill-available;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.find-Friends-wrapper {
+  padding-bottom: 22px;
+}
+
+.challenges-wrapper h4 {
+  font-size: 18px;
+}
+.challenges-wrapper p,
+.find-Friends-wrapper p {
+  font-size: 14px;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+button.view-all-challenges-btn,
+button.view-all-friends-btn {
+  color: #fc5200;
+  background-color: rgba(0,0,0,0);
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 2px;
+}
+
+button.view-all-challenges-btn:hover,
+button.view-all-friends-btn:hover {
+  background-color: #ffe1d2;
+  color: #fc5200;
+  border: none;
+}
+
+button.view-all-challenges-btn::after,
+button.view-all-challenges-btn:focus,
+button.view-all-challenges-btn:visited,
+button.view-all-friends-btn::after,
+button.view-all-friends-btn:focus,
+button.view-all-friends-btn:visited,
+button.view-all-friends-btn:after {
+  border: none;
+  --bs-btn-active-bg: #ffe1d2;
+  --bs-btn-active-color: #fc5200;
+  --bs-btn-active-bg: #ffe1d2;
+  --bs-btn-active-border-color: #ffe1d2;
+}
+
+/* RightDashboardAthleteSidebar component - Your Goals card section */
+
+h5.your-goals-heading,
+h5.find-Friends-heading {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#list-clubs-wrapper {
+  border-top: 1px solid #f0f0f5;
+  padding-top: 28px;
+}
+
+.your-goals-image-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+img#vikingMarathonImg,
+img#witArenaImg {
+  width: 80%;
+}
+
+
+
+button.view-all-clubs-btn,
+button.view-all-clubs-btn:after {
+  background-color: #fff;
+  border-color: #b6b3ac;
+  color: #2b2b2b;
+  font-size: 14px;
+  padding: 5px 8px 5px 8px;
+  font-weight: 700;
+  margin-top: 8px;
+  border-radius: 4px;
+}
+
+button.view-all-clubs-btn {
+  margin-bottom: 20px;
+}
+
+button.view-all-clubs-btn:hover,
+button.view-all-clubs-btn:visited,
+button.view-all-clubs-btn:focus {
+  background-color: #e6e6e6;
+  border-color: #d3d1cd;
+  color: #2b2b2b;
+  --bs-btn-active-color: #2b2b2b;
+  --bs-btn-active-bg: #d3d1cd;
+  --bs-btn-active-border-color: #d3d1cd;
+}
+
+ul.modulelist,
+ul.module-btn-list {
+  margin-bottom: .75rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: .5rem 1rem;
+  font-size: 14px;
+  padding-left: 0px;
+  padding-top: 12px;
+}
+ul.modulelist li,
+ul.module-btn-list {
+  list-style: none;
+}
+
+ul.modulelist li a{
+  color: #000;
+}
+ul.modulelist li a:hover {
+  text-decoration: underline;
+  color: #007FB6;
+}
+
+#module-dropdownBtn-list,
+#control-dropdownBtn-list,
+#uiSocialsBtn-dropdownBtn-list,
+#userActivities-dropdownBtn-list {
+  align-items: center;
+  border-radius: 4px;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(211, 209, 205);
+  color: #000;
+  height: 40px;
+  gap: 14px;
+}
+
+.userActivities-dropdownBtn-list .dropdownUp-icon {
+  margin-right: 0px!important;
+}
+
+button#module-dropdownBtn-list:hover,
+#control-dropdownBtn-list:hover,
+#uiSocialsBtn-dropdownBtn-list:hover,
+#userActivities-dropdownBtn-list:hover {
+  border-color: #000;
+}
+
+#dropdownUp a.dropdown-item:hover {
+  background-color: #f9f8f5;
+  color: #525252;
+}
+
+a.control-dropDown-link.dropdown-item:hover {
+  color: #1274bc!important;
+  text-decoration: underline;
+}
+
+a.userActivities-dropDown-link:hover {
+  color: #1274bc!important;
+  background-color: #f9f8f5;
+}
+
+
+.complianceBtn:hover {
+  text-decoration: none!important;
+}
+
+#module-btn-list-dropdown,
+#userActivities-btn-list-dropdown {
+  opacity: 100%;
+  border-radius: 1px;
+  border: 1px solid rgb(211, 209, 205);
+  /* languages dropdown scroll bar */
+  max-height: 370px;
+  overflow-y: auto;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #cccccc #f0f0f0; /* For Firefox */
+
+  /* For WebKit (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+  }
+}
+
+a.dropdown-item {
+  padding-left: 26px;
+  padding-right: 26px;
+  font-size: 17px;
+}
+#dropdownUp .dropdown-toggle::after,
+#userActivities .dropdown-toggle::after,
+#uiSocialsBtn .dropdown-toggle::after {
+  content: none;
+}
+
+
+
+.dropdownUp-icon {
+  font-size: 28px;
+  margin-right: -10px;
+}
+
+.strava-copy-right {
+  padding-top: 10px;
+  color: #000;
+}
+
+.challenges-header-wrapper.card-header{
+  padding-bottom: 14px;
+}
+
+#athleteSidebar-wrapper,
+#athleteSidebar-wrapper .list-group,
+.challenges-header-wrapper.card-header,
+.list-clubs-wrapper {
+  border: none;
+  background-color: #f9f8f5;
+  --bs-list-group-bg: #f9f8f5;
+  box-shadow: none;
+}
+.list-group-item {
+  border-bottom: 1px solid #f0f0f5!important;
+}
+
+.list-clubs-wrapper {
+  border-top:  1px solid #f0f0f5!important;
+  padding-top: 24px;
+}
+
+
+/* CenterDashboardAthleteSidebar component UI Feed */
+.feed-ui-card {
+  display: flex;
+  justify-content: flex-start;
+}
+
+img#feed-ui-user-image {
+  border-radius: 50%;
+  width: 44px;
+  margin-right: 18px;
+}
+
+p.feed-ui-user-name {
+  margin-bottom: 0px;
 }
 
 @media screen and (max-width: 1880px) {
