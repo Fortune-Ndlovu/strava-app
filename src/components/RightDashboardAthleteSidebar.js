@@ -17,7 +17,7 @@ function RightDashboardAthleteSidebar() {
     
     return (
         <div>
-            <Card>
+            <Card id="athleteSidebar-wrapper">
                 <Card.Header className="challenges-header-wrapper">
                     <div className="challengesIcon-wrapper">
                         <div className="challengesIcon">
@@ -38,7 +38,8 @@ function RightDashboardAthleteSidebar() {
                     </div>
                 </Card.Header>
                 <ListGroup variant="flush">
-                    <ListGroup.Item>
+                    <ListGroup.Item >
+                    <div className="list-clubs-wrapper">
                         <h5 className="your-goals-heading">Your Clubs</h5>
                         <div className="your-goals-image-wrapper">
                             <div className="viking-marathon-image-wrapper">
@@ -53,7 +54,8 @@ function RightDashboardAthleteSidebar() {
                                     className="mx-auto d-block"
                                     id="witArenaImg"/>
                             </div>
-                        </div>
+                        
+                            </div></div>
                         <Button variant="outline-primary" className="view-all-clubs-btn">View All Clubs</Button>
                     </ListGroup.Item>
                     <ListGroup.Item>
@@ -107,81 +109,64 @@ function RightDashboardAthleteSidebar() {
                        
                         <ul className="module-btn-list">
                             <li>
-                            <Dropdown drop="up">
+                            <Dropdown drop="up" id="dropdownUp">
                             <Dropdown.Toggle variant="success" id="module-dropdownBtn-list">
                                         {selectedLanguage}
-                                        <RiArrowDropDownLine/>
+                                        <RiArrowDropDownLine className="dropdownUp-icon"/>
                             </Dropdown.Toggle>
 
-                            <Dropdown.Menu id='text2'>
+                            <Dropdown.Menu id="module-btn-list-dropdown">
                                 <Dropdown.Item href="#/action-1" onClick={() => handleLanguageChange('English (US)')} value="English (US)">English (US)</Dropdown.Item>
                                 <Dropdown.Item href="#/action-1" onClick={() => handleLanguageChange('British English')} value="British English">British English</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('Deutsch')} value="Deutsch">Deutsch</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('Deutsch')} value="Deutsch">Deutsch</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('Deutsch')} value="Deutsch">Deutsch</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('Deutsch')} value="Deutsch">Deutsch</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('Deutsch')} value="Deutsch">Deutsch</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('Deutsch')} value="Deutsch">Deutsch</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('Deutsch')} value="Deutsch">Deutsch</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('Deutsch')} value="Deutsch">Deutsch</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('Deutsch')} value="Deutsch">Deutsch</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('español')} value="español">español</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('español latinoamericano')} value="español latinoamericano">Deutsch</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('français')} value="français">français</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('italiano')} value="italiano">italiano</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('Nederlands')} value="Nederlands">Nederlands</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('português')} value="português">português</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('português do Brasil')} value="português do Brasil">português do Brasil</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('русский')} value="русский">русский</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('日本語')} value="日本語">日本語</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('简体中文')} value="简体中文">简体中文</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('繁體中文')} value="繁體中文">繁體中文</Dropdown.Item>
                             </Dropdown.Menu>
                             </Dropdown>
+                            </li>
+                            <li>
+                                <Dropdown drop="up" id="dropdownUp">
+                                    <Dropdown.Toggle variant="success" id="control-dropdownBtn-list">
+                                                About
+                                                <RiArrowDropDownLine className="dropdownUp-icon"/>
+                                    </Dropdown.Toggle>
 
-                                <select name="languages" className='ttt'>
-                                    <option value="British English">British English</option>
-                                    <option value="Deutsch">Deutsch</option>
-                                    <option value="English (US)">English (US)</option>
-                                    <option value="español">español</option>
-                                    <option value="español latinoamericano">español latinoamericano</option>
-                                    <option value="français">français</option>
-                                    <option value="italiano">italiano</option>
-                                    <option value="Nederlands">Nederlands</option>
-                                    <option value="português">português</option>
-                                    <option value="português do Brasil">português do Brasil</option>
-                                    <option value="русский">русский</option>
-                                    <option value="日本語">日本語</option>
-                                    <option value="简体中文">简体中文</option>
-                                    <option value="繁體中文">繁體中文</option>
-                                </select>
+                                    <Dropdown.Menu id="module-btn-list-dropdown">
+                                        <Dropdown.Item href="#/action-1" className="control-dropDown-link">About</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1" className="control-dropDown-link">Careers</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2" className="control-dropDown-link">Business</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2" className="control-dropDown-link">Developer</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2" className="control-dropDown-link">Labs</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2" className="control-dropDown-link">About Our Maps</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2" className="control-dropDown-link">Community Standards</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
                             </li>
                             <li>
-                                <select name="languages" id="languages-select">
-                                    <option value="English (US)">English (US)</option>
-                                    <option value="British English">British English</option>
-                                    <option value="Deutsch">Deutsch</option>
-                                    <option value="English (US)">English (US)</option>
-                                    <option value="español">español</option>
-                                    <option value="español latinoamericano">español latinoamericano</option>
-                                    <option value="français">français</option>
-                                    <option value="italiano">italiano</option>
-                                    <option value="Nederlands">Nederlands</option>
-                                    <option value="português">português</option>
-                                    <option value="português do Brasil">português do Brasil</option>
-                                    <option value="русский">русский</option>
-                                    <option value="日本語">日本語</option>
-                                    <option value="简体中文">简体中文</option>
-                                    <option value="繁體中文">繁體中文</option>
-                                </select>
-                            </li>
-                            <li>
-                                <select name="languages" id="languages-select">
-                                    <option value="English (US)">English (US)</option>
-                                    <option value="British English">British English</option>
-                                    <option value="Deutsch">Deutsch</option>
-                                    <option value="English (US)">English (US)</option>
-                                    <option value="español">español</option>
-                                    <option value="español latinoamericano">español latinoamericano</option>
-                                    <option value="français">français</option>
-                                    <option value="italiano">italiano</option>
-                                    <option value="Nederlands">Nederlands</option>
-                                    <option value="português">português</option>
-                                    <option value="português do Brasil">português do Brasil</option>
-                                    <option value="русский">русский</option>
-                                    <option value="日本語">日本語</option>
-                                    <option value="简体中文">简体中文</option>
-                                    <option value="繁體中文">繁體中文</option>
-                                </select>
+                                <Dropdown drop="up" id="dropdownUp">
+                                    <Dropdown.Toggle variant="success" id="control-dropdownBtn-list">
+                                                Follow Us
+                                                <RiArrowDropDownLine className="dropdownUp-icon"/>
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu id="module-btn-list-dropdown">
+                                        <Dropdown.Item href="#/action-1" className="control-dropDown-link">Facebook</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1" className="control-dropDown-link">Twitter</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2" className="control-dropDown-link">Instagram</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2" className="control-dropDown-link">YouTube</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2" className="control-dropDown-link">LinkedIn</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2" className="control-dropDown-link">Stories</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                                <p className="strava-copy-right">© 2023 Strava</p>
                             </li>
                         </ul>
                     </ListGroup.Item>

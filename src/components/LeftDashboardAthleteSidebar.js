@@ -14,12 +14,12 @@ import recoveryweek from '../images/recoveryweek.png';
 function LeftDashboardAthleteSidebar({athlete, activities}) {
     return (
         <div>
-            <Card className="athlete-stats-card">
+            <Card className="athlete-stats-card" >
                 <Card.Img variant="top"
                     src={fortunendlovu}
                     className="mx-auto d-block"
                     id="athleteStatsCardImg"/>
-                <Card.Body>
+                <Card.Body id="athlete-stats-body-wrapper">
                     <Card.Title> {
                         athlete.firstname
                     }
@@ -59,13 +59,13 @@ function LeftDashboardAthleteSidebar({athlete, activities}) {
                 <ListGroup className="list-group-flush">
                     <ListGroup.Item><span className="latestActivityText">Latest Activity</span>
                         <br></br>
-                        <a href="home">
+                        <a href="home" className="morning-run-link">
                             <strong>Morning run
                             </strong>
                             <span className="dotSpan">
                                 •
                             </span>
-                            <time dateTime="Sep 22, 2023">Sep 22, 2023</time>
+                            <time dateTime="Sep 22, 2023" className="morning-run-time">Sep 22, 2023</time>
                         </a>
                     </ListGroup.Item>
                 </ListGroup>
@@ -99,12 +99,16 @@ function LeftDashboardAthleteSidebar({athlete, activities}) {
                             </Card.Text>
                             <Card.Title className="recoveryLastWeekTitle">Recovery Week</Card.Title>
                             <Card.Text>
+                                <p className="recovery-week-first-para">
                                 Based on your heart rate data, your training last week was less intense than usual. Way to recover intelligently.
+                                </p>
                             </Card.Text>
                             <Card.Img variant="top" id="recoveryWeekImg"
                                 src={recoveryweek}/>
                             <Card.Text>
+                            <p className="recovery-week-second-para">
                                 To get current insights and analysis from features like Relative Effort, try a subscription for free.
+                            </p>
                             </Card.Text>
                             <Button variant="primary" id="startFreeTrialBtn">Start Free Trial</Button>
                         </Card.Body>
@@ -134,7 +138,7 @@ function LeftDashboardAthleteSidebar({athlete, activities}) {
                             <Card.Text className="weekStats-cardText">
                                 <div className="goals-tab-stats">
                                     <p className="thisWeek-para">THIS WEEK</p>
-                                    <p className="thisWeek-numbers">0/0 km</p>
+                                    <p className="thisWeek-numbers">0 / 0 km</p>
                                 </div>
                             </Card.Text>
                             <Card.Text>
@@ -152,7 +156,7 @@ function LeftDashboardAthleteSidebar({athlete, activities}) {
                             <Card.Text className="weekStats-cardText-second">
                                 <div className="goals-tab-stats">
                                     <p className="thisWeek-para">THIS WEEK</p>
-                                    <p className="thisWeek-numbers">0/0 km</p>
+                                    <p className="thisWeek-numbers">0 / 0 km</p>
                                 </div>
                             </Card.Text>
                         </Card.Body>
@@ -182,7 +186,7 @@ function LeftDashboardAthleteSidebar({athlete, activities}) {
                             <Card.Text className="weekStats-cardText">
                                 <div className="goals-tab-stats">
                                     <p className="thisWeek-para">THIS WEEK</p>
-                                    <p className="thisWeek-numbers">0/0 km</p>
+                                    <p className="thisWeek-numbers">0 / 0 m</p>
                                 </div>
                             </Card.Text>
                             <Card.Text>
@@ -193,13 +197,12 @@ function LeftDashboardAthleteSidebar({athlete, activities}) {
                             <Card.Text className="weekStats-cardText">
                                 <div className="goals-tab-progress">
                                     <span id="rangeSpan">--:--</span>
-                                    <span id="mileSpan">0 m</span>
                                 </div>
                             </Card.Text>
                             <Card.Text className="weekStats-cardText-second">
                                 <div className="goals-tab-stats">
                                     <p className="thisWeek-para">THIS WEEK</p>
-                                    <p className="thisWeek-numbers">0/0 km</p>
+                                    <p className="thisWeek-numbers">0 / 0 km</p>
                                 </div>
                             </Card.Text>
                         </Card.Body>
