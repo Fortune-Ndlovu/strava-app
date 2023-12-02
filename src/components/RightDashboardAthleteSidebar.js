@@ -154,7 +154,7 @@ function RightDashboardAthleteSidebar() {
                                 <Dropdown drop="up" id="dropdownUp">
                                     <Dropdown.Toggle variant="success" id="control-dropdownBtn-list">
                                                 Follow Us
-                                                <RiArrowDropDownLine className="dropdownUp-icon"/>
+                                                <RiArrowDropDownLine className="feedUI-dropdownUp-icon"/>
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu id="module-btn-list-dropdown">

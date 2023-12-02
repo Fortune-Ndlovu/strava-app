@@ -916,7 +916,9 @@ ul.modulelist li a:hover {
 }
 
 #module-dropdownBtn-list,
-#control-dropdownBtn-list {
+#control-dropdownBtn-list,
+#uiSocialsBtn-dropdownBtn-list,
+#userActivities-dropdownBtn-list {
   align-items: center;
   border-radius: 4px;
   background: rgb(255, 255, 255);
@@ -926,8 +928,14 @@ ul.modulelist li a:hover {
   gap: 14px;
 }
 
+.userActivities-dropdownBtn-list .dropdownUp-icon {
+  margin-right: 0px!important;
+}
+
 button#module-dropdownBtn-list:hover,
-#control-dropdownBtn-list:hover {
+#control-dropdownBtn-list:hover,
+#uiSocialsBtn-dropdownBtn-list:hover,
+#userActivities-dropdownBtn-list:hover {
   border-color: #000;
 }
 
@@ -941,11 +949,18 @@ a.control-dropDown-link.dropdown-item:hover {
   text-decoration: underline;
 }
 
+a.userActivities-dropDown-link:hover {
+  color: #1274bc!important;
+  background-color: #f9f8f5;
+}
+
+
 .complianceBtn:hover {
   text-decoration: none!important;
 }
 
-#module-btn-list-dropdown {
+#module-btn-list-dropdown,
+#userActivities-btn-list-dropdown {
   opacity: 100%;
   border-radius: 1px;
   border: 1px solid rgb(211, 209, 205);
@@ -974,9 +989,13 @@ a.dropdown-item {
   padding-right: 26px;
   font-size: 17px;
 }
-#dropdownUp .dropdown-toggle::after {
+#dropdownUp .dropdown-toggle::after,
+#userActivities .dropdown-toggle::after,
+#uiSocialsBtn .dropdown-toggle::after {
   content: none;
 }
+
+
 
 .dropdownUp-icon {
   font-size: 28px;
@@ -1010,6 +1029,22 @@ a.dropdown-item {
   padding-top: 24px;
 }
 
+
+/* CenterDashboardAthleteSidebar component UI Feed */
+.feed-ui-card {
+  display: flex;
+  justify-content: flex-start;
+}
+
+img#feed-ui-user-image {
+  border-radius: 50%;
+  width: 44px;
+  margin-right: 18px;
+}
+
+p.feed-ui-user-name {
+  margin-bottom: 0px;
+}
 
 @media screen and (max-width: 1880px) {
   .language-dropdown {
