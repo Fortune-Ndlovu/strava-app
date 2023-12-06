@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import SearchBar from './SearchBar';
+import React, {useState, useEffect} from 'react';
+import SearchBar from '../SearchBar/SearchBar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { FiSearch } from 'react-icons/fi';
-import { RiArrowDropDownLine } from 'react-icons/ri';
-import { MdOutlineNotificationsNone, MdMonitorHeart } from 'react-icons/md';
-import { BiSolidUserCircle } from 'react-icons/bi';
-import { BsPlusCircle, BsPlusCircleFill, BsArrowUpCircle, BsLayoutTextWindow } from 'react-icons/bs';
-import { TbRoute } from 'react-icons/tb';
-import stravaLogo from '../images/strava_logo.svg';
+import {FiSearch} from 'react-icons/fi';
+import {RiArrowDropDownLine} from 'react-icons/ri';
+import {MdOutlineNotificationsNone, MdMonitorHeart} from 'react-icons/md';
+import {BiSolidUserCircle} from 'react-icons/bi';
+import {BsPlusCircle, BsPlusCircleFill, BsArrowUpCircle, BsLayoutTextWindow} from 'react-icons/bs';
+import {TbRoute} from 'react-icons/tb';
+import stravaLogo from '../../images/strava_logo.svg';
 
 const Header = () => {
     const [showDashboardItems, setShowDashboardItems] = useState(false);

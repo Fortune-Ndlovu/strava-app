@@ -4,10 +4,10 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
 import {RiArrowDropDownLine} from 'react-icons/ri';
-import fortunendlovu from '../images/fortunendlovu.jpg';
-import celebration_bronze_icon from '../images/celebration_bronze_icon.svg';
-import runningRoute from '../images/runningRoute.png';
-import runningView from '../images/runningView.jpg';
+import fortunendlovu from '../../images/fortunendlovu.jpg';
+import celebration_bronze_icon from '../../images/celebration_bronze_icon.svg';
+import runningRoute from '../../images/runningRoute.png';
+import runningView from '../../images/runningView.jpg';
 
 function CenterDashboardAthleteSidebar({athlete, activities}) {
 

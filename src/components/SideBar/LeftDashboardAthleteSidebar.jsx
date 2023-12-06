@@ -8,8 +8,8 @@ import {MdDoubleArrow} from "react-icons/md";
 import {IoIosInformationCircleOutline} from "react-icons/io";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import fortunendlovu from '../images/fortunendlovu.jpg';
-import recoveryweek from '../images/recoveryweek.png';
+import fortunendlovu from '../../images/fortunendlovu.jpg';
+import recoveryweek from '../../images/recoveryweek.png';
 
 function LeftDashboardAthleteSidebar({athlete, activities}) {
     return (

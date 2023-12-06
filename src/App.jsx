@@ -6,11 +6,9 @@ import {getActivities, getAthleteData} from './stravaApi';
 
 // Configuration data required for Strava API authentication and access.
 import config from './config.json';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import LeftDashboardAthleteSidebar from './components/LeftDashboardAthleteSidebar';
-import CenterDashboardAthleteSidebar from './components/CenterDashboardAthleteSidebar';
-import RightDashboardAthleteSidebar from './components/RightDashboardAthleteSidebar';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import {LeftDashboardAthleteSidebar, CenterDashboardAthleteSidebar, RightDashboardAthleteSidebar} from './components/SideBar';
 import {Container, Row, Col} from "react-bootstrap";
 
 function App() {
@@ -54,9 +52,10 @@ function App() {
         // This ensures that the data is fetched and updated whenever these important parameters change.
         fetchData();
 
-    }, [clientID, clientSecret, refreshToken]); // When any of these dependencies change, the useEffect hook will re-run.
+    }, [clientID, clientSecret, refreshToken]);
+    // When any of these dependencies change, the useEffect hook will re-run.
 
-        // function deleteActivity = (activityID) => {
+    // function deleteActivity = (activityID) => {
     //     const newActivityArray = activities.filter(activity => activity.id !== activityID);
     //     setActivities(newActivityArray);
     // }
@@ -64,14 +63,13 @@ function App() {
         <div className="App">
             <Header/>
             <div className="dashboard-container">
-                    <Container className="mt-5">
-                <div id="text">
+                <Container className="mt-5">
+                    <div id="text">
                         <Row className="justify-content-center">
                             <Col xs={12}
                                 md={6}
                                 lg={3}
-                                className="LeftDashboardAthleteSidebar-Col"
-                            >
+                                className="LeftDashboardAthleteSidebar-Col">
 
                                 <div className="LeftDashboardAthleteSidebar">
                                     <LeftDashboardAthleteSidebar athlete={athlete}
@@ -100,8 +98,8 @@ function App() {
                                 </div>
                             </Col>
                         </Row>
-                </div>
-                    </Container>
+                    </div>
+                </Container>
             </div>
             <Footer/>
         </div>
