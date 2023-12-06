@@ -1239,6 +1239,62 @@ div.container-fluid,
   }
 }
 
+/* feed ui activity images */
+.feed-ui-activity-images {
+  display: flex;
+}
+
+.feed-ui-activity-imageLeft {
+  margin-right: 10px; 
+}
+
+.feed-ui-activity-imageLeft:last-child {
+  margin-right: 0;
+}
+
+/* button ontop of feed ui */
+.feed-ui-activity-images {
+  display: flex;
+}
+
+.feed-ui-activity-imageLeft {
+  position: relative;
+  margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.feed-ui-activity-imageLeft a {
+  display: block;
+}
+
+.feed-ui-activity-imageLeft Button {
+  position: absolute;
+  top: 10px; /* Adjust the top distance as needed */
+  left: 10px; /* Adjust the left distance as needed */
+  z-index: 1; /* Make sure the buttons are above the images */
+}
+
+button#saveRouteBtn {
+  position: absolute;
+  right: 10px;
+  z-index: 1;
+  top: 240px;
+  left: auto;
+
+}
+
+.feed-ui-activity-imageLeft a {
+  display: block;
+}
+
+.feed-ui-activity-imageLeft Button#saveRouteBtn {
+  opacity: 0; /* Initially hide the buttons */
+  transition: opacity 0.3s ease; /* Add a smooth transition effect */
+}
+
+.feed-ui-activity-imageLeft:hover Button#saveRouteBtn {
+  opacity: 1; /* Show the buttons when hovering over the link */
+}
+
 @media screen and (max-width: 768px) {
   .language-dropdown {
     top: 396px;
