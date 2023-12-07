@@ -2,8 +2,8 @@ import React from 'react'
 
 const AthleteSearch = () => {
   return (
-    <div>
-      AthleteSearch
+    <div className="dashboard-container">
+      <h1>AthleteSearch</h1>
     </div>
   )
 }

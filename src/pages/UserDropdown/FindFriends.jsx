@@ -1,11 +1,11 @@
 import React from 'react'
 
 const FindFriends = () => {
-  return (
-    <div>
-      FindFriends
-    </div>
-  )
+    return (
+        <div className="dashboard-container">
+            <h1>FindFriends</h1>
+        </div>
+    )
 }
 
 export default FindFriends

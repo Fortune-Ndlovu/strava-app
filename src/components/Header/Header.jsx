@@ -79,9 +79,9 @@ const Header = () => {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
-                <Navbar.Brand title="Return to the Strava home page" href="#home" className="mr-auto">
+                <Link to="/" title="Return to the Strava home page" className="mr-auto">
                     <img src={stravaLogo} id="strava-logo" alt="Company brand logo that simply says strava." width={110} height={55}/>
-                </Navbar.Brand>
+                </Link>
 
                 {/* Toggling the menu state when clicked. When we first click on the hamburger icon,
                     !isMenuOpen will be true because !false is true. So,
@@ -103,7 +103,7 @@ const Header = () => {
                         
                         {/* When the hamburger and the search component are not showing, then show the search icon. */}
                         {(!isHamburger && !showSearch) && (
-                            <Nav.Link title="Search" href="#home" onClick={() => setShowSearch(true)}>
+                            <Nav.Link title="Search" href="/" onClick={() => setShowSearch(true)}>
                                 <FiSearch className="open-search-icon" />
                             </Nav.Link>
                         )}
@@ -188,7 +188,7 @@ const Header = () => {
                                             <h6>SUBSCRIPTION</h6>
                                             <ul>
                                             <li><Link to="/trainingLog">Training Log</Link></li>
-                                            <li><Link to="/trainingPlan">Training Plans</Link></li>
+                                            <li><Link to="/trainingPlans">Training Plans</Link></li>
                                             <li><Link to="/powerCurve">Power Curve</Link></li>
                                             <li><Link to="/fitnessAndFreshness">Fitness & Freshness</Link></li>
                                         </ul>
@@ -230,7 +230,7 @@ const Header = () => {
                                     <div className="explore-dropdown-subscription">
                                         <h6>SUBSCRIPTION</h6>
                                         <ul>
-                                            <li><Link to="/createARoute">Create a Route</Link></li>
+                                            <li><Link to="/createRoute">Create a Route</Link></li>
                                             <li><Link to="/subscriberPerks">Subscriber Perks</Link></li>
                                         </ul>
                                     </div>

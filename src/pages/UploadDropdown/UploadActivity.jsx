@@ -1,9 +1,11 @@
 import React from 'react'
 
 const UploadActivity = () => {
-  return (
-    <div>UploadActivity</div>
-  )
+    return (
+        <div className="dashboard-container">
+            <h1>UploadActivity</h1>
+        </div>
+    )
 }
 
 export default UploadActivity

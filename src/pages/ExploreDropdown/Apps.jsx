@@ -2,8 +2,8 @@ import React from 'react'
 
 const Apps = () => {
   return (
-    <div>
-      Apps
+    <div className="dashboard-container">
+      <h1>Apps</h1>
     </div>
   )
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 
 const Challenges = () => {
-  return (
-    <h1>
-      Challenges
-    </h1>
-  )
+    return (
+        <div className="dashboard-container">
+            <h1>Challenges</h1>
+        </div>
+    )
 }
 
 export default Challenges

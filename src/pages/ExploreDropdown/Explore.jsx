@@ -1,11 +1,11 @@
 import React from 'react'
 
 const Explore = () => {
-  return (
-    <h1>
-      Explore
-    </h1>
-  )
+    return (
+        <div className="dashboard-container">
+            <h1>Explore</h1>
+        </div>
+    )
 }
 
 export default Explore
