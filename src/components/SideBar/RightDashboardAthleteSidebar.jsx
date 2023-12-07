@@ -1,20 +1,20 @@
-import React , { useState }from 'react';
+import React, {useState} from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import viking_marathon_image from '../../images/viking_marathon_image.jpg';
 import wit_arena from '../../images/wit_arena.png';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { RiArrowDropDownLine } from 'react-icons/ri';
+import {RiArrowDropDownLine} from 'react-icons/ri';
 
 function RightDashboardAthleteSidebar() {
 
     const [selectedLanguage, setSelectedLanguage] = useState('English (US)');
 
     const handleLanguageChange = (value) => {
-      setSelectedLanguage(value);
+        setSelectedLanguage(value);
     };
-    
+
     return (
         <div>
             <Card id="athleteSidebar-wrapper">
@@ -38,24 +38,25 @@ function RightDashboardAthleteSidebar() {
                     </div>
                 </Card.Header>
                 <ListGroup variant="flush">
-                    <ListGroup.Item >
-                    <div className="list-clubs-wrapper">
-                        <h5 className="your-goals-heading">Your Clubs</h5>
-                        <div className="your-goals-image-wrapper">
-                            <div className="viking-marathon-image-wrapper">
-                                <Card.Img variant="top"
-                                    src={viking_marathon_image}
-                                    className="mx-auto d-block"
-                                    id="vikingMarathonImg"/>
+                    <ListGroup.Item>
+                        <div className="list-clubs-wrapper">
+                            <h5 className="your-goals-heading">Your Clubs</h5>
+                            <div className="your-goals-image-wrapper">
+                                <div className="viking-marathon-image-wrapper">
+                                    <Card.Img variant="top"
+                                        src={viking_marathon_image}
+                                        className="mx-auto d-block"
+                                        id="vikingMarathonImg"/>
+                                </div>
+                                <div className="wit-arena-image-wrapper">
+                                    <Card.Img variant="top"
+                                        src={wit_arena}
+                                        className="mx-auto d-block"
+                                        id="witArenaImg"/>
+                                </div>
+
                             </div>
-                            <div className="wit-arena-image-wrapper">
-                                <Card.Img variant="top"
-                                    src={wit_arena}
-                                    className="mx-auto d-block"
-                                    id="witArenaImg"/>
-                            </div>
-                        
-                            </div></div>
+                        </div>
                         <Button variant="outline-primary" className="view-all-clubs-btn">View All Clubs</Button>
                     </ListGroup.Item>
                     <ListGroup.Item>
@@ -106,37 +107,88 @@ function RightDashboardAthleteSidebar() {
                         </ul>
 
 
-                       
                         <ul className="module-btn-list">
                             <li>
-                            <Dropdown drop="up" id="dropdownUp">
-                            <Dropdown.Toggle variant="success" id="module-dropdownBtn-list">
+                                <Dropdown drop="up" id="dropdownUp">
+                                    <Dropdown.Toggle variant="success" id="module-dropdownBtn-list">
                                         {selectedLanguage}
                                         <RiArrowDropDownLine className="dropdownUp-icon"/>
-                            </Dropdown.Toggle>
+                                    </Dropdown.Toggle>
 
-                            <Dropdown.Menu id="module-btn-list-dropdown">
-                                <Dropdown.Item href="#/action-1" onClick={() => handleLanguageChange('English (US)')} value="English (US)">English (US)</Dropdown.Item>
-                                <Dropdown.Item href="#/action-1" onClick={() => handleLanguageChange('British English')} value="British English">British English</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('español')} value="español">español</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('español latinoamericano')} value="español latinoamericano">Deutsch</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('français')} value="français">français</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('italiano')} value="italiano">italiano</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('Nederlands')} value="Nederlands">Nederlands</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('português')} value="português">português</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('português do Brasil')} value="português do Brasil">português do Brasil</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('русский')} value="русский">русский</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('日本語')} value="日本語">日本語</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('简体中文')} value="简体中文">简体中文</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('繁體中文')} value="繁體中文">繁體中文</Dropdown.Item>
-                            </Dropdown.Menu>
-                            </Dropdown>
+                                    <Dropdown.Menu id="module-btn-list-dropdown">
+                                        <Dropdown.Item href="#/action-1"
+                                            onClick={
+                                                () => handleLanguageChange('English (US)')
+                                            }
+                                            value="English (US)">English (US)</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1"
+                                            onClick={
+                                                () => handleLanguageChange('British English')
+                                            }
+                                            value="British English">British English</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2"
+                                            onClick={
+                                                () => handleLanguageChange('español')
+                                            }
+                                            value="español">español</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2"
+                                            onClick={
+                                                () => handleLanguageChange('español latinoamericano')
+                                            }
+                                            value="español latinoamericano">Deutsch</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2"
+                                            onClick={
+                                                () => handleLanguageChange('français')
+                                            }
+                                            value="français">français</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2"
+                                            onClick={
+                                                () => handleLanguageChange('italiano')
+                                            }
+                                            value="italiano">italiano</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2"
+                                            onClick={
+                                                () => handleLanguageChange('Nederlands')
+                                            }
+                                            value="Nederlands">Nederlands</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2"
+                                            onClick={
+                                                () => handleLanguageChange('português')
+                                            }
+                                            value="português">português</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2"
+                                            onClick={
+                                                () => handleLanguageChange('português do Brasil')
+                                            }
+                                            value="português do Brasil">português do Brasil</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2"
+                                            onClick={
+                                                () => handleLanguageChange('русский')
+                                            }
+                                            value="русский">русский</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2"
+                                            onClick={
+                                                () => handleLanguageChange('日本語')
+                                            }
+                                            value="日本語">日本語</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2"
+                                            onClick={
+                                                () => handleLanguageChange('简体中文')
+                                            }
+                                            value="简体中文">简体中文</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2"
+                                            onClick={
+                                                () => handleLanguageChange('繁體中文')
+                                            }
+                                            value="繁體中文">繁體中文</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
                             </li>
                             <li>
                                 <Dropdown drop="up" id="dropdownUp">
                                     <Dropdown.Toggle variant="success" id="control-dropdownBtn-list">
-                                                About
-                                                <RiArrowDropDownLine className="dropdownUp-icon"/>
+                                        About
+                                        <RiArrowDropDownLine className="dropdownUp-icon"/>
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu id="module-btn-list-dropdown">
@@ -153,8 +205,8 @@ function RightDashboardAthleteSidebar() {
                             <li>
                                 <Dropdown drop="up" id="dropdownUp">
                                     <Dropdown.Toggle variant="success" id="control-dropdownBtn-list">
-                                                Follow Us
-                                                <RiArrowDropDownLine className="feedUI-dropdownUp-icon"/>
+                                        Follow Us
+                                        <RiArrowDropDownLine className="feedUI-dropdownUp-icon"/>
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu id="module-btn-list-dropdown">
