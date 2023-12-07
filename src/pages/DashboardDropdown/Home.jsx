@@ -2,11 +2,11 @@
 import React, {useState, useEffect} from 'react';
 
 // Destructuring the getActivities and getAthleteData: Functions for fetching data from the Strava API.
-import {getActivities, getAthleteData} from '../services/stravaApi';
+import {getActivities, getAthleteData} from '../../services/stravaApi';
 
 // Configuration data required for Strava API authentication and access.
-import config from '../data/config.json';
-import {LeftDashboardAthleteSidebar, CenterDashboardAthleteSidebar, RightDashboardAthleteSidebar} from '../components/SideBar';
+import config from '../../data/config.json';
+import {LeftDashboardAthleteSidebar, CenterDashboardAthleteSidebar, RightDashboardAthleteSidebar} from '../../components/SideBar';
 import {Container, Row, Col} from "react-bootstrap";
 
 const Home = () => {

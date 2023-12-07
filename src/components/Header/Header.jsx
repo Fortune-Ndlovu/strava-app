@@ -12,6 +12,7 @@ import {BsPlusCircle, BsPlusCircleFill, BsArrowUpCircle, BsLayoutTextWindow} fro
 import {TbRoute} from 'react-icons/tb';
 import SearchBar from '../SearchBar/SearchBar';
 import stravaLogo from '../../images/strava_logo.svg';
+import './Header.css';
 
 const Header = () => {
     const [showDashboardItems, setShowDashboardItems] = useState(false);
@@ -132,14 +133,26 @@ const Header = () => {
                                         </div>
                                     } 
                                 >
-                              
                                     <div className="dropdownEffect">
-                                        <NavDropdown.Item href="#activityFeed">Activity Feed</NavDropdown.Item>
-                                        <NavDropdown.Item href="#mySegments">My Segments</NavDropdown.Item>
+                                        <ul>
+                                            <li>
+                                                <Link to="/">Activity Feed</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/segments">My Segments</Link>
+                                            </li>
+                                        </ul>
+                                        
                                         <div className="dashboard-dropdown-subscription">
                                             <h6>SUBSCRIPTION</h6>
-                                            <NavDropdown.Item href="#myGoals">My Goals</NavDropdown.Item>
-                                            <NavDropdown.Item href="#Heatmaps">Heatmaps</NavDropdown.Item>
+                                            <ul>
+                                                <li>
+                                                    <Link to="/goals">My Goals</Link>
+                                                </li>
+                                                <li>
+                                                    <Link to="/heatmaps">Heatmaps</Link>
+                                                </li>                                               
+                                            </ul>
                                         </div>
                                     </div>
                                 </NavDropdown>
@@ -166,14 +179,19 @@ const Header = () => {
                                     }
                                 >
                                     <div className="dropdownEffect">
-                                        <NavDropdown.Item href="#action/3.1">Training Calendar</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">My Activities</NavDropdown.Item>
+                                        <ul>
+                                            <li><Link to="/trainingCalendar">Training Calendar</Link></li>
+                                            <li><Link to="/activities">My Activities</Link></li>
+                                        </ul>
+                                        
                                         <div className="training-dropdown-subscription">
                                             <h6>SUBSCRIPTION</h6>
-                                            <NavDropdown.Item href="#trainingLog">Training Log</NavDropdown.Item>
-                                            <NavDropdown.Item href="#trainingPlans">Training Plans</NavDropdown.Item>
-                                            <NavDropdown.Item href="#powerCurve">Power Curve</NavDropdown.Item>
-                                            <NavDropdown.Item href="#fitnessAndFreshness">Fitness & Freshness</NavDropdown.Item>
+                                            <ul>
+                                            <li><Link to="/trainingLog">Training Log</Link></li>
+                                            <li><Link to="/trainingPlan">Training Plans</Link></li>
+                                            <li><Link to="/powerCurve">Power Curve</Link></li>
+                                            <li><Link to="/fitnessAndFreshness">Fitness & Freshness</Link></li>
+                                        </ul>
                                         </div>
                                     </div>   
                                 </NavDropdown>
@@ -200,16 +218,22 @@ const Header = () => {
                                     }
                                 >
                                     <div className="dropdownEffect">
-                                        <NavDropdown.Item href="#action/3.1">Segment Explore</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">Segment Search</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">Athlete Search</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">Clubs</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">Apps</NavDropdown.Item>
-                                        <div className="explore-dropdown-subscription">
-                                            <h6>SUBSCRIPTION</h6>
-                                            <NavDropdown.Item href="#trainingLog">Create a Route</NavDropdown.Item>
-                                            <NavDropdown.Item href="#trainingPlans">Subscriber Perks</NavDropdown.Item>
-                                        </div>
+
+                                    <ul>
+                                        <li><Link to="/segmentExplore">Segment Explore</Link></li>
+                                        <li><Link to="/segmentSearch">Segment Search</Link></li>
+                                        <li><Link to="/athleteSearch">Athlete Search</Link></li>
+                                        <li><Link to="/fitnessAndFreshness">Fitness & Freshness</Link></li>
+                                        <li><Link to="/clubs">Clubs</Link></li>
+                                        <li><Link to="/apps">Apps</Link></li>
+                                    </ul>
+                                    <div className="explore-dropdown-subscription">
+                                        <h6>SUBSCRIPTION</h6>
+                                        <ul>
+                                            <li><Link to="/createARoute">Create a Route</Link></li>
+                                            <li><Link to="/subscriberPerks">Subscriber Perks</Link></li>
+                                        </ul>
+                                    </div>
                                     </div>
                                 </NavDropdown>
                                 <Nav.Link href="#challenges" id="challengesLink" className="d-flex align-items-center"><Link to="/challenges">Challenges</Link></Nav.Link>
@@ -249,10 +273,12 @@ const Header = () => {
                                 }
                             >
                                 <div className="dropdownEffect">
-                                    <NavDropdown.Item href="#action/3.1" className="flipped-text">Find Friends</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">My Profile</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">Settings</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">Log Out</NavDropdown.Item>
+                                    <ul>
+                                        <li><Link to="/findFriends">Find Friends</Link></li>
+                                        <li><Link to="/profile">My Profile</Link></li>
+                                        <li><Link to="/settings">Settings</Link></li>
+                                        <li><Link to="/logOut">Log Out</Link></li>
+                                    </ul>
                                 </div>
                             </NavDropdown>
                         </div>
@@ -294,26 +320,36 @@ const Header = () => {
                                 }
                             >   
                                 <div className="dropdownEffect" id="userUploadWrapper">
-                                    <NavDropdown.Item href="#action/3.1" className="flipped-text">
-                                        <div className="upload-center-wrapper">
-                                            <BsArrowUpCircle className="upload-icons"/> Upload activity
-                                        </div>
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">
-                                        <div className="upload-center-wrapper">
-                                            <MdMonitorHeart className="upload-icons"/> Add manual Entry
-                                        </div>
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">
-                                        <div className="upload-center-wrapper">
-                                            <TbRoute className="upload-icons"/> Create route
-                                        </div>
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">
-                                        <div className="upload-center-wrapper">
-                                            <BsLayoutTextWindow className="upload-icons"/> Create post
-                                        </div>
-                                    </NavDropdown.Item>
+                                    <ul>
+                                        <li>
+                                            <Link to="/uploadActivity" className="dropdown-item flipped-text">
+                                                <div className="upload-center-wrapper">
+                                                    <BsArrowUpCircle className="upload-icons"/> Upload activity
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/addManualEntry" className="dropdown-item flipped-text">
+                                                <div className="upload-center-wrapper">
+                                                    <MdMonitorHeart className="upload-icons"/> Add manual Entry
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/createRoute" className="dropdown-item flipped-text">
+                                                <div className="upload-center-wrapper">
+                                                    <TbRoute className="upload-icons"/> Create route
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/createPost" className="dropdown-item flipped-text">
+                                                <div className="upload-center-wrapper">
+                                                    <BsLayoutTextWindow className="upload-icons"/> Create post
+                                                </div>
+                                            </Link>
+                                        </li>
+                                    </ul>
                                 </div>
                             </NavDropdown>
                         </div>
