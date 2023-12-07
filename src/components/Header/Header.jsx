@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import SearchBar from '../SearchBar/SearchBar';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -10,6 +10,7 @@ import {MdOutlineNotificationsNone, MdMonitorHeart} from 'react-icons/md';
 import {BiSolidUserCircle} from 'react-icons/bi';
 import {BsPlusCircle, BsPlusCircleFill, BsArrowUpCircle, BsLayoutTextWindow} from 'react-icons/bs';
 import {TbRoute} from 'react-icons/tb';
+import SearchBar from '../SearchBar/SearchBar';
 import stravaLogo from '../../images/strava_logo.svg';
 
 const Header = () => {
@@ -117,7 +118,7 @@ const Header = () => {
                                     show={showDashboardItems}
                                     title={
                                         <div className="d-flex align-items-center">
-                                            Dashboard{' '}
+                                            <Link to="/">Dashboard</Link>
                                             <button
                                                 title="Expand dashboard menu"
                                                 onClick={handleDashboardDropdownToggle}
@@ -150,7 +151,7 @@ const Header = () => {
                                     id="trainingDropdown"
                                     title={
                                         <div className="d-flex align-items-center nav-title">
-                                            Training{' '}
+                                            <Link to="/training">Training</Link>
                                             <button
                                                 title="Expand training menu"
                                                 onClick={handleTrainingDropdownToggle}
@@ -184,7 +185,7 @@ const Header = () => {
                                     id="exploreDropdown"
                                     title={
                                         <div className="d-flex align-items-center">
-                                            Explore{' '}
+                                            <Link to="/explore">Explore</Link>
                                             <button
                                                 title="Expand explore menu"
                                                 onClick={handleExploreDropdownToggle}
@@ -211,7 +212,7 @@ const Header = () => {
                                         </div>
                                     </div>
                                 </NavDropdown>
-                                <Nav.Link href="#challenges" id="challengesLink" className="d-flex align-items-center">Challenges</Nav.Link>
+                                <Nav.Link href="#challenges" id="challengesLink" className="d-flex align-items-center"><Link to="/challenges">Challenges</Link></Nav.Link>
                             </React.Fragment>
                         )}
                     </Nav>

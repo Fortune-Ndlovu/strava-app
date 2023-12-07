@@ -6,8 +6,6 @@ import {getActivities, getAthleteData} from '../services/stravaApi';
 
 // Configuration data required for Strava API authentication and access.
 import config from '../data/config.json';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
 import {LeftDashboardAthleteSidebar, CenterDashboardAthleteSidebar, RightDashboardAthleteSidebar} from '../components/SideBar';
 import {Container, Row, Col} from "react-bootstrap";
 
@@ -61,7 +59,6 @@ const Home = () => {
     // }
     return (
         <div className="App">
-            <Header/>
             <div className="dashboard-container">
                 <Container className="mt-5">
                     <div id="text">
@@ -101,7 +98,6 @@ const Home = () => {
                     </div>
                 </Container>
             </div>
-            <Footer/>
         </div>
     );
 }
