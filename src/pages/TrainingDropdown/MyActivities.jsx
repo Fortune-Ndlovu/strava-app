@@ -1,11 +1,18 @@
-import React from 'react'
+import React from 'react';
+import MyActivitiesForm from '../../components/MyActivitiesForm/MyActivitiesForm';
+import MyActivitiesTable from '../../components/MyActivitiesTable/MyActivitiesTable';
 
 const MyActivities = () => {
     return (
         <div className="dashboard-container">
-            <h1>
-                MyActivities
-            </h1>
+            <div className="mt-5 container">
+                <h1>
+                    MyActivities
+                </h1>
+                <MyActivitiesForm />
+                <h4>10 Activities</h4>
+                <MyActivitiesTable/>
+            </div>
         </div>
     )
 }
