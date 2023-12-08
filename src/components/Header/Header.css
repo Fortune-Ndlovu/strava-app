@@ -1,0 +1,55 @@
+.nav-item.dropdown a,
+#challengesLink {
+    text-decoration: none;
+    color: #494950;
+}
+
+a.navDropdownHeading:hover {
+    color: #fc5200;
+}
+.dropdownEffect ul,
+.dashboard-dropdown-subscription ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdownEffect li,
+.dashboard-dropdown-subscription li {
+  display: block;
+  position: relative;
+  padding-top: 10px;
+}
+
+.dropdownEffect li:hover,
+.dashboard-dropdown-subscription li:hover {
+  background-color: #f7f7fa;
+}
+.dropdownEffect ul li {
+    padding-bottom: 10px;
+    padding-left: 18px;
+}
+
+ul.dashboard-link-segments {
+    padding-top: 10px;
+    margin-top: -10px;
+}
+
+ul.dashboard-link-segments a{
+    padding-top: 10px;
+    margin-top: -10px;
+}
+
+ul.dashboard-goals-heatmaps li:hover,
+.training-dropdown-subscription li:hover,
+.explore-dropdown-subscription li:hover {
+    background-color: #dddde6;
+}
+.dropdown-menu.show {
+  --bs-dropdown-min-width: 11rem!important;
+  padding-bottom: 0px;
+}
+
+a#challengesLink {
+  margin-left: 12px;
+}

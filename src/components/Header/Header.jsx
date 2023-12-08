@@ -103,7 +103,7 @@ const Header = () => {
                         
                         {/* When the hamburger and the search component are not showing, then show the search icon. */}
                         {(!isHamburger && !showSearch) && (
-                            <Nav.Link title="Search" href="/" onClick={() => setShowSearch(true)}>
+                            <Nav.Link title="Search" href="#search" onClick={() => setShowSearch(true)}>
                                 <FiSearch className="open-search-icon" />
                             </Nav.Link>
                         )}
@@ -119,7 +119,7 @@ const Header = () => {
                                     show={showDashboardItems}
                                     title={
                                         <div className="d-flex align-items-center">
-                                            <Link to="/">Dashboard</Link>
+                                            <Link className="navDropdownHeading" to="/">Dashboard</Link>
                                             <button
                                                 title="Expand dashboard menu"
                                                 onClick={handleDashboardDropdownToggle}
@@ -134,9 +134,9 @@ const Header = () => {
                                     } 
                                 >
                                     <div className="dropdownEffect">
-                                        <ul>
-                                            <li>
-                                                <Link to="/">Activity Feed</Link>
+                                        <ul className="dashboard-link-segments">
+                                            <li >
+                                                <Link to="/" id="activity-feed">Activity Feed</Link>
                                             </li>
                                             <li>
                                                 <Link to="/segments">My Segments</Link>
@@ -145,7 +145,7 @@ const Header = () => {
                                         
                                         <div className="dashboard-dropdown-subscription">
                                             <h6>SUBSCRIPTION</h6>
-                                            <ul>
+                                            <ul className="dashboard-goals-heatmaps">
                                                 <li>
                                                     <Link to="/goals">My Goals</Link>
                                                 </li>
@@ -164,7 +164,7 @@ const Header = () => {
                                     id="trainingDropdown"
                                     title={
                                         <div className="d-flex align-items-center nav-title">
-                                            <Link to="/training">Training</Link>
+                                            <Link className="navDropdownHeading" to="/training">Training</Link>
                                             <button
                                                 title="Expand training menu"
                                                 onClick={handleTrainingDropdownToggle}
@@ -178,7 +178,7 @@ const Header = () => {
                                         </div>
                                     }
                                 >
-                                    <div className="dropdownEffect">
+                                    <div className="dropdownEffect" id="trainingDropdown">
                                         <ul>
                                             <li><Link to="/trainingCalendar">Training Calendar</Link></li>
                                             <li><Link to="/activities">My Activities</Link></li>
@@ -187,11 +187,11 @@ const Header = () => {
                                         <div className="training-dropdown-subscription">
                                             <h6>SUBSCRIPTION</h6>
                                             <ul>
-                                            <li><Link to="/trainingLog">Training Log</Link></li>
-                                            <li><Link to="/trainingPlans">Training Plans</Link></li>
-                                            <li><Link to="/powerCurve">Power Curve</Link></li>
-                                            <li><Link to="/fitnessAndFreshness">Fitness & Freshness</Link></li>
-                                        </ul>
+                                                <li><Link to="/trainingLog">Training Log</Link></li>
+                                                <li><Link to="/trainingPlans">Training Plans</Link></li>
+                                                <li><Link to="/powerCurve">Power Curve</Link></li>
+                                                <li><Link to="/fitnessAndFreshness">Fitness & Freshness</Link></li>
+                                            </ul>
                                         </div>
                                     </div>   
                                 </NavDropdown>
@@ -203,7 +203,7 @@ const Header = () => {
                                     id="exploreDropdown"
                                     title={
                                         <div className="d-flex align-items-center">
-                                            <Link to="/explore">Explore</Link>
+                                            <Link className="navDropdownHeading" to="/explore">Explore</Link>
                                             <button
                                                 title="Expand explore menu"
                                                 onClick={handleExploreDropdownToggle}
@@ -217,7 +217,7 @@ const Header = () => {
                                         </div>
                                     }
                                 >
-                                    <div className="dropdownEffect">
+                                    <div className="dropdownEffect explore">
 
                                     <ul>
                                         <li><Link to="/segmentExplore">Segment Explore</Link></li>
@@ -236,7 +236,7 @@ const Header = () => {
                                     </div>
                                     </div>
                                 </NavDropdown>
-                                <Nav.Link href="#challenges" id="challengesLink" className="d-flex align-items-center"><Link to="/challenges">Challenges</Link></Nav.Link>
+                                 <Link id="challengesLink" className="d-flex align-items-center" to="/challenges">Challenges</Link>
                             </React.Fragment>
                         )}
                     </Nav>
