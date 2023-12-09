@@ -322,14 +322,14 @@ const Header = () => {
                                 <div className="dropdownEffect" id="userUploadWrapper">
                                     <ul>
                                         <li>
-                                            <Link to="/uploadActivity" className="dropdown-item flipped-text">
+                                            <Link to="/file" className="dropdown-item flipped-text">
                                                 <div className="upload-center-wrapper">
                                                     <BsArrowUpCircle className="upload-icons"/> Upload activity
                                                 </div>
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to="/addManualEntry" className="dropdown-item flipped-text">
+                                            <Link to="/manual" className="dropdown-item flipped-text">
                                                 <div className="upload-center-wrapper">
                                                     <MdMonitorHeart className="upload-icons"/> Add manual Entry
                                                 </div>
