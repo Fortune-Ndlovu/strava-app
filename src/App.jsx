@@ -30,10 +30,13 @@ import MyProfile from './pages/UserDropdown/MyProfile';
 import Settings from './pages/UserDropdown/Settings';
 import LogOut from './pages/UserDropdown/LogOut';
 
-import UploadActivity from './pages/UploadDropdown/UploadActivity';
-import AddManualEntry from './pages/UploadDropdown/AddManualEntry';
 import CreateRouteUserUpload from './pages/UploadDropdown/CreateRouteUserUpload';
 import CreatePost from './pages/UploadDropdown/CreatePost';
+
+import Device from './pages/UserUpload/Device';
+import File from './pages/UserUpload/File';
+import Manual from './pages/UserUpload/Manual';
+import Mobile from './pages/UserUpload/Mobile';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -45,18 +48,18 @@ function App() {
             <Header/>
             <Routes>
                 {/* Dashboard Dropdown Routers */}
-                <Route path="/"element={<Home/>}></Route>
-                <Route path="/segments"element={<MySegments/>}></Route>
-                <Route path="/goals"element={<MyGoals/>}></Route>
+                <Route path="/" element={<Home/>}></Route>
+                <Route path="/segments" element={<MySegments/>}></Route>
+                <Route path="/goals" element={<MyGoals/>}></Route>
                 <Route path="/heatmaps" element={<Heatmaps />}></Route>
 
                 {/* Training Dropdown Routers */}
-                <Route path="/training"element={<Training/>}></Route>
-                <Route path="/trainingCalendar"element={<TrainingCalendar/>}></Route>
-                <Route path="/activities"element={<MyActivities/>}></Route>
-                <Route path="/trainingLog"element={<TrainingLog/>}></Route>
-                <Route path="/trainingPlans"element={<TrainingPlans/>}></Route>
-                <Route path="/powerCurve"element={<PowerCurve/>}></Route>
+                <Route path="/training" element={<Training/>}></Route>
+                <Route path="/trainingCalendar" element={<TrainingCalendar/>}></Route>
+                <Route path="/activities" element={<MyActivities/>}></Route>
+                <Route path="/trainingLog" element={<TrainingLog/>}></Route>
+                <Route path="/trainingPlans" element={<TrainingPlans/>}></Route>
+                <Route path="/powerCurve" element={<PowerCurve/>}></Route>
                 <Route path="/fitnessAndFreshness" element={<FitnessAndFreshness />}></Route>
                 
                 {/* Explore Dropdown Routers */}
@@ -69,19 +72,22 @@ function App() {
                 <Route path="/createRoute" element={<CreateRoute />}></Route>
                 <Route path="/subscriberPerks" element={<SubscriberPerks />}></Route>
                 
-                <Route path="/challenges"element={<Challenges/>}></Route>
+                <Route path="/challenges" element={<Challenges/>}></Route>
 
                 {/* User Dropdown Routers */}
-                <Route path="/findFriends"element={<FindFriends/>}></Route>
-                <Route path="/profile"element={<MyProfile/>}></Route>
-                <Route path="/settings"element={<Settings/>}></Route>
-                <Route path="/logOut"element={<LogOut/>}></Route>
+                <Route path="/findFriends" element={<FindFriends/>}></Route>
+                <Route path="/profile" element={<MyProfile/>}></Route>
+                <Route path="/settings" element={<Settings/>}></Route>
+                <Route path="/logOut" element={<LogOut/>}></Route>
 
                 {/* Upload Dropdown Routers */}
-                <Route path="/uploadActivity"element={<UploadActivity/>}></Route>
-                <Route path="/addManualEntry"element={<AddManualEntry/>}></Route>
-                <Route path="/createRouteUserUpload"element={<CreateRouteUserUpload/>}></Route>
-                <Route path="/CreatePost"element={<CreatePost/>}></Route>
+                <Route path="/device" element={<Device/>}></Route>
+                <Route path="/file" element={<File/>}></Route>
+                <Route path="/manual" element={<Manual/>}></Route>
+                <Route path="/Mobile" element={<Mobile/>}></Route>
+
+                <Route path="/createRouteUserUpload" element={<CreateRouteUserUpload/>}></Route>
+                <Route path="/CreatePost" element={<CreatePost/>}></Route>
                 
             </Routes>
             <Footer/>

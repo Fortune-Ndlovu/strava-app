@@ -1,0 +1,4 @@
+td.activities-table-buttons {
+    display: flex;
+    gap: 10px;
+}

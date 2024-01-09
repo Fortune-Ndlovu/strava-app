@@ -1,0 +1,11 @@
+.upload-activities-sidebar-container,
+.user-upload-container {
+    display: flex;
+
+}
+
+.user-upload-container {
+    display: flex;
+    margin-top: 100px;
+    gap: 50px;
+}
