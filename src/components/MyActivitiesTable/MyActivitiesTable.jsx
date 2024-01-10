@@ -17,75 +17,39 @@ const MyActivitiesTable = () => {
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
+                    <td>Run</td>
+                    <td>Tue, 9/19/2023</td>
+                    <td>Morning Run</td>
+                    <td>10:30</td>
+                    <td>1.93</td>
+                    <td>31 m</td>
                     <td className="activities-table-buttons">
                         <a href='#home'>Edit</a>
                         <a href='#home'>Delete</a>
-                        <select name="share" id="shareTableBtn">
-                            <option value="share">Share</option>
-                            <option value="On Facebook">On Facebook</option>
-                            <option value="On Twitter">On Twitter</option>
-                            <option value="Embed on Blog">Embed on Blog</option>
-                        </select>
                     </td>
                 </tr>
                 <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
+                    <td>Run</td>
+                    <td>Mon, 9/18/2023</td>
+                    <td>Morning Run</td>
+                    <td>3:54</td>
+                    <td>0.66 km</td>
+                    <td>12 m</td>
                     <td className="activities-table-buttons">
                         <a href='#home'>Edit</a>
                         <a href='#home'>Delete</a>
-                        <select name="share" id="shareTableBtn">
-                            <option value="share">Share</option>
-                            <option value="On Facebook">On Facebook</option>
-                            <option value="On Twitter">On Twitter</option>
-                            <option value="Embed on Blog">Embed on Blog</option>
-                        </select>
                     </td>
                 </tr>
                 <tr>
-                    <td>3</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
+                    <td>Workout</td>
+                    <td>Wed, 8/16/2023</td>
+                    <td>Morning Workout</td>
+                    <td>3:36</td>
+                    <td>0 km</td>
+                    <td>0 m</td>
                     <td className="activities-table-buttons">
                         <a href='#home'>Edit</a>
                         <a href='#home'>Delete</a>
-                        <select name="share" id="shareTableBtn">
-                            <option value="share">Share</option>
-                            <option value="On Facebook">On Facebook</option>
-                            <option value="On Twitter">On Twitter</option>
-                            <option value="Embed on Blog">Embed on Blog</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>@twitter</td>
-                    <td colSpan={1}>Larry the Bird</td>
-                    <td>@mdo</td>
-                    <td colSpan={1}>Larry the Bird</td>
-                    <td>@mdo</td>
-                    <td className="activities-table-buttons">
-                        <a href='#home'>Edit</a>
-                        <a href='#home'>Delete</a>
-                        <select name="share" id="shareTableBtn">
-                            <option value="share">Share</option>
-                            <option value="On Facebook">On Facebook</option>
-                            <option value="On Twitter">On Twitter</option>
-                            <option value="Embed on Blog">Embed on Blog</option>
-                        </select>
                     </td>
                 </tr>
             </tbody>
