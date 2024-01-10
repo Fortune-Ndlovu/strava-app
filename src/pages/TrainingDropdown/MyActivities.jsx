@@ -1,6 +1,7 @@
 import React from 'react';
 import MyActivitiesForm from '../../components/MyActivitiesForm/MyActivitiesForm';
 import MyActivitiesTable from '../../components/MyActivitiesTable/MyActivitiesTable';
+import MyActivitiesList    from '../../components/MyActivitiesTable/MyActivitiesList';
 
 const MyActivities = () => {
     return (
@@ -11,7 +12,8 @@ const MyActivities = () => {
                 </h1>
                 <MyActivitiesForm />
                 <h4>10 Activities</h4>
-                <MyActivitiesTable/>
+                <MyActivitiesTable />
+                <MyActivitiesList/>
             </div>
         </div>
     )
