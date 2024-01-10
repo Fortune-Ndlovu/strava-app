@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Form, Button, Col, Row} from 'react-bootstrap';
-import './MyActivitiesForm.css';
+import './FilteringMyActivitiesForm.css';
 const MyActivitiesForm = () => {
     const [selectedOption, setSelectedOption] = useState("");
     // Applying the ability to select the items from the select options

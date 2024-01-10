@@ -1,5 +1,5 @@
 import React from 'react';
-import MyActivitiesForm from '../../components/MyActivitiesForm/MyActivitiesForm';
+import MyActivitiesForm from '../../components/FilteringMyActivitiesForm/FilteringMyActivitiesForm';
 // import MyActivitiesTable from '../../components/MyActivitiesTable/MyActivitiesTable';
 import UserActivitiesManager    from '../../services/UserActivitiesManager';
 
