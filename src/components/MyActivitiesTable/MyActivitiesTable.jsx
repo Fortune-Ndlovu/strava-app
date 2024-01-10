@@ -1,27 +1,70 @@
-import React from 'react';
+import {React, useState} from 'react';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 import './MyActivitiesTable.css';
 
-const MyActivitiesTable = ({ activities }) => {
-  console.log('MyActivitiesTable', activities)
- return (
+const MyActivitiesTable = ({ activities, onEditActivity }) => {
+  const [editIndex, setEditIndex] = useState(null);
+  const [editedActivity, setEditedActivity] = useState({});
+
+  const handleEditClick = (index) => {
+    setEditIndex(index);
+    setEditedActivity({ ...activities[index] });
+  };
+
+  const handleSaveClick = (index) => {
+    onEditActivity(index, editedActivity);
+    setEditIndex(null);
+    setEditedActivity({});
+  };
+
+  const handleCancelClick = () => {
+    setEditIndex(null);
+    setEditedActivity({});
+  };
+
+  const handleInputChange = (key, value) => {
+    setEditedActivity((prev) => ({ ...prev, [key]: value }));
+  };
+
+  return (
     <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>Activity</th>
-          <th>Distance</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
       <tbody>
         {activities && activities.length > 0 ? (
           activities.map((activity, index) => (
             <tr key={index}>
-              <td>{activity.Activity}</td>
-              <td>{activity.Distance}</td>
+              <td>
+                {editIndex === index ? (
+                  <input
+                    type="text"
+                    value={editedActivity.Activity}
+                    onChange={(e) => handleInputChange("Activity", e.target.value)}
+                  />
+                ) : (
+                  activity.Activity
+                )}
+              </td>
+              <td>
+                {editIndex === index ? (
+                  <input
+                    type="text"
+                    value={editedActivity.Distance}
+                    onChange={(e) => handleInputChange("Distance", e.target.value)}
+                  />
+                ) : (
+                  activity.Distance
+                )}
+              </td>
               <td className="activities-table-buttons">
-                <a href={`#edit-${index}`}>Edit</a>
-                <a href={`#delete-${index}`}>Delete</a>
+                {editIndex === index ? (
+                  <>
+                    <Button variant="success" onClick={() => handleSaveClick(index)}>Save</Button>
+                    <Button variant="danger" onClick={handleCancelClick}>Cancel</Button>
+                  </>
+                ) : (
+                  <Button variant="primary" onClick={() => handleEditClick(index)}>Edit</Button>
+                )}
+                {/* Add a "Delete" button as well */}
               </td>
             </tr>
           ))

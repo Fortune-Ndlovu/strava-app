@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase/firebase";
-import { collection, addDoc, onSnapshot } from "firebase/firestore";
+import { collection, addDoc, onSnapshot, doc, updateDoc } from "firebase/firestore";
 import ManualEntryForm from "../components/ManualEntryForm/ManualEntryForm";
 import MyActivitiesTable from "../components/MyActivitiesTable/MyActivitiesTable";
 
@@ -11,6 +11,12 @@ const UserActivitiesManager = () => {
   const createActivity = async (newActivity) => {
     await addDoc(usersCollectionRef, newActivity);
   };
+
+   const editActivity = async (index, updatedActivity) => {
+    const userDoc = doc(db, "users", users[index].id);
+    await updateDoc(userDoc, updatedActivity);
+  };
+
 
   useEffect(() => {
    const unsubscribe = onSnapshot(usersCollectionRef, (snapshot) => {
@@ -26,7 +32,7 @@ const UserActivitiesManager = () => {
   return (
     <div>
       <ManualEntryForm onCreateActivity={createActivity} />
-      <MyActivitiesTable activities={users} />
+      <MyActivitiesTable activities={users} onEditActivity={editActivity}/>
     </div>
   );
 };
