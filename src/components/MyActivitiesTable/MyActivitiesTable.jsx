@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table';
 import './MyActivitiesTable.css';
 
 const MyActivitiesTable = ({ activities }) => {
+  console.log('MyActivitiesTable', activities)
  return (
     <Table striped bordered hover>
       <thead>

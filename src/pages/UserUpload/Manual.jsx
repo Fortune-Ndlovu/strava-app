@@ -1,14 +1,13 @@
 import React from 'react'
 import UploadActivitiesSideBar from '../../components/UploadActivitiesSideBar/UploadActivitiesSideBar';
 import '../../components/UploadActivitiesSideBar/UploadActivitiesSideBar.css';
-import ManualEntryForm from '../../components/ManualEntryForm/ManualEntryForm';
+import UserActivitiesManager from '../../services/UserActivitiesManager';
 
 const Manual = () => {
   return (
     <div className="user-upload-container">
       <UploadActivitiesSideBar />
-     
-     <ManualEntryForm/>
+      <UserActivitiesManager/>
     </div>
   )
 }

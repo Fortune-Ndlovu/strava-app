@@ -1,6 +1,6 @@
 import React from 'react';
 import MyActivitiesForm from '../../components/MyActivitiesForm/MyActivitiesForm';
-import MyActivitiesTable from '../../components/MyActivitiesTable/MyActivitiesTable';
+// import MyActivitiesTable from '../../components/MyActivitiesTable/MyActivitiesTable';
 import UserActivitiesManager    from '../../services/UserActivitiesManager';
 
 const MyActivities = () => {
@@ -12,7 +12,7 @@ const MyActivities = () => {
                 </h1>
                 <MyActivitiesForm />
                 <h4>10 Activities</h4>
-                <MyActivitiesTable />
+                {/* <MyActivitiesTable /> */}
                 <UserActivitiesManager/>
             </div>
         </div>

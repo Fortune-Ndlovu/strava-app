@@ -22,8 +22,6 @@ const UserActivitiesManager = () => {
 
   return (
     <div>
-      <h1>Hello users</h1>
-
       <ManualEntryForm onCreateActivity={createActivity} />
       <MyActivitiesTable activities={users} />
     </div>
