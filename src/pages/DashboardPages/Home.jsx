@@ -52,11 +52,7 @@ const Home = () => {
 
     }, [clientID, clientSecret, refreshToken]);
     // When any of these dependencies change, the useEffect hook will re-run.
-
-    // function deleteActivity = (activityID) => {
-    //     const newActivityArray = activities.filter(activity => activity.id !== activityID);
-    //     setActivities(newActivityArray);
-    // }
+    
     return (
         <div className="App">
             <div className="dashboard-container">

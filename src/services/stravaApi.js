@@ -7,6 +7,7 @@ const callAthlete = "https://www.strava.com/api/v3/athlete";
 export async function getActivities(accessToken) {
   const response = await fetch(`${callActivities}?access_token=${accessToken}`);
   const data = await response.json();
+  console.log("getActivities: ", data)
   return data;
 }
 
@@ -16,3 +17,4 @@ export async function getAthleteData(accessToken) {
   const data = await response.json();
   return data;
 }
+

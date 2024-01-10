@@ -2,36 +2,36 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from './pages/DashboardDropdown/Home';
+import Home from './pages/DashboardPages/Home';
 import Challenges from './pages/Challenges';
-import MySegments from './pages/DashboardDropdown/MySegments';
-import MyGoals from './pages/DashboardDropdown/MyGoals';
-import Heatmaps from './pages/DashboardDropdown/Heatmaps';
+import MySegments from './pages/DashboardPages/MySegments';
+import MyGoals from './pages/DashboardPages/MyGoals';
+import Heatmaps from './pages/DashboardPages/Heatmaps';
 
-import Training from './pages/TrainingDropdown/Training';
-import TrainingCalendar from './pages/TrainingDropdown/TrainingCalendar';
-import MyActivities from './pages/TrainingDropdown/MyActivities';
-import TrainingLog from './pages/TrainingDropdown/TrainingLog';
-import TrainingPlans from './pages/TrainingDropdown/TrainingPlans';
-import PowerCurve from './pages/TrainingDropdown/PowerCurve';
-import FitnessAndFreshness from './pages/TrainingDropdown/FitnessAndFreshness';
+import Training from './pages/TrainingPages/Training';
+import TrainingCalendar from './pages/TrainingPages/TrainingCalendar';
+import MyActivities from './pages/TrainingPages/MyActivities';
+import TrainingLog from './pages/TrainingPages/TrainingLog';
+import TrainingPlans from './pages/TrainingPages/TrainingPlans';
+import PowerCurve from './pages/TrainingPages/PowerCurve';
+import FitnessAndFreshness from './pages/TrainingPages/FitnessAndFreshness';
 
-import Explore from './pages/ExploreDropdown/Explore';
-import SegmentExplore from './pages/ExploreDropdown/SegmentExplore';
-import SegmentSearch from './pages/ExploreDropdown/SegmentSearch';
-import AthleteSearch from './pages/ExploreDropdown/AthleteSearch';
-import Clubs from './pages/ExploreDropdown/Clubs';
-import Apps from './pages/ExploreDropdown/Apps';
-import CreateRoute from './pages/ExploreDropdown/CreateRoute';
-import SubscriberPerks from './pages/ExploreDropdown/SubscriberPerks';
+import Explore from './pages/ExplorePages/Explore';
+import SegmentExplore from './pages/ExplorePages/SegmentExplore';
+import SegmentSearch from './pages/ExplorePages/SegmentSearch';
+import AthleteSearch from './pages/ExplorePages/AthleteSearch';
+import Clubs from './pages/ExplorePages/Clubs';
+import Apps from './pages/ExplorePages/Apps';
+import CreateRoute from './pages/ExplorePages/CreateRoute';
+import SubscriberPerks from './pages/ExplorePages/SubscriberPerks';
 
-import FindFriends from './pages/UserDropdown/FindFriends';
-import MyProfile from './pages/UserDropdown/MyProfile';
-import Settings from './pages/UserDropdown/Settings';
-import LogOut from './pages/UserDropdown/LogOut';
+import FindFriends from './pages/UserPages/FindFriends';
+import MyProfile from './pages/UserPages/MyProfile';
+import Settings from './pages/UserPages/Settings';
+import LogOut from './pages/UserPages/LogOut';
 
-import CreateRouteUserUpload from './pages/UploadDropdown/CreateRouteUserUpload';
-import CreatePost from './pages/UploadDropdown/CreatePost';
+import CreateRouteUserUpload from './pages/UploadPages/CreateRouteUserUpload';
+import CreatePost from './pages/UploadPages/CreatePost';
 
 import Device from './pages/UserUpload/Device';
 import File from './pages/UserUpload/File';
