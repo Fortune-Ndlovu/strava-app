@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import './MyActivitiesTable.css';
 
-const MyActivitiesTable = ({ activities, onEditActivity }) => {
+const MyActivitiesTable = ({ activities, onEditActivity,  onDeleteActivity }) => {
   const [editIndex, setEditIndex] = useState(null);
   const [editedActivity, setEditedActivity] = useState({});
 
@@ -25,6 +25,10 @@ const MyActivitiesTable = ({ activities, onEditActivity }) => {
 
   const handleInputChange = (key, value) => {
     setEditedActivity((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const handleDeleteClick = (index) => {
+    onDeleteActivity(index);
   };
 
   return (
@@ -62,9 +66,11 @@ const MyActivitiesTable = ({ activities, onEditActivity }) => {
                     <Button variant="danger" onClick={handleCancelClick}>Cancel</Button>
                   </>
                 ) : (
-                  <Button variant="primary" onClick={() => handleEditClick(index)}>Edit</Button>
+                    <>
+                      <Button variant="primary" onClick={() => handleEditClick(index)}>Edit</Button>
+                      <Button variant="danger" onClick={() => handleDeleteClick(index)}>Delete</Button>
+                    </>
                 )}
-                {/* Add a "Delete" button as well */}
               </td>
             </tr>
           ))
