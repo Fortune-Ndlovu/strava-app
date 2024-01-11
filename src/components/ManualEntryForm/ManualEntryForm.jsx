@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 import './ManualEntryForm.css';
 
 const ManualEntryForm = ({ onCreateActivity }) => {
   const [newActivity, setNewActivity] = useState("");
-  const [newDistance, setNewDistance] = useState(0);
+  const [newDescription, setNewDescription] = useState("");
 
   const handleCreateActivity = () => {
-    onCreateActivity({ name: newActivity, distance: newDistance });
+    onCreateActivity({ name: newActivity, description: newDescription });
     setNewActivity("");
-    setNewDistance(0);
+    setNewDescription("");
   };
 
   return (
     <div>
       <h1>Manual Entry</h1>
       <Form id="manualEntryForm">
+
+
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Title</Form.Label>
           <Form.Control
@@ -32,8 +37,8 @@ const ManualEntryForm = ({ onCreateActivity }) => {
             as="textarea"
             placeholder="How'd it go?"
             rows={3}
-            value={newDistance}
-            onChange={(e) => setNewDistance(e.target.value)}
+            value={newDescription}
+            onChange={(e) => setNewDescription(e.target.value)}
           />
         </Form.Group>
         <Button variant="primary" type="button" onClick={handleCreateActivity}>
