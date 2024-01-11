@@ -41,22 +41,22 @@ const MyActivitiesTable = ({ activities, onEditActivity,  onDeleteActivity }) =>
                 {editIndex === index ? (
                   <input
                     type="text"
-                    value={editedActivity.Activity}
-                    onChange={(e) => handleInputChange("Activity", e.target.value)}
+                    value={editedActivity.name}
+                    onChange={(e) => handleInputChange("name", e.target.value)}
                   />
                 ) : (
-                  activity.Activity
+                  activity.name
                 )}
               </td>
               <td>
                 {editIndex === index ? (
                   <input
                     type="text"
-                    value={editedActivity.Distance}
-                    onChange={(e) => handleInputChange("Distance", e.target.value)}
+                    value={editedActivity.distance}
+                    onChange={(e) => handleInputChange("distance", e.target.value)}
                   />
                 ) : (
-                  activity.Distance
+                  activity.distance
                 )}
               </td>
               <td className="activities-table-buttons">

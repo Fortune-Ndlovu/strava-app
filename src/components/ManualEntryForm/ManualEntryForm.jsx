@@ -8,7 +8,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
   const [newDistance, setNewDistance] = useState(0);
 
   const handleCreateActivity = () => {
-    onCreateActivity({ Activity: newActivity, Distance: newDistance });
+    onCreateActivity({ name: newActivity, distance: newDistance });
     setNewActivity("");
     setNewDistance(0);
   };

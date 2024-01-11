@@ -5,27 +5,27 @@ import ManualEntryForm from "../components/ManualEntryForm/ManualEntryForm";
 import MyActivitiesTable from "../components/MyActivitiesTable/MyActivitiesTable";
 
 const UserActivitiesManager = () => {
-  const [users, setUsers] = useState([]);
-  const usersCollectionRef = collection(db, "users");
+  const [userActivities, setUserActivities] = useState([]);
+  const userActivitiesCollection = collection(db, "userActivities");
 
   const createActivity = async (newActivity) => {
-    await addDoc(usersCollectionRef, newActivity);
+    await addDoc(userActivitiesCollection, newActivity);
   };
 
    const editActivity = async (index, updatedActivity) => {
-    const userDoc = doc(db, "users", users[index].id);
+    const userDoc = doc(db, "userActivities", userActivities[index].id);
     await updateDoc(userDoc, updatedActivity);
   };
 
    const deleteActivity = async (index) => {
-    const userDoc = doc(db, "users", users[index].id);
+    const userDoc = doc(db, "userActivities", userActivities[index].id);
     await deleteDoc(userDoc);
   };
 
   useEffect(() => {
-   const unsubscribe = onSnapshot(usersCollectionRef, (snapshot) => {
+   const unsubscribe = onSnapshot(userActivitiesCollection, (snapshot) => {
     // Update the state whenever there's a change in the collection
-    setUsers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    setUserActivities(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   });
 
   // Cleanup the listener when the component unmounts
@@ -36,7 +36,7 @@ const UserActivitiesManager = () => {
   return (
     <div>
       <ManualEntryForm onCreateActivity={createActivity} />
-      <MyActivitiesTable activities={users} onEditActivity={editActivity} onDeleteActivity={deleteActivity}/>
+      <MyActivitiesTable activities={userActivities} onEditActivity={editActivity} onDeleteActivity={deleteActivity}/>
     </div>
   );
 };
