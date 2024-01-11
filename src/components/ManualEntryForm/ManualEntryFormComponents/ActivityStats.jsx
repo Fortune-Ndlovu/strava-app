@@ -12,7 +12,9 @@ const ActivityStats = ({
 	minuteValue,
 	minuteOnChange,
 	secondValue,
-	secondOnChange,
+    secondOnChange,
+    elevationValue,
+    elevationOnChange
 }) => {
 	return (
 		<div>
@@ -35,8 +37,9 @@ const ActivityStats = ({
 					<Dropdown.Item href="#">miles</Dropdown.Item>
 					<Dropdown.Item href="#">yards</Dropdown.Item>
 				</DropdownButton>
-			</InputGroup>
-
+            </InputGroup>
+            
+            <Form.Label>Duration</Form.Label>
 			<InputGroup className="mb-3" type="number">
 				<Form.Control
 					aria-label="hour"
@@ -59,6 +62,25 @@ const ActivityStats = ({
 					value={secondValue}
 					onChange={secondOnChange}
 				/>
+            </InputGroup>
+            
+            <Form.Label>Elevation</Form.Label>
+            <InputGroup className="mb-3">
+				<Form.Control
+					aria-label="Text input with dropdown button"
+					type="number"
+					value={elevationValue}
+					onChange={elevationOnChange}
+				/>
+				<DropdownButton
+					variant="outline-secondary"
+					title="Dropdown"
+					id="input-group-dropdown-2"
+					align="end"
+				>
+					<Dropdown.Item href="#">Meters</Dropdown.Item>
+					<Dropdown.Item href="#">feet</Dropdown.Item>
+				</DropdownButton>
 			</InputGroup>
 		</div>
 	);

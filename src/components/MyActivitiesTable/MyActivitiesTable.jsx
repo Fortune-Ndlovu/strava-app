@@ -97,8 +97,7 @@ const MyActivitiesTable = ({
 												/>
 												:
 											</>
-                    )}
-                    
+										)}
 										<input
 											type="text"
 											value={formatTimeValue(editedActivity.minute)}
@@ -119,7 +118,7 @@ const MyActivitiesTable = ({
 									<>
 										{activity.hour && <>{formatTimeValue(activity.hour)}:</>}
 										{formatTimeValue(activity.minute)}:
-										{formatTimeValue(activity.second) || '00'}
+										{formatTimeValue(activity.second) || "00"}
 									</>
 								)}
 							</td>
@@ -139,8 +138,21 @@ const MyActivitiesTable = ({
 								)}
 							</td>
 
-							{/* Placeholder cell */}
-							<td></td>
+							{/* Elevation cell */}
+							<td>
+								{" "}
+								{editIndex === index ? (
+									<input
+										type="text"
+										value={editedActivity.elevation}
+										onChange={(e) =>
+											handleInputChange("elevation", e.target.value)
+										}
+									/>
+								) : (
+									activity.elevation
+								)}
+							</td>
 							{/* Description cell */}
 							<td>
 								{editIndex === index ? (

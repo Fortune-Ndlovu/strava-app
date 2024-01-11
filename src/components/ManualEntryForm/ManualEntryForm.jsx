@@ -7,10 +7,10 @@ import "./ManualEntryForm.css";
 
 const ManualEntryForm = ({ onCreateActivity }) => {
   const [newDistance, setNewDistance] = useState(0);
-  
   const [newHour, setNewHour] = useState(0);
   const [newMinute, setNewMinute] = useState(0);
   const [newSecond, setNewSecond] = useState(0);
+  const [newElevation, setNewElevation] = useState(0);
 	
   const [newActivity, setNewActivity] = useState("");
 	const [newDescription, setNewDescription] = useState("");
@@ -21,6 +21,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
       hour: newHour,
       minute: newMinute,
       second: newSecond,
+      elevation: newElevation,
 			name: newActivity,
 			description: newDescription,
 		});
@@ -39,7 +40,9 @@ const ManualEntryForm = ({ onCreateActivity }) => {
           minuteOnChange={(e) => setNewMinute(e.target.value)}
           secondValue={newSecond}
           secondOnChange={(e) => setNewSecond(e.target.value)}
-				/>
+          elevationValue={newElevation}
+          elevationOnChange={(e) => setNewElevation(e.target.value)}
+        />
 
 				<ActivityDetails
 					titleValue={newActivity}
