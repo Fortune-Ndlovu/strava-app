@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import ActivityDetails from './ManualEntryFormComponents/ActivityDetails';
+import ActivityStats from './ManualEntryFormComponents/ActivityStats';
 import './ManualEntryForm.css';
 
 const ManualEntryForm = ({ onCreateActivity }) => {
+  const [newDistance, setNewDistance] = useState(0)
+
   const [newActivity, setNewActivity] = useState("");
   const [newDescription, setNewDescription] = useState("");
 
   const handleCreateActivity = () => {
-    onCreateActivity({ name: newActivity, description: newDescription });
+    onCreateActivity({distance: newDistance, name: newActivity, description: newDescription });
+    setNewDistance(0)
     setNewActivity("");
     setNewDescription("");
   };
@@ -21,26 +23,18 @@ const ManualEntryForm = ({ onCreateActivity }) => {
       <h1>Manual Entry</h1>
       <Form id="manualEntryForm">
 
+        <ActivityStats
+          distanceValue={newDistance}
+          distanceOnChange={(e) => setNewDistance(e.target.value)}
+        />
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label>Title</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Night Run"
-            value={newActivity}
-            onChange={(e) => setNewActivity(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-          <Form.Label>Description</Form.Label>
-          <Form.Control
-            as="textarea"
-            placeholder="How'd it go?"
-            rows={3}
-            value={newDescription}
-            onChange={(e) => setNewDescription(e.target.value)}
-          />
-        </Form.Group>
+        <ActivityDetails
+          titleValue={newActivity}
+          titleOnChange={(e) => setNewActivity(e.target.value)}
+          descriptionValue={newDescription}
+          descriptionOnChange={(e) => setNewDescription(e.target.value)}
+        />
+        
         <Button variant="primary" type="button" onClick={handleCreateActivity}>
           Submit
         </Button>

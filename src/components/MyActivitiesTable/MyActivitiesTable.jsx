@@ -33,10 +33,32 @@ const MyActivitiesTable = ({ activities, onEditActivity,  onDeleteActivity }) =>
 
   return (
     <Table striped bordered hover>
+       <thead>
+        <tr>
+          <th>Sport</th>
+          <th>Date</th>
+          <th>Title</th>
+          <th>Distance</th>
+          <th>Elevation</th>
+        </tr>
+      </thead>
       <tbody>
         {activities && activities.length > 0 ? (
           activities.map((activity, index) => (
+            
             <tr key={index}>
+              
+              {/* Placeholder cell */}
+              <td>
+              
+            </td>
+
+                {/* Placeholder cell */}
+              <td>
+              
+            </td>
+
+            {/* Name cell */}
               <td>
                 {editIndex === index ? (
                   <input
@@ -48,6 +70,28 @@ const MyActivitiesTable = ({ activities, onEditActivity,  onDeleteActivity }) =>
                   activity.name
                 )}
               </td>
+
+
+                {/* Distance cell */}
+              <td>
+                {editIndex === index ? (
+                  <input
+                    type="text"
+                    value={editedActivity.distance}
+                    onChange={(e) => handleInputChange("distance", e.target.value)}
+                  />
+                ) : (
+                  activity.distance
+              )}
+            </td>
+
+             
+
+            {/* Placeholder cell */}
+              <td>
+                
+              </td>
+            {/* Description cell */}
               <td>
                 {editIndex === index ? (
                   <input
@@ -59,6 +103,8 @@ const MyActivitiesTable = ({ activities, onEditActivity,  onDeleteActivity }) =>
                   activity.description
                 )}
               </td>
+
+              {/* Button cell */}
               <td className="activities-table-buttons">
                 {editIndex === index ? (
                   <>
