@@ -32,8 +32,8 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 			name: newActivity,
 			description: newDescription,
     });
+    
 	};
-
 	return (
 		<div>
 			<h1>Manual Entry</h1>

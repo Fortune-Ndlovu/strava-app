@@ -30,13 +30,12 @@ import MyProfile from './pages/UserPages/MyProfile';
 import Settings from './pages/UserPages/Settings';
 import LogOut from './pages/UserPages/LogOut';
 
-import CreateRouteUserUpload from './pages/UploadPages/CreateRouteUserUpload';
-import CreatePost from './pages/UploadPages/CreatePost';
+import CreatePost from './pages/UserUploadPages/CreatePost';
 
-import Device from './pages/UserUpload/Device';
-import File from './pages/UserUpload/File';
-import Manual from './pages/UserUpload/Manual';
-import Mobile from './pages/UserUpload/Mobile';
+import Device from './pages/UserUploadPages/Device';
+import File from './pages/UserUploadPages/File';
+import Manual from './pages/UserUploadPages/Manual';
+import Mobile from './pages/UserUploadPages/Mobile';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -85,10 +84,7 @@ function App() {
                 <Route path="/file" element={<File/>}></Route>
                 <Route path="/manual" element={<Manual/>}></Route>
                 <Route path="/Mobile" element={<Mobile/>}></Route>
-
-                <Route path="/createRouteUserUpload" element={<CreateRouteUserUpload/>}></Route>
-                <Route path="/CreatePost" element={<CreatePost/>}></Route>
-                
+                <Route path="/createPost" element={<CreatePost/>}></Route>                
             </Routes>
             <Footer/>
         </BrowserRouter>
