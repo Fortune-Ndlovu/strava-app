@@ -63,11 +63,29 @@ const MyActivitiesTable = ({
 				{activities && activities.length > 0 ? (
 					activities.map((activity, index) => (
 						<tr key={index}>
-							{/* Placeholder cell */}
-							<td></td>
+							{/* Sport cell */}
+              <td>{editIndex === index ? (
+                <input
+                  type="select"
+                  value={editedActivity.sport}
+                  onChange={(e) => handleInputChange("sport", e.target.value)}
+									/>
+								) : (
+									activity.sport
+								)}</td>
 
 							{/* Placeholder cell */}
-							<td></td>
+							<td>
+								{editIndex === index ? (
+									<input
+										type="date"
+										value={editedActivity.date}
+										onChange={(e) => handleInputChange("date", e.target.value)}
+									/>
+								) : (
+									activity.date
+								)}
+							</td>
 
 							{/* Name cell */}
 							<td>

@@ -5,6 +5,7 @@ import ActivityDetails from "./ManualEntryFormComponents/ActivityDetails";
 import ActivityStats from "./ManualEntryFormComponents/ActivityStats";
 import "./ManualEntryForm.css";
 
+
 const ManualEntryForm = ({ onCreateActivity }) => {
   const [newDistance, setNewDistance] = useState(0);
   const [newHour, setNewHour] = useState(0);
@@ -12,6 +13,9 @@ const ManualEntryForm = ({ onCreateActivity }) => {
   const [newSecond, setNewSecond] = useState(0);
   const [newElevation, setNewElevation] = useState(0);
 	
+  const [newSportSelection, setNewSportSelection] = useState("");
+  const [newDateValue, setNewDateValue] = useState("");
+  const [newTimeValue, setNewTimeValue] = useState("")
   const [newActivity, setNewActivity] = useState("");
 	const [newDescription, setNewDescription] = useState("");
 
@@ -22,9 +26,12 @@ const ManualEntryForm = ({ onCreateActivity }) => {
       minute: newMinute,
       second: newSecond,
       elevation: newElevation,
+      sport: newSportSelection,
+      date: newDateValue,
+      time: newTimeValue,
 			name: newActivity,
 			description: newDescription,
-		});
+    });
 	};
 
 	return (
@@ -44,7 +51,13 @@ const ManualEntryForm = ({ onCreateActivity }) => {
           elevationOnChange={(e) => setNewElevation(e.target.value)}
         />
 
-				<ActivityDetails
+        <ActivityDetails
+          sportSelectionValue={newSportSelection}
+          sportSelectionOnChange={(e) => setNewSportSelection(e.target.value)}
+          dateValue={newDateValue}
+          dateOnChange={(e) => setNewDateValue(e.target.value)}
+          timeValue={newTimeValue}
+          timeOnChange={(e) => setNewTimeValue(e.target.value)}
 					titleValue={newActivity}
 					titleOnChange={(e) => setNewActivity(e.target.value)}
 					descriptionValue={newDescription}
