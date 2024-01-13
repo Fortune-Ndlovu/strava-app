@@ -12,6 +12,7 @@ import {BsPlusCircle, BsPlusCircleFill, BsArrowUpCircle, BsLayoutTextWindow} fro
 import {TbRoute} from 'react-icons/tb';
 import SearchBar from '../SearchBar/SearchBar';
 import stravaLogo from '../../images/strava_logo.svg';
+import dropdown_icon from '../../images/dropdown_icon.svg';
 import './Header.css';
 
 const Header = () => {
@@ -128,7 +129,7 @@ const Header = () => {
                                                 aria-label="Toggle Dashboard Dropdown"
                                                 tabIndex={0}
                                             >
-                                                <RiArrowDropDownLine className="dashboard-dropdown-icon" />
+                                                <img src={dropdown_icon} alt="navigation dropdown icon" className="dashboard-dropdown-icon"/>
                                             </button>
                                         </div>
                                     } 
@@ -173,7 +174,7 @@ const Header = () => {
                                                 aria-label="Toggle Training Dropdown"
                                                 tabIndex={0}
                                             >
-                                                <RiArrowDropDownLine className="training-dropdown-icon" />
+                                                 <img src={dropdown_icon} alt="navigation dropdown icon" className="dashboard-dropdown-icon"/>
                                             </button>
                                         </div>
                                     }
@@ -212,7 +213,7 @@ const Header = () => {
                                                 aria-label="Toggle Explore Dropdown"
                                                 tabIndex={0}
                                             >
-                                                <RiArrowDropDownLine className="explore-dropdown-icon" />
+                                                <img src={dropdown_icon} alt="navigation dropdown icon" className="dashboard-dropdown-icon"/>
                                             </button>
                                         </div>
                                     }
@@ -267,7 +268,8 @@ const Header = () => {
                                                 aria-label="Toggle user avatar dropdown"
                                                 tabIndex={0}
                                         >
-                                            <RiArrowDropDownLine className="explore-dropdown-icon" /> <BiSolidUserCircle className="biSolidUserCircle-icon" />
+                                            <img src={dropdown_icon} alt="navigation dropdown icon" className="dashboard-dropdown-icon"/>
+                                            <BiSolidUserCircle className="biSolidUserCircle-icon" />
                                         </button>
                                     </div>
                                 }

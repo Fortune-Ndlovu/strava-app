@@ -53,3 +53,8 @@ ul.dashboard-goals-heatmaps li:hover,
 a#challengesLink {
   margin-left: 12px;
 }
+
+img.dashboard-dropdown-icon {
+  width: 32px;
+  height: 32px;
+}
