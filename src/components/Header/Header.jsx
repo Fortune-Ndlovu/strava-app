@@ -274,7 +274,7 @@ const Header = () => {
                                     </div>
                                 }
                             >
-                                <div className="dropdownEffect">
+                                <div className="dropdownEffect" id="userDropdownMenu">
                                     <ul>
                                         <li><Link to="/findFriends">Find Friends</Link></li>
                                         <li><Link to="/profile">My Profile</Link></li>
@@ -321,31 +321,31 @@ const Header = () => {
                                     </div>
                                 }
                             >   
-                                <div className="dropdownEffect" id="userUploadWrapper">
+                                <div className="dropdownEffect" id="userUploadDropdownMenu">
                                     <ul>
                                         <li>
-                                            <Link to="/file" className="dropdown-item flipped-text">
+                                            <Link to="/file">
                                                 <div className="upload-center-wrapper">
                                                     <BsArrowUpCircle className="upload-icons"/> Upload activity
                                                 </div>
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to="/manual" className="dropdown-item flipped-text">
+                                            <Link to="/manual">
                                                 <div className="upload-center-wrapper">
-                                                    <MdMonitorHeart className="upload-icons"/> Add manual Entry
+                                                    <MdMonitorHeart className="upload-icons"/> Add manual entry
                                                 </div>
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to="/createRoute" className="dropdown-item flipped-text">
+                                            <Link to="/createRoute">
                                                 <div className="upload-center-wrapper">
                                                     <TbRoute className="upload-icons"/> Create route
                                                 </div>
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to="/createPost" className="dropdown-item flipped-text">
+                                            <Link to="/createPost">
                                                 <div className="upload-center-wrapper">
                                                     <BsLayoutTextWindow className="upload-icons"/> Create post
                                                 </div>

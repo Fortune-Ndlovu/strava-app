@@ -7,6 +7,19 @@
 a.navDropdownHeading:hover {
     color: #fc5200;
 }
+
+#userDropdownMenu,
+#userUploadDropdownMenu {
+    border-top: 1px solid lightgray;
+    margin-top: -10px;
+    -webkit-transform: scale(-1, 1);
+    border-top: none;
+}
+
+#userUploadDropdownMenu{
+  min-width: 188px;
+}
+
 .dropdownEffect ul,
 .dashboard-dropdown-subscription ul {
   list-style: none;
@@ -57,4 +70,12 @@ a#challengesLink {
 img.dashboard-dropdown-icon {
   width: 32px;
   height: 32px;
+}
+
+a#userAvatar {
+    font-size: 18px;
+}
+
+button.icon-button.color {
+    padding-left: 4px !important;
 }

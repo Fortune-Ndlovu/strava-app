@@ -88,12 +88,6 @@ div.container-fluid {
   border-top: none;
 }
 
-
-.dropdownEffect {
-    border-top: 1px solid lightgray;
-    margin-top: -10px;
-}
-
 /* CSS transitions to smoothly animate changes */
 .dropdown-menu {
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -1219,11 +1213,6 @@ div.container-fluid,
   a#userAvatar,
   a#userUpload {
     display: none;
-  }
-
-  /* Giving User upload some breathing space at the top. */
-  #userUploadWrapper {
-    padding-top: 30px;
   }
 
   /* Making the userAvatar and userUpload links text be fixed to left. */
