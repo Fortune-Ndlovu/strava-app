@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import ActivityDetails from "./ManualEntryFormComponents/ActivityDetails";
@@ -35,7 +36,8 @@ const ManualEntryForm = ({ onCreateActivity }) => {
     
 	};
 	return (
-		<div>
+    <div>
+      <Container>
 			<h1>Manual Entry</h1>
 			<Form id="manualEntryForm">
 				<ActivityStats
@@ -50,7 +52,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
           elevationValue={newElevation}
           elevationOnChange={(e) => setNewElevation(e.target.value)}
         />
-
+        <hr></hr>
         <ActivityDetails
           sportSelectionValue={newSportSelection}
           sportSelectionOnChange={(e) => setNewSportSelection(e.target.value)}
@@ -67,7 +69,8 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 				<Button variant="primary" type="button" onClick={handleCreateActivity}>
 					Submit
 				</Button>
-			</Form>
+        </Form>
+        </Container>
 		</div>
 	);
 };

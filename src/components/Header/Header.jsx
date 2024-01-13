@@ -5,7 +5,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {FiSearch} from 'react-icons/fi';
-import {RiArrowDropDownLine} from 'react-icons/ri';
 import {MdOutlineNotificationsNone, MdMonitorHeart} from 'react-icons/md';
 import {BiSolidUserCircle} from 'react-icons/bi';
 import {BsPlusCircle, BsPlusCircleFill, BsArrowUpCircle, BsLayoutTextWindow} from 'react-icons/bs';
