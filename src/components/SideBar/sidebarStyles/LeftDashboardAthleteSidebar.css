@@ -1,0 +1,49 @@
+.athlete-stats-card.card,
+.card {
+  background-color: #fff;
+    box-shadow: 0 8px 24px rgba(13,13,18,.04);
+    position: relative;
+    border: none;
+}
+
+#athlete-stats-body-wrapper {
+  border-bottom: 1px solid #f0f0f5;
+  padding-bottom: 0px;
+}
+
+#recoveryWeek-cardStyle {
+  background-color: #fff;
+    box-shadow: 0 8px 24px rgba(13,13,18,.04);
+    border: none;
+}
+
+.latestActivityText {
+  font-size: 12px;
+}
+
+a.morningRun-style {
+  font-size: 16px;
+}
+
+a.morning-run-link {
+  color: #000!important;
+  font-size: 18px;
+} 
+
+.morning-run-time {
+  font-size: 14px;
+}
+
+.dotSpan {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 12px;
+}
+
+p.recovery-week-first-para {
+  font-size: 14px;
+} 
+p.recovery-week-second-para {
+  font-size: 15px;
+  color: #525252;
+}

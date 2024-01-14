@@ -10,6 +10,7 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import fortunendlovu from "../../images/fortunendlovu.jpg";
 import recoveryweek from "../../images/recoveryweek.png";
+import './sidebarStyles/LeftDashboardAthleteSidebar.css';
 
 function LeftDashboardAthleteSidebar({ athlete, activities }) {
 	return (

@@ -1,0 +1,58 @@
+/*The button that is at the navigation with text Start Trial Override Bootstrap styles for the button */
+.experiment.btn.btn-primary:focus,
+.experiment.btn.btn-primary:active {
+    background-color: #fc5200 !important;
+    border-color: #fc5200 !important;
+    color: #fff !important;
+}
+
+.experiment.btn.btn-primary:hover {
+    background-color: rgb(211, 70, 1);
+    border-color: rgb(187, 62, 1);
+    color: rgb(242, 240, 237);
+}
+
+/* Keep the normal state styles */
+.experiment.btn.btn-primary {
+    background-color: #fc5200;
+    border-color: #fc5200;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 5px 20px 5px 20px;
+}
+
+/* Dropdown styles for for the languages button in the footer */
+.selection {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #242428;
+}
+
+.dropdown-wrapper {
+  position: relative;
+}
+
+#languages-select {
+  background-color: #fff;
+  color: #000;
+  position: relative;
+  display: inline-block;
+  font-size: 12px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border: none;
+}
+select#languages-select {
+  border-radius: 5px;
+}
+#languages-select:hover {
+  color: #000;
+  background-color: #e6e6e6;
+  border-color: #e0e0e0;
+}
+
+#languages-select:focus {
+  outline: 2px rgba(0,127,182,0.5) solid;
+    outline-offset: 1px;
+}

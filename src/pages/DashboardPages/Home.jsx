@@ -8,6 +8,7 @@ import {getActivities, getAthleteData} from '../../services/stravaApi';
 import config from '../../data/config.json';
 import {LeftDashboardAthleteSidebar, CenterDashboardAthleteSidebar, RightDashboardAthleteSidebar} from '../../components/SideBar';
 import {Container, Row, Col} from "react-bootstrap";
+import '../../styles/DashboardPages/Home.css';
 
 const Home = () => {
     const [isLoading, setIsLoading] = useState(true);
