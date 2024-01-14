@@ -295,3 +295,18 @@ button.icon-button {
   z-index: 999;
 }
 
+@media screen and (max-width: 992px) {
+	/* Showing the dropdown items content by default when the hamburger is open. */
+	.dropdown-menu.show {
+		display: contents !important;
+	}
+
+	.dropdownEffect {
+		border: none;
+	}
+
+	/* Making the userAvatar and userUpload links text be fixed to left. */
+	.flipped-text {
+		padding-left: 0px !important;
+	}
+}

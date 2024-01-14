@@ -8,6 +8,7 @@ import fortunendlovu from '../../images/fortunendlovu.jpg';
 import celebration_bronze_icon from '../../images/celebration_bronze_icon.svg';
 import runningRoute from '../../images/runningRoute.png';
 import runningView from '../../images/runningView.jpg';
+import './sidebarStyles/CenterDashboardAthleteSidebar.css';
 
 function CenterDashboardAthleteSidebar({athlete, activities}) {
 

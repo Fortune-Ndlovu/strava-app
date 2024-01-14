@@ -56,3 +56,99 @@ select#languages-select {
   outline: 2px rgba(0,127,182,0.5) solid;
     outline-offset: 1px;
 }
+
+/* Button styling for the RightDashboardAthleteSidebar component */
+button.view-all-challenges-btn,
+button.view-all-friends-btn {
+  color: #fc5200;
+  background-color: rgba(0,0,0,0);
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 2px;
+}
+
+button.view-all-challenges-btn:hover,
+button.view-all-friends-btn:hover {
+  background-color: #ffe1d2;
+  color: #fc5200;
+  border: none;
+}
+
+button.view-all-challenges-btn::after,
+button.view-all-challenges-btn:focus,
+button.view-all-challenges-btn:visited,
+button.view-all-friends-btn::after,
+button.view-all-friends-btn:focus,
+button.view-all-friends-btn:visited,
+button.view-all-friends-btn:after {
+  border: none;
+  --bs-btn-active-bg: #ffe1d2;
+  --bs-btn-active-color: #fc5200;
+  --bs-btn-active-bg: #ffe1d2;
+  --bs-btn-active-border-color: #ffe1d2;
+}
+
+button.view-all-clubs-btn,
+button.view-all-clubs-btn:after {
+  background-color: #fff;
+  border-color: #b6b3ac;
+  color: #2b2b2b;
+  font-size: 14px;
+  padding: 5px 8px 5px 8px;
+  font-weight: 700;
+  margin-top: 8px;
+  border-radius: 4px;
+}
+
+button.view-all-clubs-btn {
+  margin-bottom: 20px;
+}
+
+button.view-all-clubs-btn:hover,
+button.view-all-clubs-btn:visited,
+button.view-all-clubs-btn:focus {
+  background-color: #e6e6e6;
+  border-color: #d3d1cd;
+  color: #2b2b2b;
+  --bs-btn-active-color: #2b2b2b;
+  --bs-btn-active-bg: #d3d1cd;
+  --bs-btn-active-border-color: #d3d1cd;
+}
+
+button#saveRouteBtn {
+	position: absolute;
+	right: 10px;
+	z-index: 1;
+	top: 240px;
+	left: auto;
+}
+
+@media screen and (max-width: 992px) {
+	/* Displaying the start trial btn center and breathing space top & bottom. */
+	.start-trial-btn {
+		margin: auto;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	a.experiment.btn.btn-sm.btn-primary.d-flex.align-items-center.nav-link {
+		padding: 12px 32px;
+	}
+
+	/* Hiding the cancel btn, notifications, userAvatar and userUpload icons on smaller screens. */
+	button.cancel-search-btn,
+	.notifications-wrapper,
+	a#userAvatar,
+	a#userUpload {
+		display: none;
+	}
+
+	/* Making the userAvatar and upload clickable from a full width perspective. */
+	#fullWidthUserAvatar,
+	#fullWidthUserUpload {
+		width: 100%;
+		display: block;
+	}
+}
+

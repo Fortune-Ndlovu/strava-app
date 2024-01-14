@@ -77,3 +77,35 @@ p.strava-stories-para {
   font-size: 15px;
 }
 
+.container.footerMaxWidth {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 1024px) {
+	.language-dropdown {
+		top: 282px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.language-dropdown {
+		top: 396px;
+	}
+
+	img#strava-logo-footer {
+		padding-right: 40px;
+		margin-top: -58px;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.language-dropdown {
+		top: 1196px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.language-dropdown {
+		top: 1266px;
+	}
+}

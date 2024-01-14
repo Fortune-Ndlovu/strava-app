@@ -1,0 +1,117 @@
+/* CenterDashboardAthleteSidebar component UI Feed */
+.feed-ui-card {
+  display: flex;
+  justify-content: flex-start;
+}
+
+img#feed-ui-user-image {
+  border-radius: 50%;
+  width: 44px;
+  margin-right: 18px;
+}
+
+p.feed-ui-user-name {
+  margin-bottom: 0px;
+  color: #525252;
+  font-weight: 700;
+}
+
+p.feed-ui-user-location {
+  font-size: 14px;
+  color: #525252;
+}
+
+.feed-ui-card-external-socialsBtn-wrapper {
+  float: right;
+  margin-top: -82px;
+}
+
+.feed-ui-media {
+  display: flex;
+  justify-content: flex-start;
+  align-items: self-start;
+  gap: 20px;
+}
+
+.feed-ui-media-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.feed-ui-run-icon {
+  padding-left: 14px;
+}
+
+p#feedUIPackages {
+  margin-top: -28px;
+}
+
+.achievements-stat {
+  align-self: baseline;
+  padding-left: 42px;
+}
+
+.feed-ui-media-activity h4 a {
+  text-decoration: none;
+  color: #2b2b2b;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.feed-ui-media-activity h4 {
+  margin-bottom: 2px;
+}
+
+p.media-stats-para {
+  margin-bottom: 0px;
+  font-size: 14px;
+  color: #2b2b2b;
+}
+
+a#achievementsLink {
+  text-decoration: none;
+  color: #2b2b2b;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: -4px;
+}
+a#achievementsLink span {
+  font-size: 20px;
+  margin-left: 5px;
+  color: #2b2b2b;
+}
+
+p.media-stats-para-numbers {
+  font-size: 20px;
+  line-height: 25px;
+  white-space: nowrap;
+  color: #2b2b2b;
+}
+
+
+.feed-ui-celebration-title a {
+  text-decoration: none;
+  color: #2b2b2b;
+  font-weight: bold;
+  font-size: 14px;
+  padding-left: 12px;
+}
+
+p#celebrationsWrapper {
+  align-items: center;
+  background-color: #f9f8f5;
+  border-radius: 2px;
+  color: #2b2b2b;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 16px;
+}
+
+.feed-ui-celebration-title img {
+  width: 32px;
+  height: 32px;
+}
