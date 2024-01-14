@@ -1,4 +1,4 @@
-import { React, useState} from "react";
+import { React, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Tab from "react-bootstrap/Tab";
@@ -12,21 +12,40 @@ import RunningShoeSvg from "./RunningShoeSvg";
 import CyclingBikeSvg from "./CyclingBikeSvg";
 import SwimWaveSvg from "./SwimWaveSvg";
 
+const tabContentMap = {
+  profile: <RunningShoeSvg />,
+  cycleBike: <CyclingBikeSvg />,
+  swimWave: <SwimWaveSvg />,
+};
+
 const AthleteStatsTabs = () => {
-    const [activeKey, setActiveKey] = useState("profile");
+	const [activeKey, setActiveKey] = useState("profile");
 
-    const handleSelect = (key) => { 
-        setActiveKey(key);
-    }
+	const handleSelect = (key) => {
+		setActiveKey(key);
+	};
 
-    return (
+	const weekTextMap = {
+		profile: "0 / 0 km",
+		cycleBike: "0 / 0 km", // Updated text for cycleBike
+		swimWave: "0 / 0 m", // Updated text for swimWave
+	};
+
+	const yearTextMap = {
+		profile: "0 / 0 km",
+		cycleBike: "0 / 0 km",
+		swimWave: "0 / 0 km",
+	};
+
+	return (
 		<div>
 			{" "}
 			<Tabs
 				style={{ width: "18rem" }}
-                defaultActiveKey="profile"
-                 activeKey={activeKey}
-                onSelect={handleSelect}
+				defaultActiveKey="profile"
+				activeKey={activeKey}
+				transition={false}
+				onSelect={handleSelect}
 				id="fill-tab-recoveryWeek"
 				className="mb-3 recoveryWeek"
 				fill
@@ -83,9 +102,9 @@ const AthleteStatsTabs = () => {
 							</Card.Link>
 						</Card.Body>
 					</Card>
-                </Tab>
-                
-                {/* second tab */}
+				</Tab>
+
+				{/* second tab */}
 				<Tab
 					eventKey="profile"
 					title={
@@ -102,11 +121,16 @@ const AthleteStatsTabs = () => {
 							></path>
 						</svg>
 					}
-                >
-                    <TabsCard key="profile" svgContent={<RunningShoeSvg />} />
-                </Tab>
-                
-                {/* Third Tab */}
+				>
+                    <TabsCard
+            svgContent={tabContentMap[activeKey]}
+            weekText={weekTextMap[activeKey]}
+            yearText={yearTextMap[activeKey]}
+          />
+                    
+				</Tab>
+
+				{/* Third Tab */}
 				<Tab
 					eventKey="cycleBike"
 					title={
@@ -124,10 +148,14 @@ const AthleteStatsTabs = () => {
 						</svg>
 					}
 				>
-                    <TabsCard key="cycleBike" svgContent={<CyclingBikeSvg />} />
-                </Tab>
-                
-                {/* Fourth Tab */}
+				 <TabsCard
+            svgContent={tabContentMap[activeKey]}
+            weekText={weekTextMap[activeKey]}
+            yearText={yearTextMap[activeKey]}
+          />
+				</Tab>
+
+				{/* Fourth Tab */}
 				<Tab
 					eventKey="swimWave"
 					title={
@@ -145,7 +173,11 @@ const AthleteStatsTabs = () => {
 						</svg>
 					}
 				>
-					<TabsCard key="swimWave" svgContent={<SwimWaveSvg />}/>
+					 <TabsCard
+            svgContent={tabContentMap[activeKey]}
+            weekText={weekTextMap[activeKey]}
+            yearText={yearTextMap[activeKey]}
+          />
 				</Tab>
 			</Tabs>
 		</div>

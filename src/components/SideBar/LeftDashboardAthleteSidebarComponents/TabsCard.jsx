@@ -4,7 +4,7 @@ import { MdDoubleArrow } from "react-icons/md";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import WeeksStyleSvg from "./WeeksStyleSvg";
 
-const TabsCard = ({ svgContent }) => {
+const TabsCard = ({ svgContent, weekText, yearText }) => {
 	return (
 		<div>
 			{" "}
@@ -26,25 +26,31 @@ const TabsCard = ({ svgContent }) => {
 					<Card.Text className="weekStats-cardText">
 						<div className="goals-tab-stats">
 							<p className="thisWeek-para">THIS WEEK</p>
-							<p className="thisWeek-numbers">0 / 0 km</p>
+							<p className="thisWeek-numbers">{weekText}</p>
 						</div>
 					</Card.Text>
 					<Card.Text>
-                        <div className="tab-stats" style={{ display: "flex", alignItems: "center", justifyContent: "center"}}>
-                            <WeeksStyleSvg />
-                            {svgContent}
+						<div
+							className="tab-stats"
+							style={{
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+							}}
+						>
+							<WeeksStyleSvg />
+							{svgContent}
 						</div>
 					</Card.Text>
 					<Card.Text className="weekStats-cardText">
 						<div className="goals-tab-progress">
 							<span id="rangeSpan">--:--</span>
-							<span id="mileSpan">0 m</span>
 						</div>
 					</Card.Text>
 					<Card.Text className="weekStats-cardText-second">
 						<div className="goals-tab-stats">
 							<p className="thisWeek-para">THIS YEAR</p>
-							<p className="thisWeek-numbers">0 / 0 km</p>
+							<p className="thisWeek-numbers">{yearText}</p>
 						</div>
 					</Card.Text>
 				</Card.Body>
