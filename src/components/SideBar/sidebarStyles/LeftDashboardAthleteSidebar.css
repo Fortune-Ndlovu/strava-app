@@ -25,12 +25,21 @@ a.morningRun-style {
   font-size: 16px;
 }
 
-a.morning-run-link {
+a.latest-activity-link {
   color: #000!important;
   font-size: 18px;
+  font-weight:300;
 } 
 
-.morning-run-time {
+a.latest-activity-link strong {
+    font-weight: 500 !important;
+}
+
+.latest-activity-link:hover {
+  color:#fc5200 !important;
+} 
+
+.latest-activity-time {
   font-size: 14px;
 }
 
@@ -70,8 +79,18 @@ ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
   margin-top: 1rem;
   font-size: 1.5rem;
   line-height: 110%;
-  font-weight: 800;
+  font-weight: 500;
   text-align: center;
+}
+
+a#athleteName,
+.dashboard-stats-value {
+    text-decoration: none;
+    color: #000;
+}
+
+a#athleteName:hover {
+    color: #007FB6;
 }
 
 .dashboard-stats {
@@ -97,8 +116,7 @@ ul.dashboard-stats p {
   font-size: 20px;
 }
 
-svg.trainingLogIcon {
-  font-size: 32px;
+img.trainingLogIcon{
   rotate: -90deg;
 }
 
@@ -106,11 +124,21 @@ svg.trainingLogIcon {
   border-top: 1px solid #f0f0f5;
 }
 
+a#training-log-link,
+a#goals-log-link {
+  text-decoration: none;
+  color: #000;
+}
+
 a#goals-log-link,
 a#training-log-link {
   display: flex;
   align-items: center;
   gap: 85px;
+}
+
+a#goals-log-link {
+  gap: 70px;
 }
 
 a#goals-log-link  .trainingLogIcon {
@@ -135,10 +163,9 @@ a#goals-log-link {
 #training-log-link:hover .trainingLogIcon,
 #goals-log-link:hover .trainingLogIcon {
   opacity: 2;
-  transform: translateY(2.5px) scale(1.5);
-  transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+  transform: translateY(2px) scale(1.2);
+  transition: opacity 0.1s ease-in, transform 0.1s ease-in;
 }
-
 
 .dashboard-stats li {
   width: 33.333%;
@@ -175,7 +202,7 @@ li.activities-stat {
 }
 
 svg.informationIcon {
-  margin-left: 114px;
+  margin-left: 110px;
   font-size: 18px;
 }
 
@@ -315,6 +342,10 @@ svg.swimmingWaveIcon {
 .nav {
   --bs-nav-link-color: #000!important;
   --bs-nav-link-hover-color: #000!important;
+}
+
+.nav-tabs {
+    --bs-nav-tabs-border-width: 0px !important;
 }
 
 @media screen and (max-width: 1200px) {

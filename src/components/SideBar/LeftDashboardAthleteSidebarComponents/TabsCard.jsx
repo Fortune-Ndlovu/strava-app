@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import { MdDoubleArrow } from "react-icons/md";
-import { RiArrowDropDownLine } from "react-icons/ri";
 import WeeksStyleSvg from "./WeeksStyleSvg";
+import dropdown_icon from "../../../images/dropdown_icon.svg";
 
 const TabsCard = ({ svgContent, weekText, yearText }) => {
 	return (
@@ -55,10 +56,10 @@ const TabsCard = ({ svgContent, weekText, yearText }) => {
 					</Card.Text>
 				</Card.Body>
 				<Card.Body className="training-log">
-					<Card.Link href="home" id="goals-log-link">
+					<Link to={"/activities"} id="goals-log-link">
 						Manage Your Goals
-						<RiArrowDropDownLine className="trainingLogIcon" />
-					</Card.Link>
+						<img src={dropdown_icon} alt="arrow for helping the user to their activities" className="trainingLogIcon" width={32} height={32}/>
+				</Link>
 				</Card.Body>
 			</Card>
 		</div>

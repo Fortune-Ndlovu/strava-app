@@ -1,13 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import { RiArrowDropDownLine } from "react-icons/ri";
-
-
-import fortunendlovu from "../../images/fortunendlovu.jpg";
-import './sidebarStyles/LeftDashboardAthleteSidebar.css';
+import "./sidebarStyles/LeftDashboardAthleteSidebar.css";
 import ActivityStatsTabs from "./LeftDashboardAthleteSidebarComponents/AthleteStatsTabs";
+import fortunendlovu from "../../images/fortunendlovu.jpg";
+import dropdown_icon from '../../images/dropdown_icon.svg';
 
 function LeftDashboardAthleteSidebar({ athlete, activities }) {
 	return (
@@ -20,16 +19,18 @@ function LeftDashboardAthleteSidebar({ athlete, activities }) {
 					id="athleteStatsCardImg"
 				/>
 				<Card.Body id="athlete-stats-body-wrapper">
-					<Card.Title>
-						{" "}
-						{athlete.firstname} {athlete.lastname}{" "}
-					</Card.Title>
+					<Link to={"/activities"} id="athleteName">
+						<Card.Title>
+							{" "}
+							{athlete.firstname} {athlete.lastname}{" "}
+						</Card.Title>
+					</Link>
 					<Card.Text>
 						<ul className="dashboard-stats">
 							<li className="following-stat">
 								<a href="home">
 									<span>Following</span>
-									<p> {activities.length}</p>
+									<p className="dashboard-stats-value"> {activities.length}</p>
 								</a>
 							</li>
 							<li className="followers-stat">
@@ -51,20 +52,20 @@ function LeftDashboardAthleteSidebar({ athlete, activities }) {
 					<ListGroup.Item>
 						<span className="latestActivityText">Latest Activity</span>
 						<br></br>
-						<a href="home" className="morning-run-link">
+						<Link to={"/activities"} className="latest-activity-link">
 							<strong>Morning run</strong>
 							<span className="dotSpan">•</span>
-							<time dateTime="Sep 22, 2023" className="morning-run-time">
+							<time dateTime="Sep 22, 2023" className="latest-activity-time">
 								Sep 22, 2023
 							</time>
-						</a>
+							</Link>
 					</ListGroup.Item>
 				</ListGroup>
 				<Card.Body className="training-log">
-					<Card.Link href="home" id="training-log-link">
+					<Link to={"/activities"} id="training-log-link">
 						Your Training Log
-						<RiArrowDropDownLine className="trainingLogIcon" />
-					</Card.Link>
+						<img src={dropdown_icon} alt="arrow for helping the user to their activities" className="trainingLogIcon" width={32} height={32}/>
+				</Link>
 				</Card.Body>
 			</Card>
 
