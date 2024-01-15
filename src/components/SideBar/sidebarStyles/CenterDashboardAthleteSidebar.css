@@ -23,7 +23,6 @@ p.feed-ui-user-location {
 
 .feed-ui-card-external-socialsBtn-wrapper {
   float: right;
-  margin-top: -82px;
 }
 
 .feed-ui-media {
@@ -50,7 +49,6 @@ p#feedUIPackages {
 
 .achievements-stat {
   align-self: baseline;
-  padding-left: 42px;
 }
 
 .feed-ui-media-activity h4 a {
@@ -74,7 +72,7 @@ a#achievementsLink {
   text-decoration: none;
   color: #2b2b2b;
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   align-items: center;
   margin-top: -4px;
 }

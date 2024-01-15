@@ -1,7 +1,7 @@
 .dashboard-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 100px;
+  margin-top: 140px;
   gap: 30px;
 }
 
@@ -58,4 +58,22 @@
 
 .feed-ui-activity-imageLeft:hover Button#saveRouteBtn {
 	opacity: 1; /* Show the buttons when hovering over the link */
+}
+
+div#userActivities {
+    margin-top: -50px;
+    padding-top: -7.25rem;
+    padding-bottom: .75rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 200px;
+}
+
+button#userActivities-dropdownBtn-list {
+    width: 202px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 86px;
 }
