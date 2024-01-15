@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
-import { RiArrowDropDownLine } from "react-icons/ri";
-import dropdown_icon from '../../images/dropdown_icon.svg';
+import './UserActivitiesDropdownToggle.css';
 
 const UserActivitiesDropdownToggle = () => {
 	const [selectedUserActivityUI, setSelectedUserActivityUI] =

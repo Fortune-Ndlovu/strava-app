@@ -8,7 +8,6 @@ import Card from "react-bootstrap/Card";
 import Dropdown from "react-bootstrap/Dropdown";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import fortunendlovu from "../../images/fortunendlovu.jpg";
-import celebration_bronze_icon from "../../images/celebration_bronze_icon.svg";
 import runningRoute from "../../images/runningRoute.png";
 import runningView from "../../images/runningView.jpg";
 import "./sidebarStyles/CenterDashboardAthleteSidebar.css";
@@ -23,28 +22,35 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 							<Row>
 								<div className="feed-ui-card">
 									<Col>
-										<div className="feed-ui-user-image-wrapper">
-											<Card.Img
-												variant="top"
-												id="feed-ui-user-image"
-												src={fortunendlovu}
-											/>
-										</div>
-										<div className="feed-ui-user-info">
-											<p className="feed-ui-user-name">
-												{athlete.firstname} {athlete.lastname}
-											</p>
-											<p className="feed-ui-user-location">
-												<time data-test id="date_at_time">
-													22 September 2023 at 09:09
-												</time>
-												<br></br>
-												<span>
-													· The Borough District of Clonmel, County Tipperary
-												</span>
-											</p>
-										</div>
-										{/* </div> */}
+										<Row>
+											<Col sm={3} className="feed-ui-user-image-col" style={{width: "15%"}}>
+												<div className="feed-ui-user-image-wrapper">
+													<Card.Img
+														variant="top"
+														id="feed-ui-user-image"
+														src={fortunendlovu}
+													/>
+												</div>
+											</Col>
+
+											<Col sm={9}>
+												<div className="feed-ui-user-info">
+													<p className="feed-ui-user-name">
+														{athlete.firstname} {athlete.lastname}
+													</p>
+													<p className="feed-ui-user-location">
+														<time data-test id="date_at_time">
+															22 September 2023 at 09:09
+														</time>
+														<br></br>
+														<span>
+															· The Borough District of Clonmel, County
+															Tipperary
+														</span>
+													</p>
+												</div>
+											</Col>
+										</Row>
 									</Col>
 									<Col sm={4}>
 										<div className="feed-ui-card-external-socialsBtn-wrapper">
@@ -62,14 +68,12 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 													>
 														Facebook
 													</Dropdown.Item>
-													<Dropdown.Divider />
 													<Dropdown.Item
 														href="#/action-1"
 														className="uiSocialsBtn-dropDown-link"
 													>
 														Twitter
 													</Dropdown.Item>
-													<Dropdown.Divider />
 													<Dropdown.Item
 														href="#/action-2"
 														className="uiSocialsBtn-dropDown-link"
@@ -106,68 +110,27 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									</h4>
 									<p>Slow and steady wins the race 🏃💨</p>
 									<div className="feed-ui-media-stats">
-										<Row>
-											<Col  sm={2}>
-												<div>
-													<p className="media-stats-para">Distance</p>
-													<p className="media-stats-para-numbers">1.96 Km</p>
-												</div>
-											</Col>
-											<Col  sm={2}>
-												<div>
-													<p className="media-stats-para">Pace</p>
-													<p className="media-stats-para-numbers">8:15 /km</p>
-												</div>
-											</Col>
-											<Col  sm={2}>
-												<div>
-													<p className="media-stats-para">Time</p>
-													<p className="media-stats-para-numbers">16m 12s</p>
-												</div>
-                                            </Col>
-                                            <Col sm={6}>
-												<div className="achievements-stat">
-													<p className="media-stats-para">Achievements</p>
-													<a href="home" id="achievementsLink">
-														<svg
-															fill="currentColor"
-															xmlns="http://www.w3.org/2000/svg"
-															viewBox="0 0 24 24"
-															width="18"
-															height="18"
-														>
-															<path
-																d="M19.67 2.29V.33H4.33v1.96h-4v3.55a2.756 2.756 0 001.13 2.58c.29.2.92.56 1.6.93V7.81c-.37-.21-.672-.387-.84-.5-.5-.332-.55-.73-.55-1.47v-2.2h2.66v7.5c.002.242.029.483.08.72a4.57 4.57 0 001.99 2.86l3.23 1.84c.552.315 1.12.602 1.7.86v2.57L6.92 22.3v1.37h10.16V22.3l-4.41-2.35v-2.46c.31-.15.83-.42 1.72-.93l3.22-1.84a4.54 4.54 0 001.99-2.81c.059-.252.09-.51.09-.77v-7.5h2.64v2.2c0 .74-.06 1.13-.55 1.47-.16.11-.46.29-.83.49v1.54c.68-.37 1.3-.72 1.59-.92a2.757 2.757 0 001.13-2.58V2.29zm-5.42 20.04h-4.5L12 21.12zm4.09-11.19a3.156 3.156 0 01-1.4 2.41l-3.22 1.84c-.76.43-1.36.75-1.64.88a15.37 15.37 0 01-1.78-.88l-3.23-1.84a3.186 3.186 0 01-1.4-2.41V3.55a.1.1 0 00.05-.04h-.05V1.67h12.66V7.6h.01z"
-																fill=""
-															></path>
-														</svg>
-														<span>4</span>
-													</a>
-                                                </div>
-                                            </Col>
-										</Row>
+										<div className="media-stats-wrapper">
+											<div>
+												<p className="media-stats-para">Distance</p>
+												<p className="media-stats-para-numbers">1.96 Km</p>
+											</div>
+
+											<div>
+												<p className="media-stats-para">Pace</p>
+												<p className="media-stats-para-numbers">8:15 /km</p>
+											</div>
+
+											<div>
+												<p className="media-stats-para">Time</p>
+												<p className="media-stats-para-numbers">16m 12s</p>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</Card.Text>
-						<Card.Text id="celebrationsWrapper">
-							<div className="feed-ui-celebration-title">
-								<Card.Img
-									variant="top"
-									src={celebration_bronze_icon}
-									width={32}
-									height={32}
-								/>
-
-								<a
-									href="home"
-									aria-label="Congrats! You just set your 3rd fastest time in the 1 mile!"
-								>
-									Congrats! You just set your 3rd fastest time in the 1 mile!
-								</a>
-							</div>
-						</Card.Text>
-						<Card.Text>
+						<Card.Text className="feed-ui-activity-container">
 							<div className="feed-ui-activity-images">
 								<div className="feed-ui-activity-imageLeft">
 									<a href="home">
@@ -177,14 +140,13 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 											width={287}
 											height={287}
 										/>
-										<Button title="View all kudos" variant="primary">
-											Start and end hidden
-										</Button>
 										<Button
 											title="View all kudos"
-											variant="primary"
-											id="saveRouteBtn"
+											id="start-and-end-hidden-btn"
 										>
+											Start and end hidden
+										</Button>
+										<Button title="View all kudos" id="saveRouteBtn">
 											Save Route
 										</Button>
 									</a>
@@ -200,14 +162,42 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									</a>
 								</div>
 							</div>
+							<div className="activity-kudos-reactions">
+								<Button title="View all kudos" id="activityKudosLikeBtn">
+									<svg
+										fill="currentColor"
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 16 16"
+										width="16"
+										height="16"
+										data-testid="unfilled_kudos"
+									>
+										<path
+											d="M15.243 7.182a1.907 1.907 0 00-.532-1.423 2.069 2.069 0 00-1.493-.641H9.863l.454-1.812A2.426 2.426 0 008.064.514h-.513l-.718 2.807L4.97 6.915.412 9.34l2.472 6.424 4.278-2.28h4.785a2.142 2.142 0 002.127-1.976l.084-1.177a1.962 1.962 0 00.712-2.097 1.93 1.93 0 00.373-1.052zM1.664 9.807l2.06-1.1 1.748 4.542-2.061 1.1-1.747-4.542zm12.289-2.038l-.268.254.165.331a.942.942 0 01-.044.903.965.965 0 01-.369.352l-.237.131-.122 1.7a1.123 1.123 0 01-1.129 1.049H6.914l-.552.295-1.748-4.547 1.1-.586 2.033-3.92.567-2.166a1.427 1.427 0 011.032 1.371c0 .071 0 .139-.007.167l-.758 3.016h4.64a1.059 1.059 0 01.764.328.917.917 0 01.26.683.942.942 0 01-.292.639z"
+											fill=""
+										></path>
+									</svg>
+								</Button>
+								<Button title="Comments" id="activityKudosCommentBtn">
+									<svg
+										fill="currentColor"
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 16 16"
+										width="16"
+										height="16"
+									>
+										<path
+											d="M.5 1.5v11h2v3.21l6.06-3.21h6.94v-11H.5zm14 10H8.31L3.5 14.05V11.5h-2v-9h13v9z"
+											fill=""
+										></path>
+										<path
+											d="M12.96 4.5H3v1h9.43l.53-1zm-1.59 3H3v1h7.84l.53-1z"
+											fill=""
+										></path>
+									</svg>
+								</Button>
+							</div>
 						</Card.Text>
-
-						<Button title="View all kudos" variant="primary">
-							Like
-						</Button>
-						<Button title="Comments" variant="primary">
-							Comments
-						</Button>
 					</Card.Body>
 				</Card>
 			</Container>

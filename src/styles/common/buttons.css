@@ -89,14 +89,15 @@ button.view-all-friends-btn:after {
   --bs-btn-active-border-color: #ffe1d2;
 }
 
+button#saveRouteBtn,
 button.view-all-clubs-btn,
-button.view-all-clubs-btn:after {
+button.view-all-clubs-btn::after {
   background-color: #fff;
   border-color: #b6b3ac;
   color: #2b2b2b;
   font-size: 14px;
   padding: 5px 8px 5px 8px;
-  font-weight: 700;
+  font-weight: 500;
   margin-top: 8px;
   border-radius: 4px;
 }
@@ -105,6 +106,9 @@ button.view-all-clubs-btn {
   margin-bottom: 20px;
 }
 
+button#saveRouteBtn:hover,
+button#saveRouteBtn:visited,
+button#saveRouteBtn:focus,
 button.view-all-clubs-btn:hover,
 button.view-all-clubs-btn:visited,
 button.view-all-clubs-btn:focus {
@@ -122,6 +126,34 @@ button#saveRouteBtn {
 	z-index: 1;
 	top: 240px;
 	left: auto;
+      font-size: 12px;
+    font-weight: 500;
+}
+
+/* Feed UI btn */
+button#start-and-end-hidden-btn {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 12px;
+    border-radius: 2px;
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+button#activityKudosLikeBtn,
+button#activityKudosCommentBtn {
+  background-color: #f3f2ed;
+      border: 1px solid #f3f2ed;
+    color: #525252;
+}
+
+button#activityKudosLikeBtn:hover,
+button#activityKudosCommentBtn:hover {
+   background-color: #fff;
+   border: 1px solid #b6b3ac;
 }
 
 @media screen and (max-width: 992px) {
