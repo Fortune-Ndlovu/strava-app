@@ -41,7 +41,7 @@ const AthleteStatsTabs = () => {
 		<div>
 			{" "}
 			<Tabs
-				style={{ width: "18rem" }}
+				style={{ width: "17rem" }}
 				defaultActiveKey="profile"
 				activeKey={activeKey}
 				transition={false}
@@ -72,7 +72,7 @@ const AthleteStatsTabs = () => {
 						<p>RELATIVE EFFORT</p>
 						<IoIosInformationCircleOutline className="informationIcon" />
 					</div>
-					<Card style={{ width: "18rem" }} id="recoveryWeek-cardStyle">
+					<Card style={{ width: "17rem" }} id="recoveryWeek-cardStyle">
 						<Card.Body>
 							<Card.Text className="recoveryLastWeekText">LAST WEEK</Card.Text>
 							<Card.Title className="recoveryLastWeekTitle">

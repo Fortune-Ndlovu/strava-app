@@ -115,3 +115,15 @@ p#celebrationsWrapper {
   width: 32px;
   height: 32px;
 }
+
+@media screen and (max-width: 1200px){
+  .centerResize.col-lg-6.col-md-12.col-12 {
+      width: 54%;
+  }
+}
+/* 
+@media screen and (max-width: 991px) {
+  .centerResize.col-lg-6.col-md-12.col-12 {
+      max-width: 75%;
+  }
+} */

@@ -181,7 +181,7 @@ svg.informationIcon {
 
 .relativeEffortTitleStyle {
   background-color: white;
-  width: 18rem;
+  width: 17rem;
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
@@ -315,4 +315,32 @@ svg.swimmingWaveIcon {
 .nav {
   --bs-nav-link-color: #000!important;
   --bs-nav-link-hover-color: #000!important;
+}
+
+@media screen and (max-width: 1200px) {
+	#RightDashboardAthleteSidebarCol {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 990px) {
+	#LeftDashboardAthleteSidebarCol {
+		display: none;
+	}
+}
+
+div#LeftDashboardAthleteSidebarCol {
+    margin-right: -30px;
+}
+
+@media screen and (max-width: 1399px) {
+div#LeftDashboardAthleteSidebarCol {
+    margin-right: 12px !important;
+}
+}
+
+@media screen and (max-width: 1199px) {
+div#LeftDashboardAthleteSidebarCol {
+    margin-right: 55px !important;
+}
 }

@@ -13,7 +13,7 @@ const TabsCard = ({ svgContent, weekText, yearText }) => {
 				<MdDoubleArrow className="arrowIcon" />
 				<p>GOALS</p>
 			</div>
-			<Card style={{ width: "18rem" }} id="recoveryWeek-cardStyle">
+			<Card style={{ width: "17rem" }} id="recoveryWeek-cardStyle">
 				<Card.Body>
 					<Card.Text className="goals-tab-cardText">
 						<div className="goals-tab-text">

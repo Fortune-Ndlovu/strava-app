@@ -11,7 +11,7 @@ import ActivityStatsTabs from "./LeftDashboardAthleteSidebarComponents/AthleteSt
 
 function LeftDashboardAthleteSidebar({ athlete, activities }) {
 	return (
-		<div>
+		<div style={{ width: "17rem" }}>
 			<Card className="athlete-stats-card">
 				<Card.Img
 					variant="top"
