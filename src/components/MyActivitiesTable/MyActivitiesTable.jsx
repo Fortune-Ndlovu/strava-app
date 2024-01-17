@@ -48,184 +48,194 @@ const MyActivitiesTable = ({
 	};
 
 	return (
-		<Table striped bordered hover>
-			<thead>
-				<tr>
-					<th>Sport</th>
-					<th>Date</th>
-					<th>Title</th>
-					<th>Time</th>
-					<th>Distance</th>
-					<th>Elevation</th>
-				</tr>
-			</thead>
-			<tbody>
-				{activities && activities.length > 0 ? (
-					activities.map((activity, index) => (
-						<tr key={index}>
-							{/* Sport cell */}
-              <td>{editIndex === index ? (
-                <input
-                  type="select"
-                  value={editedActivity.sport}
-                  onChange={(e) => handleInputChange("sport", e.target.value)}
-									/>
-								) : (
-									activity.sport
-								)}</td>
-
-							{/* Placeholder cell */}
-							<td>
-								{editIndex === index ? (
-									<input
-										type="date"
-										value={editedActivity.date}
-										onChange={(e) => handleInputChange("date", e.target.value)}
-									/>
-								) : (
-									activity.date
-								)}
-							</td>
-
-							{/* Name cell */}
-							<td>
-								{editIndex === index ? (
-									<input
-										type="text"
-										value={editedActivity.name}
-										onChange={(e) => handleInputChange("name", e.target.value)}
-									/>
-								) : (
-									activity.name
-								)}
-							</td>
-
-							{/* Time cell */}
-							<td>
-								{editIndex === index ? (
-									<>
-										{editedActivity.hour && (
-											<>
-												<input
-													type="text"
-													value={formatTimeValue(editedActivity.hour)}
-													onChange={(e) =>
-														handleInputChange("hour", e.target.value)
-													}
-												/>
-												:
-											</>
-										)}
-										<input
-											type="text"
-											value={formatTimeValue(editedActivity.minute)}
-											onChange={(e) =>
-												handleInputChange("minute", e.target.value)
-											}
-										/>
-										:
-										<input
-											type="text"
-											value={formatTimeValue(editedActivity.second)}
-											onChange={(e) =>
-												handleInputChange("second", e.target.value)
-											}
-										/>
-									</>
-								) : (
-									<>
-										{activity.hour && <>{formatTimeValue(activity.hour)}:</>}
-										{formatTimeValue(activity.minute)}:
-										{formatTimeValue(activity.second) || "00"}
-									</>
-								)}
-							</td>
-
-							{/* Distance cell */}
-							<td>
-								{editIndex === index ? (
-									<input
-										type="text"
-										value={editedActivity.distance}
-										onChange={(e) =>
-											handleInputChange("distance", e.target.value)
-										}
-									/>
-								) : (
-									activity.distance
-								)}
-							</td>
-
-							{/* Elevation cell */}
-							<td>
-								{" "}
-								{editIndex === index ? (
-									<input
-										type="text"
-										value={editedActivity.elevation}
-										onChange={(e) =>
-											handleInputChange("elevation", e.target.value)
-										}
-									/>
-								) : (
-									activity.elevation
-								)}
-							</td>
-							{/* Description cell */}
-							<td>
-								{editIndex === index ? (
-									<input
-										type="text"
-										value={editedActivity.description}
-										onChange={(e) =>
-											handleInputChange("description", e.target.value)
-										}
-									/>
-								) : (
-									activity.description
-								)}
-							</td>
-
-							{/* Button cell */}
-							<td className="activities-table-buttons">
-								{editIndex === index ? (
-									<>
-										<Button
-											variant="success"
-											onClick={() => handleSaveClick(index)}
-										>
-											Save
-										</Button>
-										<Button variant="danger" onClick={handleCancelClick}>
-											Cancel
-										</Button>
-									</>
-								) : (
-									<>
-										<Button
-											variant="primary"
-											onClick={() => handleEditClick(index)}
-										>
-											Edit
-										</Button>
-										<Button
-											variant="danger"
-											onClick={() => handleDeleteClick(index)}
-										>
-											Delete
-										</Button>
-									</>
-								)}
-							</td>
-						</tr>
-					))
-				) : (
+		<div style={{ overflowX: "auto" }}>
+			<Table striped bordered hover>
+				<thead>
 					<tr>
-						<td colSpan="3">No activities found</td>
+						<th>Sport</th>
+						<th>Date</th>
+						<th>Title</th>
+						<th>Time</th>
+						<th>Distance</th>
+						<th>Elevation</th>
 					</tr>
-				)}
-			</tbody>
-		</Table>
+				</thead>
+				<tbody>
+					{activities && activities.length > 0 ? (
+						activities.map((activity, index) => (
+							<tr key={index}>
+								{/* Sport cell */}
+								<td>
+									{editIndex === index ? (
+										<input
+											type="select"
+											value={editedActivity.sport}
+											onChange={(e) =>
+												handleInputChange("sport", e.target.value)
+											}
+										/>
+									) : (
+										activity.sport
+									)}
+								</td>
+
+								{/* Placeholder cell */}
+								<td>
+									{editIndex === index ? (
+										<input
+											type="date"
+											value={editedActivity.date}
+											onChange={(e) =>
+												handleInputChange("date", e.target.value)
+											}
+										/>
+									) : (
+										activity.date
+									)}
+								</td>
+
+								{/* Name cell */}
+								<td>
+									{editIndex === index ? (
+										<input
+											type="text"
+											value={editedActivity.name}
+											onChange={(e) =>
+												handleInputChange("name", e.target.value)
+											}
+										/>
+									) : (
+										activity.name
+									)}
+								</td>
+
+								{/* Time cell */}
+								<td>
+									{editIndex === index ? (
+										<>
+											{editedActivity.hour && (
+												<>
+													<input
+														type="text"
+														value={formatTimeValue(editedActivity.hour)}
+														onChange={(e) =>
+															handleInputChange("hour", e.target.value)
+														}
+													/>
+													:
+												</>
+											)}
+											<input
+												type="text"
+												value={formatTimeValue(editedActivity.minute)}
+												onChange={(e) =>
+													handleInputChange("minute", e.target.value)
+												}
+											/>
+											:
+											<input
+												type="text"
+												value={formatTimeValue(editedActivity.second)}
+												onChange={(e) =>
+													handleInputChange("second", e.target.value)
+												}
+											/>
+										</>
+									) : (
+										<>
+											{activity.hour && <>{formatTimeValue(activity.hour)}:</>}
+											{formatTimeValue(activity.minute)}:
+											{formatTimeValue(activity.second) || "00"}
+										</>
+									)}
+								</td>
+
+								{/* Distance cell */}
+								<td>
+									{editIndex === index ? (
+										<input
+											type="text"
+											value={editedActivity.distance}
+											onChange={(e) =>
+												handleInputChange("distance", e.target.value)
+											}
+										/>
+									) : (
+										activity.distance
+									)}
+								</td>
+
+								{/* Elevation cell */}
+								<td>
+									{" "}
+									{editIndex === index ? (
+										<input
+											type="text"
+											value={editedActivity.elevation}
+											onChange={(e) =>
+												handleInputChange("elevation", e.target.value)
+											}
+										/>
+									) : (
+										activity.elevation
+									)}
+								</td>
+								{/* Description cell */}
+								<td>
+									{editIndex === index ? (
+										<input
+											type="text"
+											value={editedActivity.description}
+											onChange={(e) =>
+												handleInputChange("description", e.target.value)
+											}
+										/>
+									) : (
+										activity.description
+									)}
+								</td>
+
+								{/* Button cell */}
+								<td className="activities-table-buttons">
+									{editIndex === index ? (
+										<>
+											<Button
+												variant="success"
+												onClick={() => handleSaveClick(index)}
+											>
+												Save
+											</Button>
+											<Button variant="danger" onClick={handleCancelClick}>
+												Cancel
+											</Button>
+										</>
+									) : (
+										<>
+											<Button
+												variant="primary"
+												onClick={() => handleEditClick(index)}
+											>
+												Edit
+											</Button>
+											<Button
+												variant="danger"
+												onClick={() => handleDeleteClick(index)}
+											>
+												Delete
+											</Button>
+										</>
+									)}
+								</td>
+							</tr>
+						))
+					) : (
+						<tr>
+							<td colSpan="3">No activities found</td>
+						</tr>
+					)}
+				</tbody>
+			</Table>
+		</div>
 	);
 };
 

@@ -1,0 +1,25 @@
+.user-upload-container {
+	max-width: 1228px !important;
+	padding-right: 200px;
+	display: flex;
+	margin-top: 100px;
+	gap: 30px;
+	align-self: center;
+	/* justify-content: flex-end; */
+}
+
+.upload-activities-sidebar-container .flex-column.list-group {
+	width: 154px;
+}
+
+@media screen and (max-width: 1230px) {
+    .user-upload-container {
+	padding-right: 0px;
+}
+}
+
+@media screen and (max-width: 990px) {
+    .upload-activities-sidebar-container {
+	display: none;
+}
+}

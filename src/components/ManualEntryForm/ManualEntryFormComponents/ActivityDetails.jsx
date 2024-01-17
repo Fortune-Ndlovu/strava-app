@@ -20,8 +20,8 @@ const ActivityDetails = ({
 	return (
 		<div>
 			<Row>
-				<Col>
-				<Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+				<Col sm={4}>
+				<Form.Group className="mb-3" id="sportSelectionInput" controlId="exampleForm.ControlInput1">
 					<Form.Label>Sport</Form.Label>
 					<SportSelection
 						selectedOption={sportSelectionValue}
@@ -30,6 +30,7 @@ const ActivityDetails = ({
 				</Form.Group>
 				</Col>
 				<Col>
+					<Form.Group>
 					<Form.Label>Date & Time</Form.Label>
 						<InputGroup className="mb-3">
 						<Form.Control
@@ -37,16 +38,19 @@ const ActivityDetails = ({
 							type="date"
 							placeholder="hr"
 							value={dateValue}
-							onChange={dateOnChange}
+								onChange={dateOnChange}
+								id="dateInput"
 						/>
 						<Form.Control
 							aria-label="time"
 							type="time"
 							placeholder="min"
 							value={timeValue}
-							onChange={timeOnChange}
+								onChange={timeOnChange}
+								id="timeInput"
 						/>
-					</InputGroup>
+						</InputGroup>
+						</Form.Group>
 				</Col>
 			</Row>
 			<Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -56,6 +60,7 @@ const ActivityDetails = ({
 					placeholder="Night Run"
 					value={titleValue}
 					onChange={titleOnChange}
+					id="titleInput"
 				/>
 			</Form.Group>
 
@@ -67,6 +72,7 @@ const ActivityDetails = ({
 					rows={3}
 					value={descriptionValue}
 					onChange={descriptionOnChange}
+					id="descriptionInput"
 				/>
 			</Form.Group>
 		</div>

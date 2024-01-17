@@ -1,3 +1,74 @@
 #manualEntryForm label.form-label{
     color: 242428;
 }
+
+input#distanceInput,
+input#elevation-input
+#sportSelectionInput {
+    max-width: 130px;
+}
+
+#sportSelectionInput {
+    max-width: 258px;
+}
+
+input#duration-input-hr,
+input#duration-input-min,
+input#duration-input-s {
+    max-width: 82px;
+}
+
+input#dateInput {
+    max-width: 146px;
+}
+
+input#timeInput {
+    max-width: 100px;
+}
+
+input#titleInput,
+textarea#descriptionInput {
+    max-width: 536px;
+}
+
+@media screen and (max-width: 990px) {
+input#distanceInput,
+input#elevation-input
+#sportSelectionInput {
+    max-width: none;
+}
+
+#sportSelectionInput {
+    max-width: none;
+}
+
+input#duration-input-hr,
+input#duration-input-min,
+input#duration-input-s {
+    max-width: none;
+}
+
+input#dateInput {
+    max-width: none;
+}
+
+input#timeInput {
+    max-width: none;
+}
+
+input#titleInput,
+textarea#descriptionInput {
+    max-width: none;
+}
+
+.activity-stats-col {
+    flex: initial;
+}
+}
+
+@media screen and (max-width: 990px) {
+    .user-upload-container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+}

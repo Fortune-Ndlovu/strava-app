@@ -21,14 +21,15 @@ const ActivityStats = ({
 	return (
 		<div>
 				<Row>
-					<Col>
+					<Col className="activity-stats-col">
 						<Form.Label>Distance</Form.Label>
 						<InputGroup className="mb-3">
 							<Form.Control
 								aria-label="Text input with dropdown button"
 								type="number"
 								value={distanceValue}
-								onChange={distanceOnChange}
+							onChange={distanceOnChange}
+							id="distanceInput"
 							/>
 							<DropdownButton
 								variant="outline-secondary"
@@ -44,7 +45,7 @@ const ActivityStats = ({
 						</InputGroup>
 					</Col>
 
-					<Col>
+					<Col className="activity-stats-col">
 						<Form.Label>Duration</Form.Label>
 						<InputGroup className="mb-3" type="number">
 							<Form.Control
@@ -52,38 +53,43 @@ const ActivityStats = ({
 								type="number"
 								placeholder="hr"
 								value={hourValue}
-								onChange={hourOnChange}
+							onChange={hourOnChange}
+							id="duration-input-hr"
 							/>
 							<Form.Control
 								aria-label="minute"
 								type="number"
 								placeholder="min"
 								value={minuteValue}
-								onChange={minuteOnChange}
+							onChange={minuteOnChange}
+							id="duration-input-min"
 							/>
 							<Form.Control
 								aria-label="second"
 								type="number"
 								placeholder="s"
 								value={secondValue}
-								onChange={secondOnChange}
+							onChange={secondOnChange}
+							id="duration-input-s"
 							/>
 						</InputGroup>
 					</Col>
-					<Col>
+					<Col className="activity-stats-col">
 						<Form.Label>Elevation</Form.Label>
 						<InputGroup className="mb-3">
 							<Form.Control
 								aria-label="Text input with dropdown button"
 								type="number"
 								value={elevationValue}
-								onChange={elevationOnChange}
+							onChange={elevationOnChange}
+							id="elevation-input"
 							/>
 							<DropdownButton
 								variant="outline-secondary"
 								title="Dropdown"
 								id="input-group-dropdown-2"
-								align="end"
+							align="end"
+							className="duration-input"
 							>
 								<Dropdown.Item href="#">Meters</Dropdown.Item>
 								<Dropdown.Item href="#">feet</Dropdown.Item>
