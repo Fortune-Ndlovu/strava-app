@@ -290,6 +290,7 @@ const Header = () => {
                                 show={showUploadButton}
                                 id="userUpload"
                                 className="flipped-dropdown-horizontal"
+                                onClick={(e) => handleDropdownHover(() => setUploadButton(true || false), e)}
                                 title={
                                     <div className="d-flex align-items-center">
                                         {/* Whenever we hover over the icon we want to change it to another icon. */}
@@ -302,7 +303,7 @@ const Header = () => {
                                                 aria-label="Toggle user upload dropdown"
                                                 tabIndex={0}
                                             >
-                                                <BsPlusCircleFill />
+                                                <BsPlusCircleFill onClick={handleUserUploadDropdownToggle}/>
                                             </button>
                                             ):(
                                             <button
@@ -313,7 +314,7 @@ const Header = () => {
                                                 aria-label="Toggle user upload dropdown"
                                                 tabIndex={0}
                                             >
-                                                <BsPlusCircle />
+                                                <BsPlusCircle onClick={handleUserUploadDropdownToggle}/>
                                             </button>
                                             )
                                         }

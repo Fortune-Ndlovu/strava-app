@@ -11,7 +11,6 @@ import {
 	CenterDashboardAthleteSidebar,
 	RightDashboardAthleteSidebar,
 } from "../../components/SideBar";
-// import {Container, Row, Col} from "react-bootstrap";
 import { Container, Row, Col } from "react-bootstrap";
 import UserActivitiesDropdownToggle from '../../components/UserActivitiesDropdownToggle/UserActivitiesDropdownToggle';
 import "../../styles/DashboardPages/Home.css";

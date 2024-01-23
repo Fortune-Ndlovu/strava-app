@@ -33,7 +33,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 			name: newActivity,
 			description: newDescription,
     });
-    
+      
 	};
 	return (
     <div>
