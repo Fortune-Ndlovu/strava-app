@@ -21,7 +21,7 @@ const ActivityDetails = ({
 		<div>
 			<Row>
 				<Col sm={4}>
-				<Form.Group className="mb-3" id="sportSelectionInput" controlId="exampleForm.ControlInput1">
+				<Form.Group className="mb-3" id="sportSelectionInput">
 					<Form.Label>Sport</Form.Label>
 					<SportSelection
 						selectedOption={sportSelectionValue}
@@ -53,7 +53,7 @@ const ActivityDetails = ({
 						</Form.Group>
 				</Col>
 			</Row>
-			<Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+			<Form.Group className="mb-3">
 				<Form.Label>Title</Form.Label>
 				<Form.Control
 					type="text"
@@ -64,7 +64,7 @@ const ActivityDetails = ({
 				/>
 			</Form.Group>
 
-			<Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+			<Form.Group className="mb-3">
 				<Form.Label>Description</Form.Label>
 				<Form.Control
 					as="textarea"
