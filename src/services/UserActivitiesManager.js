@@ -16,8 +16,14 @@ const UserActivitiesManager = ({ showForm, onCreateActivity, onEditActivity, onD
   const userActivitiesCollection = collection(db, "userActivities");
 
   const createActivity = async (newActivity) => {
-    await addDoc(userActivitiesCollection, newActivity);
-  };
+  const docRef = await addDoc(userActivitiesCollection, newActivity);
+  const createdActivity = { ...newActivity, id: docRef.id };
+
+  // Log the created activity to ensure it contains the id
+  console.log("Created Activity:", createdActivity);
+
+  return createdActivity;
+};
 
   const editActivity = async (index, updatedActivity) => {
     const userDoc = doc(db, "userActivities", userActivities[index].id);
