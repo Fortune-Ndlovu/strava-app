@@ -38,6 +38,7 @@ import Manual from "./pages/UserUploadPages/Manual";
 import Mobile from "./pages/UserUploadPages/Mobile";
 
 import ActivityDetailsPage from "./pages/ActivityDetailsPage";
+import EditActivityForm from "./components/EditActivityForm/EditActivityForm";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -91,6 +92,10 @@ function App() {
 				<Route path="/createPost" element={<CreatePost />}></Route>
 
 				<Route path="/activity/:activityId" element={<ActivityDetailsPage />} />
+				<Route
+					path="/activity/:activityId/edit"
+					element={<EditActivityForm />}
+				/>
 			</Routes>
 			<Footer />
 		</BrowserRouter>

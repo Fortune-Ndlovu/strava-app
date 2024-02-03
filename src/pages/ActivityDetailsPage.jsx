@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { db } from "../firebase/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
@@ -33,7 +34,9 @@ const ActivityDetailsPage = () => {
 			{activityDetails && (
 				<div>
 					<Dropdown as={ButtonGroup}>
+						<Link to={`/activity/${activityId}/edit`}>
 						<Button variant="success">Edit</Button>
+						</Link>
 
 						<Dropdown.Toggle
 							split
