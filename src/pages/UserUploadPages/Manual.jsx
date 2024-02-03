@@ -1,8 +1,7 @@
-// Manual.js
-
 import React from 'react';
 import UploadActivitiesSideBar from '../../components/UploadActivitiesSideBar/UploadActivitiesSideBar';
 import UserActivitiesManager from '../../services/UserActivitiesManager';
+import '../../styles/UserUploadPages/Manual.css';
 
 const Manual = () => {
   return (
