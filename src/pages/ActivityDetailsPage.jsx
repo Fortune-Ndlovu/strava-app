@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { db } from "../firebase/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, deleteDoc } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -10,6 +9,7 @@ import "../styles/ActivityDetailsPage.css";
 
 const ActivityDetailsPage = () => {
 	const { activityId } = useParams();
+	const navigate = useNavigate();
 	const [activityDetails, setActivityDetails] = useState(null);
 
 	useEffect(() => {
@@ -27,6 +27,14 @@ const ActivityDetailsPage = () => {
 
 		fetchActivityDetails();
 	}, [activityId]);
+
+	const handleDeleteActivity = async () => {
+		const userDoc = doc(db, "userActivities", activityId);
+		await deleteDoc(userDoc);
+
+		// Redirect to MyActivities page after deletion
+		navigate('/activities');
+	};
 
 	return (
 		<div>
@@ -47,7 +55,7 @@ const ActivityDetailsPage = () => {
 						<Dropdown.Menu id="activityDropdownOptions">
 							<Dropdown.Item href="#/action-1">Refresh Activity Achievements</Dropdown.Item>
 							<Dropdown.Item href="#/action-2">Flag</Dropdown.Item>
-							<Dropdown.Item href="#/action-3">Delete</Dropdown.Item>
+							<Dropdown.Item onClick={handleDeleteActivity}>Delete</Dropdown.Item>
 						</Dropdown.Menu>
 					</Dropdown>
 					{/* Display activity details here */}
