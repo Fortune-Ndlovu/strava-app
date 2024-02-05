@@ -213,6 +213,12 @@ a.dropdown-item {
   padding-top: 24px;
 }
 
+div#RightDashboardAthleteSidebarCol {
+    position: sticky;
+    top: 140px;
+    height: 100%;
+}
+
 @media screen and (max-width: 1200px) {
 	.RightDashboardAthleteSidebar-Col {
 		display: none;

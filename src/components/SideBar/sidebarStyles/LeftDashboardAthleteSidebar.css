@@ -348,6 +348,12 @@ svg.swimmingWaveIcon {
     --bs-nav-tabs-border-width: 0px !important;
 }
 
+div#LeftDashboardAthleteSidebarCol {
+    position: sticky;
+    top: 140px;
+    height: 100%;
+}
+
 @media screen and (max-width: 1200px) {
 	#RightDashboardAthleteSidebarCol {
 		display: none;

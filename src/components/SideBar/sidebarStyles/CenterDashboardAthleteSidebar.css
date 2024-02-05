@@ -148,6 +148,17 @@ div#module-btn-list-dropdown a {
     padding-top: 0px;
 }
 
+.feed-end {
+    padding: 64px 16px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.feed-end a {
+    text-decoration: none;
+    color: #007FB6;
+}
+
 @media screen and (max-width: 1200px) {
 	.centerResize.col-lg-6.col-md-12.col-12 {
 		width: 54%;

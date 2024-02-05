@@ -32,9 +32,9 @@ function CenterDashboardAthleteSidebar({ athlete }) {
   }, []);
 
 	return (
-		<div id="homeDashboardFeedUI">
+		<div id="homeDashboardFeedUI" className="center-sidebar-container">
 			<Container>
-				<Card style={{ width: "auto", marginBottom: "14px" }}>
+				<Card style={{ width: "auto", marginBottom: "14px"  }}>
 					<Card.Body>
 						<Card.Text>
 							<Row>
@@ -405,7 +405,9 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 					</Card.Body>
 				</Card>
 				))}
-				
+				<div className="feed-end">
+					<p>No more recent activity available. <br></br>To see your full activity history, visit your <a href="/activities">Profile</a> or <a href="/activities">Training Calendar</a>.</p>
+				</div>
 			</Container>
 		</div>
 	);
