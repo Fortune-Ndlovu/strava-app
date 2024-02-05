@@ -65,13 +65,30 @@ const ActivityDetailsPage = () => {
 
 					<Accordion defaultActiveKey="0">
 						<Accordion.Item eventKey="0">
-							<Accordion.Header>Fortune Ndlovu - {activityDetails.sport}</Accordion.Header>
+							<Accordion.Header>
+								Fortune Ndlovu - {activityDetails.sport}
+							</Accordion.Header>
 							<Accordion.Body>
 								<p>Date of the activity: {activityDetails.date}</p>
 								<p>Time of the activity: {activityDetails.time}</p>
 								<p>Name: {activityDetails.name}</p>
 								<p>Description: {activityDetails.description}</p>
-								<p>The activity Duration: {activityDetails.hour}:{activityDetails.minute}:{activityDetails.second}</p>
+								<p>
+									The activity Duration: {activityDetails.hour}:
+									{activityDetails.minute}:{activityDetails.second}
+								</p>
+								{activityDetails.imageUrl && (
+									<div >
+										<p>Image:</p>
+										<img
+											src={activityDetails.imageUrl}
+											alt="Activity"
+											width={64}
+											height={64}
+											
+										/>
+									</div>
+								)}
 								<p>Shoes: Nike NIKE W NIKE METCON 8 BLACK (0.6 km)</p>
 							</Accordion.Body>
 						</Accordion.Item>

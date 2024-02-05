@@ -359,7 +359,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									<a href="home">
 										<Card.Img
 											variant="top"
-											src={runningView}
+											src={activity.imageUrl}
 											width={287}
 											height={287}
 										/>

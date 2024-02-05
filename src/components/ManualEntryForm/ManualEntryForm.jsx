@@ -3,12 +3,15 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
-
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { app } from "../../firebase/firebase";
 import ActivityDetails from "./ManualEntryFormComponents/ActivityDetails";
 import ActivityStats from "./ManualEntryFormComponents/ActivityStats";
 import "./ManualEntryForm.css";
 
 const ManualEntryForm = ({ onCreateActivity }) => {
+	const [newImage, setNewImage] = useState(null);
+
 	const navigate = useNavigate(); // Hook to navigate between pages
 
 	const [newDistance, setNewDistance] = useState(0);
@@ -23,32 +26,51 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 	const [newActivity, setNewActivity] = useState("");
 	const [newDescription, setNewDescription] = useState("");
 
+	const handleImageChange = (e) => {
+		const file = e.target.files[0];
+		setNewImage(file);
+	};
+
 	const handleCreateActivity = async () => {
-  try {
-    const createdActivity = await onCreateActivity({
-      distance: newDistance,
-      hour: newHour,
-      minute: newMinute,
-      second: newSecond,
-      elevation: newElevation,
-      sport: newSportSelection,
-      date: newDateValue,
-      time: newTimeValue,
-      name: newActivity,
-      description: newDescription,
-    });
+		let imageUrl; // Declare imageUrl at the top
 
-    console.log("Created Activity:", createdActivity);
+		try {
+			// Upload image to Firebase Storage
+			if (newImage) {
+				const storage = getStorage(app);
+				const storageRef = ref(storage, `activity_images/${newImage.name}`);
+				await uploadBytes(storageRef, newImage);
+				imageUrl = await getDownloadURL(storageRef);
 
-    // Redirect to the new activity details page using the id from the created activity
-    if (createdActivity && createdActivity.id) {
-      navigate(`/activity/${createdActivity.id}`);
-    }
-  } catch (error) {
-    console.error("Error creating activity:", error);
-  }
-};
+				// Set the image URL in the new activity
+				setNewActivity({ ...newActivity, imageUrl });
+			}
 
+			// Create activity as before
+			const createdActivity = await onCreateActivity({
+				distance: newDistance,
+				hour: newHour,
+				minute: newMinute,
+				second: newSecond,
+				elevation: newElevation,
+				sport: newSportSelection,
+				date: newDateValue,
+				time: newTimeValue,
+				name: newActivity,
+				description: newDescription,
+				imageUrl: imageUrl, // Use the outer-scoped imageUrl
+			});
+
+			console.log("Created Activity:", createdActivity);
+
+			// Redirect to the new activity details page using the id from the created activity
+			if (createdActivity && createdActivity.id) {
+				navigate(`/activity/${createdActivity.id}`);
+			}
+		} catch (error) {
+			console.error("Error creating activity:", error);
+		}
+	};
 
 	return (
 		<div>
@@ -80,7 +102,11 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 						descriptionValue={newDescription}
 						descriptionOnChange={(e) => setNewDescription(e.target.value)}
 					/>
-
+					{/* New input for image upload */}
+					<Form.Group controlId="image">
+						<Form.Label>Image</Form.Label>
+						<Form.Control type="file" onChange={handleImageChange} />
+					</Form.Group>
 					<Button
 						variant="primary"
 						type="button"

@@ -33,8 +33,12 @@ const UserActivitiesManager = ({
     // Adding a new document to the collection and getting its reference
     const docRef = await addDoc(userActivitiesCollection, newActivity);
     // Creating an object with the new activity details including its id
-		const createdActivity = { ...newActivity, id: docRef.id };
+		// const createdActivity = { ...newActivity, id: docRef.id };
 
+	  
+	  // Add image field to the new activity
+  const createdActivity = { ...newActivity, id: docRef.id, imageUrl: null };
+	  
 		// Log the created activity to ensure it contains the id
 		console.log("Created Activity:", createdActivity);
 
@@ -47,7 +51,10 @@ const UserActivitiesManager = ({
     // Getting the document reference of the activity to be edited
     const userDoc = doc(db, "userActivities", userActivities[index].id);
     // Update the document with the new activity details
-		await updateDoc(userDoc, updatedActivity);
+	//   await updateDoc(userDoc, updatedActivity);
+	  
+	  // Update the document with the new activity details, including the image field
+  await updateDoc(userDoc, { ...updatedActivity, imageUrl: userActivities[index].imageUrl });
 	};
 
   // Function to delete an existing activity
