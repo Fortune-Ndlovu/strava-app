@@ -1,62 +1,91 @@
+// Importing necessary React hooks and Firebase functions
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase/firebase";
 import {
-  collection,
-  addDoc,
-  onSnapshot,
-  doc,
-  updateDoc,
-  deleteDoc,
+	collection,
+	addDoc,
+	onSnapshot,
+	doc,
+	updateDoc,
+	deleteDoc,
 } from "firebase/firestore";
+
+// Importing components used in this module
 import ManualEntryForm from "../components/ManualEntryForm/ManualEntryForm";
 import MyActivitiesTable from "../components/MyActivitiesTable/MyActivitiesTable";
 
-const UserActivitiesManager = ({ showForm, onCreateActivity, onEditActivity, onDeleteActivity }) => {
-  const [userActivities, setUserActivities] = useState([]);
-  const userActivitiesCollection = collection(db, "userActivities");
+// Defining the UserActivitiesManager component
+const UserActivitiesManager = ({
+	showForm,
+	showSidebar,
+	onCreateActivity,
+	onEditActivity,
+	onDeleteActivity,
+}) => {
+	// Creating state to hold user activities
+	const [userActivities, setUserActivities] = useState([]);
 
+	// Firestore collection reference
+	const userActivitiesCollection = collection(db, "userActivities");
+
+  // Function to create a new activity
   const createActivity = async (newActivity) => {
-  const docRef = await addDoc(userActivitiesCollection, newActivity);
-  const createdActivity = { ...newActivity, id: docRef.id };
+    // Adding a new document to the collection and getting its reference
+    const docRef = await addDoc(userActivitiesCollection, newActivity);
+    // Creating an object with the new activity details including its id
+		const createdActivity = { ...newActivity, id: docRef.id };
 
-  // Log the created activity to ensure it contains the id
-  console.log("Created Activity:", createdActivity);
+		// Log the created activity to ensure it contains the id
+		console.log("Created Activity:", createdActivity);
 
-  return createdActivity;
-};
+    // Returning the created activity
+		return createdActivity;
+	};
 
+// Function to edit an existing activity
   const editActivity = async (index, updatedActivity) => {
+    // Getting the document reference of the activity to be edited
     const userDoc = doc(db, "userActivities", userActivities[index].id);
-    await updateDoc(userDoc, updatedActivity);
-  };
+    // Update the document with the new activity details
+		await updateDoc(userDoc, updatedActivity);
+	};
 
+  // Function to delete an existing activity
   const deleteActivity = async (index) => {
-    const userDoc = doc(db, "userActivities", userActivities[index].id);
+    // Getting the document reference of the activity to be deleted
+		const userDoc = doc(db, "userActivities", userActivities[index].id);
+		// Delete the activity
     await deleteDoc(userDoc);
-  };
+	};
 
+  // Effect hook to subscribe to changes in the Firestore collection
   useEffect(() => {
-    const unsubscribe = onSnapshot(userActivitiesCollection, (snapshot) => {
-      // Update the state whenever there's a change in the collection
-      setUserActivities(
-        snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-      );
-    });
+    // Setting up a snapshot listener to track changes in the collection
+		const unsubscribe = onSnapshot(userActivitiesCollection, (snapshot) => {
+			// Update the state whenever there's a change in the collection
+			setUserActivities(
+				snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+			);
+		});
 
-    // Cleanup the listener when the component unmounts
-    return () => unsubscribe();
-  }, [userActivitiesCollection]);
+		// Cleanup the listener when the component unmounts
+		return () => unsubscribe();
+	}, [userActivitiesCollection]);
 
-  return (
+  // Render the UserActivitiesManger component
+	return (
     <div>
-      {showForm && <ManualEntryForm onCreateActivity={createActivity} />}
-      {!showForm && <MyActivitiesTable
-        activities={userActivities}
-        onEditActivity={editActivity}
-        onDeleteActivity={deleteActivity}
-      />}
-    </div>
-  );
+      {/* Conditional rendering of ManualEntryForm or MyActivitiesTable based on showForm prop */}
+			{showForm && <ManualEntryForm onCreateActivity={createActivity} />}
+			{!showForm && (
+				<MyActivitiesTable
+					activities={userActivities}
+					onEditActivity={editActivity}
+					onDeleteActivity={deleteActivity}
+				/>
+			)}
+		</div>
+	);
 };
 
 export default UserActivitiesManager;

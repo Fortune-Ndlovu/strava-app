@@ -26,7 +26,7 @@ const MyActivitiesForm = () => {
                             <Form.Label>Sport</Form.Label>
                            <SportSelection
                                 selectedOption={selectedOption}
-                                handleOptionChange={(e) => setSelectedOption(e.target.value)}
+                                handleOptionChange={(value) => setSelectedOption(value)}
                             />
 
                         </Form.Group>

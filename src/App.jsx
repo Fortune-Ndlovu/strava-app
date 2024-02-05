@@ -92,10 +92,7 @@ function App() {
 				<Route path="/createPost" element={<CreatePost />}></Route>
 
 				<Route path="/activity/:activityId" element={<ActivityDetailsPage />} />
-				<Route
-					path="/activity/:activityId/edit"
-					element={<EditActivityForm />}
-				/>
+				<Route path="/activity/:activityId/edit" element={<EditActivityForm />}/>
 			</Routes>
 			<Footer />
 		</BrowserRouter>

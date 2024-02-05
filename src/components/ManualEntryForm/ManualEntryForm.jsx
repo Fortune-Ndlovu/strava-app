@@ -70,7 +70,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 					<hr></hr>
 					<ActivityDetails
 						sportSelectionValue={newSportSelection}
-						sportSelectionOnChange={(e) => setNewSportSelection(e.target.value)}
+						sportSelectionOnChange={(value) => setNewSportSelection(value)}
 						dateValue={newDateValue}
 						dateOnChange={(e) => setNewDateValue(e.target.value)}
 						timeValue={newTimeValue}

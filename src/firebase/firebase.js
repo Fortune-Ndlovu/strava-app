@@ -8,13 +8,13 @@ import { getFirestore } from "@firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBXjcrf8uT-Rdl5jN_wppSbBYfERrlILWU",
-  authDomain: "strava-web-app-96d86.firebaseapp.com",
-  projectId: "strava-web-app-96d86",
-  storageBucket: "strava-web-app-96d86.appspot.com",
-  messagingSenderId: "247933251077",
-  appId: "1:247933251077:web:0d32a83806e389dd3c766c",
-  measurementId: "G-K76LVQFS4S"
+  apiKey: "AIzaSyDg2YRjgCqm_iNiUnqkCVYZdFCmj0UkJdA",
+  authDomain: "strava-project-4135f.firebaseapp.com",
+  projectId: "strava-project-4135f",
+  storageBucket: "strava-project-4135f.appspot.com",
+  messagingSenderId: "994871953859",
+  appId: "1:994871953859:web:73143dcf8e8afad90c5576",
+  measurementId: "G-ZS72LHRK0W"
 };
 
 // Initialize Firebase

@@ -84,8 +84,6 @@ const Home = () => {
 								<div className="CenterDashboardAthleteSidebar">
 									<CenterDashboardAthleteSidebar
 										athlete={athlete}
-										activities={activities}
-										isLoading={isLoading}
 									/>
 								</div>
 							</Col>

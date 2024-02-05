@@ -13,7 +13,7 @@ const MyActivities = () => {
         
         <h4>10 Activities</h4>
         {/* Render the table only */}
-        <UserActivitiesManager showForm={false} />
+        <UserActivitiesManager showForm={false}/>
       </div>
     </div>
   );

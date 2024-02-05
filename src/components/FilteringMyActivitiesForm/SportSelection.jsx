@@ -1,13 +1,19 @@
 import React from "react";
 
 const SportSelection = ({ selectedOption, handleOptionChange }) => {
+	 const handleChange = (e) => {
+    const selectedValue = e.target.value;
+    if (handleOptionChange) {
+      handleOptionChange(selectedValue);
+    }
+  };
 	return (
 		<div className="select-input">
 			<select
-				className="form-select"
-				value={selectedOption}
-				onChange={handleOptionChange}
-			>
+        className="form-select"
+        value={selectedOption}
+        onChange={handleChange}
+      >
 				<option value="All Sport Types">All Sport Types</option>
 				<option value="Ride">Ride</option>
 				<option value="Run">Run</option>
