@@ -1,57 +1,61 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase/firebase";
 import {
-	collection,
-	addDoc,
-	onSnapshot,
-	doc,
-	updateDoc,
-	deleteDoc,
+  collection,
+  addDoc,
+  onSnapshot,
+  doc,
+  writeBatch, // Add this import
+  deleteDoc,
+  updateDoc,
 } from "firebase/firestore";
 import CreateNewPostForm from "../components/CreateNewPostForm/CreateNewPostForm";
 import CreatePostsTable from "../components/CreatePostsTable/CreatePostsTable";
 
 const UserPostsManager = () => {
-	const [userPosts, setUserPosts] = useState([]);
-	const userPostsCollection = collection(db, "userPosts");
-	
+  const [userPosts, setUserPosts] = useState([]);
+  const userPostsCollection = collection(db, "userPosts");
 
-	const createPost = async (newPost) => {
-		await addDoc(userPostsCollection, newPost);
-	};
+  const createPost = async (newPost) => {
+    await addDoc(userPostsCollection, newPost);
+  };
 
+  const editPost = async (index, updatedPost) => {
+    const userDoc = doc(db, "userPosts", userPosts[index].id);
+    const batch = writeBatch(db);
 
-	const editPost = async (index, updatedPost) => {
-		const userDoc = doc(db, "userPosts", userPosts[index].id);
-		await updateDoc(userDoc, updatedPost);
-	};
+    batch.update(userDoc, updatedPost);
 
-	const deletePost = async (index) => {
-		const userDoc = doc(db, "userPosts", userPosts[index].id);
-		await deleteDoc(userDoc);
-	};
+    await batch.commit();
+  };
 
-	useEffect(() => {
-		const unsubscribe = onSnapshot(userPostsCollection, (snapshot) => {
-			// Update the state whenever there's a change in the collection
-			setUserPosts(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-		});
+  const deletePost = async (index) => {
+    const userDoc = doc(db, "userPosts", userPosts[index].id);
+    const batch = writeBatch(db);
 
-		// Cleanup the listener when the component unmounts
-		return () => unsubscribe();
-	}, []); // Empty dependency array to run the effect only once on mount
+    batch.delete(userDoc);
 
-	return (
-		<div>
-			<CreateNewPostForm onCreatePost={createPost} />
+    await batch.commit();
+  };
 
-			<CreatePostsTable
-				posts={userPosts}
-				onEditPost={editPost}
-				onDeletePost={deletePost}
-			/>
-		</div>
-	);
+  useEffect(() => {
+    const unsubscribe = onSnapshot(userPostsCollection, (snapshot) => {
+      setUserPosts(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  return (
+    <div>
+      <CreateNewPostForm onCreatePost={createPost} />
+      <CreatePostsTable
+        posts={userPosts}
+        onEditPost={editPost}
+        onDeletePost={deletePost}
+      />
+    </div>
+  );
 };
 
 export default UserPostsManager;

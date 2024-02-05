@@ -8,6 +8,7 @@ import { app } from "../../firebase/firebase";
 import ActivityDetails from "./ManualEntryFormComponents/ActivityDetails";
 import ActivityStats from "./ManualEntryFormComponents/ActivityStats";
 import "./ManualEntryForm.css";
+import compressImage from "../../services/compressImage";
 
 const ManualEntryForm = ({ onCreateActivity }) => {
 	const [newImages, setNewImages] = useState([]); // Change to an array for multiple images
@@ -26,10 +27,16 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 	const [newActivity, setNewActivity] = useState("");
 	const [newDescription, setNewDescription] = useState("");
 
-	const handleImageChange = (e) => {
-		const files = Array.from(e.target.files);
-		setNewImages([...newImages, ...files]);
-	};
+	const handleImageChange = async (e) => {
+    const files = Array.from(e.target.files);
+    
+    // Compress each image before uploading
+    const compressedImages = await Promise.all(
+      files.map(async (file) => await compressImage(file))
+    );
+
+    setNewImages([...newImages, ...compressedImages]);
+  };
 
 	const handleDragEnter = (e) => {
 		e.preventDefault();

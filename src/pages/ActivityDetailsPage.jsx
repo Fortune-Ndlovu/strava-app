@@ -90,6 +90,7 @@ const ActivityDetailsPage = () => {
 														width={64}
 														height={64}
 														style={{ marginRight: "10px" }}
+														loading="lazy"
 													/>
 												))}
 											</div>

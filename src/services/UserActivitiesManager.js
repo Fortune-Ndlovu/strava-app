@@ -2,12 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase/firebase";
 import {
-	collection,
-	addDoc,
-	onSnapshot,
-	doc,
-	updateDoc,
-	deleteDoc,
+  collection,
+  addDoc,
+  onSnapshot,
+  doc,
+  updateDoc,
+  deleteDoc,
+  writeBatch, // Add this import
 } from "firebase/firestore";
 
 // Importing components used in this module
@@ -16,83 +17,71 @@ import MyActivitiesTable from "../components/MyActivitiesTable/MyActivitiesTable
 
 // Defining the UserActivitiesManager component
 const UserActivitiesManager = ({
-	showForm,
-	showSidebar,
-	onCreateActivity,
-	onEditActivity,
-	onDeleteActivity,
+  showForm,
+  showSidebar,
+  onCreateActivity,
+  onEditActivity,
+  onDeleteActivity,
 }) => {
-	// Creating state to hold user activities
-	const [userActivities, setUserActivities] = useState([]);
+  const [userActivities, setUserActivities] = useState([]);
+  const userActivitiesCollection = collection(db, "userActivities");
 
-	// Firestore collection reference
-	const userActivitiesCollection = collection(db, "userActivities");
-
-  // Function to create a new activity
   const createActivity = async (newActivity) => {
-    // Adding a new document to the collection and getting its reference
     const docRef = await addDoc(userActivitiesCollection, newActivity);
-    // Creating an object with the new activity details including its id
-		// const createdActivity = { ...newActivity, id: docRef.id };
+    const createdActivity = { ...newActivity, id: docRef.id };
+    
+    console.log("Created Activity:", createdActivity);
+    
+    return createdActivity;
+  };
 
-	  
-	  // Add image field to the new activity
-  const createdActivity = { ...newActivity, id: docRef.id, imageUrls: null };
-	  
-		// Log the created activity to ensure it contains the id
-		console.log("Created Activity:", createdActivity);
+  const editActivity = async (index, updatedActivity) => {
+    const userDoc = doc(db, "userActivities", userActivities[index].id);
+    const batch = writeBatch(db); // Initialize a WriteBatch
 
-    // Returning the created activity
-		return createdActivity;
-	};
+    // Check if userActivities[index].imageUrl is defined
+    const imageUrl = userActivities[index].imageUrl || null;
 
-const editActivity = async (index, updatedActivity) => {
-  // Getting the document reference of the activity to be edited
-  const userDoc = doc(db, "userActivities", userActivities[index].id);
+    // Update the document with the new activity details, including the image field
+    batch.update(userDoc, { ...updatedActivity, imageUrl });
 
-  // Check if userActivities[index].imageUrl is defined
-  const imageUrl = userActivities[index].imageUrl || null;
+    // Commit the batch
+    await batch.commit();
+  };
 
-  // Update the document with the new activity details, including the image field
-  await updateDoc(userDoc, { ...updatedActivity, imageUrl });
-};
-
-  // Function to delete an existing activity
   const deleteActivity = async (index) => {
-    // Getting the document reference of the activity to be deleted
-		const userDoc = doc(db, "userActivities", userActivities[index].id);
-		// Delete the activity
-    await deleteDoc(userDoc);
-	};
+    const userDoc = doc(db, "userActivities", userActivities[index].id);
+    const batch = writeBatch(db); // Initialize a WriteBatch
 
-  // Effect hook to subscribe to changes in the Firestore collection
+    // Delete the activity
+    batch.delete(userDoc);
+
+    // Commit the batch
+    await batch.commit();
+  };
+
   useEffect(() => {
-    // Setting up a snapshot listener to track changes in the collection
-		const unsubscribe = onSnapshot(userActivitiesCollection, (snapshot) => {
-			// Update the state whenever there's a change in the collection
-			setUserActivities(
-				snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-			);
-		});
+    const unsubscribe = onSnapshot(userActivitiesCollection, (snapshot) => {
+      setUserActivities(
+        snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
+    });
 
-		// Cleanup the listener when the component unmounts
-		return () => unsubscribe();
-	}, []);
+    return () => unsubscribe();
+  }, []);
 
-  // Render the UserActivitiesManger component
-	return (
+  return (
     <div>
-      {/* Conditional rendering of ManualEntryForm or MyActivitiesTable based on showForm prop */}
-			{showForm && <ManualEntryForm onCreateActivity={createActivity} />}
-			{!showForm && (
-				<MyActivitiesTable
-					activities={userActivities}
-					onEditActivity={editActivity}
-					onDeleteActivity={deleteActivity}
-				/>
-			)}
-		</div>
-	);
+      {showForm && <ManualEntryForm onCreateActivity={createActivity} />}
+      {!showForm && (
+        <MyActivitiesTable
+          activities={userActivities}
+          onEditActivity={editActivity}
+          onDeleteActivity={deleteActivity}
+        />
+      )}
+    </div>
+  );
 };
 
 export default UserActivitiesManager;

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { db } from "../../firebase/firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import SportSelection from "../FilteringMyActivitiesForm/SportSelection";
+import compressImage from "../../services/compressImage";
 
 const EditActivityForm = () => {
 	const { activityId } = useParams();
@@ -75,33 +76,46 @@ const EditActivityForm = () => {
 		navigate(`/activity/${activityId}`);
 	};
 
-	const handleFileInputChange = (e) => {
-		const file = e.target.files[0];
-		if (file) {
-			const reader = new FileReader();
-			reader.onloadend = () => {
-				handleAddImage(reader.result);
-			};
-			reader.readAsDataURL(file);
-		}
-	};
+	const handleFileInputChange = async (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      try {
+        // Compress the image before adding it to the state
+        const compressedImage = await compressImage(file);
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          handleAddImage(reader.result);
+        };
+        reader.readAsDataURL(compressedImage);
+      } catch (error) {
+        console.error("Error compressing image:", error);
+      }
+    }
+  };
 
 	const handleDragOver = (e) => {
 		e.preventDefault();
 	};
 
-	const handleDrop = (e) => {
-		e.preventDefault();
-		const file = e.dataTransfer.files[0];
-		if (file) {
-			const reader = new FileReader();
-			reader.onloadend = () => {
-				handleAddImage(reader.result);
-			};
-			reader.readAsDataURL(file);
-		}
-	};
+	const handleDrop = async (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      try {
+        // Compress the dropped image before adding it to the state
+        const compressedImage = await compressImage(file);
 
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          handleAddImage(reader.result);
+        };
+        reader.readAsDataURL(compressedImage);
+      } catch (error) {
+        console.error("Error compressing image:", error);
+      }
+    }
+  };
 	return (
 		<div>
 			<h1>Edit Activity</h1>
@@ -152,6 +166,7 @@ const EditActivityForm = () => {
 									alt={`Activity ${index + 1}`}
 									width={64}
 									height={64}
+									loading="lazy"
 								/>
 								<button type="button" onClick={() => handleRemoveImage(index)}>
 									Remove
