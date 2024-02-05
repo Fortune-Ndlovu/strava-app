@@ -27,7 +27,7 @@ const ActivityDetailsPage = () => {
 		};
 
 		fetchActivityDetails();
-	}, [activityId]);
+	}, []);
 
 	const handleDeleteActivity = async () => {
 		const userDoc = doc(db, "userActivities", activityId);
@@ -77,18 +77,24 @@ const ActivityDetailsPage = () => {
 									The activity Duration: {activityDetails.hour}:
 									{activityDetails.minute}:{activityDetails.second}
 								</p>
-								{activityDetails.imageUrl && (
-									<div >
-										<p>Image:</p>
-										<img
-											src={activityDetails.imageUrl}
-											alt="Activity"
-											width={64}
-											height={64}
-											
-										/>
-									</div>
-								)}
+								{activityDetails.imageUrls &&
+									activityDetails.imageUrls.length > 0 && (
+										<div>
+											<p>Images:</p>
+											<div>
+												{activityDetails.imageUrls.map((imageUrl, index) => (
+													<img
+														key={index}
+														src={imageUrl}
+														alt={`Activity ${index + 1}`}
+														width={64}
+														height={64}
+														style={{ marginRight: "10px" }}
+													/>
+												))}
+											</div>
+										</div>
+									)}
 								<p>Shoes: Nike NIKE W NIKE METCON 8 BLACK (0.6 km)</p>
 							</Accordion.Body>
 						</Accordion.Item>

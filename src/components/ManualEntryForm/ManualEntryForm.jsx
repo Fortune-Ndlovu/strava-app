@@ -10,8 +10,8 @@ import ActivityStats from "./ManualEntryFormComponents/ActivityStats";
 import "./ManualEntryForm.css";
 
 const ManualEntryForm = ({ onCreateActivity }) => {
-	const [newImage, setNewImage] = useState(null);
-
+	const [newImages, setNewImages] = useState([]); // Change to an array for multiple images
+	const [dragging, setDragging] = useState(false);
 	const navigate = useNavigate(); // Hook to navigate between pages
 
 	const [newDistance, setNewDistance] = useState(0);
@@ -27,24 +27,42 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 	const [newDescription, setNewDescription] = useState("");
 
 	const handleImageChange = (e) => {
-		const file = e.target.files[0];
-		setNewImage(file);
+		const files = Array.from(e.target.files);
+		setNewImages([...newImages, ...files]);
+	};
+
+	const handleDragEnter = (e) => {
+		e.preventDefault();
+		setDragging(true);
+	};
+
+	const handleDragLeave = (e) => {
+		e.preventDefault();
+		setDragging(false);
+	};
+
+	const handleDrop = (e) => {
+		e.preventDefault();
+		setDragging(false);
+
+		const files = Array.from(e.dataTransfer.files);
+		setNewImages([...newImages, ...files]);
 	};
 
 	const handleCreateActivity = async () => {
-		let imageUrl; // Declare imageUrl at the top
+		let imageUrls = []; // Use an array for multiple images
 
 		try {
-			// Upload image to Firebase Storage
-			if (newImage) {
-				const storage = getStorage(app);
-				const storageRef = ref(storage, `activity_images/${newImage.name}`);
-				await uploadBytes(storageRef, newImage);
-				imageUrl = await getDownloadURL(storageRef);
-
-				// Set the image URL in the new activity
-				setNewActivity({ ...newActivity, imageUrl });
-			}
+			// Upload multiple images to Firebase Storage
+			await Promise.all(
+				newImages.map(async (file) => {
+					const storage = getStorage(app);
+					const storageRef = ref(storage, `activity_images/${file.name}`);
+					await uploadBytes(storageRef, file);
+					const imageUrl = await getDownloadURL(storageRef);
+					imageUrls.push(imageUrl);
+				})
+			);
 
 			// Create activity as before
 			const createdActivity = await onCreateActivity({
@@ -58,7 +76,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 				time: newTimeValue,
 				name: newActivity,
 				description: newDescription,
-				imageUrl: imageUrl, // Use the outer-scoped imageUrl
+				imageUrls: imageUrls, // Use the outer-scoped imageUrl
 			});
 
 			console.log("Created Activity:", createdActivity);
@@ -76,7 +94,13 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 		<div>
 			<Container>
 				<h1>Manual Entry</h1>
-				<Form id="manualEntryForm">
+				<Form
+					id="manualEntryForm"
+					onDragEnter={handleDragEnter}
+					onDragOver={handleDragEnter}
+					onDragLeave={handleDragLeave}
+					onDrop={handleDrop}
+				>
 					<ActivityStats
 						distanceValue={newDistance}
 						distanceOnChange={(e) => setNewDistance(e.target.value)}
@@ -104,8 +128,32 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 					/>
 					{/* New input for image upload */}
 					<Form.Group controlId="image">
-						<Form.Label>Image</Form.Label>
-						<Form.Control type="file" onChange={handleImageChange} />
+						<Form.Label>Images</Form.Label>
+						<div
+							className={`image-dropzone ${dragging ? "dragging" : ""}`}
+							onClick={() => document.getElementById("imageInput").click()}
+						>
+							{newImages.length > 0 ? (
+								newImages.map((image, index) => (
+									<img
+										key={index}
+										src={URL.createObjectURL(image)}
+										alt={`Selected ${index + 1}`}
+										width={70}
+										height={70}
+									/>
+								))
+							) : (
+								<p>Drag & Drop or Click to Upload</p>
+							)}
+						</div>
+						<input
+							id="imageInput"
+							type="file"
+							onChange={handleImageChange}
+							style={{ display: "none" }}
+							multiple // Allow multiple file selection
+						/>
 					</Form.Group>
 					<Button
 						variant="primary"

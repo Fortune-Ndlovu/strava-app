@@ -9,13 +9,13 @@ import { getStorage } from "firebase/storage"; // Make sure to include the stora
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-   apiKey: "AIzaSyDg2YRjgCqm_iNiUnqkCVYZdFCmj0UkJdA",
-  authDomain: "strava-project-4135f.firebaseapp.com",
-  projectId: "strava-project-4135f",
-  storageBucket: "strava-project-4135f.appspot.com",
-  messagingSenderId: "994871953859",
-  appId: "1:994871953859:web:73143dcf8e8afad90c5576",
-  measurementId: "G-ZS72LHRK0W"
+ apiKey: "AIzaSyDVJOn9T2E8IPbBqJ2IV7QtFjqepZHvc7I",
+  authDomain: "strava-e514c.firebaseapp.com",
+  projectId: "strava-e514c",
+  storageBucket: "strava-e514c.appspot.com",
+  messagingSenderId: "540253162139",
+  appId: "1:540253162139:web:a872759908e3a8b0e6943e",
+  measurementId: "G-SEN4Q3RCYD"
 };
 
 const app = initializeApp(firebaseConfig);
