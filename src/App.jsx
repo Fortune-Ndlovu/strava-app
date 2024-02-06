@@ -61,10 +61,7 @@ function App() {
 				<Route path="/trainingLog" element={<TrainingLog />}></Route>
 				<Route path="/trainingPlans" element={<TrainingPlans />}></Route>
 				<Route path="/powerCurve" element={<PowerCurve />}></Route>
-				<Route
-					path="/fitnessAndFreshness"
-					element={<FitnessAndFreshness />}
-				></Route>
+				<Route path="/fitnessAndFreshness" element={<FitnessAndFreshness />}></Route>
 
 				{/* Explore Dropdown Routers */}
 				<Route path="/explore" element={<Explore />}></Route>

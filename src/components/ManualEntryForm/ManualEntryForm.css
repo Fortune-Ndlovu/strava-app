@@ -30,6 +30,31 @@ textarea#descriptionInput {
 	max-width: 536px;
 }
 
+.image-dropzone {
+    align-items: center;
+    background: #fff;
+    border: 1px solid #d3d1cd;
+    border-radius: 4px;
+    cursor: pointer;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: auto;
+    -ms-flex-pack: center;
+    justify-content: center;
+    min-height: 162px;
+}
+
+.image-zone-info {
+    text-align: center;
+    padding-top: 36px;
+}
+.image-zone-info svg {
+    margin-bottom: 6px;
+}
+p.drag-dop-para {
+    margin-bottom: 0px;
+}
+
 @media screen and (max-width: 990px) {
 	input#distanceInput,
 	input#elevation-input #sportSelectionInput {

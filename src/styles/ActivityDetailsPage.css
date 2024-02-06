@@ -1,3 +1,28 @@
 div#activityDropdownOptions {
     opacity: 100%;
 }
+
+.activity-details-container{
+    margin-top: 110px;
+}
+
+#activityDetailPageBook {
+    --bs-accordion-border-radius: 0px!important;
+    --bs-accordion-inner-border-radius: 0px!important
+}
+
+h2#activity-details-book-header button.accordion-button {
+    background-color: #dfdfe8;
+}
+
+h2#activity-details-book-header button.accordion-button a {
+    font-size: 20px;
+    text-decoration: none;
+    color: #242428;
+}
+
+h2#activity-details-book-header button.accordion-button a:hover {
+    font-size: 20px;
+    text-decoration: underline;
+    color: #007FB6;
+}

@@ -4,6 +4,7 @@ import { db } from "../../firebase/firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import SportSelection from "../FilteringMyActivitiesForm/SportSelection";
 import compressImage from "../../services/compressImage";
+import { Container, Row, Col } from "react-bootstrap";
 
 const EditActivityForm = () => {
 	const { activityId } = useParams();

@@ -5,10 +5,11 @@ import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { app } from "../../firebase/firebase";
+import compressImage from "../../services/compressImage";
 import ActivityDetails from "./ManualEntryFormComponents/ActivityDetails";
 import ActivityStats from "./ManualEntryFormComponents/ActivityStats";
 import "./ManualEntryForm.css";
-import compressImage from "../../services/compressImage";
+import "../../styles/common/buttons.css";
 
 const ManualEntryForm = ({ onCreateActivity }) => {
 	const [newImages, setNewImages] = useState([]); // Change to an array for multiple images
@@ -28,15 +29,15 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 	const [newDescription, setNewDescription] = useState("");
 
 	const handleImageChange = async (e) => {
-    const files = Array.from(e.target.files);
-    
-    // Compress each image before uploading
-    const compressedImages = await Promise.all(
-      files.map(async (file) => await compressImage(file))
-    );
+		const files = Array.from(e.target.files);
 
-    setNewImages([...newImages, ...compressedImages]);
-  };
+		// Compress each image before uploading
+		const compressedImages = await Promise.all(
+			files.map(async (file) => await compressImage(file))
+		);
+
+		setNewImages([...newImages, ...compressedImages]);
+	};
 
 	const handleDragEnter = (e) => {
 		e.preventDefault();
@@ -135,7 +136,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 					/>
 					{/* New input for image upload */}
 					<Form.Group controlId="image">
-						<Form.Label>Images</Form.Label>
+						<Form.Label>Media</Form.Label>
 						<div
 							className={`image-dropzone ${dragging ? "dragging" : ""}`}
 							onClick={() => document.getElementById("imageInput").click()}
@@ -151,7 +152,26 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 									/>
 								))
 							) : (
-								<p>Drag & Drop or Click to Upload</p>
+								<div className="image-zone-info">
+									<svg
+										fill="#2b2b2b"
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 32 32"
+										width="32"
+										height="32"
+									>
+										<path
+											d="M.175.175v31.65h31.65V.175H.175zm30 30H1.825V1.825h28.35v28.35z"
+											fill=""
+										></path>
+										<path
+											d="M7.5 10.825a3.325 3.325 0 100-6.65 3.325 3.325 0 000 6.65zm0-5a1.675 1.675 0 110 3.35 1.675 1.675 0 010-3.35zm20.325 14.941L19.845 6l-6.968 13.083-2.99-5.383-5.712 10.719v3.406h23.65v-7.059zm-1.65 5.409H5.825v-1.344l4.092-7.679 2.991 5.384 6.947-13.044 6.32 11.691v4.992z"
+											fill=""
+										></path>
+									</svg>
+									<p className="drag-dop-para">Drag and drop media</p>
+									<p>or click to upload</p>
+								</div>
 							)}
 						</div>
 						<input
@@ -162,13 +182,17 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 							multiple // Allow multiple file selection
 						/>
 					</Form.Group>
-					<Button
-						variant="primary"
-						type="button"
-						onClick={handleCreateActivity}
-					>
-						Submit
-					</Button>
+					<br></br>
+					<hr></hr>
+					<div className="manual-entry-form-btn-group">
+						<Button
+							type="button"
+							onClick={handleCreateActivity}
+						>
+							Create
+						</Button>
+						<a href="home">Cancel</a>
+					</div>
 				</Form>
 			</Container>
 		</div>
