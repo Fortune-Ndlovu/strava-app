@@ -196,28 +196,42 @@ button#activityKudosCommentBtn:hover {
 
 button#activity-details-edit-btn,
 a#activity-details-dropside-btn {
-    background-color: transparent;
-    height: 40px;
-    border: 1px solid #dfdfe8;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 8px;
+	background-color: transparent;
+	height: 40px;
+	border: 1px solid #dfdfe8;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 8px;
 	padding-bottom: 36px;
-    margin-right: 0px;
-    margin-left: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
 	border-radius: 0px;
 }
 
-#activtyDetailButtonGroupCol{
+#activtyDetailButtonGroupCol {
 	padding-left: 0;
 }
 
 button#activity-details-edit-btn:hover,
 a#activity-details-dropside-btn:hover {
-background-color: #dfdfe8;
-border: 1px solid #dfdfe8;
+	background-color: #dfdfe8;
+	border: 1px solid #dfdfe8;
 }
-	
+
+#editActivityFormSaveChangesBtn {
+	background-color: #fc5200;
+	border-color: #fc5200;
+	color: #fff;
+	min-width: 140px;
+	height: 40px;
+	font-weight: 500;
+}
+
+#editActivityFormSaveChangesBtn:hover {
+	background-color: rgb(211, 70, 1);
+	border-color: rgb(187, 62, 1);
+	color: rgb(242, 240, 237);
+}
 
 @media screen and (max-width: 992px) {
 	/* Displaying the start trial btn center and breathing space top & bottom. */

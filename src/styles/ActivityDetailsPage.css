@@ -34,62 +34,113 @@ div#socials {
 	float: inline-end;
 	padding: 0px 4px 0px 0px;
 	margin: 0px;
-    min-height: 50px;
+	min-height: 50px;
 }
 
 div#activity-details-book-header-Row {
 	margin-left: 0px;
-    min-height: 50px;
+	min-height: 50px;
 }
 
 #activity-details-book-header-Col {
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-    min-height: 50px;
+	min-height: 50px;
 }
 
 div#activityDetailsTypeInfo {
-    font-size: 20px;
+	font-size: 20px;
 }
 
 div#socials button {
-    border-radius: 0px;
-    background-color: transparent;
-    border: 1px transparent;
-    font-size: 17px;
+	border-radius: 0px;
+	background-color: transparent;
+	border: 1px transparent;
+	font-size: 17px;
 }
 
 div#socials button:hover {
-    background-color: #e7e7ef;
+	background-color: #e7e7ef;
 }
 
 #facebook-icon {
-    color: #395597;
+	color: #395597;
 }
 
 #twitter-icon {
-    color: #00aced;
+	color: #00aced;
 }
 
 #share-icon,
 .activity-details-toggle-icon {
-    color: #000;
-    font-size: x-large;
+	color: #000;
+	font-size: x-large;
 }
 
 .activity-details-kudos,
 .activity-details-toggle-icon {
-    color: #242428;
+	color: #242428;
 }
 
 button .activity-details-kudos:hover {
-    color: #242428;
+	color: #242428;
 }
 
 button.activity-details-kudos.btn.btn-secondary {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+#activity-details-user-image {
+	border-radius: 50%;
+	background-color: #f7f7fa;
+	width: 100px;
+	height: 100px;
+	display: block;
+}
+
+#activityDetailsLeftPageCol {
+	padding-right: 0px;
+	margin-right: 0px;
+	max-width: 130px;
+}
+
+p.activity-details-name {
+	font-size: 28px;
+	font-weight: 500;
+	line-height: 0px;
+}
+
+p.activity-details-description {
+	padding-top: 12px;
+}
+
+.activity-details-added-image {
+    padding-top: 20px;
+}
+
+.activity-details-left-page {
+    border-right: 1px solid #dee2e6;
+	 padding: 1.25rem;
+}
+
+.activity-details-right-page {
+	padding: 1.25rem;
+	padding-left: 0px;
+}
+
+.accordion-body {
+    padding: 0px!important;
+}	
+
+#activityDetailsDuration {
+	font-size: 28px;
+}
+
+p.activity-details-right-duration {
+    border-bottom: 1px solid #dee2e6;
+	padding-bottom: 10px;
 }

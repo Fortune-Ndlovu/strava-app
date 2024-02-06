@@ -186,40 +186,72 @@ const ActivityDetailsPage = () => {
 											</Row>
 										</Accordion.Header>
 										<Accordion.Body>
-											<div>
-												<p>Date of the activity: {activityDetails.date}</p>
-												<p>Time of the activity: {activityDetails.time}</p>
-												<img src={fortunendlovu} alt="fortune ndlovu" width={50} height={50}/>
-												<p>Name: {activityDetails.name}</p>
-												<p>Description: {activityDetails.description}</p>
-												{activityDetails.imageUrls &&
-													activityDetails.imageUrls.length > 0 && (
-														<div>
-															<div>
-																{activityDetails.imageUrls.map(
-																	(imageUrl, index) => (
-																		<img
-																			key={index}
-																			src={imageUrl}
-																			alt={`Activity ${index + 1}`}
-																			width={64}
-																			height={64}
-																			style={{ marginRight: "10px" }}
-																			loading="lazy"
-																		/>
-																	)
-																)}
-															</div>
+											<Row>
+												<Col>
+													<div className="activity-details-left-page">
+														<div className="activity-details-left-page-text">
+															<Row>
+																<Col id="activityDetailsLeftPageCol">
+																	<img
+																		id="activity-details-user-image"
+																		src={fortunendlovu}
+																		alt="fortune ndlovu"
+																		width={50}
+																		height={50}
+																	/>
+																</Col>
+																<Col>
+																	<p>
+																		{activityDetails.time} on{" "}
+																		{activityDetails.date}
+																	</p>
+
+																	<p className="activity-details-name">
+																		{activityDetails.name}
+																	</p>
+																	<p className="activity-details-description">
+																		{activityDetails.description}
+																	</p>
+																</Col>
+															</Row>
 														</div>
-													)}
-											</div>
-											<div>
-												<p>
-													The activity Duration: {activityDetails.hour}:
-													{activityDetails.minute}:{activityDetails.second}
-												</p>
-												<p>Shoes: Nike NIKE W NIKE METCON 8 BLACK (0.6 km)</p>
-											</div>
+														{activityDetails.imageUrls &&
+															activityDetails.imageUrls.length > 0 && (
+																<div className="activity-details-added-image">
+																	{activityDetails.imageUrls.map(
+																		(imageUrl, index) => (
+																			<img
+																				key={index}
+																				src={imageUrl}
+																				alt={`Activity ${index + 1}`}
+																				width={70}
+																				height={70}
+																				loading="lazy"
+																				style={{
+																					objectFit: "cover",
+																					marginRight: "5px",
+																				}} 
+																			/>
+																		)
+																	)}
+																</div>
+															)}
+													</div>
+												</Col>
+												<Col>
+													<div className="activity-details-right-page">
+														<p className="activity-details-right-duration">
+															<span id="activityDetailsDuration">
+															{activityDetails.hour}:{activityDetails.minute}:
+															{activityDetails.second}</span><br></br>
+															<span className="activity-details-right-duration-span">Duration</span>
+														</p>
+														<p>
+															Shoes: Nike NIKE W NIKE METCON 8 <br></br>BLACK (0.6 km)
+														</p>
+													</div>
+												</Col>
+											</Row>
 										</Accordion.Body>
 									</Accordion.Item>
 								</Accordion>

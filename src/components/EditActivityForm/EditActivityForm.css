@@ -1,0 +1,11 @@
+.edit-activity-form-container.container {
+    margin-top: 110px;
+}
+
+.edit-activity-form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 40px;
+}
+
