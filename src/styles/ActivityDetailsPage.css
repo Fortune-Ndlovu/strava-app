@@ -1,28 +1,95 @@
 div#activityDropdownOptions {
-    opacity: 100%;
+	opacity: 100%;
 }
 
-.activity-details-container{
-    margin-top: 110px;
+.activity-details-container {
+	margin-top: 110px;
 }
 
 #activityDetailPageBook {
-    --bs-accordion-border-radius: 0px!important;
-    --bs-accordion-inner-border-radius: 0px!important
+	--bs-accordion-border-radius: 0px !important;
+	--bs-accordion-inner-border-radius: 0px !important;
 }
 
 h2#activity-details-book-header button.accordion-button {
-    background-color: #dfdfe8;
+	background-color: #dfdfe8;
+	padding: 0px;
+	display: block;
+	min-height: 50px;
 }
 
 h2#activity-details-book-header button.accordion-button a {
-    font-size: 20px;
-    text-decoration: none;
-    color: #242428;
+	font-size: 20px;
+	text-decoration: none;
+	color: #242428;
 }
 
 h2#activity-details-book-header button.accordion-button a:hover {
+	font-size: 20px;
+	text-decoration: underline;
+	color: #007fb6;
+}
+
+div#socials {
+	float: inline-end;
+	padding: 0px 4px 0px 0px;
+	margin: 0px;
+    min-height: 50px;
+}
+
+div#activity-details-book-header-Row {
+	margin-left: 0px;
+    min-height: 50px;
+}
+
+#activity-details-book-header-Col {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+    min-height: 50px;
+}
+
+div#activityDetailsTypeInfo {
     font-size: 20px;
-    text-decoration: underline;
-    color: #007FB6;
+}
+
+div#socials button {
+    border-radius: 0px;
+    background-color: transparent;
+    border: 1px transparent;
+    font-size: 17px;
+}
+
+div#socials button:hover {
+    background-color: #e7e7ef;
+}
+
+#facebook-icon {
+    color: #395597;
+}
+
+#twitter-icon {
+    color: #00aced;
+}
+
+#share-icon,
+.activity-details-toggle-icon {
+    color: #000;
+    font-size: x-large;
+}
+
+.activity-details-kudos,
+.activity-details-toggle-icon {
+    color: #242428;
+}
+
+button .activity-details-kudos:hover {
+    color: #242428;
+}
+
+button.activity-details-kudos.btn.btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
