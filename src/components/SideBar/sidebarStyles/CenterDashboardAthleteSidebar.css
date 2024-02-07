@@ -158,6 +158,18 @@ div#module-btn-list-dropdown a {
     text-decoration: none;
     color: #007FB6;
 }
+.feed-ui-activity-images.single-image {
+  display: flex;
+}
+
+.feed-ui-activity-imageLeft {
+  flex: 1;
+}
+
+.feed-ui-activity-imageLeft:first-child {
+  margin-right: 10px;
+}
+
 
 @media screen and (max-width: 1200px) {
 	.centerResize.col-lg-6.col-md-12.col-12 {
