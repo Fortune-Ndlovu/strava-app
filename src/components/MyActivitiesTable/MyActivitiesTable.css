@@ -2,3 +2,12 @@ td.activities-table-buttons {
     display: flex;
     gap: 10px;
 }
+
+.link-of-unique-activity {
+    text-decoration: none;
+    color: #007FB6;
+}
+
+.link-of-unique-activity:hover {
+    text-decoration: underline;
+}

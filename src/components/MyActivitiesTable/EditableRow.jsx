@@ -48,10 +48,9 @@ const EditableRow = ({
 						<Button variant="success" onClick={onSaveClick}>
 							Save
 						</Button>
-						<Button variant="danger" onClick={onCancelClick}>
-							Cancel
-						</Button>
-						<a href="#home">Edit more options</a>
+						
+                        <a href="#" className="link-of-unique-activity"onClick={onCancelClick}>Cancel</a><br></br>
+						<a href={`/activity/${editedActivity.id}/edit`} className="link-of-unique-activity">Edit more options</a>
 					</div>
 				</div>
 			</td>

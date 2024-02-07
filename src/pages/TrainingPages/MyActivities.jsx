@@ -10,8 +10,6 @@ const MyActivities = () => {
       <div className="mt-5 container">
         <h1>MyActivities</h1>
         <FilteringMyActivitiesForm />
-        
-        <h4>10 Activities</h4>
         {/* Render the table only */}
         <UserActivitiesManager showForm={false}/>
       </div>

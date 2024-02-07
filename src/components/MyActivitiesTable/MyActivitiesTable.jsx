@@ -42,6 +42,7 @@ const MyActivitiesTable = ({
 
 	return (
 		<div style={{ overflowX: "auto" }}>
+			<h4>{activities.length} Activities </h4>
 			<Table striped bordered hover>
 				<thead>
 					<tr>
@@ -61,7 +62,7 @@ const MyActivitiesTable = ({
 									{/* Your normal row content */}
 									<td>{activity.sport}</td>
 									<td>{activity.date}</td>
-									<td>{activity.name}</td>
+									<td><a href={`/activity/${activity.id}`} className="link-of-unique-activity">{activity.name}</a></td>
 									<td>{activity.time}</td>
 									<td>{activity.distance}</td>
 									<td>{activity.elevation}</td>
@@ -71,18 +72,9 @@ const MyActivitiesTable = ({
 											<></>
 										) : (
 											<>
-												<Button
-													variant="primary"
-													onClick={() => handleEditClick(index)}
-												>
-													Edit
-												</Button>
-												<Button
-													variant="danger"
-													onClick={() => handleDeleteClick(index)}
-												>
-													Delete
-												</Button>
+													<a href="#" className="link-of-unique-activity" onClick={() => handleEditClick(index)}>Edit</a>
+													<a href="#" className="link-of-unique-activity" onClick={() => handleDeleteClick(index)}>Delete</a>
+
 											</>
 										)}
 									</td>
