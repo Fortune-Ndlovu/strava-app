@@ -1,6 +1,7 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
+import EditableRow from "./EditableRow";
 import "./MyActivitiesTable.css";
 
 const MyActivitiesTable = ({
@@ -35,17 +36,9 @@ const MyActivitiesTable = ({
 		onDeleteActivity(index);
 	};
 
-	// Function to format time values with leading zeros
-	const formatTimeValue = (value) => {
-		// Ensure the value is a valid number and within a reasonable range
-		const numericValue = parseInt(value, 10);
-		if (!isNaN(numericValue) && numericValue >= 0) {
-			// Pad with leading zero if necessary
-			return numericValue < 10 ? `0${numericValue}` : `${numericValue}`;
-		}
-		// Return an empty string for invalid values
-		return "";
-	};
+	const handleSportChange = (sport) => {
+    setEditedActivity((prev) => ({ ...prev, sport }));
+  };
 
 	return (
 		<div style={{ overflowX: "auto" }}>
@@ -63,170 +56,47 @@ const MyActivitiesTable = ({
 				<tbody>
 					{activities && activities.length > 0 ? (
 						activities.map((activity, index) => (
-							<tr key={index}>
-								{/* Sport cell */}
-								<td>
-									{editIndex === index ? (
-										<input
-											type="select"
-											value={editedActivity.sport}
-											onChange={(e) =>
-												handleInputChange("sport", e.target.value)
-											}
-										/>
-									) : (
-										activity.sport
-									)}
-								</td>
-
-								{/* Placeholder cell */}
-								<td>
-									{editIndex === index ? (
-										<input
-											type="date"
-											value={editedActivity.date}
-											onChange={(e) =>
-												handleInputChange("date", e.target.value)
-											}
-										/>
-									) : (
-										activity.date
-									)}
-								</td>
-
-								{/* Name cell */}
-								<td>
-									{editIndex === index ? (
-										<input
-											type="text"
-											value={editedActivity.name}
-											onChange={(e) =>
-												handleInputChange("name", e.target.value)
-											}
-										/>
-									) : (
-										activity.name
-									)}
-								</td>
-
-								{/* Time cell */}
-								<td>
-									{editIndex === index ? (
-										<>
-											{editedActivity.hour && (
-												<>
-													<input
-														type="text"
-														value={formatTimeValue(editedActivity.hour)}
-														onChange={(e) =>
-															handleInputChange("hour", e.target.value)
-														}
-													/>
-													:
-												</>
-											)}
-											<input
-												type="text"
-												value={formatTimeValue(editedActivity.minute)}
-												onChange={(e) =>
-													handleInputChange("minute", e.target.value)
-												}
-											/>
-											:
-											<input
-												type="text"
-												value={formatTimeValue(editedActivity.second)}
-												onChange={(e) =>
-													handleInputChange("second", e.target.value)
-												}
-											/>
-										</>
-									) : (
-										<>
-											{activity.hour && <>{formatTimeValue(activity.hour)}:</>}
-											{formatTimeValue(activity.minute)}:
-											{formatTimeValue(activity.second) || "00"}
-										</>
-									)}
-								</td>
-
-								{/* Distance cell */}
-								<td>
-									{editIndex === index ? (
-										<input
-											type="text"
-											value={editedActivity.distance}
-											onChange={(e) =>
-												handleInputChange("distance", e.target.value)
-											}
-										/>
-									) : (
-										activity.distance
-									)}
-								</td>
-
-								{/* Elevation cell */}
-								<td>
-									{" "}
-									{editIndex === index ? (
-										<input
-											type="text"
-											value={editedActivity.elevation}
-											onChange={(e) =>
-												handleInputChange("elevation", e.target.value)
-											}
-										/>
-									) : (
-										activity.elevation
-									)}
-								</td>
-								{/* Description cell */}
-								<td>
-									{editIndex === index ? (
-										<input
-											type="text"
-											value={editedActivity.description}
-											onChange={(e) =>
-												handleInputChange("description", e.target.value)
-											}
-										/>
-									) : (
-										activity.description
-									)}
-								</td>
-
-								{/* Button cell */}
-								<td className="activities-table-buttons">
-									{editIndex === index ? (
-										<>
-											<Button
-												variant="success"
-												onClick={() => handleSaveClick(index)}
-											>
-												Save
-											</Button>
-											<Button variant="danger" onClick={handleCancelClick}>
-												Cancel
-											</Button>
-										</>
-									) : (
-										<>
-											<Button
-												variant="primary"
-												onClick={() => handleEditClick(index)}
-											>
-												Edit
-											</Button>
-											<Button
-												variant="danger"
-												onClick={() => handleDeleteClick(index)}
-											>
-												Delete
-											</Button>
-										</>
-									)}
-								</td>
-							</tr>
+							<React.Fragment key={index}>
+								<tr>
+									{/* Your normal row content */}
+									<td>{activity.sport}</td>
+									<td>{activity.date}</td>
+									<td>{activity.name}</td>
+									<td>{activity.time}</td>
+									<td>{activity.distance}</td>
+									<td>{activity.elevation}</td>
+									{/* Add other cells */}
+									<td className="activities-table-buttons">
+										{editIndex === index ? (
+											<></>
+										) : (
+											<>
+												<Button
+													variant="primary"
+													onClick={() => handleEditClick(index)}
+												>
+													Edit
+												</Button>
+												<Button
+													variant="danger"
+													onClick={() => handleDeleteClick(index)}
+												>
+													Delete
+												</Button>
+											</>
+										)}
+									</td>
+								</tr>
+								{editIndex === index && (
+									<EditableRow
+										editedActivity={editedActivity}
+										onSaveClick={() => handleSaveClick(index)}
+										onCancelClick={handleCancelClick}
+										handleInputChange={handleInputChange}
+										 handleSportChange={handleSportChange} 
+									/>
+								)}
+							</React.Fragment>
 						))
 					) : (
 						<tr>
@@ -238,5 +108,4 @@ const MyActivitiesTable = ({
 		</div>
 	);
 };
-
 export default MyActivitiesTable;

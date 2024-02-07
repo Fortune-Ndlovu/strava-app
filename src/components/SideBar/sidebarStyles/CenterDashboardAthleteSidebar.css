@@ -158,6 +158,8 @@ div#module-btn-list-dropdown a {
     text-decoration: none;
     color: #007FB6;
 }
+
+/* CSS code uses flexbox to evenly distribute the single image across the available space and adds a margin to the first image for spacing. */
 .feed-ui-activity-images.single-image {
   display: flex;
 }
