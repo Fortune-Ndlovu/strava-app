@@ -336,36 +336,50 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 						</Card.Text>
 						<Card.Text className="feed-ui-activity-container">
 							<div className="feed-ui-activity-images">
-								<div className="feed-ui-activity-imageLeft">
-									<a href="home">
-										<Card.Img
-											variant="top"
-											src={runningRoute}
-											width={287}
-											height={287}
-										/>
-										<Button
-											title="View all kudos"
-											id="start-and-end-hidden-btn"
-										>
-											Start and end hidden
-										</Button>
-										<Button title="View all kudos" id="saveRouteBtn">
-											Save Route
-										</Button>
-									</a>
-								</div>
-								<div className="feed-ui-activity-imageLeft">
-									<a href="home">
-										<Card.Img
-											variant="top"
-											src={activity.imageUrls}
-											width={287}
-											height={287}
-										/>
-									</a>
-								</div>
-							</div>
+  {activity.imageUrls.length > 0 && (
+    <>
+      {activity.imageUrls.length === 1 ? (
+        <div className="feed-ui-activity-imageFull">
+          <a href="home">
+            <Card.Img
+              variant="top"
+              src={activity.imageUrls[0]}
+              width={574} // Full width for a single image
+              height={287} // Full height for a single image
+            />
+          </a>
+        </div>
+      ) : (
+        activity.imageUrls.map((imageUrl, index) => (
+          <div className="feed-ui-activity-imageLeft" key={index}>
+            <a href="home">
+              <Card.Img
+                variant="top"
+                src={imageUrl}
+                width={287}
+                height={287}
+              />
+              {index === 0 && (
+                <>
+                  <Button
+                    title="View all kudos"
+                    id="start-and-end-hidden-btn"
+                  >
+                    Start and end hidden
+                  </Button>
+                  <Button title="View all kudos" id="saveRouteBtn">
+                    Save Route
+                  </Button>
+                </>
+              )}
+            </a>
+          </div>
+        ))
+      )}
+    </>
+  )}
+</div>
+
 							<div className="activity-kudos-reactions">
 								<Button title="View all kudos" id="activityKudosLikeBtn">
 									<svg
