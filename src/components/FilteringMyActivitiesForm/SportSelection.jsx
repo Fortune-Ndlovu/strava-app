@@ -1,4 +1,5 @@
 import React from "react";
+import "./FilteringMyActivitiesForm.css";
 
 const SportSelection = ({ selectedOption, handleOptionChange }) => {
 	 const handleChange = (e) => {
@@ -10,7 +11,8 @@ const SportSelection = ({ selectedOption, handleOptionChange }) => {
 	return (
 		<div className="select-input">
 			<select
-        className="form-select"
+				className="form-select"
+				id="selectionInputStyle"
         value={selectedOption}
         onChange={handleChange}
       >

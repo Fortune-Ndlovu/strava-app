@@ -31,31 +31,84 @@ textarea#descriptionInput {
 }
 
 .image-dropzone {
-    align-items: center;
-    background: #fff;
-    border: 1px solid #d3d1cd;
-    border-radius: 4px;
-    cursor: pointer;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    height: auto;
-    -ms-flex-pack: center;
-    justify-content: center;
-    min-height: 162px;
+	align-items: center;
+	background: #fff;
+	border: 1px solid #d3d1cd;
+	border-radius: 4px;
+	cursor: pointer;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	height: auto;
+	-ms-flex-pack: center;
+	justify-content: center;
+	min-height: 162px;
 }
 
 .image-zone-info {
-    text-align: center;
-    padding-top: 36px;
+	text-align: center;
+	padding-top: 36px;
 }
 .image-zone-info svg {
-    margin-bottom: 6px;
+	margin-bottom: 6px;
 }
 p.drag-dop-para {
-    margin-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+div#distanceInputWrapper .dropdown-menu.dropdown-menu-end,
+div#elevationInputWrapper .dropdown-menu.dropdown-menu-end {
+	opacity: 100% !important;
+	transition: none !important;
+	border-radius: 5px;
+	border: 1px solid #dfdfe8;
+	margin-top: -3px;
+}
+
+button#distanceDropdown:hover,
+button#distanceDropdown:focus,
+button#elevationDropdown:hover,
+button#elevationDropdown:focus {
+	background-color: #f0f0f5 !important;
+	color: #242428;
+	outline: none;
+	border: 1px solid rgba(0, 127, 182, 0.5);
+	box-shadow: 0 0 5px rgba(0, 127, 182, 0.5);
+}
+
+div#distanceInputWrapper .dropdown-menu.dropdown-menu-end a.dropdown-item:hover,
+div#distanceInputWrapper .dropdown-menu.dropdown-menu-end a.dropdown-item:focus,
+div#elevationInputWrapper
+	.dropdown-menu.dropdown-menu-end
+	a.dropdown-item:hover,
+div#elevationInputWrapper
+	.dropdown-menu.dropdown-menu-end
+	a.dropdown-item:focus {
+	background-color: #f0f0f5 !important;
+	color: #242428;
+}
+
+form#manualEntryForm .form-control:focus,
+form#manualEntryForm select.form-select:focus {
+	outline: none;
+	border: 1px solid rgba(0, 127, 182, 0.5);
+	box-shadow: 0 0 5px rgba(0, 127, 182, 0.5);
+}
+
+button#distanceDropdown,
+button#elevationDropdown {
+	border: 1px solid #dfdfe8;
+	background-color: #fff;
+}
+
+.dropdown-menu.show.dropdown-menu-end {
+	--bs-dropdown-min-width: 7rem !important;
 }
 
 @media screen and (max-width: 990px) {
+	.user-upload-container {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 	input#distanceInput,
 	input#elevation-input #sportSelectionInput {
 		max-width: none;
@@ -86,59 +139,5 @@ p.drag-dop-para {
 
 	.activity-stats-col {
 		flex: initial;
-	}
-}
-
-div#distanceInputWrapper .dropdown-menu.dropdown-menu-end,
-div#elevationInputWrapper .dropdown-menu.dropdown-menu-end {
-	opacity: 100% !important;
-	transition: none !important;
-	border-radius: 5px;
-	border: 1px solid #dfdfe8;
-	margin-top: -3px;
-}
-
-button#distanceDropdown:hover,
-button#distanceDropdown:focus,
-button#elevationDropdown:hover,
-button#elevationDropdown:focus {
-	background-color: #f0f0f5 !important;
-	border: 1px solid #007fb6;
-	color: #242428;
-}
-
-div#distanceInputWrapper .dropdown-menu.dropdown-menu-end a.dropdown-item:hover,
-div#distanceInputWrapper .dropdown-menu.dropdown-menu-end a.dropdown-item:focus,
-div#elevationInputWrapper .dropdown-menu.dropdown-menu-end a.dropdown-item:hover,
-div#elevationInputWrapper .dropdown-menu.dropdown-menu-end a.dropdown-item:focus {
-	background-color: #f0f0f5 !important;
-	color: #242428;
-}
-
-form#manualEntryForm .form-control:focus,
-form#manualEntryForm select.form-select:focus {
-	border: 1px solid #007fb6;
-  box-shadow: none;
-}
-
-button#distanceDropdown,
-button#elevationDropdown {
-    border:1px solid #dfdfe8;
-        background-color: #fff;
-}
-
-.dropdown-menu.show.dropdown-menu-end {
-    --bs-dropdown-min-width: 7rem!important;
-}
-
-/* form#manualEntryForm input:active{
-    border: 1px solid #007fb6 !important;
-    border-color: #ff0000;
-} */
-
-@media screen and (max-width: 990px) {
-	.user-upload-container {
-		padding-left: 20px;
-		padding-right: 20px;
 	}
 }

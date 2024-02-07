@@ -125,7 +125,11 @@ const EditActivityForm = () => {
 			<Container className="edit-activity-form-container">
 				<div className="edit-activity-form-header">
 					<h1>Edit Activity</h1>{" "}
-					<Button type="button" onClick={handleSaveChanges} id="editActivityFormSaveChangesBtn">
+					<Button
+						type="button"
+						onClick={handleSaveChanges}
+						id="editActivityFormSaveChangesBtn"
+					>
 						Save
 					</Button>
 				</div>
@@ -137,7 +141,7 @@ const EditActivityForm = () => {
 									<Form.Label>Title</Form.Label>
 									<Form.Control
 										type="text"
-										id="name"
+										className="edit-activity-form-input-style"
 										name="name"
 										value={editedActivity.name}
 										onChange={handleInputChange}
@@ -147,6 +151,7 @@ const EditActivityForm = () => {
 									<Form.Label>Description</Form.Label>
 									<Form.Control
 										as="textarea"
+										className="edit-activity-form-input-style"
 										placeholder="How'd it go?"
 										rows={3}
 										id="description"
@@ -183,31 +188,52 @@ const EditActivityForm = () => {
 									))}
 								</div>
 
-								{/* Improved file input for image selection */}
-								<div>
-									<label htmlFor="imageInput">Add Images:</label>
-									<input
-										type="file"
-										accept="image/*"
-										id="imageInput"
-										onChange={handleFileInputChange}
-										style={{ display: "none" }}
-									/>
-								</div>
+								<div className="image-zone-info">
+									<div>
+										<label htmlFor="imageInput">Add Images:</label>
+										<input
+											type="file"
+											accept="image/*"
+											id="imageInput"
+											onChange={handleFileInputChange}
+											style={{ display: "none" }}
+												onDragOver={handleDragOver}
+										onDrop={handleDrop}
+										/>
+									</div>
 
-								{/* Drag and drop area for image selection */}
-								<div
-									className="drag-drop-area"
-									onDragOver={handleDragOver}
-									onDrop={handleDrop}
-								>
-									Drag and drop images here
+									{/* Drag and drop area for image selection */}
+									<div
+										className="drag-drop-area"
+										onDragOver={handleDragOver}
+										onDrop={handleDrop}
+									>
+										<svg
+										fill="#2b2b2b"
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 32 32"
+										width="32"
+										height="32"
+									>
+										<path
+											d="M.175.175v31.65h31.65V.175H.175zm30 30H1.825V1.825h28.35v28.35z"
+											fill=""
+										></path>
+										<path
+											d="M7.5 10.825a3.325 3.325 0 100-6.65 3.325 3.325 0 000 6.65zm0-5a1.675 1.675 0 110 3.35 1.675 1.675 0 010-3.35zm20.325 14.941L19.845 6l-6.968 13.083-2.99-5.383-5.712 10.719v3.406h23.65v-7.059zm-1.65 5.409H5.825v-1.344l4.092-7.679 2.991 5.384 6.947-13.044 6.32 11.691v4.992z"
+											fill=""
+										></path>
+									</svg>
+									<p className="drag-dop-para">Drag and drop media</p>
+									<p>or click to upload</p>
+									</div>
 								</div>
 							</Col>
 							<Col>
 								<Form.Group className="mb-3">
 									<Form.Label>Sport</Form.Label>
 									<SportSelection
+										className="edit-activity-form-input-style"
 										selectedOption={editedActivity.sport}
 										handleOptionChange={handleOptionChange}
 									/>
@@ -215,12 +241,25 @@ const EditActivityForm = () => {
 							</Col>
 							<Col>
 								<div className="edit-activity-form-prefilled-data">
-									<p>Date of the activity: {editedActivity.date}</p>
-									<p>
-										The activity Duration: {editedActivity.hour}:
-										{editedActivity.minute}:{editedActivity.second}
-									</p>
-									<p>Elevation Gain: {editedActivity.elevation} m</p>
+									<table className="table">
+										<tbody>
+											<tr>
+												<td className="table-bold">Date</td>
+												<td>{editedActivity.date}</td>
+											</tr>
+											<tr>
+												<td className="table-bold">Time</td>
+												<td>
+													{editedActivity.hour}:{editedActivity.minute}:
+													{editedActivity.second}
+												</td>
+											</tr>
+											<tr>
+												<td className="table-bold">Elevation Gain</td>
+												<td>{editedActivity.elevation} </td>
+											</tr>
+										</tbody>
+									</table>
 								</div>
 							</Col>
 						</Row>
