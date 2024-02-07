@@ -162,8 +162,9 @@ const EditActivityForm = () => {
 								</Form.Group>
 
 								{/* Add image management */}
+
 								<div>
-									<p>Images:</p>
+									<p>Media</p>
 									{editedActivity.imageUrls.map((imageUrl, index) => (
 										<div key={index}>
 											<img
@@ -175,7 +176,8 @@ const EditActivityForm = () => {
 												style={{
 													objectFit: "cover",
 													marginRight: "5px",
-												}} // Set object-fit to 'cover' or 'contain'
+													marginBottom: "10px",
+												}}
 											/>
 											<Button
 												type="button"
@@ -187,46 +189,41 @@ const EditActivityForm = () => {
 										</div>
 									))}
 								</div>
-
-								<div className="image-zone-info">
-									<div>
-										<label htmlFor="imageInput">Add Images:</label>
+								<div
+									className="image-dropzone"
+									onDragOver={handleDragOver}
+									onDrop={handleDrop}
+								>
+									<label htmlFor="imageInput" className="image-zone-info">
+										<div>
+											<svg
+												fill="#2b2b2b"
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 32 32"
+												width="32"
+												height="32"
+											>
+												<path
+													d="M.175.175v31.65h31.65V.175H.175zm30 30H1.825V1.825h28.35v28.35z"
+													fill=""
+												></path>
+												<path
+													d="M7.5 10.825a3.325 3.325 0 100-6.65 3.325 3.325 0 000 6.65zm0-5a1.675 1.675 0 110 3.35 1.675 1.675 0 010-3.35zm20.325 14.941L19.845 6l-6.968 13.083-2.99-5.383-5.712 10.719v3.406h23.65v-7.059zm-1.65 5.409H5.825v-1.344l4.092-7.679 2.991 5.384 6.947-13.044 6.32 11.691v4.992z"
+													fill=""
+												></path>
+											</svg>
+											<p className="drag-dop-para">Drag and drop media</p>
+											<p>or click to upload</p>
+										</div>
 										<input
+											className="image-dropzone"
 											type="file"
 											accept="image/*"
 											id="imageInput"
 											onChange={handleFileInputChange}
 											style={{ display: "none" }}
-												onDragOver={handleDragOver}
-										onDrop={handleDrop}
 										/>
-									</div>
-
-									{/* Drag and drop area for image selection */}
-									<div
-										className="drag-drop-area"
-										onDragOver={handleDragOver}
-										onDrop={handleDrop}
-									>
-										<svg
-										fill="#2b2b2b"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 32 32"
-										width="32"
-										height="32"
-									>
-										<path
-											d="M.175.175v31.65h31.65V.175H.175zm30 30H1.825V1.825h28.35v28.35z"
-											fill=""
-										></path>
-										<path
-											d="M7.5 10.825a3.325 3.325 0 100-6.65 3.325 3.325 0 000 6.65zm0-5a1.675 1.675 0 110 3.35 1.675 1.675 0 010-3.35zm20.325 14.941L19.845 6l-6.968 13.083-2.99-5.383-5.712 10.719v3.406h23.65v-7.059zm-1.65 5.409H5.825v-1.344l4.092-7.679 2.991 5.384 6.947-13.044 6.32 11.691v4.992z"
-											fill=""
-										></path>
-									</svg>
-									<p className="drag-dop-para">Drag and drop media</p>
-									<p>or click to upload</p>
-									</div>
+									</label>
 								</div>
 							</Col>
 							<Col>

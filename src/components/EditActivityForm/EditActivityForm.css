@@ -22,3 +22,8 @@ table.table {
 td.table-bold {
     font-weight: 600;
 }
+
+label.image-zone-info {
+    width: 100%;
+    height: 162px;
+}

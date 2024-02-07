@@ -233,6 +233,13 @@ a#activity-details-dropside-btn:hover {
 	color: rgb(242, 240, 237);
 }
 
+button#editActivityFormSaveChangesBtn:focus,
+button#editActivityFormSaveChangesBtn:visited,
+button#editActivityFormSaveChangesBtn:after{
+outline: 2px rgba(0, 127, 182, 0.5) solid;
+	outline-offset: 1px;
+}
+
 @media screen and (max-width: 992px) {
 	/* Displaying the start trial btn center and breathing space top & bottom. */
 	.start-trial-btn {

@@ -149,6 +149,10 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 										alt={`Selected ${index + 1}`}
 										width={70}
 										height={70}
+										style={{
+													objectFit: "cover",
+													marginRight: "10px",
+												}}
 									/>
 								))
 							) : (
