@@ -7,8 +7,8 @@ import UserActivitiesManager from '../../services/UserActivitiesManager';
 const MyActivities = () => {
   return (
     <div className="dashboard-container">
-      <div className="mt-5 container">
-        <h1>MyActivities</h1>
+      <div className="mt-5 container" id="myActivitiesContainer">
+        <h1>My Activities</h1>
         <FilteringMyActivitiesForm />
         {/* Render the table only */}
         <UserActivitiesManager showForm={false}/>

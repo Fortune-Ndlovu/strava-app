@@ -28,7 +28,9 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 	const [newActivity, setNewActivity] = useState("");
 	const [newDescription, setNewDescription] = useState("");
 
+	// func triggered when a file is selected using the file input
 	const handleImageChange = async (e) => {
+		// converting selected files into an array
 		const files = Array.from(e.target.files);
 
 		// Compress each image before uploading
@@ -36,24 +38,29 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 			files.map(async (file) => await compressImage(file))
 		);
 
+		// adding compressed images to the existing images state array
 		setNewImages([...newImages, ...compressedImages]);
 	};
 
+	// func triggered when a file is dragged over the drop zone, sets dragging state to true
 	const handleDragEnter = (e) => {
 		e.preventDefault();
 		setDragging(true);
 	};
 
+	// func triggered when the dragged file leaves the drop zone, sets dragging state to false
 	const handleDragLeave = (e) => {
 		e.preventDefault();
 		setDragging(false);
 	};
 
+	// func triggered when a file is dropped into the drop zone, sets dragging state to false
 	const handleDrop = (e) => {
 		e.preventDefault();
 		setDragging(false);
-
+// Retrieving the dropped files from the event data (e.dataTransfer.files)
 		const files = Array.from(e.dataTransfer.files);
+		// The dropped files added to the existing newImages state array
 		setNewImages([...newImages, ...files]);
 	};
 
@@ -63,17 +70,23 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 		try {
 			// Upload multiple images to Firebase Storage
 			await Promise.all(
+				// Iterating over each compressed image in newImages
 				newImages.map(async (file) => {
 					const storage = getStorage(app);
 					const storageRef = ref(storage, `activity_images/${file.name}`);
+
+					// upload the selected images to Firebase Storage
 					await uploadBytes(storageRef, file);
+
+					// Retrieving the download URL and adding it to the imageUrls array
 					const imageUrl = await getDownloadURL(storageRef);
 					imageUrls.push(imageUrl);
 				})
 			);
 
-			// Create activity as before
+			//Triggering the creation of a new activity doc in Firestore
 			const createdActivity = await onCreateActivity({
+			// Passing an object as an argument containing details needed for the activity
 				distance: newDistance,
 				hour: newHour,
 				minute: newMinute,
@@ -145,14 +158,14 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 								newImages.map((image, index) => (
 									<img
 										key={index}
-										src={URL.createObjectURL(image)}
+										src={URL.createObjectURL(image)} //create temporary URL
 										alt={`Selected ${index + 1}`}
 										width={70}
 										height={70}
 										style={{
-													objectFit: "cover",
-													marginRight: "10px",
-												}}
+											objectFit: "cover",
+											marginRight: "10px",
+										}}
 									/>
 								))
 							) : (
@@ -181,7 +194,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 						<input
 							id="imageInput"
 							type="file"
-							onChange={handleImageChange}
+							onChange={handleImageChange} //trigger when files are selected
 							style={{ display: "none" }}
 							multiple // Allow multiple file selection
 						/>
@@ -189,10 +202,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 					<br></br>
 					<hr></hr>
 					<div className="manual-entry-form-btn-group">
-						<Button
-							type="button"
-							onClick={handleCreateActivity}
-						>
+						<Button type="button" onClick={handleCreateActivity}>
 							Create
 						</Button>
 						<a href="home">Cancel</a>

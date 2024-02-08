@@ -36,10 +36,12 @@ const ActivityDetailsPage = () => {
 	const [activityDetails, setActivityDetails] = useState(null);
 
 	useEffect(() => {
+		// Fetching activity details from the Firestore
 		const fetchActivityDetails = async () => {
 			const activityDoc = doc(db, "userActivities", activityId);
 			const activitySnapshot = await getDoc(activityDoc);
 
+			// If the doc exists update the state with the fetched activity details
 			if (activitySnapshot.exists()) {
 				setActivityDetails({
 					...activitySnapshot.data(),
@@ -230,7 +232,7 @@ const ActivityDetailsPage = () => {
 																				style={{
 																					objectFit: "cover",
 																					marginRight: "5px",
-																				}} 
+																				}}
 																			/>
 																		)
 																	)}
@@ -242,12 +244,17 @@ const ActivityDetailsPage = () => {
 													<div className="activity-details-right-page">
 														<p className="activity-details-right-duration">
 															<span id="activityDetailsDuration">
-															{activityDetails.hour}:{activityDetails.minute}:
-															{activityDetails.second}</span><br></br>
-															<span className="activity-details-right-duration-span">Duration</span>
+																{activityDetails.hour}:{activityDetails.minute}:
+																{activityDetails.second}
+															</span>
+															<br></br>
+															<span className="activity-details-right-duration-span">
+																Duration
+															</span>
 														</p>
 														<p>
-															Shoes: Nike NIKE W NIKE METCON 8 <br></br>BLACK (0.6 km)
+															Shoes: Nike NIKE W NIKE METCON 8 <br></br>BLACK
+															(0.6 km)
 														</p>
 													</div>
 												</Col>

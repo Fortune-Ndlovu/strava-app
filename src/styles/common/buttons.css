@@ -235,9 +235,25 @@ a#activity-details-dropside-btn:hover {
 
 button#editActivityFormSaveChangesBtn:focus,
 button#editActivityFormSaveChangesBtn:visited,
-button#editActivityFormSaveChangesBtn:after{
+button#editActivityFormSaveChangesBtn:after,
+button#filteringActivitiesBtn:focus{
 outline: 2px rgba(0, 127, 182, 0.5) solid;
 	outline-offset: 1px;
+}
+
+button#filteringActivitiesBtn {
+    background-color: #fff;
+    border-color: #dee2e6;
+    color: #2b2b2b;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+button#filteringActivitiesBtn:hover {
+    background-color: #e6e6e6;
 }
 
 @media screen and (max-width: 992px) {

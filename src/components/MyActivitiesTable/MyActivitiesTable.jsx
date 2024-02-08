@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
 import EditableRow from "./EditableRow";
 import "./MyActivitiesTable.css";
 
@@ -59,14 +58,12 @@ const MyActivitiesTable = ({
 						activities.map((activity, index) => (
 							<React.Fragment key={index}>
 								<tr>
-									{/* Your normal row content */}
 									<td>{activity.sport}</td>
 									<td>{activity.date}</td>
 									<td><a href={`/activity/${activity.id}`} className="link-of-unique-activity">{activity.name}</a></td>
 									<td>{activity.time}</td>
 									<td>{activity.distance}</td>
 									<td>{activity.elevation}</td>
-									{/* Add other cells */}
 									<td className="activities-table-buttons">
 										{editIndex === index ? (
 											<></>

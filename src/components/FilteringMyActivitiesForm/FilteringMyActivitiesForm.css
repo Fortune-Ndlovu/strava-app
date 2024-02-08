@@ -1,9 +1,42 @@
 form.my-activities-form label {
-    font-size: 20px;
+	font-size: 20px;
 }
 
-#selectionInputStyle:focus {
-      outline: none;
-     border: 1px solid rgba(0, 127, 182, 0.5);
-      box-shadow: 0 0 5px rgba(0, 127, 182, 0.5); 
+#selectionInputStyle:focus,
+#keywordsActivityInput:focus {
+	outline: none;
+	border: 1px solid rgba(0, 127, 182, 0.5);
+	box-shadow: 0 0 5px rgba(0, 127, 182, 0.5);
+}
+
+#keywordsActivityInputContainer {
+    max-width: 520px;
+    display: flex;
+    gap: 10px;
+}
+
+.keywords-check-boxes {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+}
+
+form.my-activities-form label {
+    font-size: 16px;
+}
+
+form.my-activities-form {
+    padding: 16px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#myActivitiesContainer {
+    margin-top: 0px!important;
+}
+
+#myActivitiesContainer h1{
+    padding-bottom: 10px;
 }

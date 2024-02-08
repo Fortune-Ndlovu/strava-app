@@ -10,8 +10,8 @@ import Button from "react-bootstrap/Button";
 import "./EditActivityForm.css";
 
 const EditActivityForm = () => {
-	const { activityId } = useParams();
-	const navigate = useNavigate();
+	const { activityId } = useParams(); //extract from the URL
+	const navigate = useNavigate(); //programmatic navigation
 	const [activityDetails, setActivityDetails] = useState(null);
 	const [editedActivity, setEditedActivity] = useState({
 		name: "",
@@ -22,10 +22,14 @@ const EditActivityForm = () => {
 	});
 
 	useEffect(() => {
+		// Fetch the activity details when the component mounts based on id
 		const fetchActivityDetails = async () => {
+			// Generating a ref to the Firestore doc for the specified activityId
 			const activityDoc = doc(db, "userActivities", activityId);
+			// Retrieving the doc snapshot for the specified doc ref
 			const activitySnapshot = await getDoc(activityDoc);
 
+			// if the activity doc exists update the state by creating an object by copying properties of an existing object 
 			if (activitySnapshot.exists()) {
 				setActivityDetails({
 					...activitySnapshot.data(),
@@ -40,32 +44,49 @@ const EditActivityForm = () => {
 		fetchActivityDetails();
 	}, [activityId]);
 
+	// Handling input changes, connected to input fields through the onChange event
 	const handleInputChange = (e) => {
+		// Destructuring the properties name and value from the event object
 		const { name, value } = e.target;
+
+		// Creating a shallow copy of the existing editedActivity state to ensure immutability
+		// Dynamically updating the property specified by name with the new value
 		setEditedActivity({
 			...editedActivity,
 			[name]: value,
 		});
 	};
 
+	// Handling option change from a dropdown selection
 	const handleOptionChange = (selectedOption) => {
+		// Creating a shallow copy of the existing editedActivity state to ensure immutability
+		// Updating the sport property with the new selectedOption
 		setEditedActivity({
 			...editedActivity,
 			sport: selectedOption,
 		});
 	};
 
+
+	// handles the adding of images by taking the newImageUrl as an argument
 	const handleAddImage = (newImageUrl) => {
+		// Ensuring that the state update is based on the previous state with the new array of image URLs
 		setEditedActivity((prev) => ({
 			...prev,
+			// Creating a new array with the existing image URLs and appending the new imageUrl to it
 			imageUrls: [...prev.imageUrls, newImageUrl],
 		}));
 	};
 
+	// Handling the removal of an image by taking the index of the image to be removed as a parameter
 	const handleRemoveImage = (index) => {
+		// Ensuring that the state update is based on the previous state
 		setEditedActivity((prev) => {
+			// Creating a copy of the current imgeUrls array
 			const newImageUrls = [...prev.imageUrls];
+			// Removing the image at the specified index
 			newImageUrls.splice(index, 1);
+			// Returning new object with the updated imageUrls array effectively removing the desired image from the state
 			return {
 				...prev,
 				imageUrls: newImageUrls,
@@ -73,6 +94,7 @@ const EditActivityForm = () => {
 		});
 	};
 
+	// Handles the saving of the edited activity to Firestore by updating the doc
 	const handleSaveChanges = async () => {
 		const userDoc = doc(db, "userActivities", activityId);
 		await updateDoc(userDoc, editedActivity);
@@ -80,14 +102,17 @@ const EditActivityForm = () => {
 		navigate(`/activity/${activityId}`);
 	};
 
+	// func triggered when the user selects an image file using the file input
 	const handleFileInputChange = async (e) => {
+		// check if the file is selected
 		const file = e.target.files[0];
 		if (file) {
 			try {
 				// Compress the image before adding it to the state
 				const compressedImage = await compressImage(file);
-
+				// Converting compressed image to a data URL
 				const reader = new FileReader();
+				// Updating the state with the new image URL
 				reader.onloadend = () => {
 					handleAddImage(reader.result);
 				};
@@ -98,10 +123,12 @@ const EditActivityForm = () => {
 		}
 	};
 
+	// Preventing the default behavior for drag-and-drop to enable dropping
 	const handleDragOver = (e) => {
 		e.preventDefault();
 	};
 
+	// func Triggered when the user drops a file onto the designated drop zone
 	const handleDrop = async (e) => {
 		e.preventDefault();
 		const file = e.dataTransfer.files[0];
@@ -109,8 +136,8 @@ const EditActivityForm = () => {
 			try {
 				// Compress the dropped image before adding it to the state
 				const compressedImage = await compressImage(file);
-
 				const reader = new FileReader();
+				// Updating the state with the new image URL
 				reader.onloadend = () => {
 					handleAddImage(reader.result);
 				};

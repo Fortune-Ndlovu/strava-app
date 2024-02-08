@@ -323,7 +323,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									</div>
 									<div className="feed-ui-media-activity">
 										<h4>
-											<a href="home">{activity.name}</a>
+											<a href={`/activity/${activity.id}`}>{activity.name}</a>
 										</h4>
 										<p>{activity.description}</p>
 										<div className="feed-ui-media-stats">
@@ -364,7 +364,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										<>
 											{activity.imageUrls.map((imageUrl, index) => (
 												<div className="feed-ui-activity-imageLeft" key={index}>
-													<a href="home">
+													<a href={`/activity/${activity.id}`}>
 														<Card.Img
 															variant="top"
 															src={imageUrl}
