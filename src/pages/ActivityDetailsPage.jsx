@@ -16,18 +16,18 @@ import "../styles/common/buttons.css";
 import fortunendlovu from "../images/fortunendlovu.jpg";
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-	<a
+	<Button
 		id="activity-details-dropside-btn"
 		title="Actions"
-		href="#"
 		ref={ref}
 		onClick={(e) => {
 			e.preventDefault();
 			onClick(e);
 		}}
+		variant="link"
 	>
 		{children}
-	</a>
+	</Button>
 ));
 
 const ActivityDetailsPage = () => {
@@ -51,7 +51,7 @@ const ActivityDetailsPage = () => {
 		};
 
 		fetchActivityDetails();
-	}, []);
+	});
 
 	const handleDeleteActivity = async () => {
 		const userDoc = doc(db, "userActivities", activityId);
@@ -67,7 +67,7 @@ const ActivityDetailsPage = () => {
 				{activityDetails && (
 					<div>
 						<Row>
-							<Col id="activtyDetailButtonGroupCol">
+							<Col id="activityDetailButtonGroupCol">
 								<Dropdown as={ButtonGroup}>
 									<Link to={`/activity/${activityId}/edit`}>
 										<Button

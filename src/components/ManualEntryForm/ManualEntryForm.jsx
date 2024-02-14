@@ -58,7 +58,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 	const handleDrop = (e) => {
 		e.preventDefault();
 		setDragging(false);
-// Retrieving the dropped files from the event data (e.dataTransfer.files)
+		// Retrieving the dropped files from the event data (e.dataTransfer.files)
 		const files = Array.from(e.dataTransfer.files);
 		// The dropped files added to the existing newImages state array
 		setNewImages([...newImages, ...files]);
@@ -86,7 +86,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 
 			//Triggering the creation of a new activity doc in Firestore
 			const createdActivity = await onCreateActivity({
-			// Passing an object as an argument containing details needed for the activity
+				// Passing an object as an argument containing details needed for the activity
 				distance: newDistance,
 				hour: newHour,
 				minute: newMinute,
@@ -205,7 +205,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 						<Button type="button" onClick={handleCreateActivity}>
 							Create
 						</Button>
-						<a href="home">Cancel</a>
+						<a href="/">Cancel</a>
 					</div>
 				</Form>
 			</Container>

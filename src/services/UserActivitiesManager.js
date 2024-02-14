@@ -6,8 +6,6 @@ import {
   addDoc,
   onSnapshot,
   doc,
-  updateDoc,
-  deleteDoc,
   writeBatch,
 } from "firebase/firestore";
 
@@ -74,7 +72,7 @@ const UserActivitiesManager = ({
     });
 
     return () => unsubscribe();
-  }, []);
+  });
 
   return (
     <div>

@@ -18,4 +18,3 @@ export async function getAthleteData(accessToken) {
   console.log("getAthleteData: ", data)
   return data;
 }
-

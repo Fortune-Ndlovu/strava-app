@@ -1,4 +1,4 @@
-// Utilizing broswer-image-compression library's compression functionality 
+// Utilizing browser-image-compression library's compression functionality 
 import imageCompression from "browser-image-compression";
 
 const compressImage = async (file) => {
