@@ -1,109 +1,99 @@
 // Fundamental for creating components, managing state, and handling side effects.
-import React, {useState, useEffect} from 'react';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// Destructuring the getActivities and getAthleteData: Functions for fetching data from the Strava API.
-import {getActivities, getAthleteData} from './services/stravaApi';
+import Home from "./pages/DashboardPages/Home";
+import Challenges from "./pages/Challenges";
+import MySegments from "./pages/DashboardPages/MySegments";
+import MyGoals from "./pages/DashboardPages/MyGoals";
+import Heatmaps from "./pages/DashboardPages/Heatmaps";
 
-// Configuration data required for Strava API authentication and access.
-import config from './data/config.json';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import {LeftDashboardAthleteSidebar, CenterDashboardAthleteSidebar, RightDashboardAthleteSidebar} from './components/SideBar';
-import {Container, Row, Col} from "react-bootstrap";
+import Training from "./pages/TrainingPages/Training";
+import TrainingCalendar from "./pages/TrainingPages/TrainingCalendar";
+import MyActivities from "./pages/TrainingPages/MyActivities";
+import TrainingLog from "./pages/TrainingPages/TrainingLog";
+import TrainingPlans from "./pages/TrainingPages/TrainingPlans";
+import PowerCurve from "./pages/TrainingPages/PowerCurve";
+import FitnessAndFreshness from "./pages/TrainingPages/FitnessAndFreshness";
+
+import Explore from "./pages/ExplorePages/Explore";
+import SegmentExplore from "./pages/ExplorePages/SegmentExplore";
+import SegmentSearch from "./pages/ExplorePages/SegmentSearch";
+import AthleteSearch from "./pages/ExplorePages/AthleteSearch";
+import Clubs from "./pages/ExplorePages/Clubs";
+import Apps from "./pages/ExplorePages/Apps";
+import CreateRoute from "./pages/ExplorePages/CreateRoute";
+import SubscriberPerks from "./pages/ExplorePages/SubscriberPerks";
+
+import FindFriends from "./pages/UserPages/FindFriends";
+import MyProfile from "./pages/UserPages/MyProfile";
+import Settings from "./pages/UserPages/Settings";
+import LogOut from "./pages/UserPages/LogOut";
+
+import CreatePost from "./pages/UserUploadPages/CreatePost";
+
+import Device from "./pages/UserUploadPages/Device";
+import File from "./pages/UserUploadPages/File";
+import Manual from "./pages/UserUploadPages/Manual";
+import Mobile from "./pages/UserUploadPages/Mobile";
+
+import ActivityDetailsPage from "./pages/ActivityDetailsPage";
+import EditActivityForm from "./components/EditActivityForm/EditActivityForm";
+
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [activities, setActivities] = useState([]);
-    const [athlete, setAthlete] = useState({});
+	return (
+		<BrowserRouter>
+			<Header />
+			<Routes>
+				{/* Dashboard Dropdown Routers */}
+				<Route path="/" element={<Home />}></Route>
+				<Route path="/segments" element={<MySegments />}></Route>
+				<Route path="/goals" element={<MyGoals />}></Route>
+				<Route path="/heatmaps" element={<Heatmaps />}></Route>
 
-    // Destructuring these properties so that we have access to their values.
-    const {clientID, clientSecret, refreshToken} = config.strava;
+				{/* Training Dropdown Routers */}
+				<Route path="/training" element={<Training />}></Route>
+				<Route path="/trainingCalendar" element={<TrainingCalendar />}></Route>
+				<Route path="/activities" element={<MyActivities />}></Route>
+				<Route path="/trainingLog" element={<TrainingLog />}></Route>
+				<Route path="/trainingPlans" element={<TrainingPlans />}></Route>
+				<Route path="/powerCurve" element={<PowerCurve />}></Route>
+				<Route path="/fitnessAndFreshness" element={<FitnessAndFreshness />}></Route>
 
-    useEffect(() => { // fetching data from the Strava API.
-        async function fetchData() {
-            try { // Constructing a URL using the API credentials to obtain an access token via a POST request.
-                const callRefresh = `https://www.strava.com/oauth/token?client_id=${clientID}&client_secret=${clientSecret}&refresh_token=${refreshToken}&grant_type=refresh_token`;
+				{/* Explore Dropdown Routers */}
+				<Route path="/explore" element={<Explore />}></Route>
+				<Route path="/segmentExplore" element={<SegmentExplore />}></Route>
+				<Route path="/segmentSearch" element={<SegmentSearch />}></Route>
+				<Route path="/athleteSearch" element={<AthleteSearch />}></Route>
+				<Route path="/clubs" element={<Clubs />}></Route>
+				<Route path="/apps" element={<Apps />}></Route>
+				<Route path="/createRoute" element={<CreateRoute />}></Route>
+				<Route path="/subscriberPerks" element={<SubscriberPerks />}></Route>
 
-                // Constructing the 'callRefresh' constant url using the Strava API credentials to obtain the access token by making a POST request.
-                const responseToken = await fetch(callRefresh, {method: 'POST'});
+				<Route path="/challenges" element={<Challenges />}></Route>
 
-                // Handling the response token if it is not ok throw an error
-                if (! responseToken.ok) {
-                    throw new Error('Failed to obtain access token');
-                }
+				{/* User Dropdown Routers */}
+				<Route path="/findFriends" element={<FindFriends />}></Route>
+				<Route path="/profile" element={<MyProfile />}></Route>
+				<Route path="/settings" element={<Settings />}></Route>
+				<Route path="/logOut" element={<LogOut />}></Route>
 
-                // Parsing the responseToken to json so we can access the access_token using dot notation passing it to the,
-                // getActivities and getAthleteData functions that receive it as an argument as uses the accessToken to fetch for relevant data and brings it back.
-                const result = await responseToken.json();
-                const activitiesData = await getActivities(result.access_token);
-                const athleteData = await getAthleteData(result.access_token);
+				{/* Upload Dropdown Routers */}
+				<Route path="/device" element={<Device />}></Route>
+				<Route path="/file" element={<File />}></Route>
+				<Route path="/manual" element={<Manual />}></Route>
+				<Route path="/Mobile" element={<Mobile />}></Route>
+				<Route path="/createPost" element={<CreatePost />}></Route>
 
-                // Once we have the received the data back from the server we plug it into the useState functions that pass it to the state variable for later use.
-                setActivities(activitiesData);
-                setAthlete(athleteData);
-                setIsLoading(false);
-            } catch (error) { // if there is an error catch it and log it out into the console
-                console.error('Error fetching data:', error);
-                setIsLoading(false);
-            }
-        }
-
-        // kick off the data-fetching process whenever any of the specified dependencies (clientID, clientSecret, or refreshToken) change.
-        // This ensures that the data is fetched and updated whenever these important parameters change.
-        fetchData();
-
-    }, [clientID, clientSecret, refreshToken]);
-    // When any of these dependencies change, the useEffect hook will re-run.
-
-    // function deleteActivity = (activityID) => {
-    //     const newActivityArray = activities.filter(activity => activity.id !== activityID);
-    //     setActivities(newActivityArray);
-    // }
-    return (
-        <div className="App">
-            <Header/>
-            <div className="dashboard-container">
-                <Container className="mt-5">
-                    <div id="text">
-                        <Row className="justify-content-center">
-                            <Col xs={12}
-                                md={6}
-                                lg={3}
-                                className="LeftDashboardAthleteSidebar-Col">
-
-                                <div className="LeftDashboardAthleteSidebar">
-                                    <LeftDashboardAthleteSidebar athlete={athlete}
-                                        activities={activities}
-                                        isLoading={isLoading}/>
-                                </div>
-                            </Col>
-                            <Col xs={12}
-                                md={12}
-                                lg={6}
-                                className="centerResize">
-                                <div className="CenterDashboardAthleteSidebar">
-                                    <CenterDashboardAthleteSidebar athlete={athlete}
-                                        activities={activities}
-                                        isLoading={isLoading}/>
-                                </div>
-                            </Col>
-                            <Col xs={12}
-                                md={6}
-                                lg={3}
-                                className="RightDashboardAthleteSidebar-Col">
-                                <div className="RightDashboardAthleteSidebar">
-                                    <RightDashboardAthleteSidebar athlete={athlete}
-                                        activities={activities}
-                                        isLoading={isLoading}/>
-                                </div>
-                            </Col>
-                        </Row>
-                    </div>
-                </Container>
-            </div>
-            <Footer/>
-        </div>
-    );
+				<Route path="/activity/:activityId" element={<ActivityDetailsPage />} />
+				<Route path="/activity/:activityId/edit" element={<EditActivityForm />}/>
+			</Routes>
+			<Footer />
+		</BrowserRouter>
+	);
 }
 
 export default App;

@@ -1,0 +1,285 @@
+/*The button that is at the navigation with text Start Trial Override Bootstrap styles for the button */
+.experiment.btn.btn-primary:focus,
+.experiment.btn.btn-primary:active {
+	background-color: #fc5200 !important;
+	border-color: #fc5200 !important;
+	color: #fff !important;
+}
+
+.experiment.btn.btn-primary:hover {
+	background-color: rgb(211, 70, 1);
+	border-color: rgb(187, 62, 1);
+	color: rgb(242, 240, 237);
+}
+
+/* Keep the normal state styles */
+.experiment.btn.btn-primary {
+	background-color: #fc5200;
+	border-color: #fc5200;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 700;
+	padding: 5px 20px 5px 20px;
+}
+
+/* Dropdown styles for for the languages button in the footer */
+.selection {
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px solid #242428;
+}
+
+.dropdown-wrapper {
+	position: relative;
+}
+
+#languages-select {
+	background-color: #fff;
+	color: #000;
+	position: relative;
+	display: inline-block;
+	font-size: 12px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	border: none;
+}
+select#languages-select {
+	border-radius: 5px;
+}
+#languages-select:hover {
+	color: #000;
+	background-color: #e6e6e6;
+	border-color: #e0e0e0;
+}
+
+#languages-select:focus {
+	outline: 2px rgba(0, 127, 182, 0.5) solid;
+	outline-offset: 1px;
+}
+
+/* Button styling for the RightDashboardAthleteSidebar component */
+button.view-all-challenges-btn,
+button.view-all-friends-btn {
+	color: #fc5200;
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	font-size: 14px;
+	font-weight: 700;
+	border-radius: 2px;
+}
+
+button.view-all-challenges-btn:hover,
+button.view-all-friends-btn:hover {
+	background-color: #ffe1d2;
+	color: #fc5200;
+	border: none;
+}
+
+.manual-entry-form-btn-group button {
+	background-color: #fc5200;
+	color: #fff;
+	font-weight: 500;
+	border: #fc5200;
+	--bs-btn-color: #fff;
+	--bs-btn-bg: #fc5200;
+	--bs-btn-border-color: #fc5200;
+	--bs-btn-hover-color: #fff;
+	--bs-btn-hover-bg: rgb(211, 70, 1);
+	--bs-btn-hover-border-color: #fc5200;
+	--bs-btn-focus-shadow-rgb: 49, 132, 253;
+	--bs-btn-active-color: #fff;
+	--bs-btn-active-bg: #fc5200;
+	--bs-btn-active-border-color: #fc5200;
+	--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+	--bs-btn-disabled-color: #fff;
+	--bs-btn-disabled-bg: #fc5200;
+	--bs-btn-disabled-border-color: #fc5200;
+}
+
+button.view-all-challenges-btn::after,
+button.view-all-challenges-btn:focus,
+button.view-all-challenges-btn:visited,
+button.view-all-friends-btn::after,
+button.view-all-friends-btn:focus,
+button.view-all-friends-btn:visited,
+button.view-all-friends-btn:after {
+	border: none;
+	--bs-btn-active-bg: #ffe1d2;
+	--bs-btn-active-color: #fc5200;
+	--bs-btn-active-bg: #ffe1d2;
+	--bs-btn-active-border-color: #ffe1d2;
+}
+
+button#saveRouteBtn,
+button.view-all-clubs-btn,
+button.view-all-clubs-btn::after {
+	background-color: #fff;
+	border-color: #b6b3ac;
+	color: #2b2b2b;
+	font-size: 14px;
+	padding: 5px 8px 5px 8px;
+	font-weight: 500;
+	margin-top: 8px;
+	border-radius: 4px;
+}
+
+button.view-all-clubs-btn {
+	margin-bottom: 20px;
+}
+
+button#saveRouteBtn:hover,
+button#saveRouteBtn:visited,
+button#saveRouteBtn:focus,
+button.view-all-clubs-btn:hover,
+button.view-all-clubs-btn:visited,
+button.view-all-clubs-btn:focus {
+	background-color: #e6e6e6;
+	border-color: #d3d1cd;
+	color: #2b2b2b;
+	--bs-btn-active-color: #2b2b2b;
+	--bs-btn-active-bg: #d3d1cd;
+	--bs-btn-active-border-color: #d3d1cd;
+}
+
+button#saveRouteBtn {
+	position: absolute;
+	right: 10px;
+	z-index: 1;
+	top: 240px;
+	left: auto;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+/* Feed UI btn */
+button#start-and-end-hidden-btn {
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	font-size: 12px;
+	border-radius: 2px;
+	background-color: white;
+	color: black;
+	border: none;
+}
+
+button#activityKudosLikeBtn,
+button#activityKudosCommentBtn {
+	background-color: #f3f2ed;
+	border: 1px solid #f3f2ed;
+	color: #525252;
+}
+
+button#activityKudosLikeBtn:hover,
+button#activityKudosCommentBtn:hover {
+	background-color: #fff;
+	border: 1px solid #b6b3ac;
+}
+
+.manual-entry-form-btn-group {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 30px;
+	margin-top: 36px;
+}
+
+.manual-entry-form-btn-group a {
+	text-decoration: none;
+	color: #007fb6;
+}
+
+.manual-entry-form-btn-group a:hover {
+	text-decoration: underline;
+}
+
+button#activity-details-edit-btn,
+a#activity-details-dropside-btn {
+	background-color: transparent;
+	height: 40px;
+	border: 1px solid #dfdfe8;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 8px;
+	padding-bottom: 36px;
+	margin-right: 0px;
+	margin-left: 0px;
+	border-radius: 0px;
+}
+
+#activtyDetailButtonGroupCol {
+	padding-left: 0;
+}
+
+button#activity-details-edit-btn:hover,
+a#activity-details-dropside-btn:hover {
+	background-color: #dfdfe8;
+	border: 1px solid #dfdfe8;
+}
+
+#editActivityFormSaveChangesBtn {
+	background-color: #fc5200;
+	border-color: #fc5200;
+	color: #fff;
+	min-width: 140px;
+	height: 40px;
+	font-weight: 500;
+}
+
+#editActivityFormSaveChangesBtn:hover {
+	background-color: rgb(211, 70, 1);
+	border-color: rgb(187, 62, 1);
+	color: rgb(242, 240, 237);
+}
+
+button#editActivityFormSaveChangesBtn:focus,
+button#editActivityFormSaveChangesBtn:visited,
+button#editActivityFormSaveChangesBtn:after,
+button#filteringActivitiesBtn:focus{
+outline: 2px rgba(0, 127, 182, 0.5) solid;
+	outline-offset: 1px;
+}
+
+button#filteringActivitiesBtn {
+    background-color: #fff;
+    border-color: #dee2e6;
+    color: #2b2b2b;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+button#filteringActivitiesBtn:hover {
+    background-color: #e6e6e6;
+}
+
+@media screen and (max-width: 992px) {
+	/* Displaying the start trial btn center and breathing space top & bottom. */
+	.start-trial-btn {
+		margin: auto;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	a.experiment.btn.btn-sm.btn-primary.d-flex.align-items-center.nav-link {
+		padding: 12px 32px;
+	}
+
+	/* Hiding the cancel btn, notifications, userAvatar and userUpload icons on smaller screens. */
+	button.cancel-search-btn,
+	.notifications-wrapper,
+	a#userAvatar,
+	a#userUpload {
+		display: none;
+	}
+
+	/* Making the userAvatar and upload clickable from a full width perspective. */
+	#fullWidthUserAvatar,
+	#fullWidthUserUpload {
+		width: 100%;
+		display: block;
+	}
+}

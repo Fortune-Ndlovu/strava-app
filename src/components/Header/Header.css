@@ -1,0 +1,329 @@
+.nav-item.dropdown a,
+#challengesLink {
+    text-decoration: none;
+    color: #494950;
+}
+
+a.navDropdownHeading:hover {
+    color: #fc5200;
+}
+
+#userDropdownMenu,
+#userUploadDropdownMenu {
+    border-top: 1px solid lightgray;
+    margin-top: -10px;
+    -webkit-transform: scale(-1, 1);
+    border-top: none;
+}
+
+#userUploadDropdownMenu{
+  min-width: 188px;
+}
+
+.dropdownEffect ul,
+.dashboard-dropdown-subscription ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdownEffect li,
+.dashboard-dropdown-subscription li {
+  display: block;
+  position: relative;
+  padding-top: 10px;
+}
+
+.dropdownEffect li:hover,
+.dashboard-dropdown-subscription li:hover {
+  background-color: #f7f7fa;
+}
+.dropdownEffect ul li {
+    padding-bottom: 10px;
+    padding-left: 18px;
+}
+
+ul.dashboard-link-segments {
+    padding-top: 10px;
+    margin-top: -10px;
+}
+
+ul.dashboard-link-segments a{
+    padding-top: 10px;
+    margin-top: -10px;
+}
+
+ul.dashboard-goals-heatmaps li:hover,
+.training-dropdown-subscription li:hover,
+.explore-dropdown-subscription li:hover {
+    background-color: #dddde6;
+}
+.dropdown-menu.show {
+  --bs-dropdown-min-width: 11rem!important;
+  padding-bottom: 0px;
+}
+
+a#challengesLink {
+  margin-left: 12px;
+}
+
+img.dashboard-dropdown-icon {
+  width: 32px;
+  height: 32px;
+}
+
+a#userAvatar {
+    font-size: 18px;
+}
+
+button.icon-button.color {
+    padding-left: 4px !important;
+}
+
+/* Making header fixed for scrolling*/
+nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
+  height: 55px;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.068);
+  z-index: 999;
+}
+
+/* container that wraps around the nav elements */
+div.container-fluid {
+  height: 55px !important; 
+  max-width: 1260px !important;
+  display: flex;
+  align-items: center;
+ }
+
+ .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  --bs-gutter-x: 0rem !important;
+}
+ 
+ .navbar {
+   --bs-navbar-padding-y: 0rem !important;
+   --bs-navbar-toggler-padding-y: 0rem !important;
+   --bs-navbar-brand-padding-y: 0rem !important;
+ } 
+ 
+ a.mr-auto.navbar-brand {
+   height: 55px;
+   padding-left: 8px;
+ }
+
+ button.navbar-toggler {
+  margin-right: 18px;
+  border: none;
+}
+
+/* dropdown */
+.dropdown-menu.show {
+  border-bottom: 2px solid #fc5200;
+  border-radius: 0px 0px 4px 4px;
+  border-top: none;
+}
+
+/* CSS transitions to smoothly animate changes */
+.dropdown-menu {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform-origin: top;
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* Remove the border from the default state of .nav-item.dropdown: */
+.nav-item.dropdown {
+  transition: lightgrey 0.3s ease;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+}
+
+.nav-item.dropdown:hover {
+  border-color: lightgray; /* Change border color on hover */
+}
+
+.dropdown-menu.show:hover {
+    display: block;
+}
+
+/* Dashboard */
+.dashboard-dropdown-subscription,
+.training-dropdown-subscription,
+.explore-dropdown-subscription {
+  background-color: #f7f7fa;
+}
+
+.dashboard-dropdown-subscription h6,
+.training-dropdown-subscription h6,
+.explore-dropdown-subscription h6 {
+  font-size: 10px;
+  padding: 12px 12px 0;
+}
+
+/* Remove the ::after content from dropdown-toggle */
+.navbar .nav-link.dropdown-toggle::after,
+.navbar .nav-link.training-toggle::after,
+.navbar .nav-link.explore-toggle::after{
+    content: none;
+}
+
+svg.dashboard-dropdown-icon,
+svg.training-dropdown-icon,
+svg.explore-dropdown-icon {
+    font-size: 32px;
+}
+
+/* notifications icon om the navigation */
+#notifications {
+    margin-left: 24px;
+    font-size: 26px;
+}
+
+#notifications,
+#userAvatar,
+#userUpload {
+  font-size: 22px;
+}
+
+.icon-button.user-upload,
+.icon-button.color {
+  color: #fc5200;
+}
+
+.mdOutlineNotificationsNone-icon {
+  font-size: 26px;
+}
+
+.flipped-dropdown-horizontal{
+  transform: scaleX(-1);
+}
+
+.upload-center-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.upload-icons{
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.biSolidUserCircle-icon {
+  padding-right: 5px;
+  font-size: 32px;
+}
+
+a#dashboardDropdown:hover,
+a#trainingDropdown:hover,
+a#exploreDropdown:hover,
+a#notifications:hover,
+a#challengesLink:hover {
+    color: #fc5200;
+    transition: 0.1s ease;
+}
+
+a#userUpload {
+    padding-top: 1px;
+}
+
+#userUpload,
+.hovered .explore-dropdown-icon {
+  color: #fc5200;
+}
+
+/* dropdown styles */
+div#basic-navbar-nav {
+  background-color: #f8f9fa;
+  padding-left: 20px !important;
+  padding-right: 14px;
+
+}
+
+/* CSS styles for the hamburger icon and the X icon. */
+.menu-icon {
+  display: inline-block;
+  cursor: pointer;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 22px;
+  height: 2px;
+  background-color: rgb(24, 26, 27);
+  border-color: rgb(115, 107, 94);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.menu-icon-close .bar1 {
+  transform: rotate(-45deg) translate(-6px, 5px);
+}
+
+.menu-icon-close .bar2 {
+  opacity: 0;
+}
+
+.menu-icon-close .bar3 {
+  transform: rotate(45deg) translate(-6px, -6px);
+}
+
+#xHamburger {
+  display: block;
+  justify-content: center;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+button.navbar-toggler.collapsed {
+  border: transparent;
+}
+
+button.icon-button {
+  background-color: transparent;
+  border: none;
+  padding-left: 0px;
+  z-index: 999;
+}
+
+@media screen and (max-width: 1200px) {
+  div.container-fluid {
+
+    max-width: 972px !important;
+  }
+}
+
+@media screen and (max-width: 992px) {
+	/* Showing the dropdown items content by default when the hamburger is open. */
+	.dropdown-menu.show {
+		display: contents !important;
+	}
+
+	.dropdownEffect {
+		border: none;
+	}
+
+	/* Making the userAvatar and userUpload links text be fixed to left. */
+	.flipped-text {
+		padding-left: 0px !important;
+	}
+}
+
+@media screen and (max-width: 991px) {
+ div.container-fluid {
+    width: 752px;
+}
+}

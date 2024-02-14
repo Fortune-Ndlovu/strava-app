@@ -6,6 +6,7 @@ import viking_marathon_image from '../../images/viking_marathon_image.jpg';
 import wit_arena from '../../images/wit_arena.png';
 import Dropdown from 'react-bootstrap/Dropdown';
 import {RiArrowDropDownLine} from 'react-icons/ri';
+import './sidebarStyles/RightDashboardAthleteSidebar.css';
 
 function RightDashboardAthleteSidebar() {
 

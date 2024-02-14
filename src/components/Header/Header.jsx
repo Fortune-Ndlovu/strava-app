@@ -1,16 +1,18 @@
-import React, {useState, useEffect} from 'react';
-import SearchBar from '../SearchBar/SearchBar';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {FiSearch} from 'react-icons/fi';
-import {RiArrowDropDownLine} from 'react-icons/ri';
 import {MdOutlineNotificationsNone, MdMonitorHeart} from 'react-icons/md';
 import {BiSolidUserCircle} from 'react-icons/bi';
 import {BsPlusCircle, BsPlusCircleFill, BsArrowUpCircle, BsLayoutTextWindow} from 'react-icons/bs';
 import {TbRoute} from 'react-icons/tb';
+import SearchBar from '../SearchBar/SearchBar';
 import stravaLogo from '../../images/strava_logo.svg';
+import dropdown_icon from '../../images/dropdown_icon.svg';
+import './Header.css';
 
 const Header = () => {
     const [showDashboardItems, setShowDashboardItems] = useState(false);
@@ -77,9 +79,9 @@ const Header = () => {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
-                <Navbar.Brand title="Return to the Strava home page" href="#home" className="mr-auto">
+                <Link to="/" title="Return to the Strava home page" className="mr-auto">
                     <img src={stravaLogo} id="strava-logo" alt="Company brand logo that simply says strava." width={110} height={55}/>
-                </Navbar.Brand>
+                </Link>
 
                 {/* Toggling the menu state when clicked. When we first click on the hamburger icon,
                     !isMenuOpen will be true because !false is true. So,
@@ -101,7 +103,7 @@ const Header = () => {
                         
                         {/* When the hamburger and the search component are not showing, then show the search icon. */}
                         {(!isHamburger && !showSearch) && (
-                            <Nav.Link title="Search" href="#home" onClick={() => setShowSearch(true)}>
+                            <Nav.Link title="Search" href="#search" onClick={() => setShowSearch(true)}>
                                 <FiSearch className="open-search-icon" />
                             </Nav.Link>
                         )}
@@ -117,7 +119,7 @@ const Header = () => {
                                     show={showDashboardItems}
                                     title={
                                         <div className="d-flex align-items-center">
-                                            Dashboard{' '}
+                                            <Link className="navDropdownHeading" to="/">Dashboard</Link>
                                             <button
                                                 title="Expand dashboard menu"
                                                 onClick={handleDashboardDropdownToggle}
@@ -126,19 +128,31 @@ const Header = () => {
                                                 aria-label="Toggle Dashboard Dropdown"
                                                 tabIndex={0}
                                             >
-                                                <RiArrowDropDownLine className="dashboard-dropdown-icon" />
+                                                <img src={dropdown_icon} alt="navigation dropdown icon" className="dashboard-dropdown-icon"/>
                                             </button>
                                         </div>
                                     } 
                                 >
-                              
                                     <div className="dropdownEffect">
-                                        <NavDropdown.Item href="#activityFeed">Activity Feed</NavDropdown.Item>
-                                        <NavDropdown.Item href="#mySegments">My Segments</NavDropdown.Item>
+                                        <ul className="dashboard-link-segments">
+                                            <li >
+                                                <Link to="/" id="activity-feed">Activity Feed</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/segments">My Segments</Link>
+                                            </li>
+                                        </ul>
+                                        
                                         <div className="dashboard-dropdown-subscription">
                                             <h6>SUBSCRIPTION</h6>
-                                            <NavDropdown.Item href="#myGoals">My Goals</NavDropdown.Item>
-                                            <NavDropdown.Item href="#Heatmaps">Heatmaps</NavDropdown.Item>
+                                            <ul className="dashboard-goals-heatmaps">
+                                                <li>
+                                                    <Link to="/goals">My Goals</Link>
+                                                </li>
+                                                <li>
+                                                    <Link to="/heatmaps">Heatmaps</Link>
+                                                </li>                                               
+                                            </ul>
                                         </div>
                                     </div>
                                 </NavDropdown>
@@ -150,7 +164,7 @@ const Header = () => {
                                     id="trainingDropdown"
                                     title={
                                         <div className="d-flex align-items-center nav-title">
-                                            Training{' '}
+                                            <Link className="navDropdownHeading" to="/training">Training</Link>
                                             <button
                                                 title="Expand training menu"
                                                 onClick={handleTrainingDropdownToggle}
@@ -159,20 +173,25 @@ const Header = () => {
                                                 aria-label="Toggle Training Dropdown"
                                                 tabIndex={0}
                                             >
-                                                <RiArrowDropDownLine className="training-dropdown-icon" />
+                                                 <img src={dropdown_icon} alt="navigation dropdown icon" className="dashboard-dropdown-icon"/>
                                             </button>
                                         </div>
                                     }
                                 >
-                                    <div className="dropdownEffect">
-                                        <NavDropdown.Item href="#action/3.1">Training Calendar</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">My Activities</NavDropdown.Item>
+                                    <div className="dropdownEffect" id="trainingDropdown">
+                                        <ul>
+                                            <li><Link to="/trainingCalendar">Training Calendar</Link></li>
+                                            <li><Link to="/activities">My Activities</Link></li>
+                                        </ul>
+                                        
                                         <div className="training-dropdown-subscription">
                                             <h6>SUBSCRIPTION</h6>
-                                            <NavDropdown.Item href="#trainingLog">Training Log</NavDropdown.Item>
-                                            <NavDropdown.Item href="#trainingPlans">Training Plans</NavDropdown.Item>
-                                            <NavDropdown.Item href="#powerCurve">Power Curve</NavDropdown.Item>
-                                            <NavDropdown.Item href="#fitnessAndFreshness">Fitness & Freshness</NavDropdown.Item>
+                                            <ul>
+                                                <li><Link to="/trainingLog">Training Log</Link></li>
+                                                <li><Link to="/trainingPlans">Training Plans</Link></li>
+                                                <li><Link to="/powerCurve">Power Curve</Link></li>
+                                                <li><Link to="/fitnessAndFreshness">Fitness & Freshness</Link></li>
+                                            </ul>
                                         </div>
                                     </div>   
                                 </NavDropdown>
@@ -184,7 +203,7 @@ const Header = () => {
                                     id="exploreDropdown"
                                     title={
                                         <div className="d-flex align-items-center">
-                                            Explore{' '}
+                                            <Link className="navDropdownHeading" to="/explore">Explore</Link>
                                             <button
                                                 title="Expand explore menu"
                                                 onClick={handleExploreDropdownToggle}
@@ -193,25 +212,31 @@ const Header = () => {
                                                 aria-label="Toggle Explore Dropdown"
                                                 tabIndex={0}
                                             >
-                                                <RiArrowDropDownLine className="explore-dropdown-icon" />
+                                                <img src={dropdown_icon} alt="navigation dropdown icon" className="dashboard-dropdown-icon"/>
                                             </button>
                                         </div>
                                     }
                                 >
-                                    <div className="dropdownEffect">
-                                        <NavDropdown.Item href="#action/3.1">Segment Explore</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">Segment Search</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">Athlete Search</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">Clubs</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">Apps</NavDropdown.Item>
-                                        <div className="explore-dropdown-subscription">
-                                            <h6>SUBSCRIPTION</h6>
-                                            <NavDropdown.Item href="#trainingLog">Create a Route</NavDropdown.Item>
-                                            <NavDropdown.Item href="#trainingPlans">Subscriber Perks</NavDropdown.Item>
-                                        </div>
+                                    <div className="dropdownEffect explore">
+
+                                    <ul>
+                                        <li><Link to="/segmentExplore">Segment Explore</Link></li>
+                                        <li><Link to="/segmentSearch">Segment Search</Link></li>
+                                        <li><Link to="/athleteSearch">Athlete Search</Link></li>
+                                        <li><Link to="/fitnessAndFreshness">Fitness & Freshness</Link></li>
+                                        <li><Link to="/clubs">Clubs</Link></li>
+                                        <li><Link to="/apps">Apps</Link></li>
+                                    </ul>
+                                    <div className="explore-dropdown-subscription">
+                                        <h6>SUBSCRIPTION</h6>
+                                        <ul>
+                                            <li><Link to="/createRoute">Create a Route</Link></li>
+                                            <li><Link to="/subscriberPerks">Subscriber Perks</Link></li>
+                                        </ul>
+                                    </div>
                                     </div>
                                 </NavDropdown>
-                                <Nav.Link href="#challenges" id="challengesLink" className="d-flex align-items-center">Challenges</Nav.Link>
+                                 <Link id="challengesLink" className="d-flex align-items-center" to="/challenges">Challenges</Link>
                             </React.Fragment>
                         )}
                     </Nav>
@@ -242,16 +267,19 @@ const Header = () => {
                                                 aria-label="Toggle user avatar dropdown"
                                                 tabIndex={0}
                                         >
-                                            <RiArrowDropDownLine className="explore-dropdown-icon" /> <BiSolidUserCircle className="biSolidUserCircle-icon" />
+                                            <img src={dropdown_icon} alt="navigation dropdown icon" className="dashboard-dropdown-icon"/>
+                                            <BiSolidUserCircle className="biSolidUserCircle-icon" />
                                         </button>
                                     </div>
                                 }
                             >
-                                <div className="dropdownEffect">
-                                    <NavDropdown.Item href="#action/3.1" className="flipped-text">Find Friends</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">My Profile</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">Settings</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">Log Out</NavDropdown.Item>
+                                <div className="dropdownEffect" id="userDropdownMenu">
+                                    <ul>
+                                        <li><Link to="/findFriends">Find Friends</Link></li>
+                                        <li><Link to="/profile">My Profile</Link></li>
+                                        <li><Link to="/settings">Settings</Link></li>
+                                        <li><Link to="/logOut">Log Out</Link></li>
+                                    </ul>
                                 </div>
                             </NavDropdown>
                         </div>
@@ -262,6 +290,7 @@ const Header = () => {
                                 show={showUploadButton}
                                 id="userUpload"
                                 className="flipped-dropdown-horizontal"
+                                onClick={(e) => handleDropdownHover(() => setUploadButton(true || false), e)}
                                 title={
                                     <div className="d-flex align-items-center">
                                         {/* Whenever we hover over the icon we want to change it to another icon. */}
@@ -274,7 +303,7 @@ const Header = () => {
                                                 aria-label="Toggle user upload dropdown"
                                                 tabIndex={0}
                                             >
-                                                <BsPlusCircleFill />
+                                                <BsPlusCircleFill onClick={handleUserUploadDropdownToggle}/>
                                             </button>
                                             ):(
                                             <button
@@ -285,34 +314,44 @@ const Header = () => {
                                                 aria-label="Toggle user upload dropdown"
                                                 tabIndex={0}
                                             >
-                                                <BsPlusCircle />
+                                                <BsPlusCircle onClick={handleUserUploadDropdownToggle}/>
                                             </button>
                                             )
                                         }
                                     </div>
                                 }
                             >   
-                                <div className="dropdownEffect" id="userUploadWrapper">
-                                    <NavDropdown.Item href="#action/3.1" className="flipped-text">
-                                        <div className="upload-center-wrapper">
-                                            <BsArrowUpCircle className="upload-icons"/> Upload activity
-                                        </div>
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">
-                                        <div className="upload-center-wrapper">
-                                            <MdMonitorHeart className="upload-icons"/> Add manual Entry
-                                        </div>
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">
-                                        <div className="upload-center-wrapper">
-                                            <TbRoute className="upload-icons"/> Create route
-                                        </div>
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className="flipped-text">
-                                        <div className="upload-center-wrapper">
-                                            <BsLayoutTextWindow className="upload-icons"/> Create post
-                                        </div>
-                                    </NavDropdown.Item>
+                                <div className="dropdownEffect" id="userUploadDropdownMenu">
+                                    <ul>
+                                        <li>
+                                            <Link to="/file">
+                                                <div className="upload-center-wrapper">
+                                                    <BsArrowUpCircle className="upload-icons"/> Upload activity
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/manual">
+                                                <div className="upload-center-wrapper">
+                                                    <MdMonitorHeart className="upload-icons"/> Add manual entry
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/createRoute">
+                                                <div className="upload-center-wrapper">
+                                                    <TbRoute className="upload-icons"/> Create route
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/createPost">
+                                                <div className="upload-center-wrapper">
+                                                    <BsLayoutTextWindow className="upload-icons"/> Create post
+                                                </div>
+                                            </Link>
+                                        </li>
+                                    </ul>
                                 </div>
                             </NavDropdown>
                         </div>

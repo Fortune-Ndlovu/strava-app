@@ -1,0 +1,29 @@
+.edit-activity-form-container.container {
+    margin-top: 110px;
+}
+
+.edit-activity-form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 40px;
+}
+
+.edit-activity-form-input-style:focus {
+      outline: none;
+     border: 1px solid rgba(0, 127, 182, 0.5);
+      box-shadow: 0 0 5px rgba(0, 127, 182, 0.5); 
+}
+
+table.table {
+    --bs-table-border-color: transparent;
+}
+
+td.table-bold {
+    font-weight: 600;
+}
+
+label.image-zone-info {
+    width: 100%;
+    height: 162px;
+}

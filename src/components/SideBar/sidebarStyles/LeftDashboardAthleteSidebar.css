@@ -1,0 +1,383 @@
+.athlete-stats-card.card,
+.card {
+  background-color: #fff;
+    box-shadow: 0 8px 24px rgba(13,13,18,.04);
+    position: relative;
+    border: none;
+}
+
+#athlete-stats-body-wrapper {
+  border-bottom: 1px solid #f0f0f5;
+  padding-bottom: 0px;
+}
+
+#recoveryWeek-cardStyle {
+  background-color: #fff;
+    box-shadow: 0 8px 24px rgba(13,13,18,.04);
+    border: none;
+}
+
+.latestActivityText {
+  font-size: 12px;
+}
+
+a.morningRun-style {
+  font-size: 16px;
+}
+
+a.latest-activity-link {
+  color: #000!important;
+  font-size: 18px;
+  font-weight:300;
+} 
+
+a.latest-activity-link strong {
+    font-weight: 500 !important;
+}
+
+.latest-activity-link:hover {
+  color:#fc5200 !important;
+} 
+
+.latest-activity-time {
+  font-size: 14px;
+}
+
+.dotSpan {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 12px;
+}
+
+p.recovery-week-first-para {
+  font-size: 14px;
+} 
+p.recovery-week-second-para {
+  font-size: 15px;
+  color: #525252;
+}
+
+/* second half of the LeftDashboardAthleteSidebar */
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active,
+ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
+  border: none;
+}
+
+.athlete-stats-card {
+  margin-bottom: 20px;
+}
+
+#athleteStatsCardImg {
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  margin-top: -30px;
+}
+
+.card-title.h5 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  line-height: 110%;
+  font-weight: 500;
+  text-align: center;
+}
+
+a#athleteName,
+.dashboard-stats-value {
+    text-decoration: none;
+    color: #000;
+}
+
+a#athleteName:hover {
+    color: #007FB6;
+}
+
+.dashboard-stats {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: row;
+  align-items: stretch;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  flex-wrap: nowrap;
+}
+
+.dashboard-stats span {
+  font-size: 14px;
+  line-height: 16px;
+  color: #525252;
+  font-weight: 300;
+}
+
+ul.dashboard-stats p {
+  font-size: 20px;
+}
+
+img.trainingLogIcon{
+  rotate: -90deg;
+}
+
+.training-log.card-body {
+  border-top: 1px solid #f0f0f5;
+}
+
+a#training-log-link,
+a#goals-log-link {
+  text-decoration: none;
+  color: #000;
+}
+
+a#goals-log-link,
+a#training-log-link {
+  display: flex;
+  align-items: center;
+  gap: 85px;
+}
+
+a#goals-log-link {
+  gap: 70px;
+}
+
+a#goals-log-link  .trainingLogIcon {
+  float: right;
+}
+
+#training-log-link:hover, 
+#goals-log-link:hover {
+  color: #007FB6
+}
+a#goals-log-link {
+  color: #000;
+}
+/* smooth button transition on the LeftDashboardAthleteSidebar */
+#training-log-link .trainingLogIcon,
+#goals-log-link .trainingLogIcon {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+}
+
+#training-log-link:hover .trainingLogIcon,
+#goals-log-link:hover .trainingLogIcon {
+  opacity: 2;
+  transform: translateY(2px) scale(1.2);
+  transition: opacity 0.1s ease-in, transform 0.1s ease-in;
+}
+
+.dashboard-stats li {
+  width: 33.333%;
+  justify-content: center;
+  position: relative;
+  display: flex;
+  border-right: 1px solid #f0f0f5;
+  margin: 0 !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+li.activities-stat {
+  border-right: none;
+}
+
+.dashboard-stats a,
+.list-group-flush a,
+.training-log .card-link{
+  text-decoration: none;
+  color: #525252;
+}
+
+.training-log .card-link:hover,
+.dashboard-stats p:hover {
+  color: #0d6efd;
+}
+.dashboard-stats p {
+  color: #000;
+}
+
+.list-group-flush a:hover {
+  color: #fc5200;
+}
+
+svg.informationIcon {
+  margin-left: 110px;
+  font-size: 18px;
+}
+
+.relativeEffortTitleStyle {
+  background-color: white;
+  width: 17rem;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: -10px;
+  display: flex;
+
+}
+
+.arrowIcon {
+  font-size: 22px;
+  color: #fc5200;
+  margin-right: 8px;
+}
+
+ul.mb-3.recoveryWeek.nav.nav-tabs.nav-fill {
+  margin-bottom: 0!important;
+}
+
+#recoveryWeekImg {
+  padding-bottom: 24px;
+}
+
+#startFreeTrialBtn {
+  width: 100%;
+  background-color: #ffffff;
+  color: #000;
+  border-color: #f0f0f5;
+}
+
+#startFreeTrialBtn:hover, #startFreeTrialBtn:active, #startFreeTrialBtn:focus  {
+  background-color: #f0f0f5;
+  color: #000;
+}
+
+#startFreeTrialBtn:focus {
+  outline: 2px rgba(0,127,182,0.5) solid;
+  outline-offset: 1px;
+}
+
+/* Goals tab */
+.relativeEffortTitleStyle p {
+  font-size: 12px;
+  color: grey;
+}
+
+.goals-tab-text {
+  background-color: #f9f8f5;
+  padding: 1rem;
+}
+
+.goals-tab-text p {
+  margin-bottom: 0px;
+  line-height: initial;
+    font-size: 15px;
+}
+
+p.recoveryLastWeekText.card-text {
+  color: grey;
+}
+
+.thisWeek-para {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.recoveryLastWeekText {
+  font-size: 12px;
+}
+
+.recoveryLastWeekTitle.card-title.h5 {
+  color: rgb(171, 169, 165);
+  font-size: 20px;
+  text-align: start;
+}
+
+.thisWeek-numbers {
+  font-size: 20px;
+}
+
+.goals-tab-stats {
+  line-height: initial;
+}
+
+.goals-tab-text a {
+  color: #fc5200;
+  text-decoration: none;
+}
+
+.goals-tab-text a:hover {
+  text-decoration: underline;
+}
+
+.goals-tab-cardText {
+  border-bottom: 1px solid #f0f0f5;
+  padding-bottom: 20px;
+}
+
+p.weekStats-cardText.card-text,
+p.weekStats-cardText-second.card-text {
+  text-align: center;
+}
+
+p.weekStats-cardText-second.card-text {
+  border-top: 1px solid #f0f0f5;
+  border-bottom: 10px solid #d3d1cd;
+  padding-top: 20px;
+  margin-bottom: 40px;
+}
+
+.goals-tab-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#rangeSpan {
+  padding-right: 10px;
+}
+
+#mileSpan {
+  border-left: 2px solid #f3f2ed;
+  padding-left: 10px;
+}
+
+svg.runningIcon, 
+svg.bikingIcon,
+svg.swimmingWaveIcon {
+  margin-left: 20px;
+}
+
+.nav {
+  --bs-nav-link-color: #000!important;
+  --bs-nav-link-hover-color: #000!important;
+}
+
+.nav-tabs {
+    --bs-nav-tabs-border-width: 0px !important;
+}
+
+div#LeftDashboardAthleteSidebarCol {
+    position: sticky;
+    top: 140px;
+    height: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+	#RightDashboardAthleteSidebarCol {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 990px) {
+	#LeftDashboardAthleteSidebarCol {
+		display: none;
+	}
+}
+
+div#LeftDashboardAthleteSidebarCol {
+    margin-right: -30px;
+}
+
+@media screen and (max-width: 1399px) {
+div#LeftDashboardAthleteSidebarCol {
+    margin-right: 12px !important;
+}
+}
+
+@media screen and (max-width: 1199px) {
+div#LeftDashboardAthleteSidebarCol {
+    margin-right: 55px !important;
+}
+}

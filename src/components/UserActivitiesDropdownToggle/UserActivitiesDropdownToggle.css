@@ -1,0 +1,9 @@
+
+div#userActivities-btn-list-dropdown a {
+        --bs-dropdown-item-padding-y: 10px;
+
+    }
+
+    div#userActivities-btn-list-dropdown {
+        transition: none;
+    }

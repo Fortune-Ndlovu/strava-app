@@ -1,0 +1,197 @@
+/* CenterDashboardAthleteSidebar component UI Feed */
+.feed-ui-card {
+	display: flex;
+	justify-content: flex-start;
+	padding-left: 24px;
+}
+
+img#feed-ui-user-image {
+	border-radius: 50%;
+	width: 44px;
+	margin-right: 18px;
+}
+
+p.feed-ui-user-name {
+	margin-bottom: 0px;
+	color: #525252;
+	font-weight: 700;
+}
+
+p.feed-ui-user-location {
+	font-size: 14px;
+	color: #525252;
+}
+
+.feed-ui-card-external-socialsBtn-wrapper {
+	float: right;
+}
+
+.feed-ui-media {
+	display: flex;
+	justify-content: flex-start;
+	gap: 36px;
+}
+
+.feed-ui-media-stats {
+	display: flex;
+	-webkit-box-flex: 1;
+	color: #2b2b2b;
+	-ms-flex: 1 1;
+	flex: 1 1;
+	position: relative;
+}
+
+.feed-ui-run-icon {
+	padding-left: 14px;
+}
+
+p#feedUIPackages {
+	margin-top: -28px;
+}
+
+.achievements-stat {
+	align-self: baseline;
+}
+
+.feed-ui-media-activity h4 a {
+	text-decoration: none;
+	color: #2b2b2b;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.feed-ui-media-activity h4 {
+	margin-bottom: 2px;
+}
+
+p.media-stats-para {
+	margin-bottom: 0px;
+	font-size: 14px;
+	color: #2b2b2b;
+}
+
+a#achievementsLink {
+	text-decoration: none;
+	color: #2b2b2b;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-top: -4px;
+}
+a#achievementsLink span {
+	font-size: 20px;
+	margin-left: 5px;
+	color: #2b2b2b;
+}
+
+p.media-stats-para-numbers {
+	font-size: 20px;
+	line-height: 25px;
+	white-space: nowrap;
+	color: #2b2b2b;
+}
+
+.media-stats-wrapper {
+	align-items: stretch;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	list-style: none;
+	margin-bottom: 0;
+	padding-left: 0;
+	gap: 40px;
+	row-gap: 0px;
+}
+
+.feed-ui-activity-container {
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.feed-ui-activity-imageLeft {
+	flex: 0 0 calc(50% - 5px);
+}
+
+.feed-ui-activity-imageLeft a {
+	display: block;
+	height: 100%;
+}
+
+.feed-ui-activity-imageLeft img {
+	width: 100%;
+	object-fit: cover;
+	border-radius: 5px;
+}
+
+.activity-kudos-reactions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 5px;
+	margin-top: 30px;
+}
+
+div#module-btn-list-dropdown {
+  border-radius: 10px;
+}
+
+div#module-btn-list-dropdown a {
+  border-bottom: 1px solid #e6e6e6;
+      margin: 0;
+    padding: 10px 12px;
+    font-weight: 400;
+}
+
+.dropdown-menu.show {
+    --bs-dropdown-min-width: 11rem!important;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.feed-end {
+    padding: 64px 16px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.feed-end a {
+    text-decoration: none;
+    color: #007FB6;
+}
+
+/* CSS code uses flexbox to evenly distribute the single image across the available space and adds a margin to the first image for spacing. */
+.feed-ui-activity-images.single-image {
+  display: flex;
+}
+
+.feed-ui-activity-imageLeft {
+  flex: 1;
+}
+
+.feed-ui-activity-imageLeft:first-child {
+  margin-right: 10px;
+}
+
+
+@media screen and (max-width: 1200px) {
+	.centerResize.col-lg-6.col-md-12.col-12 {
+		width: 54%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.feed-ui-media-stats {
+		gap: 50px;
+	}
+
+	.feed-ui-activity-imageLeft img {
+		width: 100%;
+		object-fit: cover;
+		border-radius: 5px;
+		height: 84% !important;
+	}
+
+	.activity-kudos-reactions {
+		margin-top: 0px;
+	}
+}

@@ -1,0 +1,143 @@
+#manualEntryForm label.form-label {
+	color: 242428;
+}
+
+input#distanceInput,
+input#elevation-input #sportSelectionInput {
+	max-width: 130px;
+}
+
+#sportSelectionInput {
+	max-width: 258px;
+}
+
+input#duration-input-hr,
+input#duration-input-min,
+input#duration-input-s {
+	max-width: 82px;
+}
+
+input#dateInput {
+	max-width: 146px;
+}
+
+input#timeInput {
+	max-width: 100px;
+}
+
+input#titleInput,
+textarea#descriptionInput {
+	max-width: 536px;
+}
+
+.image-dropzone {
+	align-items: center;
+	background: #fff;
+	border: 1px solid #d3d1cd;
+	border-radius: 4px;
+	cursor: pointer;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	height: auto;
+	-ms-flex-pack: center;
+	justify-content: center;
+	min-height: 162px;
+}
+
+.image-zone-info {
+	text-align: center;
+	padding-top: 36px;
+}
+.image-zone-info svg {
+	margin-bottom: 6px;
+}
+p.drag-dop-para {
+	margin-bottom: 0px;
+}
+
+div#distanceInputWrapper .dropdown-menu.dropdown-menu-end,
+div#elevationInputWrapper .dropdown-menu.dropdown-menu-end {
+	opacity: 100% !important;
+	transition: none !important;
+	border-radius: 5px;
+	border: 1px solid #dfdfe8;
+	margin-top: -3px;
+}
+
+button#distanceDropdown:hover,
+button#distanceDropdown:focus,
+button#elevationDropdown:hover,
+button#elevationDropdown:focus {
+	background-color: #f0f0f5 !important;
+	color: #242428;
+	outline: none;
+	border: 1px solid rgba(0, 127, 182, 0.5);
+	box-shadow: 0 0 5px rgba(0, 127, 182, 0.5);
+}
+
+div#distanceInputWrapper .dropdown-menu.dropdown-menu-end a.dropdown-item:hover,
+div#distanceInputWrapper .dropdown-menu.dropdown-menu-end a.dropdown-item:focus,
+div#elevationInputWrapper
+	.dropdown-menu.dropdown-menu-end
+	a.dropdown-item:hover,
+div#elevationInputWrapper
+	.dropdown-menu.dropdown-menu-end
+	a.dropdown-item:focus {
+	background-color: #f0f0f5 !important;
+	color: #242428;
+}
+
+form#manualEntryForm .form-control:focus,
+form#manualEntryForm select.form-select:focus {
+	outline: none;
+	border: 1px solid rgba(0, 127, 182, 0.5);
+	box-shadow: 0 0 5px rgba(0, 127, 182, 0.5);
+}
+
+button#distanceDropdown,
+button#elevationDropdown {
+	border: 1px solid #dfdfe8;
+	background-color: #fff;
+}
+
+.dropdown-menu.show.dropdown-menu-end {
+	--bs-dropdown-min-width: 7rem !important;
+}
+
+@media screen and (max-width: 990px) {
+	.user-upload-container {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	input#distanceInput,
+	input#elevation-input #sportSelectionInput {
+		max-width: none;
+	}
+
+	#sportSelectionInput {
+		max-width: none;
+	}
+
+	input#duration-input-hr,
+	input#duration-input-min,
+	input#duration-input-s {
+		max-width: none;
+	}
+
+	input#dateInput {
+		max-width: none;
+	}
+
+	input#timeInput {
+		max-width: none;
+	}
+
+	input#titleInput,
+	textarea#descriptionInput {
+		max-width: none;
+	}
+
+	.activity-stats-col {
+		flex: initial;
+	}
+}

@@ -1,0 +1,8 @@
+.upload-activities-sidebar-container,
+.user-upload-container {
+    display: flex;
+}
+
+.upload-activities-sidebar-container {
+    width: 190px;
+}

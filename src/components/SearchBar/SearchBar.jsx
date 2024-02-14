@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { HiOutlineX } from 'react-icons/hi';
+import './SearchBar.css';
 
 // We are using the single prop called onCancel to show or hide this searchBar component.
 const SearchBar = ({ onCancel }) => {
