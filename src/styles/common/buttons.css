@@ -256,6 +256,17 @@ button#filteringActivitiesBtn:hover {
     background-color: #e6e6e6;
 }
 
+button#activity-details-dropside-btn {
+    width: 86px;
+    background-color: #f9f8f5;
+    border: 1px solid #dfdfe8;
+    border-radius: 0px;
+}
+
+button#activity-details-dropside-btn:hover {
+    background-color: #dfdfe8;
+}
+
 @media screen and (max-width: 992px) {
 	/* Displaying the start trial btn center and breathing space top & bottom. */
 	.start-trial-btn {

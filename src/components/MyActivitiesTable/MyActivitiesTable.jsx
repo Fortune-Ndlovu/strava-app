@@ -40,7 +40,7 @@ const MyActivitiesTable = ({
   };
 
 	return (
-		<div style={{ overflowX: "auto" }}>
+		<div  className="table-responsive">
 			<h4>{activities.length} Activities </h4>
 			<Table striped bordered hover>
 				<thead>

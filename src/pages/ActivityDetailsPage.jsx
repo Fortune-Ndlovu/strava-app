@@ -107,8 +107,9 @@ const ActivityDetailsPage = () => {
 										</svg>
 									</Dropdown.Toggle>
 									<Dropdown.Menu id="activityDropdownOptions">
+										
 										<Dropdown.Item href="#/action-1">
-											Refresh Activity Achievements
+											Refresh Activity <br></br> Achievements
 										</Dropdown.Item>
 										<Dropdown.Item href="#/action-2">Flag</Dropdown.Item>
 										<Dropdown.Item onClick={handleDeleteActivity}>

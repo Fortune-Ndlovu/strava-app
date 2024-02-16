@@ -119,12 +119,12 @@ p.activity-details-description {
 }
 
 .activity-details-added-image {
-    padding-top: 20px;
+	padding-top: 20px;
 }
 
 .activity-details-left-page {
-    border-right: 1px solid #dee2e6;
-	 padding: 1.25rem;
+	border-right: 1px solid #dee2e6;
+	padding: 1.25rem;
 }
 
 .activity-details-right-page {
@@ -133,14 +133,77 @@ p.activity-details-description {
 }
 
 .accordion-body {
-    padding: 0px!important;
-}	
+	padding: 0px !important;
+}
 
 #activityDetailsDuration {
 	font-size: 28px;
 }
 
 p.activity-details-right-duration {
-    border-bottom: 1px solid #dee2e6;
+	border-bottom: 1px solid #dee2e6;
 	padding-bottom: 10px;
+}
+
+div#activityDropdownOptions {
+	background: #fff;
+	border: 1px solid #f0f0f5;
+	min-width: 120px;
+	white-space: normal;
+	transition: none;
+	position: absolute;
+	inset: 0px auto auto 0px;
+	transform: translate(180px, -1px) !important;
+	width: 100%;
+}
+div#activityDropdownOptions .dropdown-item {
+	font-size: 15px;
+	padding: 9px 10px;
+	line-height: 1.2;
+	color: #242428;
+}
+
+@media screen and (max-width: 990px) {
+	div#activityDetailButtonGroupCol {
+		padding-bottom: 20px;
+	}
+
+	.activity-details-container.container .col-10 {
+		width: 100%;
+	}
+
+	div#activityDropdownOptions .dropdown-item {
+		padding: 9px 18px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	p.activity-details-name {
+		line-height: 28px;
+	}
+
+	p.activity-details-description {
+		padding-top: 0px;
+	}
+
+	.activity-details-added-image {
+		padding-top: 0px;
+	}
+
+	div#activity-details-book-header-Row .col-3 {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 565px) {
+	.edit-activity-form-container.container .col {
+		flex: none;
+	}
+}
+
+@media screen and (max-width: 595px) {
+	.activity-details-container.container {
+		padding-left: 26px;
+		padding-right: 23px;
+	}
 }
