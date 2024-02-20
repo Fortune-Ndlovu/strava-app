@@ -40,7 +40,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 						style={{ width: "auto", marginBottom: "14px" }}
 					>
 						<Card.Body>
-							<Card.Text>
+							<div>
 								<Row>
 									<div className="feed-ui-card">
 										<Col>
@@ -112,8 +112,8 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										</Col>
 									</div>
 								</Row>
-							</Card.Text>
-							<Card.Text id="feedUIPackages">
+							</div>
+							<div id="feedUIPackages">
 								<div className="feed-ui-media">
 									<div className="feed-ui-run-icon">
 										<svg
@@ -162,8 +162,8 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										</div>
 									</div>
 								</div>
-							</Card.Text>
-							<Card.Text className="feed-ui-activity-container">
+							</div>
+							<div className="feed-ui-activity-container">
 								<div
 									className={`feed-ui-activity-images ${
 										activity.imageUrls.length === 1 ? "single-image" : ""
@@ -240,7 +240,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										</svg>
 									</Button>
 								</div>
-							</Card.Text>
+							</div>
 						</Card.Body>
 					</Card>
 				))}

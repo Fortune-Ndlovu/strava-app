@@ -25,7 +25,7 @@ function LeftDashboardAthleteSidebar({ athlete, activities }) {
 							{athlete.firstname} {athlete.lastname}{" "}
 						</Card.Title>
 					</Link>
-					<Card.Text>
+					<div>
 						<ul className="dashboard-stats">
 							<li className="following-stat">
 								<a href="home">
@@ -46,7 +46,7 @@ function LeftDashboardAthleteSidebar({ athlete, activities }) {
 								</a>
 							</li>
 						</ul>
-					</Card.Text>
+					</div>
 				</Card.Body>
 				<ListGroup className="list-group-flush">
 					<ListGroup.Item>

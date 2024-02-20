@@ -12,6 +12,7 @@ import {TbRoute} from 'react-icons/tb';
 import SearchBar from '../SearchBar/SearchBar';
 import stravaLogo from '../../images/strava_logo.svg';
 import dropdown_icon from '../../images/dropdown_icon.svg';
+import fortunendlovu from '../../images/fortunendlovu.jpg';
 import './Header.css';
 
 const Header = () => {
@@ -179,7 +180,7 @@ const Header = () => {
                                     }
                                 >
                                     <div className="dropdownEffect" id="trainingDropdown">
-                                        <ul>
+                                        <ul className="dashboard-link-segments">
                                             <li><Link to="/trainingCalendar">Training Calendar</Link></li>
                                             <li><Link to="/activities">My Activities</Link></li>
                                         </ul>
@@ -219,7 +220,7 @@ const Header = () => {
                                 >
                                     <div className="dropdownEffect explore">
 
-                                    <ul>
+                                    <ul className="dashboard-link-segments">
                                         <li><Link to="/segmentExplore">Segment Explore</Link></li>
                                         <li><Link to="/segmentSearch">Segment Search</Link></li>
                                         <li><Link to="/athleteSearch">Athlete Search</Link></li>
@@ -267,14 +268,14 @@ const Header = () => {
                                                 aria-label="Toggle user avatar dropdown"
                                                 tabIndex={0}
                                         >
-                                            <img src={dropdown_icon} alt="navigation dropdown icon" className="dashboard-dropdown-icon"/>
-                                            <BiSolidUserCircle className="biSolidUserCircle-icon" />
+                                            <img src={dropdown_icon} alt="navigation dropdown icon" className="dashboard-dropdown-icon" />
+                                            <img id="userProfileImg" src={fortunendlovu} alt="user profile" width={32} height={32}></img>
                                         </button>
                                     </div>
                                 }
                             >
                                 <div className="dropdownEffect" id="userDropdownMenu">
-                                    <ul>
+                                    <ul className="user-dropdown-menu-wrapper">
                                         <li><Link to="/findFriends">Find Friends</Link></li>
                                         <li><Link to="/profile">My Profile</Link></li>
                                         <li><Link to="/settings">Settings</Link></li>
@@ -322,7 +323,7 @@ const Header = () => {
                                 }
                             >   
                                 <div className="dropdownEffect" id="userUploadDropdownMenu">
-                                    <ul>
+                                    <ul className="user-dropdown-menu-wrapper">
                                         <li>
                                             <Link to="/file">
                                                 <div className="upload-center-wrapper">

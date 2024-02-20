@@ -28,7 +28,7 @@ const SearchBar = ({ onCancel }) => {
         <div className="search-bar d-flex align-items-center">
             <div className="input-group">
                 <div className="select-input">
-                    <select className="form-select" value={selectedOption} onChange={handleOptionChange}>
+                    <select className="form-select" id="searchSelectInput" value={selectedOption} onChange={handleOptionChange}>
                         <option value="Activities">Activities</option>
                         <option value="Athletes">Athletes</option>
                         <option value="Clubs">Clubs</option>
