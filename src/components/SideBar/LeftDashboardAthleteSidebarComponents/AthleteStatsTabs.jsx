@@ -13,9 +13,9 @@ import CyclingBikeSvg from "./CyclingBikeSvg";
 import SwimWaveSvg from "./SwimWaveSvg";
 
 const tabContentMap = {
-  profile: <RunningShoeSvg />,
-  cycleBike: <CyclingBikeSvg />,
-  swimWave: <SwimWaveSvg />,
+	profile: <RunningShoeSvg />,
+	cycleBike: <CyclingBikeSvg />,
+	swimWave: <SwimWaveSvg />,
 };
 
 const AthleteStatsTabs = () => {
@@ -122,12 +122,11 @@ const AthleteStatsTabs = () => {
 						</svg>
 					}
 				>
-                    <TabsCard
-            svgContent={tabContentMap[activeKey]}
-            weekText={weekTextMap[activeKey]}
-            yearText={yearTextMap[activeKey]}
-          />
-                    
+					<TabsCard
+						svgContent={tabContentMap[activeKey]}
+						weekText={weekTextMap[activeKey]}
+						yearText={yearTextMap[activeKey]}
+					/>
 				</Tab>
 
 				{/* Third Tab */}
@@ -148,11 +147,11 @@ const AthleteStatsTabs = () => {
 						</svg>
 					}
 				>
-				 <TabsCard
-            svgContent={tabContentMap[activeKey]}
-            weekText={weekTextMap[activeKey]}
-            yearText={yearTextMap[activeKey]}
-          />
+					<TabsCard
+						svgContent={tabContentMap[activeKey]}
+						weekText={weekTextMap[activeKey]}
+						yearText={yearTextMap[activeKey]}
+					/>
 				</Tab>
 
 				{/* Fourth Tab */}
@@ -173,11 +172,11 @@ const AthleteStatsTabs = () => {
 						</svg>
 					}
 				>
-					 <TabsCard
-            svgContent={tabContentMap[activeKey]}
-            weekText={weekTextMap[activeKey]}
-            yearText={yearTextMap[activeKey]}
-          />
+					<TabsCard
+						svgContent={tabContentMap[activeKey]}
+						weekText={weekTextMap[activeKey]}
+						yearText={yearTextMap[activeKey]}
+					/>
 				</Tab>
 			</Tabs>
 		</div>
