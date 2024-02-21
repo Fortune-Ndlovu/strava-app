@@ -22,8 +22,10 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 		// Setting up a snapshot listener to track changes in the collection
 		const unsubscribe = onSnapshot(activitiesCollection, (snapshot) => {
 			// Update the state whenever there's a change in the collection
+			// Sorting the activities in descending order based on the createdAt timestamp, ensuring that the most recent activity comes first
 			setActivities(
 				snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+				.sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis())
 			);
 		});
 
