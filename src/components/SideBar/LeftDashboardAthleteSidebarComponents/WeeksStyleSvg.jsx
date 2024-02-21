@@ -1,6 +1,15 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 
 const WeeksStyleSvg = () => {
+	// State to store the current day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+	const [currentDay, setCurrentDay] = useState(new Date().getDay());
+
+	// useEffect hook to set the initial value of currentDay when the component mounts
+	useEffect(() => {
+		setCurrentDay(new Date().getDay());
+	}, []);
+
+	const daysOfWeek = ["M", "T", "W", "T", "F", "S", "S"];
 	return (
 		<div>
 			{" "}
@@ -109,98 +118,31 @@ const WeeksStyleSvg = () => {
 				<g className="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis">
 					<g className="recharts-cartesian-axis-ticks">
 						<g className="recharts-layer recharts-cartesian-axis-tick">
-							<g transform="translate(15,73)">
-								<text
-									x="0"
-									y="10"
-									fill="#2b2b2b"
-									textAnchor="middle"
-									fontWeight="400"
-								>
-									M
-								</text>
-							</g>
-						</g>
-						<g className="recharts-layer recharts-cartesian-axis-tick">
-							<g transform="translate(35,73)">
-								<text
-									x="0"
-									y="10"
-									fill="#2b2b2b"
-									textAnchor="middle"
-									fontWeight="400"
-								>
-									T
-								</text>
-							</g>
-						</g>
-						<g className="recharts-layer recharts-cartesian-axis-tick">
-							<g transform="translate(55,73)">
-								<text
-									x="0"
-									y="10"
-									fill="#2b2b2b"
-									textAnchor="middle"
-									fontWeight="400"
-								>
-									W
-								</text>
-							</g>
-						</g>
-						<g className="recharts-layer recharts-cartesian-axis-tick">
-							<g transform="translate(75,73)">
-								<text
-									x="0"
-									y="10"
-									fill="#2b2b2b"
-									textAnchor="middle"
-									fontWeight="800"
-								>
-									T
-								</text>
-								<svg x="-5" y="15" width="10" height="10">
-									<polygon points="5,0 0,10 10,10" fill="#fc5200"></polygon>
-								</svg>
-							</g>
-						</g>
-						<g className="recharts-layer recharts-cartesian-axis-tick">
-							<g transform="translate(95,73)">
-								<text
-									x="0"
-									y="10"
-									fill="#2b2b2b"
-									textAnchor="middle"
-									fontWeight="400"
-								>
-									F
-								</text>
-							</g>
-						</g>
-						<g className="recharts-layer recharts-cartesian-axis-tick">
-							<g transform="translate(115,73)">
-								<text
-									x="0"
-									y="10"
-									fill="#2b2b2b"
-									textAnchor="middle"
-									fontWeight="400"
-								>
-									S
-								</text>
-							</g>
-						</g>
-						<g className="recharts-layer recharts-cartesian-axis-tick">
-							<g transform="translate(135,73)">
-								<text
-									x="0"
-									y="10"
-									fill="#2b2b2b"
-									textAnchor="middle"
-									fontWeight="400"
-								>
-									S
-								</text>
-							</g>
+							{/* Mapping over daysOfWeek to create text labels and polygons for each day */}
+							{daysOfWeek.map((day, index) => (
+								<g key={index} transform={`translate(${15 + index * 20},73)`}>
+									<text
+										x="0"
+										y="10"
+
+										// Conditional fill color for the text based on the current day
+										fill={index + 1 === currentDay ? "#fc5200" : "#2b2b2b"}
+										textAnchor="middle"
+
+										// Conditional font weight for the text based on the current day
+										fontWeight={index + 1 === currentDay ? "800" : "400"}
+									>
+										{day}
+									</text>
+									
+									{/* Polygon to highlight the current day */}
+									{index + 1 === currentDay && (
+										<svg x="-5" y="15" width="10" height="10">
+											<polygon points="5,0 0,10 10,10" fill="#fc5200"></polygon>
+										</svg>
+									)}
+								</g>
+							))}
 						</g>
 					</g>
 				</g>
