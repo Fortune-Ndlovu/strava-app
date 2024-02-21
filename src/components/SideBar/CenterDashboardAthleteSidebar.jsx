@@ -66,9 +66,24 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 														</p>
 														<p className="feed-ui-user-location">
 															<time data-test id="date_at_time">
-																22 September 2023 at 09:09
+																{activity.createdAt &&
+																	new Date(
+																		activity.createdAt.toDate()
+																	).toLocaleDateString("en-US", {
+																		day: "numeric",
+																		month: "long",
+																		year: "numeric",
+																	})}{" "}
+																at{" "}
+																{activity.createdAt &&
+																	new Date(
+																		activity.createdAt.toDate()
+																	).toLocaleTimeString("en-US", {
+																		hour: "numeric",
+																		minute: "numeric",
+																	})}
 															</time>
-															<br></br>
+															<br />
 														</p>
 													</div>
 												</Col>

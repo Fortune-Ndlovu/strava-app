@@ -6,7 +6,7 @@ import {
 	addDoc,
 	onSnapshot,
 	doc,
-	writeBatch,
+	writeBatch, serverTimestamp
 } from "firebase/firestore";
 
 // Importing components used in this module
@@ -19,6 +19,10 @@ const UserActivitiesManager = ({ showForm }) => {
 	const userActivitiesCollection = collection(db, "userActivities");
 
 	const createActivity = async (newActivity) => {
+		// Add the creation date and time to the new activity object
+		 const currentTimestamp = serverTimestamp(); // Import serverTimestamp from 'firebase/firestore'
+  newActivity.createdAt = currentTimestamp;
+
 		// Adding a new doc to the firebase collection, and returning a doc reference object representing the newly created doc
 		const docRef = await addDoc(userActivitiesCollection, newActivity);
 
