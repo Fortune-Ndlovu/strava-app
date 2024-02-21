@@ -7,7 +7,13 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Dropdown from "react-bootstrap/Dropdown";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { collection, onSnapshot } from "firebase/firestore";
+import {
+	collection,
+	onSnapshot,
+	updateDoc,
+	getDoc,
+	doc
+} from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import CommentSection from "../CreateCommentsAndGiveKudos/CommentSection";
 import fortunendlovu from "../../images/fortunendlovu.jpg";
@@ -31,16 +37,43 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 					.map((doc) => ({ ...doc.data(), id: doc.id }))
 					.sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis())
 			);
+
+			// Fetch comments for each activity and update the comments state
+			snapshot.docs.forEach(async (document) => {
+				const activityId = document.id;
+				const userDoc = doc(db, "userActivities", activityId);
+				const existingComments = (await getDoc(userDoc)).data().comments || [];
+				setComments((prevComments) => ({
+					...prevComments,
+					[activityId]: existingComments,
+				}));
+			});
 		});
 
 		// Cleanup the listener when the component unmounts
 		return () => unsubscribe();
 	}, []);
 
-	const handleCommentPost = (comment) => {
-		// Update the comments state with the new comment
-		setComments([...comments, comment]);
-	};
+	const handleCommentPost = async (comment, activityId) => {
+	try {
+		// Update the comments state with the new comment for the specific activity
+		setComments((prevComments) => ({
+			...prevComments,
+			[activityId]: [...(prevComments[activityId] || []), comment],
+		}));
+
+		// Obtain the document reference for the specific activity
+		const userDoc = doc(db, "userActivities", activityId);
+
+		// Get the existing comments for the activity
+		const existingComments = (await getDoc(userDoc)).data().comments || [];
+
+		// Update the document with the new comments
+		await updateDoc(userDoc, { comments: [...existingComments, comment] });
+	} catch (error) {
+		console.error("Error saving comment:", error);
+	}
+};
 
 	return (
 		<div id="homeDashboardFeedUI" className="center-sidebar-container">
@@ -265,16 +298,17 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										</svg>
 									</Button>
 								</div>
-								{comments.map((comment, index) => (
+								{comments[activity.id]?.reverse().map((comment, index) => (
 									<div key={index} className="comment-display">
 										{comment}
 									</div>
 								))}
-								
 								{/* Include the CommentSection component */}
 								<CommentSection
 									showComments={showComments}
-									onCommentPost={handleCommentPost}
+									onCommentPost={(comment) =>
+										handleCommentPost(comment, activity.id)
+									}
 								/>
 							</div>
 						</Card.Body>
