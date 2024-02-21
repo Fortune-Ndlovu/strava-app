@@ -75,13 +75,13 @@ function LeftDashboardAthleteSidebar({ athlete }) {
 						<Link to={"/activities"} className="latest-activity-link">
 							{activities.length > 0 ? (
 								<>
-									<strong>{activities[activities.length - 1].name}</strong>
+									<strong>{activities[0].name}</strong>
 									<span className="dotSpan">•</span>
 									<time
 										dateTime="Sep 22, 2023"
 										className="latest-activity-time"
 									>
-										{activities[activities.length - 1].date}
+										{activities[0].date || "No date added"}
 									</time>
 								</>
 							) : (

@@ -69,10 +69,6 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 																22 September 2023 at 09:09
 															</time>
 															<br></br>
-															<span>
-																· The Borough District of Clonmel, County
-																Tipperary
-															</span>
 														</p>
 													</div>
 												</Col>
