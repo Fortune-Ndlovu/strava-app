@@ -71,13 +71,12 @@ const EditableRow = ({
 									Save
 								</Button>
 
-								<a
-									href="#"
+								<Button variant="link"
 									className="link-of-unique-activity"
 									onClick={onCancelClick}
 								>
 									Cancel
-								</a>
+								</Button>
 								<br></br>
 								<a
 									href={`/activity/${editedActivity.id}/edit`}

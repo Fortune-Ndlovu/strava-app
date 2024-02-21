@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
+import Button from 'react-bootstrap/Button';
 import EditableRow from "./EditableRow";
 import "./MyActivitiesTable.css";
 
@@ -69,8 +70,8 @@ const MyActivitiesTable = ({
 											<></>
 										) : (
 											<>
-													<a href="#" className="link-of-unique-activity" onClick={() => handleEditClick(index)}>Edit</a>
-													<a href="#" className="link-of-unique-activity" onClick={() => handleDeleteClick(index)}>Delete</a>
+													<Button variant="link" className="link-of-unique-activity" onClick={() => handleEditClick(index)}>Edit</Button>
+													<Button variant="link" className="link-of-unique-activity" onClick={() => handleDeleteClick(index)}>Delete</Button>
 
 											</>
 										)}
