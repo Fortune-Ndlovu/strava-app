@@ -1,0 +1,24 @@
+.comment-section.hidden {
+    display: none !important;
+}
+
+#userProfileCommentsImg {
+    border-radius: 100px;
+}
+
+#activityCommentsWrapper {
+    display: flex;
+    align-items: baseline;
+    padding-top: 30px;
+}
+
+.mb-2.comments-textarea-wrapper {
+    flex: 1;
+    padding: 0px 5px 0px 5px;
+}
+
+#commentingTextAreaInput:focus {
+	outline: none;
+	border: 1px solid rgba(0, 127, 182, 0.5);
+	box-shadow: 0 0 5px rgba(0, 127, 182, 0.5);
+}

@@ -59,7 +59,8 @@ select#languages-select {
 
 /* Button styling for the RightDashboardAthleteSidebar component */
 button.view-all-challenges-btn,
-button.view-all-friends-btn {
+button.view-all-friends-btn,
+#activityCommentPostBtn {
 	color: #fc5200;
 	background-color: rgba(0, 0, 0, 0);
 	border: none;
@@ -69,7 +70,8 @@ button.view-all-friends-btn {
 }
 
 button.view-all-challenges-btn:hover,
-button.view-all-friends-btn:hover {
+button.view-all-friends-btn:hover,
+#activityCommentPostBtn:hover {
 	background-color: #ffe1d2;
 	color: #fc5200;
 	border: none;

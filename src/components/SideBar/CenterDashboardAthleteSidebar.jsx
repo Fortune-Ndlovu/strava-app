@@ -9,11 +9,14 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
+import CommentSection from "../CreateCommentsAndGiveKudos/CommentSection";
 import fortunendlovu from "../../images/fortunendlovu.jpg";
 import "./sidebarStyles/CenterDashboardAthleteSidebar.css";
 
 function CenterDashboardAthleteSidebar({ athlete }) {
 	const [activities, setActivities] = useState([]);
+	const [showComments, setShowComments] = useState(false);
+	const [comments, setComments] = useState([]); // New state to store comments
 
 	useEffect(() => {
 		// Firestore collection reference
@@ -24,14 +27,20 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 			// Update the state whenever there's a change in the collection
 			// Sorting the activities in descending order based on the createdAt timestamp, ensuring that the most recent activity comes first
 			setActivities(
-				snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-				.sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis())
+				snapshot.docs
+					.map((doc) => ({ ...doc.data(), id: doc.id }))
+					.sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis())
 			);
 		});
 
 		// Cleanup the listener when the component unmounts
 		return () => unsubscribe();
 	}, []);
+
+	const handleCommentPost = (comment) => {
+		// Update the comments state with the new comment
+		setComments([...comments, comment]);
+	};
 
 	return (
 		<div id="homeDashboardFeedUI" className="center-sidebar-container">
@@ -217,7 +226,6 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										</>
 									)}
 								</div>
-
 								<div className="activity-kudos-reactions">
 									<Button title="View all kudos" id="activityKudosLikeBtn">
 										<svg
@@ -234,7 +242,11 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 											></path>
 										</svg>
 									</Button>
-									<Button title="Comments" id="activityKudosCommentBtn">
+									<Button
+										title="Comments"
+										id="activityKudosCommentBtn"
+										onClick={() => setShowComments(!showComments)}
+									>
 										<svg
 											fill="currentColor"
 											xmlns="http://www.w3.org/2000/svg"
@@ -253,6 +265,17 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										</svg>
 									</Button>
 								</div>
+								{comments.map((comment, index) => (
+									<div key={index} className="comment-display">
+										{comment}
+									</div>
+								))}
+								
+								{/* Include the CommentSection component */}
+								<CommentSection
+									showComments={showComments}
+									onCommentPost={handleCommentPost}
+								/>
 							</div>
 						</Card.Body>
 					</Card>
