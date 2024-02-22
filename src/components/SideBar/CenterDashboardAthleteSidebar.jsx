@@ -21,9 +21,10 @@ import "./sidebarStyles/CenterDashboardAthleteSidebar.css";
 
 function CenterDashboardAthleteSidebar({ athlete }) {
 	const [activities, setActivities] = useState([]);
-	const [showComments, setShowComments] = useState(false);
+	// const [showComments, setShowComments] = useState(false);
 	const [comments, setComments] = useState([]); // New state to store comments
 	const [showCommentsForActivity, setShowCommentsForActivity] = useState(null); // Track the active activity ID
+	const [likes, setLikes] = useState({}); // Add this line for the likes state
 
 	useEffect(() => {
 		// Firestore collection reference
@@ -47,6 +48,17 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 				setComments((prevComments) => ({
 					...prevComments,
 					[activityId]: existingComments,
+				}));
+			});
+
+			// Additional code to fetch likes for each activity and update the state
+			snapshot.docs.forEach(async (document) => {
+				const activityId = document.id;
+				const userDoc = doc(db, "userActivities", activityId);
+				const existingLikes = (await getDoc(userDoc)).data().likes || 0;
+				setLikes((prevLikes) => ({
+					...prevLikes,
+					[activityId]: existingLikes,
 				}));
 			});
 		});
@@ -101,6 +113,25 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 		}
 	};
 
+	const handleLikeToggle = async (activityId) => {
+		try {
+			const userDoc = doc(db, "userActivities", activityId);
+			const existingLikes = (await getDoc(userDoc)).data().likes || 0;
+
+			const updatedLikes = likes[activityId] ? 0 : 1; // Toggle the like
+
+			// Update the document with the new likes
+			await updateDoc(userDoc, { likes: updatedLikes });
+
+			// Update the state to reflect the updated like count
+			setLikes((prevLikes) => ({
+				...prevLikes,
+				[activityId]: updatedLikes,
+			}));
+		} catch (error) {
+			console.error("Error toggling like:", error);
+		}
+	};
 	return (
 		<div id="homeDashboardFeedUI" className="center-sidebar-container">
 			<Container>
@@ -340,6 +371,16 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										>
 											Delete
 										</Button>
+										<Button
+											variant="danger"
+											size="sm"
+											id="heartTheComment"
+											onClick={() => handleLikeToggle(activity.id)}
+										>
+											Heart
+										</Button>{" "}
+										{/* Display like count */}
+										<p>{likes[activity.id] === 1 ? "1 Like" : ""}</p>
 									</div>
 								))}
 
