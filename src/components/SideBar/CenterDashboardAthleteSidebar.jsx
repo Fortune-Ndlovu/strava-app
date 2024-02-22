@@ -12,7 +12,7 @@ import {
 	onSnapshot,
 	updateDoc,
 	getDoc,
-	doc
+	doc,
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import CommentSection from "../CreateCommentsAndGiveKudos/CommentSection";
@@ -23,7 +23,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 	const [activities, setActivities] = useState([]);
 	const [showComments, setShowComments] = useState(false);
 	const [comments, setComments] = useState([]); // New state to store comments
-	  const [showCommentsForActivity, setShowCommentsForActivity] = useState(null); // Track the active activity ID
+	const [showCommentsForActivity, setShowCommentsForActivity] = useState(null); // Track the active activity ID
 
 	useEffect(() => {
 		// Firestore collection reference
@@ -56,25 +56,50 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 	}, []);
 
 	const handleCommentPost = async (comment, activityId) => {
-	try {
-		// Update the comments state with the new comment for the specific activity
-		setComments((prevComments) => ({
-			...prevComments,
-			[activityId]: [...(prevComments[activityId] || []), comment],
-		}));
+		try {
+			// Update the comments state with the new comment for the specific activity
+			setComments((prevComments) => ({
+				...prevComments,
+				[activityId]: [...(prevComments[activityId] || []), comment],
+			}));
 
-		// Obtain the document reference for the specific activity
-		const userDoc = doc(db, "userActivities", activityId);
+			// Obtain the document reference for the specific activity
+			const userDoc = doc(db, "userActivities", activityId);
 
-		// Get the existing comments for the activity
-		const existingComments = (await getDoc(userDoc)).data().comments || [];
+			// Get the existing comments for the activity
+			const existingComments = (await getDoc(userDoc)).data().comments || [];
 
-		// Update the document with the new comments
-		await updateDoc(userDoc, { comments: [...existingComments, comment] });
-	} catch (error) {
-		console.error("Error saving comment:", error);
-	}
-};
+			// Update the document with the new comments
+			await updateDoc(userDoc, { comments: [...existingComments, comment] });
+		} catch (error) {
+			console.error("Error saving comment:", error);
+		}
+	};
+
+	const handleCommentDelete = async (commentIndex, activityId) => {
+		try {
+			// Get the document reference for the specific activity
+			const userDoc = doc(db, "userActivities", activityId);
+
+			// Get the existing comments for the activity
+			const existingComments = (await getDoc(userDoc)).data().comments || [];
+
+			// Remove the comment at the specified index
+			const updatedComments = [...existingComments];
+			updatedComments.splice(commentIndex, 1);
+
+			// Update the document with the new comments (excluding the deleted comment)
+			await updateDoc(userDoc, { comments: updatedComments });
+
+			// Update the state to reflect the deleted comment
+			setComments((prevComments) => ({
+				...prevComments,
+				[activityId]: updatedComments,
+			}));
+		} catch (error) {
+			console.error("Error deleting comment:", error);
+		}
+	};
 
 	return (
 		<div id="homeDashboardFeedUI" className="center-sidebar-container">
@@ -225,7 +250,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										activity.imageUrls.length === 1 ? "single-image" : ""
 									}`}
 								>
-									 {activity.imageUrls && activity.imageUrls.length > 0 && (
+									{activity.imageUrls && activity.imageUrls.length > 0 && (
 										<>
 											{activity.imageUrls.map((imageUrl, index) => (
 												<div className="feed-ui-activity-imageLeft" key={index}>
@@ -281,7 +306,11 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										id="activityKudosCommentBtn"
 										// Using the previous state to toggle the activity, if the prev state is the same as the current activity id, set the state to null (closing the comments),
 										// otherwise, we set it to the current activity id (opening the comments)
-    										onClick={() => setShowCommentsForActivity((prev) => (prev === activity.id ? null : activity.id))}
+										onClick={() =>
+											setShowCommentsForActivity((prev) =>
+												prev === activity.id ? null : activity.id
+											)
+										}
 									>
 										<svg
 											fill="currentColor"
@@ -304,8 +333,16 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 								{comments[activity.id]?.reverse().map((comment, index) => (
 									<div key={index} className="comment-display">
 										{comment}
+										<Button
+											variant="success"
+											size="sm"
+											onClick={() => handleCommentDelete(index, activity.id)}
+										>
+											Delete
+										</Button>
 									</div>
 								))}
+
 								{/* Include the CommentSection component */}
 								<CommentSection
 									showComments={showCommentsForActivity === activity.id}
