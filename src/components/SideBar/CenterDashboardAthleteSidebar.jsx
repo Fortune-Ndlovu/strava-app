@@ -16,6 +16,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import CommentSection from "../CreateCommentsAndGiveKudos/CommentSection";
+import CreateCommentsAndGiveKudos from "../CreateCommentsAndGiveKudos/CreateCommentsAndGiveKudos";
 import fortunendlovu from "../../images/fortunendlovu.jpg";
 import "./sidebarStyles/CenterDashboardAthleteSidebar.css";
 
@@ -24,8 +25,10 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 	// const [showComments, setShowComments] = useState(false);
 	const [comments, setComments] = useState([]); // New state to store comments
 	const [showCommentsForActivity, setShowCommentsForActivity] = useState(null); // Track the active activity ID
-	const [likes, setLikes] = useState({}); // Add this line for the likes state
-  const [commentLikes, setCommentLikes] = useState({}); // State to track likes for each comment
+	// const [likes, setLikes] = useState({});
+	const [commentLikes, setCommentLikes] = useState({}); // State to track likes for each comment
+	const [showCommentsAndGiveKudos, setShowCommentsAndGiveKudos] =
+		useState(null);
 
 	useEffect(() => {
 		// Firestore collection reference
@@ -53,14 +56,15 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 			});
 
 			// Additional code to fetch likes for each activity and update the state
-		 snapshot.docs.forEach(async (document) => {
-      const activityId = document.id;
-      const userDoc = doc(db, "userActivities", activityId);
-      const existingCommentLikes = (await getDoc(userDoc)).data().commentLikes || {};
-      setCommentLikes((prevCommentLikes) => ({
-        ...prevCommentLikes,
-        [activityId]: existingCommentLikes,
-      }));
+			snapshot.docs.forEach(async (document) => {
+				const activityId = document.id;
+				const userDoc = doc(db, "userActivities", activityId);
+				const existingCommentLikes =
+					(await getDoc(userDoc)).data().commentLikes || {};
+				setCommentLikes((prevCommentLikes) => ({
+					...prevCommentLikes,
+					[activityId]: existingCommentLikes,
+				}));
 			});
 		});
 
@@ -114,30 +118,30 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 		}
 	};
 
- const handleCommentLikeToggle = async (activityId, commentIndex) => {
-    try {
-      const userDoc = doc(db, "userActivities", activityId);
-      const existingCommentLikes = commentLikes[activityId] || {};
+	const handleCommentLikeToggle = async (activityId, commentIndex) => {
+		try {
+			const userDoc = doc(db, "userActivities", activityId);
+			const existingCommentLikes = commentLikes[activityId] || {};
 
-      const isLiked = existingCommentLikes[commentIndex];
+			const isLiked = existingCommentLikes[commentIndex];
 
-      const updatedCommentLikes = {
-        ...existingCommentLikes,
-        [commentIndex]: !isLiked,
-      };
+			const updatedCommentLikes = {
+				...existingCommentLikes,
+				[commentIndex]: !isLiked,
+			};
 
-      // Update the document with the new comment likes
-      await updateDoc(userDoc, { commentLikes: updatedCommentLikes });
+			// Update the document with the new comment likes
+			await updateDoc(userDoc, { commentLikes: updatedCommentLikes });
 
-      // Update the state to reflect the updated comment like status
-      setCommentLikes((prevCommentLikes) => ({
-        ...prevCommentLikes,
-        [activityId]: updatedCommentLikes,
-      }));
-    } catch (error) {
-      console.error("Error toggling comment like:", error);
-    }
-  };
+			// Update the state to reflect the updated comment like status
+			setCommentLikes((prevCommentLikes) => ({
+				...prevCommentLikes,
+				[activityId]: updatedCommentLikes,
+			}));
+		} catch (error) {
+			console.error("Error toggling comment like:", error);
+		}
+	};
 	return (
 		<div id="homeDashboardFeedUI" className="center-sidebar-container">
 			<Container>
@@ -323,7 +327,13 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									)}
 								</div>
 								<div className="activity-kudos-reactions">
-									<Button title="View all kudos" id="activityKudosLikeBtn">
+									<Button
+										title="View all kudos"
+										id="activityKudosLikeBtn"
+										onClick={() => setShowCommentsAndGiveKudos((prev) =>
+												prev === activity.id ? null : activity.id
+											)}
+									>
 										<svg
 											fill="currentColor"
 											xmlns="http://www.w3.org/2000/svg"
@@ -381,12 +391,14 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 											variant="danger"
 											size="sm"
 											id="heartTheComment"
-										 onClick={() => handleCommentLikeToggle(activity.id, index)}
+											onClick={() =>
+												handleCommentLikeToggle(activity.id, index)
+											}
 										>
 											Heart
 										</Button>{" "}
 										{/* Display like count */}
-										<p> {commentLikes[activity.id]?.[index] ? '1 Like' : ''}</p>
+										<p> {commentLikes[activity.id]?.[index] ? "1 Like" : ""}</p>
 									</div>
 								))}
 
@@ -397,6 +409,8 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										handleCommentPost(comment, activity.id)
 									}
 								/>
+								{/* Conditionally render CreateCommentsAndGiveKudos component */}
+								{showCommentsAndGiveKudos  === activity.id && <CreateCommentsAndGiveKudos />}
 							</div>
 						</Card.Body>
 					</Card>
