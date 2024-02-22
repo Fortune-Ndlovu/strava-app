@@ -224,7 +224,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										activity.imageUrls.length === 1 ? "single-image" : ""
 									}`}
 								>
-									{activity.imageUrls.length > 0 && (
+									 {activity.imageUrls && activity.imageUrls.length > 0 && (
 										<>
 											{activity.imageUrls.map((imageUrl, index) => (
 												<div className="feed-ui-activity-imageLeft" key={index}>
