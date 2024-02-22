@@ -25,6 +25,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 	const [comments, setComments] = useState([]); // New state to store comments
 	const [showCommentsForActivity, setShowCommentsForActivity] = useState(null); // Track the active activity ID
 	const [likes, setLikes] = useState({}); // Add this line for the likes state
+  const [commentLikes, setCommentLikes] = useState({}); // State to track likes for each comment
 
 	useEffect(() => {
 		// Firestore collection reference
@@ -52,14 +53,14 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 			});
 
 			// Additional code to fetch likes for each activity and update the state
-			snapshot.docs.forEach(async (document) => {
-				const activityId = document.id;
-				const userDoc = doc(db, "userActivities", activityId);
-				const existingLikes = (await getDoc(userDoc)).data().likes || 0;
-				setLikes((prevLikes) => ({
-					...prevLikes,
-					[activityId]: existingLikes,
-				}));
+		 snapshot.docs.forEach(async (document) => {
+      const activityId = document.id;
+      const userDoc = doc(db, "userActivities", activityId);
+      const existingCommentLikes = (await getDoc(userDoc)).data().commentLikes || {};
+      setCommentLikes((prevCommentLikes) => ({
+        ...prevCommentLikes,
+        [activityId]: existingCommentLikes,
+      }));
 			});
 		});
 
@@ -113,25 +114,30 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 		}
 	};
 
-	const handleLikeToggle = async (activityId) => {
-		try {
-			const userDoc = doc(db, "userActivities", activityId);
-			const existingLikes = (await getDoc(userDoc)).data().likes || 0;
+ const handleCommentLikeToggle = async (activityId, commentIndex) => {
+    try {
+      const userDoc = doc(db, "userActivities", activityId);
+      const existingCommentLikes = commentLikes[activityId] || {};
 
-			const updatedLikes = likes[activityId] ? 0 : 1; // Toggle the like
+      const isLiked = existingCommentLikes[commentIndex];
 
-			// Update the document with the new likes
-			await updateDoc(userDoc, { likes: updatedLikes });
+      const updatedCommentLikes = {
+        ...existingCommentLikes,
+        [commentIndex]: !isLiked,
+      };
 
-			// Update the state to reflect the updated like count
-			setLikes((prevLikes) => ({
-				...prevLikes,
-				[activityId]: updatedLikes,
-			}));
-		} catch (error) {
-			console.error("Error toggling like:", error);
-		}
-	};
+      // Update the document with the new comment likes
+      await updateDoc(userDoc, { commentLikes: updatedCommentLikes });
+
+      // Update the state to reflect the updated comment like status
+      setCommentLikes((prevCommentLikes) => ({
+        ...prevCommentLikes,
+        [activityId]: updatedCommentLikes,
+      }));
+    } catch (error) {
+      console.error("Error toggling comment like:", error);
+    }
+  };
 	return (
 		<div id="homeDashboardFeedUI" className="center-sidebar-container">
 			<Container>
@@ -375,12 +381,12 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 											variant="danger"
 											size="sm"
 											id="heartTheComment"
-											onClick={() => handleLikeToggle(activity.id)}
+										 onClick={() => handleCommentLikeToggle(activity.id, index)}
 										>
 											Heart
 										</Button>{" "}
 										{/* Display like count */}
-										<p>{likes[activity.id] === 1 ? "1 Like" : ""}</p>
+										<p> {commentLikes[activity.id]?.[index] ? '1 Like' : ''}</p>
 									</div>
 								))}
 
