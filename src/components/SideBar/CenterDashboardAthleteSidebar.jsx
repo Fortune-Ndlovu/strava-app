@@ -23,6 +23,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 	const [activities, setActivities] = useState([]);
 	const [showComments, setShowComments] = useState(false);
 	const [comments, setComments] = useState([]); // New state to store comments
+	  const [showCommentsForActivity, setShowCommentsForActivity] = useState(null); // Track the active activity ID
 
 	useEffect(() => {
 		// Firestore collection reference
@@ -278,7 +279,9 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									<Button
 										title="Comments"
 										id="activityKudosCommentBtn"
-										onClick={() => setShowComments(!showComments)}
+										// Using the previous state to toggle the activity, if the prev state is the same as the current activity id, set the state to null (closing the comments),
+										// otherwise, we set it to the current activity id (opening the comments)
+    										onClick={() => setShowCommentsForActivity((prev) => (prev === activity.id ? null : activity.id))}
 									>
 										<svg
 											fill="currentColor"
@@ -305,7 +308,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 								))}
 								{/* Include the CommentSection component */}
 								<CommentSection
-									showComments={showComments}
+									showComments={showCommentsForActivity === activity.id}
 									onCommentPost={(comment) =>
 										handleCommentPost(comment, activity.id)
 									}

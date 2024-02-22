@@ -1,6 +1,4 @@
-.comment-section.hidden {
-    display: none !important;
-}
+
 
 #userProfileCommentsImg {
     border-radius: 100px;
@@ -22,3 +20,11 @@
 	border: 1px solid rgba(0, 127, 182, 0.5);
 	box-shadow: 0 0 5px rgba(0, 127, 182, 0.5);
 }
+
+.comment-section.hidden {
+    display: none !important;
+}
+/* 
+.comment-section.visible {
+    display: block !important;
+} */
