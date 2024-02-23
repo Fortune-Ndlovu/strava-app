@@ -416,6 +416,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									<CreateCommentsAndGiveKudos
 										show={showCommentsAndGiveKudos === activity.id}
 										handleClose={() => setShowCommentsAndGiveKudos(false)}
+										activity={activity}
 									/>
 								)}
 							</div>

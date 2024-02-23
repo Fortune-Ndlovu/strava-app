@@ -25,7 +25,8 @@ const UserActivitiesManager = ({ showForm }) => {
 		newActivity.createdAt = currentTimestamp;
 
 		// Adding a field for comments to the new activity
-    	newActivity.comments = [];
+		newActivity.comments = [];
+		newActivity.activityLikes = [];
 
 		// Adding a new doc to the firebase collection, and returning a doc reference object representing the newly created doc
 		const docRef = await addDoc(userActivitiesCollection, newActivity);
