@@ -1,27 +1,24 @@
-import { useState } from 'react';
-import Alert from 'react-bootstrap/Alert';
+// CreateCommentsAndGiveKudosModal.js
+import React from 'react';
+import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-function CreateCommentsAndGiveKudos() {
-  const [show, setShow] = useState(true);
-
+function CreateCommentsAndGiveKudos({ show, handleClose }) {
   return (
-    <>
-      <Alert show={show} variant="success" onClose={() => setShow(false)} dismissible>
-        <Alert.Heading>My Alert</Alert.Heading>
-        <p>
-          Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
-          lacinia odio sem nec elit. Cras mattis consectetur purus sit amet
-          fermentum.
-        </p>
-        <hr />
-        <div className="d-flex justify-content-end">
-          <Button onClick={() => setShow(false)} variant="outline-success">
-            Close me
-          </Button>
-        </div>
-      </Alert>
-    </>
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Modal heading</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+        <Button variant="primary" onClick={handleClose}>
+          Save Changes
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
 

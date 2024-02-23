@@ -28,7 +28,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 	// const [likes, setLikes] = useState({});
 	const [commentLikes, setCommentLikes] = useState({}); // State to track likes for each comment
 	const [showCommentsAndGiveKudos, setShowCommentsAndGiveKudos] =
-		useState(null);
+		useState(false);
 
 	useEffect(() => {
 		// Firestore collection reference
@@ -330,9 +330,11 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									<Button
 										title="View all kudos"
 										id="activityKudosLikeBtn"
-										onClick={() => setShowCommentsAndGiveKudos((prev) =>
-												prev === activity.id ? null : activity.id
-											)}
+										onClick={() =>
+											setShowCommentsAndGiveKudos((prev) =>
+												prev === activity.id ? true : activity.id
+											)
+										}
 									>
 										<svg
 											fill="currentColor"
@@ -410,7 +412,12 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									}
 								/>
 								{/* Conditionally render CreateCommentsAndGiveKudos component */}
-								{showCommentsAndGiveKudos  === activity.id && <CreateCommentsAndGiveKudos />}
+								{showCommentsAndGiveKudos === activity.id && (
+									<CreateCommentsAndGiveKudos
+										show={showCommentsAndGiveKudos === activity.id}
+										handleClose={() => setShowCommentsAndGiveKudos(false)}
+									/>
+								)}
 							</div>
 						</Card.Body>
 					</Card>
