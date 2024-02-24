@@ -116,7 +116,7 @@ const PostDetailsPage = () => {
 												/>
 											</svg>
 										</Dropdown.Toggle>
-										<Dropdown.Menu id="module-btn-list-dropdown">
+                    <Dropdown.Menu id="module-btn-list-dropdown">
 											<Dropdown.Item
                         href={`/post/${postId}/edit`}
 												className="uiSocialsBtn-dropDown-link"

@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { db } from "../../firebase/firebase";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { Container, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -39,7 +39,33 @@ const EditPostForm = () => {
 		};
 
 		fetchPostDetails();
-	}, [postId]);
+  }, [postId]);
+
+  	// Handling input changes, connected to input fields through the onChange event
+	const handleInputChange = (e) => {
+		// Destructuring the properties name and value from the event object
+		const { name, value } = e.target;
+
+		// Creating a shallow copy of the existing editedActivity state to ensure immutability
+		// Dynamically updating the property specified by name with the new value
+		setEditedPost({
+			...editedPost,
+			[name]: value,
+		});
+	};
+  
+  const handleDeletePost = async () => {
+    const userDoc = doc(db, "userPosts", postId);
+    await deleteDoc(userDoc);
+    navigate("/profile");
+  }
+
+  const handleSaveChanges = async () => { 
+    const userDoc = doc(db, "userPosts", postId);
+		await updateDoc(userDoc, editedPost);
+
+		navigate(`/post/${postId}`);
+  }
   
 	return (
     <div>
@@ -64,8 +90,8 @@ const EditPostForm = () => {
 							<h4>Fortune Ndlovu</h4>
 						</div>
 						<div className="edit-post-details-form-user-interactions">
-							<Button type="button">Delete</Button>
-							<Button type="button">Update</Button>
+							<Button type="button" onClick={handleDeletePost}>Delete</Button>
+                <Button type="button" onClick={handleSaveChanges}>Update</Button>
 						</div>
 					</div>
 				</div>
@@ -75,23 +101,24 @@ const EditPostForm = () => {
 							<Form.Label>Title</Form.Label>
 							<Form.Control
 								type="text"
-								className="edit-activity-form-input-style"
-								name="name"
-								// value={editedActivity.name}
-								// onChange={handleInputChange}
-                />
+                  className="edit-activity-form-input-style"
+                  placeholder="Add a title (optional)"
+								name="post"
+								value={editedPost.post}
+								onChange={handleInputChange}
+              />
 						</Form.Group>
 						<Form.Group className="mb-3" id="editPostFormDescriptionGroup">
 							<Form.Label>Description</Form.Label>
 							<Form.Control
 								as="textarea"
 								className="edit-activity-form-input-style"
-								placeholder="How'd it go?"
+								placeholder="What's going on?"
 								rows={3}
 								id="description"
-								name="description"
-								// value={editedActivity.description}
-								// onChange={handleInputChange}
+								name="message"
+								value={editedPost.message}
+								onChange={handleInputChange}
                 />
 						</Form.Group>
 					</Form>
