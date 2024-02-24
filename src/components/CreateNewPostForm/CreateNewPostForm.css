@@ -1,3 +1,13 @@
 #createPostContainer {
     padding-top: 100px;
 }
+
+form#createPostForm {
+    max-width: 695px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#createPostFormUserProfileImg {
+    border-radius: 100%;
+}
