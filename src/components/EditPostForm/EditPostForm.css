@@ -32,3 +32,8 @@
 #editPostFormDescriptionGroup {
     padding-top: 10px;
 }
+
+.edit-post-details-form-user-identity h4 {
+    font-weight: 400;
+    font-size: 20px;
+}
