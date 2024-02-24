@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 const CreateNewPostForm = ({ onCreatePost }) => {
 	const [newPost, setNewPost] = useState("");
 	const [newPostMessage, setNewPostMessage] = useState("");
+	const navigate = useNavigate();
 
 	const handleCreatePost = () => {
 		onCreatePost({
@@ -17,6 +19,7 @@ const CreateNewPostForm = ({ onCreatePost }) => {
 		// Clear the form fields or perform other actions as needed
 		setNewPost("");
 		setNewPostMessage("");
+		navigate("/profile");
 	};
 
 	return (

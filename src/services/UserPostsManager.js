@@ -5,9 +5,7 @@ import {
   addDoc,
   onSnapshot,
   doc,
-  writeBatch, // Add this import
-  deleteDoc,
-  updateDoc,
+  writeBatch,
 } from "firebase/firestore";
 import CreateNewPostForm from "../components/CreateNewPostForm/CreateNewPostForm";
 import CreatePostsTable from "../components/CreatePostsTable/CreatePostsTable";
