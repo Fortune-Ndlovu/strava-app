@@ -35,9 +35,17 @@
     padding-bottom: 20px;
 }
 
+.post-details-data-post-interactions-header {
+    display: flex;
+}
+
 .post-details-data-post-interactions-footer {
     padding-top: 20px;
     display: flex;
     align-items: center;
     justify-content: end;
+}
+
+button#postDetailsDropdownBtn-dropdownBtn-list::after{
+    display: none !important;
 }

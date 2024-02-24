@@ -5,6 +5,7 @@ import { doc, getDoc, deleteDoc } from "firebase/firestore";
 import { Container, Row, Col } from "react-bootstrap";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Button from "react-bootstrap/Button";
+import Dropdown from "react-bootstrap/Dropdown";
 import fortunendlovu from "../images/fortunendlovu.jpg";
 import "../styles/PostDetailsPage.css";
 
@@ -27,7 +28,13 @@ const PostDetailsPage = () => {
 			}
 		};
 		fetchPostDetails();
-	});
+  });
+  
+  const handleDeletePost = async () => { 
+    const userDoc = doc(db, "userPosts", postId);
+    await deleteDoc(userDoc);
+    navigate("/profile");
+  }
 
 	return (
 		<div>
@@ -59,7 +66,7 @@ const PostDetailsPage = () => {
 									</div>
 								</div>
 								<div className="post-details-data-post-interactions-header">
-									<Button>
+									<Button id="postDetailsLikeBtn">
 										<svg
 											fill="currentColor"
 											xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +81,7 @@ const PostDetailsPage = () => {
 											></path>
 										</svg>
 									</Button>
-									<Button>
+									<Button id="postDetailsCommentsBtn">
 										<svg
 											fill="currentColor"
 											xmlns="http://www.w3.org/2000/svg"
@@ -92,19 +99,39 @@ const PostDetailsPage = () => {
 											></path>
 										</svg>
 									</Button>
-									<Button>
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="24"
-											height="24"
-											fill="none"
+									<Dropdown id="postDetailsDropdownBtn">
+										<Dropdown.Toggle
+											variant="success"
+											id="postDetailsDropdownBtn-dropdownBtn-list"
 										>
-											<path
-												d="M3.5 15.175a3.175 3.175 0 1 1 0-6.35 3.175 3.175 0 0 1 0 6.35zm0-5a1.824 1.824 0 1 0 0 3.649 1.824 1.824 0 0 0 0-3.649zm17 5a3.175 3.175 0 1 1 0-6.35 3.175 3.175 0 0 1 0 6.35zm0-5a1.825 1.825 0 1 0 0 3.65 1.825 1.825 0 0 0 0-3.65zm-8.5 5a3.175 3.175 0 1 1 0-6.35 3.175 3.175 0 0 1 0 6.35zm0-5a1.825 1.825 0 1 0 0 3.65 1.825 1.825 0 0 0 0-3.65z"
-												fill="#000"
-											/>
-										</svg>
-									</Button>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="24"
+												height="24"
+												fill="none"
+											>
+												<path
+													d="M3.5 15.175a3.175 3.175 0 1 1 0-6.35 3.175 3.175 0 0 1 0 6.35zm0-5a1.824 1.824 0 1 0 0 3.649 1.824 1.824 0 0 0 0-3.649zm17 5a3.175 3.175 0 1 1 0-6.35 3.175 3.175 0 0 1 0 6.35zm0-5a1.825 1.825 0 1 0 0 3.65 1.825 1.825 0 0 0 0-3.65zm-8.5 5a3.175 3.175 0 1 1 0-6.35 3.175 3.175 0 0 1 0 6.35zm0-5a1.825 1.825 0 1 0 0 3.65 1.825 1.825 0 0 0 0-3.65z"
+													fill="#000"
+												/>
+											</svg>
+										</Dropdown.Toggle>
+										<Dropdown.Menu id="module-btn-list-dropdown">
+											<Dropdown.Item
+                        href={`/post/${postId}/edit`}
+												className="uiSocialsBtn-dropDown-link"
+											>
+												Edit
+											</Dropdown.Item>
+											<Dropdown.Item
+                        href="#/action-1"
+                        className="uiSocialsBtn-dropDown-link"
+                        onClick={handleDeletePost}
+											>
+												Delete
+											</Dropdown.Item>
+										</Dropdown.Menu>
+									</Dropdown>
 								</div>
 							</div>
 							<div className="post-details-data-user-inputs">
