@@ -142,6 +142,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 			console.error("Error toggling comment like:", error);
 		}
 	};
+	
 	return (
 		<div id="homeDashboardFeedUI" className="center-sidebar-container">
 			<Container>
