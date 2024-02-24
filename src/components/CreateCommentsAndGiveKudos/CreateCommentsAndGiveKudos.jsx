@@ -5,9 +5,19 @@ import Button from "react-bootstrap/Button";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import CommentSection from "./CommentSection";
-function CreateCommentsAndGiveKudos({ show, handleClose, activity }) {
+import "./CreateCommentsAndGiveKudos.css";
+function CreateCommentsAndGiveKudos({
+	show,
+	handleClose,
+	activity,
+	onDeleteComment,
+	onLikeComment,
+}) {
 	const [key, setKey] = useState("Kudos");
-
+	const handleCommentPost = (comment) => {
+		// Implement logic to post the comment
+		console.log("Comment posted:", comment);
+	};
 	return (
 		<Modal show={show} onHide={handleClose}>
 			<Modal.Header closeButton>
@@ -33,20 +43,32 @@ function CreateCommentsAndGiveKudos({ show, handleClose, activity }) {
 									<div key={index}>
 										<p>
 											{comment}{" "}
-											<Button variant="success" size="sm">
+											<Button
+												variant="success"
+												size="sm"
+												onClick={() => onDeleteComment(index)}
+											>
 												Delete
 											</Button>{" "}
-											<Button variant="danger" size="sm">
+											<Button
+												variant="danger"
+												size="sm"
+												onClick={() => onLikeComment(index)}
+											>
 												Like
 											</Button>
+											<p>{activity.commentLikes?.[index] ? "1 Like" : ""}</p>
 										</p>
 									</div>
 							  ))
-              : "This entry has no comments yet."}
+							: "This entry has no comments yet."}
 					</Tab>
-           
-        </Tabs>
-         <CommentSection />
+				</Tabs>
+				<CommentSection
+					className="comment-section visible"
+					showComments={key === "Comments"}
+					onCommentPost={handleCommentPost}
+				/>
 			</Modal.Body>
 			<Modal.Footer>
 				<Button variant="secondary" onClick={handleClose}>

@@ -417,6 +417,12 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										show={showCommentsAndGiveKudos === activity.id}
 										handleClose={() => setShowCommentsAndGiveKudos(false)}
 										activity={activity}
+										onDeleteComment={(commentIndex) =>
+											handleCommentDelete(commentIndex, activity.id)
+										}
+										onLikeComment={(commentIndex) =>
+											handleCommentLikeToggle(activity.id, commentIndex)
+										}
 									/>
 								)}
 							</div>
