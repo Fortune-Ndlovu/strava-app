@@ -5,6 +5,8 @@ import Button from "react-bootstrap/Button";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import CommentSection from "./CommentSection";
+import { updateDoc, getDoc, doc } from "firebase/firestore";
+import { db } from "../../firebase/firebase";
 import "./CreateCommentsAndGiveKudos.css";
 function CreateCommentsAndGiveKudos({
 	show,
@@ -14,10 +16,30 @@ function CreateCommentsAndGiveKudos({
 	onLikeComment,
 }) {
 	const [key, setKey] = useState("Kudos");
-	const handleCommentPost = (comment) => {
-		// Implement logic to post the comment
+	const [comments, setComments] = useState([]); // New state to store comments
+
+	const handleCommentPost = async (comment, activityId) => {
 		console.log("Comment posted:", comment);
+		try {
+			// Update the comments state with the new comment for the specific activity
+			setComments((prevComments) => ({
+				...prevComments,
+				[activityId]: [...(prevComments[activityId] || []), comment],
+			}));
+
+			// Obtain the document reference for the specific activity
+			const userDoc = doc(db, "userActivities", activityId);
+
+			// Get the existing comments for the activity
+			const existingComments = (await getDoc(userDoc)).data().comments || [];
+
+			// Update the document with the new comments
+			await updateDoc(userDoc, { comments: [...existingComments, comment] });
+		} catch (error) {
+			console.error("Error saving comment:", error);
+		}
 	};
+
 	return (
 		<Modal show={show} onHide={handleClose}>
 			<Modal.Header closeButton>
@@ -67,7 +89,7 @@ function CreateCommentsAndGiveKudos({
 				<CommentSection
 					className="comment-section visible"
 					showComments={key === "Comments"}
-					onCommentPost={handleCommentPost}
+					onCommentPost={(comment) => handleCommentPost(comment, activity.id)}
 				/>
 			</Modal.Body>
 			<Modal.Footer>
