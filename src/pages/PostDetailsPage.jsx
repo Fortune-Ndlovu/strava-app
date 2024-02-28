@@ -176,7 +176,7 @@ const PostDetailsPage = () => {
 								</Button>
 							</div>
 						</div>
-						<PostsCreateCommentsAndGiveKudos show={showPostsCreateCommentsAndGiveKudos} handleClose={() => setShowPostsCreateCommentsAndGiveKudos(false)} />
+						<PostsCreateCommentsAndGiveKudos show={showPostsCreateCommentsAndGiveKudos} handleClose={() => setShowPostsCreateCommentsAndGiveKudos(false)} posts={postDetails} />
 					</div>
 				)}
 			</Container>
