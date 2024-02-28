@@ -6,10 +6,16 @@ import Modal from "react-bootstrap/Modal";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import PostCommentsSection from "./PostCommentsSection";
-function PostsCreateCommentsAndGiveKudos({ show, handleClose, posts }) {
-    const [comments, setComments] = useState([]); // New state to store comments
+function PostsCreateCommentsAndGiveKudos({
+	show,
+	handleClose,
+	posts,
+	onDeleteComment,
+	onLikeComment,
+}) {
+	const [comments, setComments] = useState([]); // New state to store comments
 
-    const handleCommentPost = async (comment, postsId) => {
+	const handleCommentPost = async (comment, postsId) => {
 		console.log("Comment posted:", comment);
 		try {
 			// Update the comments state with the new comment for the specific activity
@@ -44,40 +50,45 @@ function PostsCreateCommentsAndGiveKudos({ show, handleClose, posts }) {
 						id="uncontrolled-tab-example"
 						className="mb-3"
 					>
-                        <Tab eventKey="home" title={`Kudos (${posts.kudos.length})`}>
+						<Tab eventKey="home" title={`Kudos (${posts.kudos.length})`}>
 							This entry has no kudos yet.{" "}
 						</Tab>
-						<Tab eventKey="profile" title={`Comments (${posts.comments.length})`}>
+						<Tab
+							eventKey="profile"
+							title={`Comments (${posts.comments.length})`}
+						>
 							{posts.comments.length > 0
-							? posts.comments.map((comment, index) => (
-									<div key={index}>
-										<p>
-											{comment}{" "}
-											<Button
-												variant="success"
-												size="sm"
-												// onClick={() => onDeleteComment(index)}
-											>
-												Delete
-											</Button>{" "}
-											<Button
-												variant="danger"
-												size="sm"
-												// onClick={() => onLikeComment(index)}
-											>
-												Like
-											</Button>
-											<p>{posts.commentLikes?.[index] ? "1 Like" : ""}</p>
-										</p>
-									</div>
-							  ))
-							: "This entry has no comments yet."}
+								? posts.comments.map((comment, index) => (
+										<div key={index}>
+											<p>
+												{comment}{" "}
+												<Button
+													variant="success"
+													size="sm"
+													onClick={() => onDeleteComment(index)}
+												>
+													Delete
+												</Button>{" "}
+												<Button
+													variant="danger"
+													size="sm"
+													onClick={() => onLikeComment(index)}
+												>
+													Like
+												</Button>
+												<p>{posts.commentLikes?.[index] ? "1 Like" : ""}</p>
+											</p>
+										</div>
+								  ))
+								: "This entry has no comments yet."}
 						</Tab>
 					</Tabs>
 				</Modal.Body>
-                <Modal.Footer>
-                    <PostCommentsSection onCommentPost={(comment) => handleCommentPost(comment, posts.id)}/>
-					
+				<Modal.Footer>
+					<PostCommentsSection
+						onCommentPost={(comment) => handleCommentPost(comment, posts.id)}
+					/>
+
 					<Button variant="primary" onClick={handleClose}>
 						Save Changes
 					</Button>

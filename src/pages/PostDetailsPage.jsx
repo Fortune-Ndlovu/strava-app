@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { db } from "../firebase/firebase";
-import { doc, getDoc, deleteDoc } from "firebase/firestore";
+import { doc, getDoc, deleteDoc, updateDoc } from "firebase/firestore";
 import { Container, Row, Col } from "react-bootstrap";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Button from "react-bootstrap/Button";
@@ -15,7 +15,15 @@ const PostDetailsPage = () => {
 	const { postId } = useParams();
 	const navigate = useNavigate();
 	const [postDetails, setPostDetails] = useState(null);
-	const [showPostsCreateCommentsAndGiveKudos, setShowPostsCreateCommentsAndGiveKudos] = useState(false);
+	const [
+		showPostsCreateCommentsAndGiveKudos,
+		setShowPostsCreateCommentsAndGiveKudos,
+	] = useState(false);
+
+	const [comments, setComments] = useState([]); // New state to store comments
+	// const [showCommentsForActivity, setShowCommentsForActivity] = useState(null); 
+	const [commentLikes, setCommentLikes] = useState({}); // State to track likes for each comment
+
 
 	useEffect(() => {
 		// fetch the post details
@@ -31,13 +39,85 @@ const PostDetailsPage = () => {
 			}
 		};
 		fetchPostDetails();
-  });
-  
-  const handleDeletePost = async () => { 
-    const userDoc = doc(db, "userPosts", postId);
-    await deleteDoc(userDoc);
-    navigate("/profile");
-  }
+	});
+
+		const handleCommentPost = async (comment, postId) => {
+		try {
+			// Update the comments state with the new comment for the specific activity
+			setComments((prevComments) => ({
+				...prevComments,
+				[postId]: [...(prevComments[postId] || []), comment],
+			}));
+
+			// Obtain the document reference for the specific activity
+			const userDoc = doc(db, "userPosts", postId);
+
+			// Get the existing comments for the activity
+			const existingComments = (await getDoc(userDoc)).data().comments || [];
+
+			// Update the document with the new comments
+			await updateDoc(userDoc, { comments: [...existingComments, comment] });
+		} catch (error) {
+			console.error("Error saving comment:", error);
+		}
+	};
+
+
+		const handleCommentDelete = async (commentIndex, postId) => {
+		try {
+			// Get the document reference for the specific post
+			const userDoc = doc(db, "userPosts", postId);
+
+			// Get the existing comments for the activity
+			const existingComments = (await getDoc(userDoc)).data().comments || [];
+
+			// Remove the comment at the specified index
+			const updatedComments = [...existingComments];
+			updatedComments.splice(commentIndex, 1);
+
+			// Update the document with the new comments (excluding the deleted comment)
+			await updateDoc(userDoc, { comments: updatedComments });
+
+			// Update the state to reflect the deleted comment
+			setComments((prevComments) => ({
+				...prevComments,
+				[postId]: updatedComments,
+			}));
+		} catch (error) {
+			console.error("Error deleting comment:", error);
+		}
+	};
+
+	const handleCommentLikeToggle = async (postId, commentIndex) => {
+		try {
+			const userDoc = doc(db, "userPosts", postId);
+			const existingCommentLikes = commentLikes[postId] || {};
+
+			const isLiked = existingCommentLikes[commentIndex];
+
+			const updatedCommentLikes = {
+				...existingCommentLikes,
+				[commentIndex]: !isLiked,
+			};
+
+			// Update the document with the new comment likes
+			await updateDoc(userDoc, { commentLikes: updatedCommentLikes });
+
+			// Update the state to reflect the updated comment like status
+			setCommentLikes((prevCommentLikes) => ({
+				...prevCommentLikes,
+				[postId]: updatedCommentLikes,
+			}));
+		} catch (error) {
+			console.error("Error toggling comment like:", error);
+		}
+	};
+
+	const handleDeletePost = async () => {
+		const userDoc = doc(db, "userPosts", postId);
+		await deleteDoc(userDoc);
+		navigate("/profile");
+	};
 
 	return (
 		<div>
@@ -69,7 +149,10 @@ const PostDetailsPage = () => {
 									</div>
 								</div>
 								<div className="post-details-data-post-interactions-header">
-									<Button id="postDetailsLikeBtn" onClick={() => setShowPostsCreateCommentsAndGiveKudos(true)}>
+									<Button
+										id="postDetailsLikeBtn"
+										onClick={() => setShowPostsCreateCommentsAndGiveKudos(true)}
+									>
 										<svg
 											fill="currentColor"
 											xmlns="http://www.w3.org/2000/svg"
@@ -119,17 +202,17 @@ const PostDetailsPage = () => {
 												/>
 											</svg>
 										</Dropdown.Toggle>
-                    <Dropdown.Menu id="module-btn-list-dropdown">
+										<Dropdown.Menu id="module-btn-list-dropdown">
 											<Dropdown.Item
-                        href={`/post/${postId}/edit`}
+												href={`/post/${postId}/edit`}
 												className="uiSocialsBtn-dropDown-link"
 											>
 												Edit
 											</Dropdown.Item>
 											<Dropdown.Item
-                        href="#/action-1"
-                        className="uiSocialsBtn-dropDown-link"
-                        onClick={handleDeletePost}
+												href="#/action-1"
+												className="uiSocialsBtn-dropDown-link"
+												onClick={handleDeletePost}
 											>
 												Delete
 											</Dropdown.Item>
@@ -177,8 +260,21 @@ const PostDetailsPage = () => {
 								</Button>
 							</div>
 						</div>
-						<PostsCreateCommentsAndGiveKudos show={showPostsCreateCommentsAndGiveKudos} handleClose={() => setShowPostsCreateCommentsAndGiveKudos(false)} posts={postDetails} />
-						{/* <PostCommentsSection /> */}
+						<PostCommentsSection showComments={showPostsCreateCommentsAndGiveKudos === postDetails.id}
+							onCommentPost={(comment) =>
+								handleCommentPost(comment, postDetails.id)} />
+						
+						<PostsCreateCommentsAndGiveKudos
+							show={showPostsCreateCommentsAndGiveKudos}
+							handleClose={() => setShowPostsCreateCommentsAndGiveKudos(false)}
+							posts={postDetails}
+							onDeleteComment={(commentIndex) =>
+											handleCommentDelete(commentIndex, postDetails.id)
+										}
+										onLikeComment={(commentIndex) =>
+											handleCommentLikeToggle(postDetails.id, commentIndex)
+										}
+						/>
 					</div>
 				)}
 			</Container>
