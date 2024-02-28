@@ -53,12 +53,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 					...prevComments,
 					[activityId]: existingComments,
 				}));
-			});
 
-			// Additional code to fetch likes for each activity and update the state
-			snapshot.docs.forEach(async (document) => {
-				const activityId = document.id;
-				const userDoc = doc(db, "userActivities", activityId);
 				const existingCommentLikes =
 					(await getDoc(userDoc)).data().commentLikes || {};
 				setCommentLikes((prevCommentLikes) => ({
