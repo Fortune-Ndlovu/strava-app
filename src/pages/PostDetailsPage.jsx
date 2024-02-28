@@ -6,6 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
+import PostsCreateCommentsAndGiveKudos from "../components/CreateCommentsAndGiveKudos/PostsCreateCommentsAndGiveKudos";
 import fortunendlovu from "../images/fortunendlovu.jpg";
 import "../styles/PostDetailsPage.css";
 
@@ -13,6 +14,7 @@ const PostDetailsPage = () => {
 	const { postId } = useParams();
 	const navigate = useNavigate();
 	const [postDetails, setPostDetails] = useState(null);
+	const [showPostsCreateCommentsAndGiveKudos, setShowPostsCreateCommentsAndGiveKudos] = useState(false);
 
 	useEffect(() => {
 		// fetch the post details
@@ -66,7 +68,7 @@ const PostDetailsPage = () => {
 									</div>
 								</div>
 								<div className="post-details-data-post-interactions-header">
-									<Button id="postDetailsLikeBtn">
+									<Button id="postDetailsLikeBtn" onClick={() => setShowPostsCreateCommentsAndGiveKudos(true)}>
 										<svg
 											fill="currentColor"
 											xmlns="http://www.w3.org/2000/svg"
@@ -174,6 +176,7 @@ const PostDetailsPage = () => {
 								</Button>
 							</div>
 						</div>
+						<PostsCreateCommentsAndGiveKudos show={showPostsCreateCommentsAndGiveKudos} handleClose={() => setShowPostsCreateCommentsAndGiveKudos(false)} />
 					</div>
 				)}
 			</Container>
