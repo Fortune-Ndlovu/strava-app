@@ -1,12 +1,12 @@
 // CreateCommentsAndGiveKudosModal.js
 import { React, useState } from "react";
+import { updateDoc, getDoc, doc } from "firebase/firestore";
+import { db } from "../../firebase/firebase";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import CommentSection from "./CommentSection";
-import { updateDoc, getDoc, doc } from "firebase/firestore";
-import { db } from "../../firebase/firebase";
 import "./CreateCommentsAndGiveKudos.css";
 function CreateCommentsAndGiveKudos({
 	show,

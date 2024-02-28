@@ -7,6 +7,7 @@ import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 import PostsCreateCommentsAndGiveKudos from "../components/CreateCommentsAndGiveKudos/PostsCreateCommentsAndGiveKudos";
+import PostCommentsSection from "../components/CreateCommentsAndGiveKudos/PostCommentsSection";
 import fortunendlovu from "../images/fortunendlovu.jpg";
 import "../styles/PostDetailsPage.css";
 
@@ -177,6 +178,7 @@ const PostDetailsPage = () => {
 							</div>
 						</div>
 						<PostsCreateCommentsAndGiveKudos show={showPostsCreateCommentsAndGiveKudos} handleClose={() => setShowPostsCreateCommentsAndGiveKudos(false)} posts={postDetails} />
+						{/* <PostCommentsSection /> */}
 					</div>
 				)}
 			</Container>
