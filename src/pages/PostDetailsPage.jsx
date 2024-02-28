@@ -275,6 +275,32 @@ const PostDetailsPage = () => {
 											handleCommentLikeToggle(postDetails.id, commentIndex)
 										}
 						/>
+						<div>
+							{postDetails.comments.length > 0
+								? postDetails.comments.map((comment, index) => (
+										<div key={index}>
+											<p>
+												{comment}{" "}
+												<Button
+													variant="success"
+													size="sm"
+													onClick={() => handleCommentDelete(index, postDetails.id)}
+												>
+													Delete
+												</Button>{" "}
+												<Button
+													variant="danger"
+													size="sm"
+													onClick={() => handleCommentLikeToggle(postDetails.id, index)}
+												>
+													Like
+												</Button>
+												<p>{postDetails.commentLikes?.[index] ? "1 Like" : ""}</p>
+											</p>
+										</div>
+								  ))
+								: "This entry has no comments yet."}
+						</div>
 					</div>
 				)}
 			</Container>
