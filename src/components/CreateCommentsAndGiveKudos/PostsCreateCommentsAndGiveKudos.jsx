@@ -18,10 +18,10 @@ function PostsCreateCommentsAndGiveKudos({ show, handleClose, posts }) {
 						id="uncontrolled-tab-example"
 						className="mb-3"
 					>
-						<Tab eventKey="home" title="Kudos">
+                        <Tab eventKey="home" title={`Kudos (${posts.kudos.length})`}>
 							This entry has no kudos yet.{" "}
 						</Tab>
-						<Tab eventKey="profile" title="Comments">
+						<Tab eventKey="profile" title={`Comments (${posts.comments.length})`}>
 							This entry has no comments yet.
 						</Tab>
 					</Tabs>

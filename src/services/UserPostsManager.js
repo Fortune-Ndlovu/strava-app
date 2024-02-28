@@ -15,6 +15,9 @@ const UserPostsManager = () => {
   const userPostsCollection = collection(db, "userPosts");
 
   const createPost = async (newPost) => {
+    newPost.kudos = [];
+    newPost.comments = [];
+		newPost.activityLikes = [];
    const docRef = await addDoc(userPostsCollection, newPost);
 
     const createdPost = {...newPost, id: docRef.id};
