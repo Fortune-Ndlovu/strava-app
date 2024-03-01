@@ -42,8 +42,6 @@ const ActivityDetailsPage = () => {
 			const activityDocSnapshot = await getDoc(activityDocRef);
 			if (activityDocSnapshot.exists()) {
 				setActivityDetails(activityDocSnapshot.data());
-			} else {
-				console.log("Document Data Not Found");
 			}
 		};
 		
@@ -52,7 +50,6 @@ const ActivityDetailsPage = () => {
 		}
 	});
 
-	// console.log("Activity Details: ", activityDetails);
 
 	const handleDeleteActivity = async () => {
 		const userDoc = doc(db, "userActivities", activityId);

@@ -21,9 +21,8 @@ const PostDetailsPage = () => {
 	] = useState(false);
 
 	const [comments, setComments] = useState([]); // New state to store comments
-	// const [showCommentsForActivity, setShowCommentsForActivity] = useState(null); 
+	// const [showCommentsForActivity, setShowCommentsForActivity] = useState(null);
 	const [commentLikes, setCommentLikes] = useState({}); // State to track likes for each comment
-
 
 	useEffect(() => {
 		// fetch the post details
@@ -41,7 +40,7 @@ const PostDetailsPage = () => {
 		fetchPostDetails();
 	});
 
-		const handleCommentPost = async (comment, postId) => {
+	const handleCommentPost = async (comment, postId) => {
 		try {
 			// Update the comments state with the new comment for the specific activity
 			setComments((prevComments) => ({
@@ -62,8 +61,7 @@ const PostDetailsPage = () => {
 		}
 	};
 
-
-		const handleCommentDelete = async (commentIndex, postId) => {
+	const handleCommentDelete = async (commentIndex, postId) => {
 		try {
 			// Get the document reference for the specific post
 			const userDoc = doc(db, "userPosts", postId);
@@ -204,7 +202,8 @@ const PostDetailsPage = () => {
 										</Dropdown.Toggle>
 										<Dropdown.Menu id="module-btn-list-dropdown">
 											{/* <Dropdown.Item */}
-												<Link to={`/post/${postId}/edit`}
+											<Link
+												to={`/post/${postId}/edit`}
 												className="uiSocialsBtn-dropDown-link"
 											>
 												Edit
@@ -261,20 +260,25 @@ const PostDetailsPage = () => {
 								</Button>
 							</div>
 						</div>
-						<PostCommentsSection showComments={showPostsCreateCommentsAndGiveKudos === postDetails.id}
+						<PostCommentsSection
+							showComments={
+								showPostsCreateCommentsAndGiveKudos === postDetails.id
+							}
 							onCommentPost={(comment) =>
-								handleCommentPost(comment, postDetails.id)} />
-						
+								handleCommentPost(comment, postDetails.id)
+							}
+						/>
+
 						<PostsCreateCommentsAndGiveKudos
 							show={showPostsCreateCommentsAndGiveKudos}
 							handleClose={() => setShowPostsCreateCommentsAndGiveKudos(false)}
 							posts={postDetails}
 							onDeleteComment={(commentIndex) =>
-											handleCommentDelete(commentIndex, postDetails.id)
-										}
-										onLikeComment={(commentIndex) =>
-											handleCommentLikeToggle(postDetails.id, commentIndex)
-										}
+								handleCommentDelete(commentIndex, postDetails.id)
+							}
+							onLikeComment={(commentIndex) =>
+								handleCommentLikeToggle(postDetails.id, commentIndex)
+							}
 						/>
 						<div>
 							{postDetails.comments.length > 0
@@ -285,18 +289,24 @@ const PostDetailsPage = () => {
 												<Button
 													variant="success"
 													size="sm"
-													onClick={() => handleCommentDelete(index, postDetails.id)}
+													onClick={() =>
+														handleCommentDelete(index, postDetails.id)
+													}
 												>
 													Delete
 												</Button>{" "}
 												<Button
 													variant="danger"
 													size="sm"
-													onClick={() => handleCommentLikeToggle(postDetails.id, index)}
+													onClick={() =>
+														handleCommentLikeToggle(postDetails.id, index)
+													}
 												>
 													Like
 												</Button>
-												<p>{postDetails.commentLikes?.[index] ? "1 Like" : ""}</p>
+												<p>
+													{postDetails.commentLikes?.[index] ? "1 Like" : ""}
+												</p>
 											</p>
 										</div>
 								  ))
