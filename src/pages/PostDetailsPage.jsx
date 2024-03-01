@@ -203,12 +203,13 @@ const PostDetailsPage = () => {
 											</svg>
 										</Dropdown.Toggle>
 										<Dropdown.Menu id="module-btn-list-dropdown">
-											<Dropdown.Item
-												href={`/post/${postId}/edit`}
+											{/* <Dropdown.Item */}
+												<Link to={`/post/${postId}/edit`}
 												className="uiSocialsBtn-dropDown-link"
 											>
 												Edit
-											</Dropdown.Item>
+											</Link>
+											{/* </Dropdown.Item> */}
 											<Dropdown.Item
 												href="#/action-1"
 												className="uiSocialsBtn-dropDown-link"

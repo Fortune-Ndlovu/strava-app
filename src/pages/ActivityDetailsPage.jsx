@@ -38,20 +38,21 @@ const ActivityDetailsPage = () => {
 	useEffect(() => {
 		// Fetching activity details from the Firestore
 		const fetchActivityDetails = async () => {
-			const activityDoc = doc(db, "userActivities", activityId);
-			const activitySnapshot = await getDoc(activityDoc);
-
-			// If the doc exists update the state with the fetched activity details
-			if (activitySnapshot.exists()) {
-				setActivityDetails({
-					...activitySnapshot.data(),
-					id: activitySnapshot.id,
-				});
+			const activityDocRef = doc(db, "userActivities", activityId);
+			const activityDocSnapshot = await getDoc(activityDocRef);
+			if (activityDocSnapshot.exists()) {
+				setActivityDetails(activityDocSnapshot.data());
+			} else {
+				console.log("Document Data Not Found");
 			}
 		};
-
-		fetchActivityDetails();
+		
+		return () => { 
+			fetchActivityDetails();
+		}
 	});
+
+	// console.log("Activity Details: ", activityDetails);
 
 	const handleDeleteActivity = async () => {
 		const userDoc = doc(db, "userActivities", activityId);
