@@ -223,6 +223,21 @@ const PostDetailsPage = () => {
 							<div className="post-details-data-user-inputs">
 								<h1>{postDetails.post}</h1>
 								<p>{postDetails.message}</p>
+								{postDetails.image && postDetails.image.length > 0 && (
+									<div className="posts-details-added-image">
+										{postDetails.image.map((imageUrl, index) => (
+											<img
+												key={index}
+												src={imageUrl}
+												alt={`Post ${index + 1}`}
+												width={70}
+												height={70}
+												loading="lazy"
+												style={{objectFit: "cover"}}
+											/>
+										))}
+									</div>
+								)}
 							</div>
 							<div className="post-details-data-post-interactions-footer">
 								<Button>

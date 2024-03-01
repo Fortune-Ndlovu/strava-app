@@ -18,8 +18,6 @@ const CreateNewPostForm = ({ onCreatePost }) => {
 		const compressedImages = await Promise.all(
 			files.map(async (file) => await compressImage(file))
 		);
-
-		console.log("handleImagePost: ", compressedImages);
 		setImageFiles([...imageFiles, ...compressedImages]);
 	};
 
