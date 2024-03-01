@@ -10,7 +10,6 @@ const CreateNewPostForm = ({ onCreatePost }) => {
 	const [newPost, setNewPost] = useState("");
 	const [newPostMessage, setNewPostMessage] = useState("");
 	const [imageFiles, setImageFiles] = useState([]);
-	console.log(imageFiles);
 	const navigate = useNavigate();
 
 	const handleImagePost = async (e) => {
@@ -27,7 +26,7 @@ const CreateNewPostForm = ({ onCreatePost }) => {
 			await Promise.all(
 				imageFiles.map(async (file) => {
 					const storage = getStorage();
-					const storageRef = ref(storage, `activity_images/${file.name}`);
+					const storageRef = ref(storage, `post_images/${file.name}`);
 					await uploadBytes(storageRef, file);
 					console.log("uploaded a blog or a file");
 					const imageUrlRef = await getDownloadURL(storageRef);
@@ -38,7 +37,7 @@ const CreateNewPostForm = ({ onCreatePost }) => {
 			const createdPost = await onCreatePost({
 				post: newPost,
 				message: newPostMessage,
-				image: imagesUrls,
+				imageUrls: imagesUrls,
 			});
 			console.log("createdPost!!: ", createdPost);
 

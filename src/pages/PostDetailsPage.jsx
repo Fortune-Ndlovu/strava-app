@@ -223,9 +223,9 @@ const PostDetailsPage = () => {
 							<div className="post-details-data-user-inputs">
 								<h1>{postDetails.post}</h1>
 								<p>{postDetails.message}</p>
-								{postDetails.image && postDetails.image.length > 0 && (
+								{postDetails.imageUrls && postDetails.imageUrls.length > 0 && (
 									<div className="posts-details-added-image">
-										{postDetails.image.map((imageUrl, index) => (
+										{postDetails.imageUrls.map((imageUrl, index) => (
 											<img
 												key={index}
 												src={imageUrl}
