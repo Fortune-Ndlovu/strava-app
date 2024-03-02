@@ -13,6 +13,7 @@ import {
 	updateDoc,
 	getDoc,
 	doc,
+	getDocs,
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import CommentSection from "../CreateCommentsAndGiveKudos/CommentSection";
@@ -22,6 +23,7 @@ import "./sidebarStyles/CenterDashboardAthleteSidebar.css";
 
 function CenterDashboardAthleteSidebar({ athlete }) {
 	const [activities, setActivities] = useState([]);
+	const [posts, setPosts] = useState([]);
 	// const [showComments, setShowComments] = useState(false);
 	const [comments, setComments] = useState([]); // New state to store comments
 	const [showCommentsForActivity, setShowCommentsForActivity] = useState(null); // Track the active activity ID
@@ -31,11 +33,8 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 		useState(false);
 
 	useEffect(() => {
-		// Firestore collection reference
-		const activitiesCollection = collection(db, "userActivities");
-
 		// Setting up a snapshot listener to track changes in the collection
-		const unsubscribe = onSnapshot(activitiesCollection, (snapshot) => {
+		const unsubscribeActivitiesCollection = onSnapshot(collection(db, "userActivities"), (snapshot) => {
 			// Update the state whenever there's a change in the collection
 			// Sorting the activities in descending order based on the createdAt timestamp, ensuring that the most recent activity comes first
 			setActivities(
@@ -62,11 +61,22 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 				}));
 			});
 		});
-
 		// Cleanup the listener when the component unmounts
-		return () => unsubscribe();
+		return () => unsubscribeActivitiesCollection();
 	}, []);
 
+	useEffect(() => { 
+		// Firestore collection reference
+		const unsubscribePostsCollection = onSnapshot(collection(db, "userPosts"), (snaphot) => { 
+			// Update the state whenever there's a change in the collection
+            setPosts(
+                snaphot.docs
+                    .map((doc) => ({...doc.data(), id: doc.id }))
+            );
+		});
+		return () => unsubscribePostsCollection();
+	}, []);
+	
 	const handleCommentPost = async (comment, activityId) => {
 		try {
 			// Update the comments state with the new comment for the specific activity
@@ -137,7 +147,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 			console.error("Error toggling comment like:", error);
 		}
 	};
-	
+
 	return (
 		<div id="homeDashboardFeedUI" className="center-sidebar-container">
 			<Container>
