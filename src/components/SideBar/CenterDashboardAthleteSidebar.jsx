@@ -20,10 +20,10 @@ import CommentSection from "../CreateCommentsAndGiveKudos/CommentSection";
 import CreateCommentsAndGiveKudos from "../CreateCommentsAndGiveKudos/CreateCommentsAndGiveKudos";
 import fortunendlovu from "../../images/fortunendlovu.jpg";
 import "./sidebarStyles/CenterDashboardAthleteSidebar.css";
+import PostsDashboard from "./PostsDashboard";
 
 function CenterDashboardAthleteSidebar({ athlete }) {
 	const [activities, setActivities] = useState([]);
-	const [posts, setPosts] = useState([]);
 	// const [showComments, setShowComments] = useState(false);
 	const [comments, setComments] = useState([]); // New state to store comments
 	const [showCommentsForActivity, setShowCommentsForActivity] = useState(null); // Track the active activity ID
@@ -65,18 +65,8 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 		return () => unsubscribeActivitiesCollection();
 	}, []);
 
-	useEffect(() => { 
-		// Firestore collection reference
-		const unsubscribePostsCollection = onSnapshot(collection(db, "userPosts"), (snaphot) => { 
-			// Update the state whenever there's a change in the collection
-            setPosts(
-                snaphot.docs
-                    .map((doc) => ({...doc.data(), id: doc.id }))
-            );
-		});
-		return () => unsubscribePostsCollection();
-	}, []);
-	
+
+
 	const handleCommentPost = async (comment, activityId) => {
 		try {
 			// Update the comments state with the new comment for the specific activity
@@ -151,6 +141,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 	return (
 		<div id="homeDashboardFeedUI" className="center-sidebar-container">
 			<Container>
+				<PostsDashboard athlete={ athlete } />
 				{activities.map((activity) => (
 					<Card
 						key={activity.id}
