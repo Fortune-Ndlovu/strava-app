@@ -17,7 +17,6 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import fortunendlovu from "../../images/fortunendlovu.jpg";
 
 const PostsDashboard = ({ athlete }) => {
-	console.log("Athlete: ", athlete);
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
@@ -59,8 +58,7 @@ const PostsDashboard = ({ athlete }) => {
 											<Col sm={9}>
 												<div className="feed-ui-user-info">
 													<p className="feed-ui-user-name">
-														{/* {athlete.firstname} {athlete.lastname} */}
-														Fortune Ndlovu
+														{athlete.firstname} {athlete.lastname}
 													</p>
 													<p className="feed-ui-user-location">
 														<time data-test id="date_at_time">
