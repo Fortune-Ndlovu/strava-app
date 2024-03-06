@@ -16,7 +16,7 @@ const PostCommentsSection = ({ showComments, onCommentPost }) => {
 
 	return (
 		<div
-			className={`comment-section`}
+			className={`comment-section ${showComments ? "visible" : "hidden"}`}
 			id="activityCommentsWrapper"
 		>
 			<img

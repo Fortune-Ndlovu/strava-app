@@ -6,10 +6,11 @@ import Modal from "react-bootstrap/Modal";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import PostCommentsSection from "./PostCommentsSection";
+import "./CreateCommentsAndGiveKudos.css";
 function PostsCreateCommentsAndGiveKudos({
 	show,
 	handleClose,
-	posts,
+	post,
 	onDeleteComment,
 	onLikeComment,
 }) {
@@ -41,24 +42,24 @@ function PostsCreateCommentsAndGiveKudos({
 		<div>
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header closeButton>
-					<Modal.Title>{posts.post}</Modal.Title>
+					<Modal.Title>{post.post}</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					{posts.message}{" "}
+					{post.message}{" "}
 					<Tabs
 						defaultActiveKey="profile"
 						id="uncontrolled-tab-example"
 						className="mb-3"
 					>
-						<Tab eventKey="home" title={`Kudos (${posts.kudos.length})`}>
+						<Tab eventKey="home" title={`Kudos (${post.kudos.length})`}>
 							This entry has no kudos yet.{" "}
 						</Tab>
 						<Tab
 							eventKey="profile"
-							title={`Comments (${posts.comments.length})`}
+							title={`Comments (${post.comments.length})`}
 						>
-							{posts.comments.length > 0
-								? posts.comments.map((comment, index) => (
+							{post.comments.length > 0
+								? post.comments.map((comment, index) => (
 										<div key={index}>
 											<p>
 												{comment}{" "}
@@ -76,7 +77,7 @@ function PostsCreateCommentsAndGiveKudos({
 												>
 													Like
 												</Button>
-												<p>{posts.commentLikes?.[index] ? "1 Like" : ""}</p>
+												<p>{post.commentLikes?.[index] ? "1 Like" : ""}</p>
 											</p>
 										</div>
 								  ))
@@ -86,7 +87,7 @@ function PostsCreateCommentsAndGiveKudos({
 				</Modal.Body>
 				<Modal.Footer>
 					<PostCommentsSection
-						onCommentPost={(comment) => handleCommentPost(comment, posts.id)}
+						onCommentPost={(comment) => handleCommentPost(comment, post.id)}
 					/>
 
 					<Button variant="primary" onClick={handleClose}>

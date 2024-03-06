@@ -284,10 +284,10 @@ const PostDetailsPage = () => {
 							}
 						/>
 
-						<PostsCreateCommentsAndGiveKudos
+						<PostsCreateCommentsAndGiveKudos id="comments-post-block"
 							show={showPostsCreateCommentsAndGiveKudos}
 							handleClose={() => setShowPostsCreateCommentsAndGiveKudos(false)}
-							posts={postDetails}
+							post={postDetails}
 							onDeleteComment={(commentIndex) =>
 								handleCommentDelete(commentIndex, postDetails.id)
 							}
