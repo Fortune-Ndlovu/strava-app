@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import authSignInWithEmailAndPassword from "../services/signInWithEmailAndPassword";
+import authSignInWithEmailAndPassword from "../services/authSignInWithEmailAndPassword";
 import "../styles/LogInSignUp.css";
 
 const LogIn = () => {
