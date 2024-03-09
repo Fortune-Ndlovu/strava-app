@@ -279,7 +279,7 @@ const Header = () => {
                                         <li><Link to="/findFriends">Find Friends</Link></li>
                                         <li><Link to="/profile">My Profile</Link></li>
                                         <li><Link to="/settings">Settings</Link></li>
-                                        <li><Link to="/logOut">Log Out</Link></li>
+                                        <li><Link to="/logIn">Log Out</Link></li>
                                     </ul>
                                 </div>
                             </NavDropdown>

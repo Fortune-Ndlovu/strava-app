@@ -28,7 +28,8 @@ import SubscriberPerks from "./pages/ExplorePages/SubscriberPerks";
 import FindFriends from "./pages/UserPages/FindFriends";
 import MyProfile from "./pages/UserPages/MyProfile";
 import Settings from "./pages/UserPages/Settings";
-import LogOut from "./pages/UserPages/LogOut";
+import LogIn from "./pages/LogIn";
+import SignUp from "./pages/SignUp";
 
 import CreatePost from "./pages/UserUploadPages/CreatePost";
 
@@ -82,7 +83,8 @@ function App() {
 				<Route path="/findFriends" element={<FindFriends />}></Route>
 				<Route path="/profile" element={<MyProfile />}></Route>
 				<Route path="/settings" element={<Settings />}></Route>
-				<Route path="/logOut" element={<LogOut />}></Route>
+				<Route path="/login" element={<LogIn />}></Route>
+				<Route path="/signUp" element={<SignUp />}></Route>
 
 				{/* Upload Dropdown Routers */}
 				<Route path="/device" element={<Device />}></Route>
