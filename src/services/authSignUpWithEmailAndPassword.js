@@ -9,7 +9,7 @@ const authSignUpWithEmailAndPassword = async (email, password) => {
 			password
 		);
 		const user = userCredential.user;
-		return { user };
+		return { user, uid: user.uid };
 	} catch (error) {
 		return { error: error.message };
 	}
