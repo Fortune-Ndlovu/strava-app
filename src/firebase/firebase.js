@@ -23,4 +23,10 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 const auth = getAuth(app);
 
-export { app, db, storage, auth }
+// Get the current user ID after authentication
+const getCurrentUserId = () => {
+  const user = auth.currentUser;
+  return user ? user.uid : null;
+};
+
+export { app, db, storage, auth, getCurrentUserId }

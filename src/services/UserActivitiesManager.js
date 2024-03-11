@@ -8,16 +8,19 @@ import {
 	doc,
 	writeBatch,
 	serverTimestamp,
+	query,
+	where,
 } from "firebase/firestore";
+import { getCurrentUserId } from "../firebase/firebase";
 
-// Importing components used in this module
 import ManualEntryForm from "../components/ManualEntryForm/ManualEntryForm";
 import MyActivitiesTable from "../components/MyActivitiesTable/MyActivitiesTable";
 
-// Defining the UserActivitiesManager component
 const UserActivitiesManager = ({ showForm }) => {
 	const [userActivities, setUserActivities] = useState([]);
 	const userActivitiesCollection = collection(db, "userActivities");
+
+	const currentUserId = getCurrentUserId();
 
 	const createActivity = async (newActivity) => {
 		// Adding the creation date and time to the new activity object
@@ -28,8 +31,12 @@ const UserActivitiesManager = ({ showForm }) => {
 		newActivity.comments = [];
 		newActivity.activityLikes = [];
 
-		// Adding a new doc to the firebase collection, and returning a doc reference object representing the newly created doc
-		const docRef = await addDoc(userActivitiesCollection, newActivity);
+		// Add the user's ID to the activity document
+		const userId = getCurrentUserId();
+		const docRef = await addDoc(userActivitiesCollection, {
+			...newActivity,
+			userId,
+		});
 
 		// Creating a new object by spreading the properties of the doc id
 		// Ensuring the returned object includes both the original activity data and Id assigned by Firestore
@@ -69,10 +76,16 @@ const UserActivitiesManager = ({ showForm }) => {
 		await batch.commit();
 	};
 
-	// Listening for changes to the collection and get real time updates
+	// Listening for changes to the collection and get real-time updates
 	useEffect(() => {
-		const unsubscribe = onSnapshot(userActivitiesCollection, (snapshot) => {
-			// calling with the updated data obtained from the snapshot
+		if (!currentUserId) return;
+
+		const userActivitiesQuery = query(
+			userActivitiesCollection,
+			where("userId", "==", currentUserId)
+		);
+
+		const unsubscribe = onSnapshot(userActivitiesQuery, (snapshot) => {
 			const sortedActivities = snapshot.docs
 				.map((doc) => ({ ...doc.data(), id: doc.id }))
 				.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -81,7 +94,7 @@ const UserActivitiesManager = ({ showForm }) => {
 		});
 
 		return () => unsubscribe();
-	});
+	}, [currentUserId]);
 
 	return (
 		<div>
