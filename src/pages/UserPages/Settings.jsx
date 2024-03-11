@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import UserProfileForm from "../../components/UserProfileForm/UserProfileForm";
+import "../../styles/UserPages/Settings.css";
 
 const Settings = () => {
     return (
-        <div className="dashboard-container">
-            <h1>Settings</h1>
+        <div className="settings-wrapper">
+            <h1>My Profile</h1>
+            <UserProfileForm />
         </div>
     )
 }
