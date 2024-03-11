@@ -15,6 +15,7 @@ import {
 	doc,
 	getDocs,
 } from "firebase/firestore";
+import { getCurrentUserId } from "../../firebase/firebase";
 import { db } from "../../firebase/firebase";
 import CommentSection from "../CreateCommentsAndGiveKudos/CommentSection";
 import CreateCommentsAndGiveKudos from "../CreateCommentsAndGiveKudos/CreateCommentsAndGiveKudos";
@@ -34,38 +35,42 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 
 	useEffect(() => {
 		// Setting up a snapshot listener to track changes in the collection
-		const unsubscribeActivitiesCollection = onSnapshot(collection(db, "userActivities"), (snapshot) => {
-			// Update the state whenever there's a change in the collection
-			// Sorting the activities in descending order based on the createdAt timestamp, ensuring that the most recent activity comes first
-			setActivities(
-				snapshot.docs
+		const unsubscribeActivitiesCollection = onSnapshot(
+			collection(db, "userActivities"),
+			(snapshot) => {
+				// Update the state whenever there's a change in the collection
+				// Filtering activities to show only those created by the current user
+				const userActivities = snapshot.docs
 					.map((doc) => ({ ...doc.data(), id: doc.id }))
-					.sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis())
-			);
+					.filter((activity) => activity.userId === getCurrentUserId())
+					.sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis());
 
-			// Fetch comments for each activity and update the comments state
-			snapshot.docs.forEach(async (document) => {
-				const activityId = document.id;
-				const userDoc = doc(db, "userActivities", activityId);
-				const existingComments = (await getDoc(userDoc)).data().comments || [];
-				setComments((prevComments) => ({
-					...prevComments,
-					[activityId]: existingComments,
-				}));
+				setActivities(userActivities);
 
-				const existingCommentLikes =
-					(await getDoc(userDoc)).data().commentLikes || {};
-				setCommentLikes((prevCommentLikes) => ({
-					...prevCommentLikes,
-					[activityId]: existingCommentLikes,
-				}));
-			});
-		});
+				// Fetch comments for each activity and update the comments state
+				userActivities.forEach(async (activity) => {
+					const activityId = activity.id;
+					const userDoc = doc(db, "userActivities", activityId);
+					const existingComments =
+						(await getDoc(userDoc)).data().comments || [];
+					setComments((prevComments) => ({
+						...prevComments,
+						[activityId]: existingComments,
+					}));
+
+					const existingCommentLikes =
+						(await getDoc(userDoc)).data().commentLikes || {};
+					setCommentLikes((prevCommentLikes) => ({
+						...prevCommentLikes,
+						[activityId]: existingCommentLikes,
+					}));
+				});
+			}
+		);
+
 		// Cleanup the listener when the component unmounts
 		return () => unsubscribeActivitiesCollection();
 	}, []);
-
-
 
 	const handleCommentPost = async (comment, activityId) => {
 		try {
@@ -141,7 +146,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 	return (
 		<div id="homeDashboardFeedUI" className="center-sidebar-container">
 			<Container>
-				<PostsDashboard athlete={ athlete } />
+				<PostsDashboard athlete={athlete} />
 				{activities.map((activity) => (
 					<Card
 						key={activity.id}
