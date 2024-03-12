@@ -110,7 +110,15 @@ const UserProfileForm = () => {
 
 	return (
 		<div>
-			<ProfileComponent updateUserDocument={updateUserDocument} />
+            <div>
+                <img src={userData.profileImageUrl} alt="" width={70}
+					height={70}
+					style={{
+						objectFit: "cover",
+						marginRight: "10px",
+					}}/>
+                <ProfileComponent updateUserDocument={updateUserDocument} />
+            </div>
 			<Table striped bordered hover>
 				<tbody>
 					<tr>
