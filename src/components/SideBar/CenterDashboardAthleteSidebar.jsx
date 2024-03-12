@@ -8,11 +8,13 @@ import Card from "react-bootstrap/Card";
 import Dropdown from "react-bootstrap/Dropdown";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import {
+	query,
 	collection,
 	onSnapshot,
 	updateDoc,
 	getDoc,
 	doc,
+	where,
 	getDocs,
 } from "firebase/firestore";
 import { getCurrentUserId } from "../../firebase/firebase";
@@ -25,13 +27,37 @@ import PostsDashboard from "./PostsDashboard";
 
 function CenterDashboardAthleteSidebar({ athlete }) {
 	const [activities, setActivities] = useState([]);
-	// const [showComments, setShowComments] = useState(false);
-	const [comments, setComments] = useState([]); // New state to store comments
-	const [showCommentsForActivity, setShowCommentsForActivity] = useState(null); // Track the active activity ID
-	// const [likes, setLikes] = useState({});
-	const [commentLikes, setCommentLikes] = useState({}); // State to track likes for each comment
+	const [comments, setComments] = useState([]); 
+	const [showCommentsForActivity, setShowCommentsForActivity] = useState(null);
+	const [commentLikes, setCommentLikes] = useState({}); 
 	const [showCommentsAndGiveKudos, setShowCommentsAndGiveKudos] =
 		useState(false);
+	const [userData, setUserData] = useState({});
+
+	useEffect(() => {
+		const fetchUserData = async () => {
+			try {
+				const userId = getCurrentUserId();
+				if (userId) {
+					const usersQuery = query(
+						collection(db, "users"),
+						where("uid", "==", userId)
+					);
+					const userSnapshot = await getDocs(usersQuery);
+					if (!userSnapshot.empty) {
+						const userDataFromFirestore = userSnapshot.docs[0].data();
+						setUserData(userDataFromFirestore);
+					} else {
+						console.error("User document not found for current user.");
+					}
+				}
+			} catch (error) {
+				console.error("Error fetching user data:", error);
+			}
+		};
+
+		fetchUserData();
+	}, []);
 
 	useEffect(() => {
 		// Setting up a snapshot listener to track changes in the collection
@@ -164,19 +190,29 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 													style={{ width: "15%" }}
 												>
 													<div className="feed-ui-user-image-wrapper">
-														<Card.Img
-															variant="top"
-															id="feed-ui-user-image"
-															src={defaultUserProfile}
-														/>
+														{userData.profileImageUrl ? (
+															<Card.Img
+																variant="top"
+																id="feed-ui-user-image"
+																src={userData.profileImageUrl}
+																width={44}
+																height={44}
+															/>
+														) : (
+															<Card.Img
+																variant="top"
+																id="feed-ui-user-image"
+																src={defaultUserProfile}
+																width={44}
+																height={44}
+															/>
+														)}
 													</div>
 												</Col>
 
 												<Col sm={9}>
 													<div className="feed-ui-user-info">
-														<p className="feed-ui-user-name">
-															{athlete.firstname} {athlete.lastname}
-														</p>
+														<p className="feed-ui-user-name">{userData.name}</p>
 														<p className="feed-ui-user-location">
 															<time data-test id="date_at_time">
 																{activity.createdAt &&

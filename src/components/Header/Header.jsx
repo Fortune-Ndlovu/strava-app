@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { query, collection, where, getDocs } from "firebase/firestore";
+import { getCurrentUserId } from "../../firebase/firebase";
+import { db } from "../../firebase/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import Container from "react-bootstrap/Container";
@@ -29,7 +32,33 @@ const Header = () => {
 	const [showSearch, setShowSearch] = useState(window.innerWidth <= 992); // Initially show on smaller screens.
 	const [isHamburger, setIsHamburger] = useState(window.innerWidth <= 992); // Initially show on smaller screens.
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [userData, setUserData] = useState({});
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		const fetchUserData = async () => {
+			try {
+				const userId = getCurrentUserId();
+				if (userId) {
+					const usersQuery = query(
+						collection(db, "users"),
+						where("uid", "==", userId)
+					);
+					const userSnapshot = await getDocs(usersQuery);
+					if (!userSnapshot.empty) {
+						const userDataFromFirestore = userSnapshot.docs[0].data();
+						setUserData(userDataFromFirestore);
+					} else {
+						console.error("User document not found for current user.");
+					}
+				}
+			} catch (error) {
+				console.error("Error fetching user data:", error);
+			}
+		};
+
+		fetchUserData();
+	}, []);
 
 	// Responsible for updating the isHamburger state based on the window width.
 	const handleResize = () => {
@@ -426,13 +455,24 @@ const Header = () => {
 												alt="navigation dropdown icon"
 												className="dashboard-dropdown-icon"
 											/>
-											<img
-												id="userProfileImg"
-												src={defaultUserProfile}
-												alt="user profile"
-												width={32}
-												height={32}
-											></img>
+
+											{userData.profileImageUrl ? (
+												<img
+													id="userProfileImg"
+													src={userData.profileImageUrl}
+													alt="user profile"
+													width={32}
+													height={32}
+												></img>
+											) : (
+												<img
+													id="userProfileImg"
+													src={defaultUserProfile}
+													alt="user profile"
+													width={32}
+													height={32}
+												></img>
+											)}
 										</button>
 									</div>
 								}

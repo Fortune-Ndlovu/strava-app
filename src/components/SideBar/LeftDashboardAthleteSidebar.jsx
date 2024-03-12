@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import { collection, onSnapshot } from "firebase/firestore";
+import {
+	query,
+	collection,
+	onSnapshot,
+	where,
+	getDocs,
+} from "firebase/firestore";
+import { getCurrentUserId } from "../../firebase/firebase";
 import { db } from "../../firebase/firebase";
 import "./sidebarStyles/LeftDashboardAthleteSidebar.css";
 import ActivityStatsTabs from "./LeftDashboardAthleteSidebarComponents/AthleteStatsTabs";
@@ -13,6 +20,33 @@ import dropdown_icon from "../../images/dropdown_icon.svg";
 function LeftDashboardAthleteSidebar({ athlete }) {
 	const [activities, setActivities] = useState([]);
 
+	const [userData, setUserData] = useState({});
+
+	useEffect(() => {
+		const fetchUserData = async () => {
+			try {
+				const userId = getCurrentUserId();
+				if (userId) {
+					const usersQuery = query(
+						collection(db, "users"),
+						where("uid", "==", userId)
+					);
+					const userSnapshot = await getDocs(usersQuery);
+					if (!userSnapshot.empty) {
+						const userDataFromFirestore = userSnapshot.docs[0].data();
+						setUserData(userDataFromFirestore);
+					} else {
+						console.error("User document not found for current user.");
+					}
+				}
+			} catch (error) {
+				console.error("Error fetching user data:", error);
+			}
+		};
+
+		fetchUserData();
+	}, []);
+
 	useEffect(() => {
 		// Firestore collection reference
 		const activitiesCollection = collection(db, "userActivities");
@@ -21,7 +55,7 @@ function LeftDashboardAthleteSidebar({ athlete }) {
 		const unsubscribe = onSnapshot(activitiesCollection, (snapshot) => {
 			// Update the state whenever there's a change in the collection
 			setActivities(
-				snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+				snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter((activity) => activity.userId === getCurrentUserId())
 			);
 		});
 
@@ -32,38 +66,51 @@ function LeftDashboardAthleteSidebar({ athlete }) {
 	return (
 		<div style={{ width: "17rem" }}>
 			<Card className="athlete-stats-card">
-				<Card.Img
-					variant="top"
-					src={defaultUserProfile}
-					className="mx-auto d-block"
-					id="athleteStatsCardImg"
-				/>
+				{userData.profileImageUrl ? (
+					<Card.Img
+						variant="top"
+						src={userData.profileImageUrl}
+						className="mx-auto d-block"
+						id="athleteStatsCardImg"
+						width={64}
+						height={64}
+					/>
+				) : (
+					<Card.Img
+						variant="top"
+						src={defaultUserProfile}
+						className="mx-auto d-block"
+						id="athleteStatsCardImg"
+						width={64}
+						height={64}
+					/>
+				)}
 				<Card.Body id="athlete-stats-body-wrapper">
 					<Link to={"/activities"} id="athleteName">
 						<Card.Title>
 							{" "}
-							{athlete.firstname} {athlete.lastname}{" "}
+							{userData.name}
 						</Card.Title>
 					</Link>
 					<div>
 						<ul className="dashboard-stats">
 							<li className="following-stat">
-								<a href="/activities">
+								<Link to="/activities">
 									<span>Following</span>
 									<p className="dashboard-stats-value">0</p>
-								</a>
+								</Link>
 							</li>
 							<li className="followers-stat">
-								<a href="/activities">
+								<Link to="/activities">
 									<span>Followers</span>
 									<p>0</p>
-								</a>
+								</Link>
 							</li>
 							<li className="activities-stat">
-								<a href="/activities">
+								<Link to="/activities">
 									<span>Activities</span>
 									<p>{activities.length}</p>
-								</a>
+								</Link>
 							</li>
 						</ul>
 					</div>
