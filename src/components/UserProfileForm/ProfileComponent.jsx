@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { compressImage } from "../../services/compressImage"; // Import the compressImage function
+import CompressImage from "../../services/compressImage";
 
 const ProfileComponent = ({ updateUserDocument }) => {
 	const [selectedImage, setSelectedImage] = useState(null);
@@ -10,7 +10,7 @@ const ProfileComponent = ({ updateUserDocument }) => {
 		setSelectedImage(file);
 
 		// Compress the image before uploading
-		const compressedImage = await compressImage(file);
+		const compressedImage = await CompressImage(file);
 
 		// Upload compressed image to Firebase Storage
 		const storage = getStorage();
