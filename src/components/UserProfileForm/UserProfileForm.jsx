@@ -1,59 +1,116 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-// import UserSettingsNav from "../UserSettingsNav/UserSettingsNav";
+import React, { useState, useEffect } from 'react';
+import Table from "react-bootstrap/Table";
+import Button from 'react-bootstrap/Button';
+import { db } from "../../firebase/firebase";
+import { query, collection, getDocs } from "firebase/firestore";
+import { where, doc, updateDoc } from "firebase/firestore";
+
+import { getCurrentUserId } from "../../firebase/firebase";
 
 const UserProfileForm = () => {
-	return (
-		<div>
-			{/* <UserSettingsNav /> */}
-			<Form>
-				<Form.Group className="mb-3">
-					<Form.Label>Current Photo</Form.Label>
-                    <input
-                        className="form-control"
-							id="imageInput"
-							type="file"
-							// onChange={handleImageChange} 
-						/>
-                </Form.Group>
-                
-                <Form.Group className="mb-3">
-					<Form.Label>Name</Form.Label>
-					<Form.Control type="text" placeholder="Enter your name" />
-                </Form.Group>
+    const [userData, setUserData] = useState({
+        name: "",
+        birthday: "",
+        location: "",
+        primaryClub: "",
+        weight: "",
+        profileBio: ""
+    });
+    const [editMode, setEditMode] = useState({});
 
-				<Form.Group className="mb-3">
-					<Form.Label>Gender</Form.Label>
-					<Form.Control type="text" placeholder="Enter your gender" />
-                </Form.Group>
-                
-                <Form.Group className="mb-3">
-					<Form.Label>Location</Form.Label>
-					<Form.Control type="text" placeholder="Enter your location" />
-                </Form.Group>
-                
-                <Form.Group className="mb-3">
-					<Form.Label>Primary Club</Form.Label>
-					<Form.Control type="text" placeholder="Enter your primary club" />
-                </Form.Group>
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const userId = getCurrentUserId();
+                if (userId) {
+                    const usersQuery = query(collection(db, "users"), where("uid", "==", userId));
+                    const userSnapshot = await getDocs(usersQuery);
+                    if (!userSnapshot.empty) {
+                        const userDataFromFirestore = userSnapshot.docs[0].data();
+                        setUserData(userDataFromFirestore);
+                    } else {
+                        console.error("User document not found for current user.");
+                    }
+                }
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+            }
+        };
 
-                <Form.Group className="mb-3">
-					<Form.Label>Weight</Form.Label>
-					<Form.Control type="text" placeholder="Enter your weight" />
-                </Form.Group>
+        fetchUserData();
+    }, []);
 
-                <Form.Group className="mb-3">
-					<Form.Label>Profile Bio</Form.Label>
-					<Form.Control type="text" placeholder="Enter your profile bio" />
-                </Form.Group>
-                
-				<Button variant="primary" type="submit">
-					Submit
-				</Button>
-			</Form>
-		</div>
-	);
+    const handleEdit = (field) => {
+        setEditMode(prevState => ({
+            ...prevState,
+            [field]: true
+        }));
+    };
+
+const handleSave = async () => {
+    try {
+        // Retrieve the user document
+        const usersQuery = query(collection(db, "users"), where("uid", "==", getCurrentUserId()));
+        const userSnapshot = await getDocs(usersQuery);
+
+        if (!userSnapshot.empty) {
+            // Get the document ID from the first document in the snapshot
+            const userId = userSnapshot.docs[0].id;
+
+            // Update the user document
+            await updateDoc(doc(db, "users", userId), {
+                ...userData
+            });
+            alert("Profile updated successfully!");
+        } else {
+            console.error("User document not found for current user.");
+        }
+    } catch (error) {
+        console.error("Error updating profile:", error);
+    }
+};
+
+
+    const handleChange = (field, value) => {
+        setUserData(prevState => ({
+            ...prevState,
+            [field]: value
+        }));
+    };
+
+    return (
+        <Table striped bordered hover>
+            <tbody>
+                {Object.entries(userData).map(([field, value]) => (
+                    <tr key={field}>
+                        <td>{field}</td>
+                        <td>
+                            {editMode[field] ? (
+                                <input
+                                    type="text"
+                                    value={value}
+                                    onChange={(e) => handleChange(field, e.target.value)}
+                                />
+                            ) : (
+                                <input
+                                    type="text"
+                                    value={value}
+                                    readOnly
+                                />
+                            )}
+                        </td>
+                        <td>
+                            {editMode[field] ? (
+                                <Button variant="primary" onClick={handleSave}>Save</Button>
+                            ) : (
+                                <Button variant="primary" onClick={() => handleEdit(field)}>Edit</Button>
+                            )}
+                        </td>
+                    </tr>
+                ))}
+            </tbody>
+        </Table>
+    );
 };
 
 export default UserProfileForm;
