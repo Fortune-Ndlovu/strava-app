@@ -18,27 +18,27 @@ const UserProfileForm = () => {
     });
     const [editMode, setEditMode] = useState(""); // Changed to string to track edited field
 
-    // useEffect(() => {
-    //     const fetchUserData = async () => {
-    //         try {
-    //             const userId = getCurrentUserId();
-    //             if (userId) {
-    //                 const usersQuery = query(collection(db, "users"), where("uid", "==", userId));
-    //                 const userSnapshot = await getDocs(usersQuery);
-    //                 if (!userSnapshot.empty) {
-    //                     const userDataFromFirestore = userSnapshot.docs[0].data();
-    //                     setUserData(userDataFromFirestore);
-    //                 } else {
-    //                     console.error("User document not found for current user.");
-    //                 }
-    //             }
-    //         } catch (error) {
-    //             console.error("Error fetching user data:", error);
-    //         }
-    //     };
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const userId = getCurrentUserId();
+                if (userId) {
+                    const usersQuery = query(collection(db, "users"), where("uid", "==", userId));
+                    const userSnapshot = await getDocs(usersQuery);
+                    if (!userSnapshot.empty) {
+                        const userDataFromFirestore = userSnapshot.docs[0].data();
+                        setUserData(userDataFromFirestore);
+                    } else {
+                        console.error("User document not found for current user.");
+                    }
+                }
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+            }
+        };
 
-    //     fetchUserData();
-    // }, []);
+        fetchUserData();
+    }, []);
 
     const handleEdit = (field) => {
         setEditMode(field); // Set edit mode to the clicked field
@@ -78,29 +78,28 @@ const UserProfileForm = () => {
     return (
         <Table striped bordered hover>
             <tbody>
-                {Object.entries(userData).map(([field, value]) => (
-                    <tr key={field}>
-                        <td>{field}</td>
-                        <td>
-                            {editMode === field ? ( // Check if edit mode is enabled for this field
-                                <input
-                                    type="text"
-                                    value={value}
-                                    onChange={(e) => handleChange(field, e.target.value)}
-                                />
-                            ) : (
-                                <p>{value}</p> // Display paragraph if not in edit mode
-                            )}
-                        </td>
-                        <td>
-                            {editMode === field ? (
-                                <Button variant="primary" onClick={handleSave}>Save</Button>
-                            ) : (
-                                <Button variant="primary" onClick={() => handleEdit(field)}>Edit</Button> // Pass field to handleEdit
-                            )}
-                        </td>
-                    </tr>
-                ))}
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        {editMode === 'name' ? (
+                            <input
+                                type="text"
+                                value={userData.name}
+                                onChange={(e) => handleChange('name', e.target.value)}
+                            />
+                        ) : (
+                            <p>{userData.name}</p>
+                        )}
+                    </td>
+                    <td>
+                        {editMode === 'name' ? (
+                            <Button variant="primary" onClick={handleSave}>Save</Button>
+                        ) : (
+                            <Button variant="primary" onClick={() => handleEdit('name')}>Edit</Button>
+                        )}
+                    </td>
+                </tr>
+                {/* Repeat the same structure for other fields */}
             </tbody>
         </Table>
     );
