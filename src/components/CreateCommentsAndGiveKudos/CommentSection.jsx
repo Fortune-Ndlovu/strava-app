@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./CreateCommentsAndGiveKudos.css";
 import "../../styles/common/buttons.css";
-import fortunendlovu from "../../images/fortunendlovu.jpg";
+import defaultUserProfile from "../../images/defaultUserProfile.png";
 
 const CommentSection = ({ showComments, onCommentPost }) => {
 	const [comment, setComment] = useState("");
@@ -21,7 +21,7 @@ const CommentSection = ({ showComments, onCommentPost }) => {
 			id="activityCommentsWrapper"
 		>
 			<img
-				src={fortunendlovu}
+				src={defaultUserProfile}
 				alt="user profile"
 				width={24}
 				height={24}

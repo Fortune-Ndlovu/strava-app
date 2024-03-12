@@ -13,7 +13,7 @@ import { IoShareSocialOutline } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
 import "../styles/ActivityDetailsPage.css";
 import "../styles/common/buttons.css";
-import fortunendlovu from "../images/fortunendlovu.jpg";
+import defaultUserProfile from "../images/defaultUserProfile.png";
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
 	<Button
@@ -195,7 +195,7 @@ const ActivityDetailsPage = () => {
 																<Col id="activityDetailsLeftPageCol">
 																	<img
 																		id="activity-details-user-image"
-																		src={fortunendlovu}
+																		src={defaultUserProfile}
 																		alt="fortune ndlovu"
 																		width={50}
 																		height={50}

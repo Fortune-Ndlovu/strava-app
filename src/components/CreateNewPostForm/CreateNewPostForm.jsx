@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import compressImage from "../../services/compressImage";
-import fortunendlovu from "../../images/fortunendlovu.jpg";
+import defaultUserProfile from "../../images/defaultUserProfile.png";
 
 const CreateNewPostForm = ({ onCreatePost }) => {
 	const [newPost, setNewPost] = useState("");
@@ -62,7 +62,7 @@ const CreateNewPostForm = ({ onCreatePost }) => {
 				<div>
 					<div>
 						<img
-							src={fortunendlovu}
+							src={defaultUserProfile}
 							alt="user profile"
 							width={48}
 							height={48}

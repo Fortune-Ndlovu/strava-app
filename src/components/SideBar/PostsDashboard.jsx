@@ -16,7 +16,7 @@ import Button from "react-bootstrap/Button";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import PostCommentsSection from "../CreateCommentsAndGiveKudos/PostCommentsSection";
 import PostsCreateCommentsAndGiveKudos from "../CreateCommentsAndGiveKudos/PostsCreateCommentsAndGiveKudos";
-import fortunendlovu from "../../images/fortunendlovu.jpg";
+import defaultUserProfile from "../../images/defaultUserProfile.png";
 
 const PostsDashboard = ({ athlete }) => {
 	const [posts, setPosts] = useState([]);
@@ -128,7 +128,7 @@ const PostsDashboard = ({ athlete }) => {
 														<Card.Img
 															variant="top"
 															id="feed-ui-user-image"
-															src={fortunendlovu}
+															src={defaultUserProfile}
 														/>
 													</div>
 												</Col>

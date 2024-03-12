@@ -17,7 +17,7 @@ import { TbRoute } from "react-icons/tb";
 import SearchBar from "../SearchBar/SearchBar";
 import stravaLogo from "../../images/strava_logo.svg";
 import dropdown_icon from "../../images/dropdown_icon.svg";
-import fortunendlovu from "../../images/fortunendlovu.jpg";
+import defaultUserProfile from "../../images/defaultUserProfile.png";
 import "./Header.css";
 
 const Header = () => {
@@ -428,7 +428,7 @@ const Header = () => {
 											/>
 											<img
 												id="userProfileImg"
-												src={fortunendlovu}
+												src={defaultUserProfile}
 												alt="user profile"
 												width={32}
 												height={32}

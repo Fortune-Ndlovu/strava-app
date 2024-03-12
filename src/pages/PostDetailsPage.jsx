@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 import PostsCreateCommentsAndGiveKudos from "../components/CreateCommentsAndGiveKudos/PostsCreateCommentsAndGiveKudos";
 import PostCommentsSection from "../components/CreateCommentsAndGiveKudos/PostCommentsSection";
-import fortunendlovu from "../images/fortunendlovu.jpg";
+import defaultUserProfile from "../images/defaultUserProfile.png";
 import "../styles/PostDetailsPage.css";
 
 const PostDetailsPage = () => {
@@ -132,7 +132,7 @@ const PostDetailsPage = () => {
 								<div className="post-details-data-user">
 									<a href="/profile">
 										<img
-											src={fortunendlovu}
+											src={defaultUserProfile}
 											alt="user profile"
 											width={64}
 											height={64}

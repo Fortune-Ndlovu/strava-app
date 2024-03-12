@@ -7,7 +7,7 @@ import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import "./sidebarStyles/LeftDashboardAthleteSidebar.css";
 import ActivityStatsTabs from "./LeftDashboardAthleteSidebarComponents/AthleteStatsTabs";
-import fortunendlovu from "../../images/fortunendlovu.jpg";
+import defaultUserProfile from "../../images/defaultUserProfile.png";
 import dropdown_icon from "../../images/dropdown_icon.svg";
 
 function LeftDashboardAthleteSidebar({ athlete }) {
@@ -34,7 +34,7 @@ function LeftDashboardAthleteSidebar({ athlete }) {
 			<Card className="athlete-stats-card">
 				<Card.Img
 					variant="top"
-					src={fortunendlovu}
+					src={defaultUserProfile}
 					className="mx-auto d-block"
 					id="athleteStatsCardImg"
 				/>

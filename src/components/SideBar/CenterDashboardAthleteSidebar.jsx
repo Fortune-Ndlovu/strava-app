@@ -19,7 +19,7 @@ import { getCurrentUserId } from "../../firebase/firebase";
 import { db } from "../../firebase/firebase";
 import CommentSection from "../CreateCommentsAndGiveKudos/CommentSection";
 import CreateCommentsAndGiveKudos from "../CreateCommentsAndGiveKudos/CreateCommentsAndGiveKudos";
-import fortunendlovu from "../../images/fortunendlovu.jpg";
+import defaultUserProfile from "../../images/defaultUserProfile.png";
 import "./sidebarStyles/CenterDashboardAthleteSidebar.css";
 import PostsDashboard from "./PostsDashboard";
 
@@ -167,7 +167,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 														<Card.Img
 															variant="top"
 															id="feed-ui-user-image"
-															src={fortunendlovu}
+															src={defaultUserProfile}
 														/>
 													</div>
 												</Col>

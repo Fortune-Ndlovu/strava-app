@@ -13,7 +13,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-import fortunendlovu from "../../images/fortunendlovu.jpg";
+import defaultUserProfile from "../../images/defaultUserProfile.png";
 import "./EditPostForm.css";
 import compressImage from "../../services/compressImage";
 
@@ -143,7 +143,7 @@ const EditPostForm = () => {
 						<div className="edit-post-details-form-inner-header">
 							<div className="edit-post-details-form-user-identity">
 								<img
-									src={fortunendlovu}
+									src={defaultUserProfile}
 									alt="user profile"
 									width={48}
 									height={48}
