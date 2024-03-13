@@ -114,6 +114,7 @@ button.view-all-friends-btn:after {
 
 button#saveRouteBtn,
 button.view-all-clubs-btn,
+a#homeLoginBtn,
 button.view-all-clubs-btn::after {
 	background-color: #fff;
 	border-color: #b6b3ac;
@@ -129,6 +130,14 @@ button.view-all-clubs-btn {
 	margin-bottom: 20px;
 }
 
+a#homeLoginBtn {
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 8px;
+}
+
+a#homeLoginBtn:hover,
+a#homeLoginBtn:focus,
 button#saveRouteBtn:hover,
 button#saveRouteBtn:visited,
 button#saveRouteBtn:focus,
@@ -267,6 +276,10 @@ button#activity-details-dropside-btn {
 
 button#activity-details-dropside-btn:hover {
     background-color: #dfdfe8;
+}
+
+#homeLoginBtn {
+
 }
 
 @media screen and (max-width: 992px) {
