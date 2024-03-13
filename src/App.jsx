@@ -1,4 +1,3 @@
-// Fundamental for creating components, managing state, and handling side effects.
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -46,62 +45,114 @@ import EditPostForm from "./components/EditPostForm/EditPostForm";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import SignUpHeader from "./components/SignUpHeader/SignUpHeader";
+import SignUpFooter from "./components/SignUpFooter/SignUpFooter";
+import LogInHeader from "./components/LogInHeader/LogInHeader";
+import LogInFooter from "./components/LogInFooter/LogInFooter";
 
 function App() {
-	return (
-		<BrowserRouter>
-			<Header />
-			<Routes>
-				{/* Dashboard Dropdown Routers */}
-				<Route path="/" element={<Home />}></Route>
-				<Route path="/segments" element={<MySegments />}></Route>
-				<Route path="/goals" element={<MyGoals />}></Route>
-				<Route path="/heatmaps" element={<Heatmaps />}></Route>
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            <>
+              <LogInHeader />
+              <LogIn />
+              <LogInFooter />
+            </>
+          }
+        />
+        <Route
+          path="/signUp"
+          element={
+            <>
+              <SignUpHeader />
+              <SignUp />
+              <SignUpFooter />
+            </>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <>
+              <Header />
+              <Routes>
+                {/* Dashboard Dropdown Routers */}
+                <Route path="/" element={<Home />} />
+                <Route path="/segments" element={<MySegments />} />
+                <Route path="/goals" element={<MyGoals />} />
+                <Route path="/heatmaps" element={<Heatmaps />} />
 
-				{/* Training Dropdown Routers */}
-				<Route path="/training" element={<Training />}></Route>
-				<Route path="/trainingCalendar" element={<TrainingCalendar />}></Route>
-				<Route path="/activities" element={<MyActivities />}></Route>
-				<Route path="/trainingLog" element={<TrainingLog />}></Route>
-				<Route path="/trainingPlans" element={<TrainingPlans />}></Route>
-				<Route path="/powerCurve" element={<PowerCurve />}></Route>
-				<Route path="/fitnessAndFreshness" element={<FitnessAndFreshness />}></Route>
+                {/* Training Dropdown Routers */}
+                <Route path="/training" element={<Training />} />
+                <Route
+                  path="/trainingCalendar"
+                  element={<TrainingCalendar />}
+                />
+                <Route path="/activities" element={<MyActivities />} />
+                <Route path="/trainingLog" element={<TrainingLog />} />
+                <Route path="/trainingPlans" element={<TrainingPlans />} />
+                <Route path="/powerCurve" element={<PowerCurve />} />
+                <Route
+                  path="/fitnessAndFreshness"
+                  element={<FitnessAndFreshness />}
+                />
 
-				{/* Explore Dropdown Routers */}
-				<Route path="/explore" element={<Explore />}></Route>
-				<Route path="/segmentExplore" element={<SegmentExplore />}></Route>
-				<Route path="/segmentSearch" element={<SegmentSearch />}></Route>
-				<Route path="/athleteSearch" element={<AthleteSearch />}></Route>
-				<Route path="/clubs" element={<Clubs />}></Route>
-				<Route path="/apps" element={<Apps />}></Route>
-				<Route path="/createRoute" element={<CreateRoute />}></Route>
-				<Route path="/subscriberPerks" element={<SubscriberPerks />}></Route>
+                {/* Explore Dropdown Routers */}
+                <Route path="/explore" element={<Explore />} />
+                <Route
+                  path="/segmentExplore"
+                  element={<SegmentExplore />}
+                />
+                <Route path="/segmentSearch" element={<SegmentSearch />} />
+                <Route path="/athleteSearch" element={<AthleteSearch />} />
+                <Route path="/clubs" element={<Clubs />} />
+                <Route path="/apps" element={<Apps />} />
+                <Route path="/createRoute" element={<CreateRoute />} />
+                <Route
+                  path="/subscriberPerks"
+                  element={<SubscriberPerks />}
+                />
 
-				<Route path="/challenges" element={<Challenges />}></Route>
+                <Route path="/challenges" element={<Challenges />} />
 
-				{/* User Dropdown Routers */}
-				<Route path="/findFriends" element={<FindFriends />}></Route>
-				<Route path="/profile" element={<MyProfile />}></Route>
-				<Route path="/settings" element={<Settings />}></Route>
-				<Route path="/login" element={<LogIn />}></Route>
-				<Route path="/signUp" element={<SignUp />}></Route>
+                {/* User Dropdown Routers */}
+                <Route path="/findFriends" element={<FindFriends />} />
+                <Route path="/profile" element={<MyProfile />} />
+                <Route path="/settings" element={<Settings />} />
 
-				{/* Upload Dropdown Routers */}
-				<Route path="/device" element={<Device />}></Route>
-				<Route path="/file" element={<File />}></Route>
-				<Route path="/manual" element={<Manual />}></Route>
-				<Route path="/Mobile" element={<Mobile />}></Route>
-				<Route path="/createPost" element={<CreatePost />}></Route>
+                {/* Upload Dropdown Routers */}
+                <Route path="/device" element={<Device />} />
+                <Route path="/file" element={<File />} />
+                <Route path="/manual" element={<Manual />} />
+                <Route path="/Mobile" element={<Mobile />} />
+                <Route path="/createPost" element={<CreatePost />} />
 
-				<Route path="/activity/:activityId" element={<ActivityDetailsPage />} />
-				<Route path="/activity/:activityId/edit" element={<EditActivityForm />} />
-				
-				<Route path="/post/:postId" element={<PostDetailsPage />} />
-				<Route path="/post/:postId/edit" element={<EditPostForm />}/>
-			</Routes>
-			<Footer />
-		</BrowserRouter>
-	);
+                <Route
+                  path="/activity/:activityId"
+                  element={<ActivityDetailsPage />}
+                />
+                <Route
+                  path="/activity/:activityId/edit"
+                  element={<EditActivityForm />}
+                />
+
+                <Route
+                  path="/post/:postId"
+                  element={<PostDetailsPage />}
+                />
+                <Route path="/post/:postId/edit" element={<EditPostForm />} />
+              </Routes>
+              <Footer />
+            </>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

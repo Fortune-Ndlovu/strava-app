@@ -121,8 +121,7 @@ const Header = () => {
 		const auth = getAuth();
 		try {
 			await signOut(auth);
-			navigate("/logIn");
-			console.log("Successfully logged out");
+			navigate("/SignUp");
 		} catch (error) {
 			console.error("Error is signing out: ", error);
 		}
@@ -489,7 +488,7 @@ const Header = () => {
 											<Link to="/settings">Settings</Link>
 										</li>
 										<li>
-											<Link to="/logIn" onClick={handleSignOut}>
+											<Link to="/SignUp" onClick={handleSignOut}>
 												Log Out
 											</Link>
 										</li>
