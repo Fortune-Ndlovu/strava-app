@@ -1,3 +1,111 @@
 .LogInSignUp {
-    padding-top: 100px;
+	padding-top: 100px;
+}
+
+#SignUpContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#SignUpWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 400px;
+	margin: 60px auto;
+	padding: 30px;
+	border-radius: 2px;
+	background: rgba(0, 0, 0, 0.75);
+	color: #fff;
+}
+
+.SignH3UpWrapper {
+	padding-bottom: 14px;
+}
+
+.signUpForFreePara {
+	text-align: center;
+}
+
+button#signUpWithGoogleBtn,
+button#signUpAsGuestBtn {
+	width: 100%;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	margin-top: 8px;
+	padding: 10px 50px;
+	position: relative;
+	background-color: #f9f8f5;
+	border: 1px solid #6d6d78;
+	-webkit-transition: background-color 0.1s ease, border-color 0.1s ease;
+	transition: background-color 0.1s ease, border-color 0.1s ease;
+	font-size: 15px;
+	color: #242428;
+	font-weight: 600;
+}
+
+svg#FcGoogle,
+svg#IoPersonCircleOutline {
+	position: absolute;
+	left: 16px;
+	width: 24px;
+	height: 24px;
+}
+
+button#signUpFormSubmitBtn {
+	width: 100%;
+	height: 48px;
+	font-weight: 600;
+	background-color: #fc5200;
+	border-color: #fc5200;
+	color: #fff;
+}
+
+.signUpFormLineBreak {
+	display: flex;
+	align-items: center;
+}
+
+.signUpFormLineBreak span {
+	color: #fff;
+	margin: 24px 12px;
+	font-weight: 500;
+	font-size: 0.875rem;
+	line-height: 130%;
+}
+
+.signUpFormLineBreakLeft {
+	height: 1px;
+	background-color: #aba9a5;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+}
+.signUpFormLineBreakRight {
+	height: 1px;
+	background-color: #aba9a5;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+}
+
+p#signUpFormMutedText {
+	text-align: center;
+	padding-top: 14px;
+	color: #d3d1cd !important;
+	font-size: 14px;
+	line-height: 16px;
+}
+p#signUpFormMutedTextPw {
+	color: #fff !important;
+	padding-top: 4px;
+	padding-bottom: 14px;
+	font-size: 14px;
+}
+
+.signUpFormFooterLogInLink {
+    color: #FFF!important;
 }
