@@ -60,7 +60,7 @@ function App() {
 						<>
 							<LogInHeader />
 							<LogIn />
-							<LogInFooter />
+							<SignUpFooter />
 						</>
 					}
 				/>

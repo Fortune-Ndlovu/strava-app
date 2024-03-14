@@ -1,5 +1,7 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
 import { FaTwitter } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { CiInstagram } from "react-icons/ci";
@@ -121,9 +123,9 @@ const SignUpFooter = () => {
 										<a href="https://press.strava.com">Do Not Share My Personal Information</a>
 									</li>
 									<li>
-										<a href="https://business.strava.com?utm_source=footer&amp;utm_medium=referral" className="signUpFooterLink">
+										<Link to={"/login"} className="signUpFooterLink">
 											Log In
-										</a>
+										</Link>
 									</li>
 								</ul>
 							</div>

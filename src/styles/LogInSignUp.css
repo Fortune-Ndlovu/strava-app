@@ -109,3 +109,16 @@ p#signUpFormMutedTextPw {
 .signUpFormFooterLogInLink {
     color: #FFF!important;
 }
+
+.orLogInWithEmailPara {
+	text-align: center;
+	padding-top: 14px;
+}
+
+.logInForm {
+	width: 100%;
+}
+
+#loginFormPasswordInput {
+	margin-bottom: 16px;
+}

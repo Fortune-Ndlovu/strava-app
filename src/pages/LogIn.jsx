@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import authSignInWithEmailAndPassword from "../services/authSignInWithEmailAndPassword";
+import { FcGoogle } from "react-icons/fc";
+import { IoPersonCircleOutline } from "react-icons/io5";
+import LoginStravaPic from "../images/LoginStravaPic.jpg";
 import "../styles/LogInSignUp.css";
 
 const LogIn = () => {
@@ -22,32 +25,65 @@ const LogIn = () => {
 	};
 
 	return (
-		<div className="LogInSignUp">
-			<h1>LogIn</h1>
-			<Form onSubmit={handleLogin}>
-				<Form.Group className="mb-3" controlId="formBasicEmail">
-					<Form.Label>Email address</Form.Label>
-					<Form.Control
-						type="email"
-						placeholder="Enter email"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-					/>
-				</Form.Group>
+		<div
+			className="LogInSignUp"
+			style={{
+				backgroundImage: `url(${LoginStravaPic})`,
+				backgroundSize: "cover",
+				backgroundPosition: "center",
+			}}
+		>
+			<div id="SignUpContainer">
+				<div id="SignUpWrapper">
+					<div className="SignH3UpWrapper">
+						<h3>LogIn</h3>
+					</div>
+						<Button variant="primary" id="signUpWithGoogleBtn">
+							{" "}
+							<FcGoogle id="FcGoogle" />
+							Log in using Google
+						</Button>
+					
+						<Button variant="primary" id="signUpAsGuestBtn">
+							<IoPersonCircleOutline id="IoPersonCircleOutline" />
+							Proceed as a Guest
+						</Button>
 
-				<Form.Group className="mb-3" controlId="formBasicPassword">
-					<Form.Label>Password</Form.Label>
-					<Form.Control
-						type="password"
-						placeholder="Password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-					/>
-				</Form.Group>
-				<Button variant="primary" type="submit">
-					Log In
-				</Button>
-			</Form>
+						<div>
+							<p className="orLogInWithEmailPara">Or log in with email
+
+</p>
+						</div>
+					<Form onSubmit={handleLogin} className="logInForm">
+						<Form.Group className="mb-3" controlId="formBasicEmail">
+							<Form.Control
+								type="email"
+								placeholder="Enter email"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+							/>
+						</Form.Group>
+
+						<Form.Group className="mb-3" controlId="formBasicPassword">
+							<Form.Control
+								type="password"
+								placeholder="Password"
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
+								id="loginFormPasswordInput"
+							/>
+							 <Form.Check
+            type="checkbox"
+            
+            label="Remember me"
+          />
+						</Form.Group>
+						<Button variant="primary" type="submit" id="signUpFormSubmitBtn">
+							Log In
+						</Button>
+					</Form>
+				</div>
+			</div>
 		</div>
 	);
 };
