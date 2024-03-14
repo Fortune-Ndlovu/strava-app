@@ -56,7 +56,7 @@ const ActivityDetailsPage = () => {
 		await deleteDoc(userDoc);
 
 		// Redirect to MyActivities page after deletion
-		navigate("/activities");
+		navigate("/home/activities");
 	};
 
 	return (
@@ -67,7 +67,7 @@ const ActivityDetailsPage = () => {
 						<Row>
 							<Col id="activityDetailButtonGroupCol">
 								<Dropdown as={ButtonGroup}>
-									<Link to={`/activity/${activityId}/edit`}>
+									<Link to={`/home/activity/${activityId}/edit`}>
 										<Button
 											id="activity-details-edit-btn"
 											title="Edit this activity"

@@ -130,7 +130,7 @@ const Header = () => {
 	return (
 		<Navbar expand="lg" className="bg-body-tertiary">
 			<Container fluid>
-				<Link to="/" title="Return to the Strava home page" className="mr-auto">
+				<Link to="/home/" title="Return to the Strava home page" className="mr-auto">
 					<img
 						src={stravaLogo}
 						id="strava-logo"
@@ -191,7 +191,7 @@ const Header = () => {
 									show={showDashboardItems}
 									title={
 										<div className="d-flex align-items-center">
-											<Link className="navDropdownHeading" to="/">
+											<Link className="navDropdownHeading" to="/home/">
 												Dashboard
 											</Link>
 											<button
@@ -219,12 +219,12 @@ const Header = () => {
 									<div className="dropdownEffect">
 										<ul className="dashboard-link-segments">
 											<li>
-												<Link to="/" id="activity-feed">
+												<Link to="/home/" id="activity-feed">
 													Activity Feed
 												</Link>
 											</li>
 											<li>
-												<Link to="/segments">My Segments</Link>
+												<Link to="/home/segments">My Segments</Link>
 											</li>
 										</ul>
 
@@ -485,7 +485,7 @@ const Header = () => {
 											<Link to="/profile">My Profile</Link>
 										</li>
 										<li>
-											<Link to="/settings">Settings</Link>
+											<Link to="/home/settings">Settings</Link>
 										</li>
 										<li>
 											<Link to="/SignUp" onClick={handleSignOut}>
@@ -564,7 +564,7 @@ const Header = () => {
 											</Link>
 										</li>
 										<li>
-											<Link to="/manual">
+											<Link to="/home/manual">
 												<div className="upload-center-wrapper">
 													<MdMonitorHeart className="upload-icons" /> Add manual
 													entry

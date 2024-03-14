@@ -78,69 +78,137 @@ function App() {
 					path="/"
 					element={
 						<>
+							<SignUpHeader />
+							<SignUp />
+							<SignUpFooter />
+						</>
+					}
+				/>
+				<Route
+					path="/home/"
+					element={
+						<>
 							<Header />
-							<Routes>
-								{/* Dashboard Dropdown Routers */}
-								<Route path="/" element={<Home />} />
-								<Route path="/segments" element={<MySegments />} />
-								<Route path="/goals" element={<MyGoals />} />
-								<Route path="/heatmaps" element={<Heatmaps />} />
-
-								{/* Training Dropdown Routers */}
-								<Route path="/training" element={<Training />} />
-								<Route
-									path="/trainingCalendar"
-									element={<TrainingCalendar />}
-								/>
-								<Route path="/activities" element={<MyActivities />} />
-								<Route path="/trainingLog" element={<TrainingLog />} />
-								<Route path="/trainingPlans" element={<TrainingPlans />} />
-								<Route path="/powerCurve" element={<PowerCurve />} />
-								<Route
-									path="/fitnessAndFreshness"
-									element={<FitnessAndFreshness />}
-								/>
-
-								{/* Explore Dropdown Routers */}
-								<Route path="/explore" element={<Explore />} />
-								<Route path="/segmentExplore" element={<SegmentExplore />} />
-								<Route path="/segmentSearch" element={<SegmentSearch />} />
-								<Route path="/athleteSearch" element={<AthleteSearch />} />
-								<Route path="/clubs" element={<Clubs />} />
-								<Route path="/apps" element={<Apps />} />
-								<Route path="/createRoute" element={<CreateRoute />} />
-								<Route path="/subscriberPerks" element={<SubscriberPerks />} />
-
-								<Route path="/challenges" element={<Challenges />} />
-
-								{/* User Dropdown Routers */}
-								<Route path="/findFriends" element={<FindFriends />} />
-								<Route path="/profile" element={<MyProfile />} />
-								<Route path="/settings" element={<Settings />} />
-
-								{/* Upload Dropdown Routers */}
-								<Route path="/device" element={<Device />} />
-								<Route path="/file" element={<File />} />
-								<Route path="/manual" element={<Manual />} />
-								<Route path="/Mobile" element={<Mobile />} />
-								<Route path="/createPost" element={<CreatePost />} />
-
-								<Route
-									path="/activity/:activityId"
-									element={<ActivityDetailsPage />}
-								/>
-								<Route
-									path="/activity/:activityId/edit"
-									element={<EditActivityForm />}
-								/>
-
-								<Route path="/post/:postId" element={<PostDetailsPage />} />
-								<Route path="/post/:postId/edit" element={<EditPostForm />} />
-							</Routes>
+							<Home />
+							{/* <MySegments />
+							<MyGoals />
+							<Heatmaps />
+							<Training />
+							<TrainingCalendar />
+							<MyActivities />
+							<TrainingLog />
+							<TrainingPlans />
+							<PowerCurve />
+							<FitnessAndFreshness />
+							<Explore />
+							<SegmentExplore />
+							<SegmentSearch />
+							<AthleteSearch />
+							<Clubs />
+							<Apps />
+							<CreateRoute />
+							<SubscriberPerks />
+							<Challenges />
+							<FindFriends />
+							<MyProfile />
+							<Settings />
+							<Device />
+							<File />
+							<Manual />
+							<Mobile />
+							<CreatePost /> */}
 							<Footer />
 						</>
 					}
 				/>
+
+				{/* Dashboard Dropdown Routers */}
+				<Route path="/home/" element={<Home />} />
+				<Route
+					path="/home/segments"
+					element={
+						<>
+							<Header /> <MySegments />
+							<Footer />
+						</>
+					}
+				/>
+				<Route path="/home/goals" element={<MyGoals />} />
+				<Route path="/home/heatmaps" element={<Heatmaps />} />
+
+				{/* Training Dropdown Routers */}
+				<Route path="/home/training" element={<Training />} />
+				<Route path="/home/trainingCalendar" element={<TrainingCalendar />} />
+				<Route path="/home/activities" element={<MyActivities />} />
+				<Route path="/home/trainingLog" element={<TrainingLog />} />
+				<Route path="/home/trainingPlans" element={<TrainingPlans />} />
+				<Route path="/home/powerCurve" element={<PowerCurve />} />
+				<Route
+					path="/home/fitnessAndFreshness"
+					element={<FitnessAndFreshness />}
+				/>
+
+				{/* Explore Dropdown Routers */}
+				<Route path="/home/explore" element={<Explore />} />
+				<Route path="/home/segmentExplore" element={<SegmentExplore />} />
+				<Route path="/home/segmentSearch" element={<SegmentSearch />} />
+				<Route path="/home/athleteSearch" element={<AthleteSearch />} />
+				<Route path="/home/clubs" element={<Clubs />} />
+				<Route path="/home/apps" element={<Apps />} />
+				<Route path="/home/createRoute" element={<CreateRoute />} />
+				<Route path="/home/subscriberPerks" element={<SubscriberPerks />} />
+
+				<Route path="/home/challenges" element={<Challenges />} />
+
+				{/* User Dropdown Routers */}
+				<Route path="/home/findFriends" element={<FindFriends />} />
+				<Route path="/home/profile" element={<MyProfile />} />
+				<Route
+					path="/home/settings"
+					element={
+						<>
+							<Header />
+							<Settings />
+							<Footer />
+						</>
+					}
+				/>
+
+				{/* Upload Dropdown Routers */}
+				<Route path="/home/device" element={<Device />} />
+				<Route path="/home/file" element={<File />} />
+				<Route
+					path="/home/manual"
+					element={
+						<>
+							<Header />
+							<Manual />
+							<Footer />
+						</>
+					}
+				/>
+				<Route path="/home/Mobile" element={<Mobile />} />
+				<Route path="/home/createPost" element={<CreatePost />} />
+
+				<Route
+					path="/home/activity/:activityId"
+					element={<>
+							<Header />
+							<ActivityDetailsPage />
+							<Footer />
+						</> }
+				/>
+				<Route
+					path="/home/activity/:activityId/edit"
+					element={<>
+							<Header />
+							<EditActivityForm />
+							<Footer />
+						</> }
+				/>
+
+				<Route path="/home/post/:postId" element={<PostDetailsPage />} />
+				<Route path="/home/post/:postId/edit" element={<EditPostForm />} />
 			</Routes>
 		</BrowserRouter>
 	);

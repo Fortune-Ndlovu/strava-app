@@ -99,7 +99,7 @@ const EditActivityForm = () => {
 		const userDoc = doc(db, "userActivities", activityId);
 		await updateDoc(userDoc, editedActivity);
 
-		navigate(`/activity/${activityId}`);
+		navigate(`/home/activity/${activityId}`);
 	};
 
 	// func triggered when the user selects an image file using the file input

@@ -104,7 +104,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 
 			// Redirect to the new activity details page using the id from the created activity
 			if (createdActivity && createdActivity.id) {
-				navigate(`/activity/${createdActivity.id}`);
+				navigate(`/home/activity/${createdActivity.id}`);
 			}
 		} catch (error) {
 			console.error("Error creating activity:", error);
@@ -205,7 +205,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 						<Button type="button" onClick={handleCreateActivity}>
 							Create
 						</Button>
-						<a href="/">Cancel</a>
+						<a href="/home/">Cancel</a>
 					</div>
 				</Form>
 			</Container>
