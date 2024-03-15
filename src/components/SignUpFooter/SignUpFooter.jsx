@@ -1,7 +1,5 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-
+import {  Link } from "react-router-dom";
 import { FaTwitter } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { CiInstagram } from "react-icons/ci";
@@ -36,27 +34,27 @@ const SignUpFooter = () => {
 									<div className="signUpFooterIcons">
 
 									<li>
-										<a href="/events/boston-marathon">
+										<a href="#boston-marathon">
 											<FaTwitter />
 										</a>
 									</li>
 									<li>
-										<a href="/events/london-marathon">
+										<a href="#london-marathon">
 											<FaYoutube />
 										</a>
 									</li>
 									<li>
-										<a href="/events/nyc-marathon">
+										<a href="#nyc-marathon">
 											<CiInstagram />
 										</a>
 									</li>
 									<li>
-										<a href="/routes/hiking/usa">
+										<a href="#hiking/usa">
 											<FaLinkedin />
 										</a>
 									</li>
 									<li>
-										<a href="/events/paris-marathon">
+										<a href="#paris-marathon">
 											<FaFacebookSquare />
 										</a>
 									</li>
@@ -66,19 +64,19 @@ const SignUpFooter = () => {
 							<div className="col-md-2">
 								<ul className="list-unstyled">
 									<li>
-										<a href="/events/boston-marathon">Features</a>
+										<a href="#boston-marathon">Features</a>
 									</li>
 									<li>
-										<a href="/events/london-marathon">Subscription</a>
+										<a href="#london-marathon">Subscription</a>
 									</li>
 									<li>
-										<a href="/events/nyc-marathon">Student Discount</a>
+										<a href="#nyc-marathon">Student Discount</a>
 									</li>	<li>
-										<a href="/events/nyc-marathon">About</a>
+										<a href="#nyc-marathon">About</a>
 									</li>	<li>
-										<a href="/events/nyc-marathon">Careers</a>
+										<a href="#nyc-marathon">Careers</a>
 									</li>	<li>
-										<a href="/events/nyc-marathon">Press</a>
+										<a href="#nyc-marathon">Press</a>
 									</li>
 								</ul>
 							</div>
@@ -92,35 +90,35 @@ const SignUpFooter = () => {
 							<div className="col-md-2">
 								<ul className="list-unstyled">
 									<li>
-										<a href="https://strava.zendesk.com/home">What's New</a>
+										<a href="#what's new">What's New</a>
 									</li>
 									<li>
 
-										<a href="https://strava.zendesk.com/home">Stories</a>
+										<a href="#stories">Stories</a>
 									</li>
 									<li>
-									<a href="https://strava.zendesk.com/home">Support</a>
+									<a href="#home">Support</a>
 									</li>	
 									<li>
 
-									<a href="https://strava.zendesk.com/home">Business</a>
+									<a href="#home">Business</a>
 									</li>
 									<li>
 
-										<a href="https://strava.zendesk.com/home">Partner Center</a>
+										<a href="#home">Partner Center</a>
 									</li>
 									<li>
-										<a href="https://strava.zendesk.com/home">Terms</a>
+										<a href="#home">Terms</a>
 									</li>
 								</ul>
 							</div>
 							<div className="col-md-2">
 								<ul className="list-unstyled">
 									<li>
-										<a href="/careers">Privacy</a>
+										<a href="#privacy">Privacy</a>
 									</li>
 									<li>
-										<a href="https://press.strava.com">Do Not Share My Personal Information</a>
+										<a href="#information">Do Not Share My Personal Information</a>
 									</li>
 									<li>
 										<Link to={"/login"} className="signUpFooterLink">
@@ -132,11 +130,11 @@ const SignUpFooter = () => {
 							<div className="col-md-2">
 								<ul className="list-unstyled">
 									<li>
-										<a href="/DownloadOnTheAppleStore"><img src={DownloadOnTheAppleStore} alt="Apple Store Logo" height={35}/></a>
+										<a href="#DownloadOnTheAppleStore"><img src={DownloadOnTheAppleStore} alt="Apple Store Logo" height={35}/></a>
 									</li>
 									<br></br>
 									<li>
-										<a href="/getItOnGooglePlayLogo"><img src={getItOnGooglePlayLogo} alt="Google Play Logo" height={35}/></a>
+										<a href="#getItOnGooglePlayLogo"><img src={getItOnGooglePlayLogo} alt="Google Play Logo" height={35}/></a>
 									</li>
 								</ul>
 							</div>

@@ -51,7 +51,7 @@ const TabsCard = ({ svgContent, weekText, yearText }) => {
 					</Card.Text>
 				</Card.Body>
 				<Card.Body className="training-log">
-					<Link to={"/activities"} id="goals-log-link">
+					<Link to={"/home/activities"} id="goals-log-link">
 						Manage Your Goals <img
 							src={dropdown_icon}
 							alt="arrow for helping the user to their activities"

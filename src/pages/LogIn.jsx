@@ -24,6 +24,10 @@ const LogIn = () => {
 		}
 	};
 
+	const handleSignUpAsGuestBtn = () => { 
+		navigate("/home");
+	}
+
 	return (
 		<div
 			className="LogInSignUp"
@@ -38,22 +42,20 @@ const LogIn = () => {
 					<div className="SignH3UpWrapper">
 						<h3>LogIn</h3>
 					</div>
-						<Button variant="primary" id="signUpWithGoogleBtn">
-							{" "}
-							<FcGoogle id="FcGoogle" />
-							Log in using Google
-						</Button>
-					
-						<Button variant="primary" id="signUpAsGuestBtn">
-							<IoPersonCircleOutline id="IoPersonCircleOutline" />
-							Proceed as a Guest
-						</Button>
+					<Button variant="primary" id="signUpWithGoogleBtn">
+						{" "}
+						<FcGoogle id="FcGoogle" />
+						Log in using Google
+					</Button>
 
-						<div>
-							<p className="orLogInWithEmailPara">Or log in with email
+					<Button variant="primary" id="signUpAsGuestBtn" type="button" onClick={handleSignUpAsGuestBtn}>
+						<IoPersonCircleOutline id="IoPersonCircleOutline" />
+						Proceed as a Guest
+					</Button>
 
-</p>
-						</div>
+					<div>
+						<p className="orLogInWithEmailPara">Or log in with email</p>
+					</div>
 					<Form onSubmit={handleLogin} className="logInForm">
 						<Form.Group className="mb-3" controlId="formBasicEmail">
 							<Form.Control
@@ -72,11 +74,7 @@ const LogIn = () => {
 								onChange={(e) => setPassword(e.target.value)}
 								id="loginFormPasswordInput"
 							/>
-							 <Form.Check
-            type="checkbox"
-            
-            label="Remember me"
-          />
+							<Form.Check type="checkbox" label="Remember me" />
 						</Form.Group>
 						<Button variant="primary" type="submit" id="signUpFormSubmitBtn">
 							Log In

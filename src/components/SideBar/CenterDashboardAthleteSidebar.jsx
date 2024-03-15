@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -249,19 +250,19 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 													</Dropdown.Toggle>
 													<Dropdown.Menu id="module-btn-list-dropdown">
 														<Dropdown.Item
-															href="#/action-1"
+															href="#Facebook"
 															className="uiSocialsBtn-dropDown-link"
 														>
 															Facebook
 														</Dropdown.Item>
 														<Dropdown.Item
-															href="#/action-1"
+															href="#Twitter"
 															className="uiSocialsBtn-dropDown-link"
 														>
 															Twitter
 														</Dropdown.Item>
 														<Dropdown.Item
-															href="#/action-2"
+															href="#Get Embed Code"
 															className="uiSocialsBtn-dropDown-link"
 														>
 															Get Embed Code
@@ -292,7 +293,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									</div>
 									<div className="feed-ui-media-activity">
 										<h4>
-											<a href={`/activity/${activity.id}`}>{activity.name}</a>
+											<Link to={`/home/activity/${activity.id}`}>{activity.name}</Link>
 										</h4>
 										<p>{activity.description}</p>
 										<div className="feed-ui-media-stats">
@@ -333,7 +334,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										<>
 											{activity.imageUrls.map((imageUrl, index) => (
 												<div className="feed-ui-activity-imageLeft" key={index}>
-													<a href={`/activity/${activity.id}`}>
+													<Link to={`/home/activity/${activity.id}`}>
 														<Card.Img
 															variant="top"
 															src={imageUrl}
@@ -358,7 +359,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 																</Button>
 															</>
 														)}
-													</a>
+													</Link>
 												</div>
 											))}
 										</>
@@ -470,8 +471,8 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 				<div className="feed-end">
 					<p>
 						No more recent activity available. <br></br>To see your full
-						activity history, visit your <a href="/activities">Profile</a> or{" "}
-						<a href="/activities">Training Calendar</a>.
+						activity history, visit your <Link to={"/home/activities"}>Profile</Link> or{" "}
+						<Link to={"/home/activities"}>Training Calendar</Link>.
 					</p>
 				</div>
 			</Container>

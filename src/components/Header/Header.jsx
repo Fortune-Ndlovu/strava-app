@@ -130,7 +130,11 @@ const Header = () => {
 	return (
 		<Navbar expand="lg" className="bg-body-tertiary">
 			<Container fluid>
-				<Link to="/home/" title="Return to the Strava home page" className="mr-auto">
+				<Link
+					to="/home/"
+					title="Return to the Strava home page"
+					className="mr-auto"
+				>
 					<img
 						src={stravaLogo}
 						id="strava-logo"
@@ -232,10 +236,10 @@ const Header = () => {
 											<h6>SUBSCRIPTION</h6>
 											<ul className="dashboard-goals-heatmaps">
 												<li>
-													<Link to="/goals">My Goals</Link>
+													<Link to="/home/goals">My Goals</Link>
 												</li>
 												<li>
-													<Link to="/heatmaps">Heatmaps</Link>
+													<Link to="/home/heatmaps">Heatmaps</Link>
 												</li>
 											</ul>
 										</div>
@@ -253,7 +257,7 @@ const Header = () => {
 									id="trainingDropdown"
 									title={
 										<div className="d-flex align-items-center nav-title">
-											<Link className="navDropdownHeading" to="/training">
+											<Link className="navDropdownHeading" to="/home/training">
 												Training
 											</Link>
 											<button
@@ -281,10 +285,12 @@ const Header = () => {
 									<div className="dropdownEffect" id="trainingDropdown">
 										<ul className="dashboard-link-segments">
 											<li>
-												<Link to="/trainingCalendar">Training Calendar</Link>
+												<Link to="/home/trainingCalendar">
+													Training Calendar
+												</Link>
 											</li>
 											<li>
-												<Link to="/activities">My Activities</Link>
+												<Link to="/home/activities">My Activities</Link>
 											</li>
 										</ul>
 
@@ -292,16 +298,16 @@ const Header = () => {
 											<h6>SUBSCRIPTION</h6>
 											<ul>
 												<li>
-													<Link to="/trainingLog">Training Log</Link>
+													<Link to="/home/trainingLog">Training Log</Link>
 												</li>
 												<li>
-													<Link to="/trainingPlans">Training Plans</Link>
+													<Link to="/home/trainingPlans">Training Plans</Link>
 												</li>
 												<li>
-													<Link to="/powerCurve">Power Curve</Link>
+													<Link to="/home/powerCurve">Power Curve</Link>
 												</li>
 												<li>
-													<Link to="/fitnessAndFreshness">
+													<Link to="/home/fitnessAndFreshness">
 														Fitness & Freshness
 													</Link>
 												</li>
@@ -321,7 +327,7 @@ const Header = () => {
 									id="exploreDropdown"
 									title={
 										<div className="d-flex align-items-center">
-											<Link className="navDropdownHeading" to="/explore">
+											<Link className="navDropdownHeading" to="/home/explore">
 												Explore
 											</Link>
 											<button
@@ -349,34 +355,36 @@ const Header = () => {
 									<div className="dropdownEffect explore">
 										<ul className="dashboard-link-segments">
 											<li>
-												<Link to="/segmentExplore">Segment Explore</Link>
+												<Link to="/home/segmentExplore">Segment Explore</Link>
 											</li>
 											<li>
-												<Link to="/segmentSearch">Segment Search</Link>
+												<Link to="/home/segmentSearch">Segment Search</Link>
 											</li>
 											<li>
-												<Link to="/athleteSearch">Athlete Search</Link>
+												<Link to="/home/athleteSearch">Athlete Search</Link>
 											</li>
 											<li>
-												<Link to="/fitnessAndFreshness">
+												<Link to="/home/fitnessAndFreshness">
 													Fitness & Freshness
 												</Link>
 											</li>
 											<li>
-												<Link to="/clubs">Clubs</Link>
+												<Link to="/home/clubs">Clubs</Link>
 											</li>
 											<li>
-												<Link to="/apps">Apps</Link>
+												<Link to="/home/apps">Apps</Link>
 											</li>
 										</ul>
 										<div className="explore-dropdown-subscription">
 											<h6>SUBSCRIPTION</h6>
 											<ul>
 												<li>
-													<Link to="/createRoute">Create a Route</Link>
+													<Link to="/home/createRoute">Create a Route</Link>
 												</li>
 												<li>
-													<Link to="/subscriberPerks">Subscriber Perks</Link>
+													<Link to="/home/subscriberPerks">
+														Subscriber Perks
+													</Link>
 												</li>
 											</ul>
 										</div>
@@ -385,7 +393,7 @@ const Header = () => {
 								<Link
 									id="challengesLink"
 									className="d-flex align-items-center"
-									to="/challenges"
+									to="/home/challenges"
 								>
 									Challenges
 								</Link>
@@ -479,16 +487,16 @@ const Header = () => {
 								<div className="dropdownEffect" id="userDropdownMenu">
 									<ul className="user-dropdown-menu-wrapper">
 										<li>
-											<Link to="/findFriends">Find Friends</Link>
+											<Link to="/home/findFriends">Find Friends</Link>
 										</li>
 										<li>
-											<Link to="/profile">My Profile</Link>
+											<Link to="/home/profile">My Profile</Link>
 										</li>
 										<li>
 											<Link to="/home/settings">Settings</Link>
 										</li>
 										<li>
-											<Link to="/SignUp" onClick={handleSignOut}>
+											<Link to="/home/SignUp" onClick={handleSignOut}>
 												Log Out
 											</Link>
 										</li>
@@ -556,7 +564,7 @@ const Header = () => {
 								<div className="dropdownEffect" id="userUploadDropdownMenu">
 									<ul className="user-dropdown-menu-wrapper">
 										<li>
-											<Link to="/file">
+											<Link to="/home/file">
 												<div className="upload-center-wrapper">
 													<BsArrowUpCircle className="upload-icons" /> Upload
 													activity
@@ -572,14 +580,14 @@ const Header = () => {
 											</Link>
 										</li>
 										<li>
-											<Link to="/createRoute">
+											<Link to="/home/createRoute">
 												<div className="upload-center-wrapper">
 													<TbRoute className="upload-icons" /> Create route
 												</div>
 											</Link>
 										</li>
 										<li>
-											<Link to="/createPost">
+											<Link to="/home/createPost">
 												<div className="upload-center-wrapper">
 													<BsLayoutTextWindow className="upload-icons" /> Create
 													post

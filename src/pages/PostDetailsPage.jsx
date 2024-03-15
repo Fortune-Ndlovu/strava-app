@@ -130,7 +130,7 @@ const PostDetailsPage = () => {
 						<div className="post-details-data">
 							<div className="post-details-data-user-header">
 								<div className="post-details-data-user">
-									<a href="/profile">
+									<Link to={"/home/profile"}>
 										<img
 											src={defaultUserProfile}
 											alt="user profile"
@@ -138,11 +138,11 @@ const PostDetailsPage = () => {
 											height={64}
 											id="postDetailsUserProfileImg"
 										/>
-									</a>
+									</Link>
 									<div>
-										<a href="/profile">
+										<Link to={"/home/profile"}>
 											<p className="post-details-user-name">Fortune Ndlovu</p>
-										</a>
+										</Link>
 										<p>Saturday, 24 February 2024 at 15:31</p>
 									</div>
 								</div>
@@ -203,14 +203,14 @@ const PostDetailsPage = () => {
 										<Dropdown.Menu id="module-btn-list-dropdown">
 											{/* <Dropdown.Item */}
 											<Link
-												to={`/post/${postId}/edit`}
+												to={`/home/post/${postId}/edit`}
 												className="uiSocialsBtn-dropDown-link"
 											>
 												Edit
 											</Link>
 											{/* </Dropdown.Item> */}
 											<Dropdown.Item
-												href="#/action-1"
+												href="#Delete"
 												className="uiSocialsBtn-dropDown-link"
 												onClick={handleDeletePost}
 											>

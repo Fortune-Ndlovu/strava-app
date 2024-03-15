@@ -61,7 +61,7 @@ const MyActivitiesTable = ({
 								<tr>
 									<td>{activity.sport}</td>
 									<td>{activity.date}</td>
-									<td><a href={`/activity/${activity.id}`} className="link-of-unique-activity">{activity.name}</a></td>
+									<td><a href={`/home/activity/${activity.id}`} className="link-of-unique-activity">{activity.name}</a></td>
 									<td>{activity.time}</td>
 									<td>{activity.distance}</td>
 									<td>{activity.elevation}</td>

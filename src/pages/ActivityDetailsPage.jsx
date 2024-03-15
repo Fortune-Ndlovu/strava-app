@@ -106,10 +106,10 @@ const ActivityDetailsPage = () => {
 									</Dropdown.Toggle>
 									<Dropdown.Menu id="activityDropdownOptions">
 										
-										<Dropdown.Item href="#/action-1">
+										<Dropdown.Item href="#RefreshActivityAchievements">
 											Refresh Activity <br></br> Achievements
 										</Dropdown.Item>
-										<Dropdown.Item href="#/action-2">Flag</Dropdown.Item>
+										<Dropdown.Item href="#Flag">Flag</Dropdown.Item>
 										<Dropdown.Item onClick={handleDeleteActivity}>
 											Delete
 										</Dropdown.Item>
@@ -123,7 +123,7 @@ const ActivityDetailsPage = () => {
 											<Row id="activity-details-book-header-Row">
 												<Col xs="9" id="activity-details-book-header-Col">
 													<div id="activityDetailsTypeInfo">
-														<a href="/activities">Fortune Ndlovu </a> -{" "}
+														<Link to={"/home/activities"}>Fortune Ndlovu </Link> -{" "}
 														{activityDetails.sport}
 													</div>
 												</Col>

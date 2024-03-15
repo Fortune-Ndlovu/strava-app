@@ -117,14 +117,14 @@ const EditPostForm = () => {
 	const handleDeletePost = async () => {
 		const userDoc = doc(db, "userPosts", postId);
 		await deleteDoc(userDoc);
-		navigate("/profile");
+		navigate("/home/profile");
 	};
 
 	const handleSaveChanges = async () => {
 		const userDoc = doc(db, "userPosts", postId);
 		await updateDoc(userDoc, editedPost);
 
-		navigate(`/post/${postId}`);
+		navigate(`/home/post/${postId}`);
 	};
 
 	return (

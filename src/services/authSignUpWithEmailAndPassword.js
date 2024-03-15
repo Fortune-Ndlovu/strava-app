@@ -12,7 +12,6 @@ const authSignUpWithEmailAndPassword = async (email, password) => {
     await addDoc(collection(db, "users"), {
       uid: user.uid,
       email: user.email,
-      // Add other user-related data as needed
     });
 
     return { user, uid: user.uid };

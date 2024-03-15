@@ -8,6 +8,7 @@ import {
 	getDocs,
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
+import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -216,7 +217,7 @@ const PostsDashboard = ({ athlete }) => {
 									</div>
 									<div className="feed-ui-media-activity">
 										<h4>
-											<a href={`/activity/${post.id}`}>{post.post}</a>
+											<Link to={`/home/activity/${post.id}`}>{post.post}</Link>
 										</h4>
 										<p>{post.message}</p>
 									</div>
@@ -234,7 +235,7 @@ const PostsDashboard = ({ athlete }) => {
 														className="feed-ui-activity-imageLeft"
 														key={index}
 													>
-														<a href={`/post/${post.id}`}>
+														<Link to={`/home/post/${post.id}`}>
 															<Card.Img
 																variant="top"
 																src={imageUrl}
@@ -257,7 +258,7 @@ const PostsDashboard = ({ athlete }) => {
 																	</Button>
 																</>
 															)}
-														</a>
+														</Link>
 													</div>
 												))}
 											</>

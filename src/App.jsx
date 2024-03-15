@@ -48,7 +48,6 @@ import Footer from "./components/Footer/Footer";
 import SignUpHeader from "./components/SignUpHeader/SignUpHeader";
 import SignUpFooter from "./components/SignUpFooter/SignUpFooter";
 import LogInHeader from "./components/LogInHeader/LogInHeader";
-import LogInFooter from "./components/LogInFooter/LogInFooter";
 
 function App() {
 	return (
@@ -90,33 +89,6 @@ function App() {
 						<>
 							<Header />
 							<Home />
-							{/* <MySegments />
-							<MyGoals />
-							<Heatmaps />
-							<Training />
-							<TrainingCalendar />
-							<MyActivities />
-							<TrainingLog />
-							<TrainingPlans />
-							<PowerCurve />
-							<FitnessAndFreshness />
-							<Explore />
-							<SegmentExplore />
-							<SegmentSearch />
-							<AthleteSearch />
-							<Clubs />
-							<Apps />
-							<CreateRoute />
-							<SubscriberPerks />
-							<Challenges />
-							<FindFriends />
-							<MyProfile />
-							<Settings />
-							<Device />
-							<File />
-							<Manual />
-							<Mobile />
-							<CreatePost /> */}
 							<Footer />
 						</>
 					}
@@ -133,36 +105,210 @@ function App() {
 						</>
 					}
 				/>
-				<Route path="/home/goals" element={<MyGoals />} />
-				<Route path="/home/heatmaps" element={<Heatmaps />} />
+				<Route
+					path="/home/goals"
+					element={
+						<>
+							<Header />
+							<MyGoals /> <Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/heatmaps"
+					element={
+						<>
+							<Header /> <Heatmaps />
+							<Footer />
+						</>
+					}
+				/>
 
 				{/* Training Dropdown Routers */}
-				<Route path="/home/training" element={<Training />} />
-				<Route path="/home/trainingCalendar" element={<TrainingCalendar />} />
-				<Route path="/home/activities" element={<MyActivities />} />
-				<Route path="/home/trainingLog" element={<TrainingLog />} />
-				<Route path="/home/trainingPlans" element={<TrainingPlans />} />
-				<Route path="/home/powerCurve" element={<PowerCurve />} />
+				<Route
+					path="/home/training"
+					element={
+						<>
+							<Header />
+							<Training />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/trainingCalendar"
+					element={
+						<>
+							<Header />
+							<TrainingCalendar /> <Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/activities"
+					element={
+						<>
+							<Header />
+							<MyActivities />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/trainingLog"
+					element={
+						<>
+							<Header />
+							<TrainingLog />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/trainingPlans"
+					element={
+						<>
+							<Header />
+							<TrainingPlans />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/powerCurve"
+					element={
+						<>
+							<Header />
+							<PowerCurve />
+							<Footer />
+						</>
+					}
+				/>
 				<Route
 					path="/home/fitnessAndFreshness"
-					element={<FitnessAndFreshness />}
+					element={
+						<>
+							<Header />
+							<FitnessAndFreshness />
+							<Footer />
+						</>
+					}
 				/>
 
 				{/* Explore Dropdown Routers */}
-				<Route path="/home/explore" element={<Explore />} />
-				<Route path="/home/segmentExplore" element={<SegmentExplore />} />
-				<Route path="/home/segmentSearch" element={<SegmentSearch />} />
-				<Route path="/home/athleteSearch" element={<AthleteSearch />} />
-				<Route path="/home/clubs" element={<Clubs />} />
-				<Route path="/home/apps" element={<Apps />} />
-				<Route path="/home/createRoute" element={<CreateRoute />} />
-				<Route path="/home/subscriberPerks" element={<SubscriberPerks />} />
+				<Route
+					path="/home/explore"
+					element={
+						<>
+							<Header />
+							<Explore />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/segmentExplore"
+					element={
+						<>
+							<Header />
+							<SegmentExplore />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/segmentSearch"
+					element={
+						<>
+							<Header />
+							<SegmentSearch />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/athleteSearch"
+					element={
+						<>
+							<Header />
+							<AthleteSearch />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/clubs"
+					element={
+						<>
+							<Header />
+							<Clubs />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/apps"
+					element={
+						<>
+							<Header />
+							<Apps />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/createRoute"
+					element={
+						<>
+							<Header />
+							<CreateRoute />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/subscriberPerks"
+					element={
+						<>
+							<Header />
+							<SubscriberPerks />
+							<Footer />
+						</>
+					}
+				/>
 
-				<Route path="/home/challenges" element={<Challenges />} />
+				<Route
+					path="/home/challenges"
+					element={
+						<>
+							<Header />
+							<Challenges />
+							<Footer />
+						</>
+					}
+				/>
 
 				{/* User Dropdown Routers */}
-				<Route path="/home/findFriends" element={<FindFriends />} />
-				<Route path="/home/profile" element={<MyProfile />} />
+				<Route
+					path="/home/findFriends"
+					element={
+						<>
+							<Header />
+							<FindFriends />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/profile"
+					element={
+						<>
+							<Header />
+							<MyProfile />
+							<Footer />
+						</>
+					}
+				/>
 				<Route
 					path="/home/settings"
 					element={
@@ -175,8 +321,26 @@ function App() {
 				/>
 
 				{/* Upload Dropdown Routers */}
-				<Route path="/home/device" element={<Device />} />
-				<Route path="/home/file" element={<File />} />
+				<Route
+					path="/home/device"
+					element={
+						<>
+							<Header />
+							<Device />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/file"
+					element={
+						<>
+							<Header />
+							<File />
+							<Footer />
+						</>
+					}
+				/>
 				<Route
 					path="/home/manual"
 					element={
@@ -187,28 +351,68 @@ function App() {
 						</>
 					}
 				/>
-				<Route path="/home/Mobile" element={<Mobile />} />
-				<Route path="/home/createPost" element={<CreatePost />} />
+				<Route
+					path="/home/Mobile"
+					element={
+						<>
+							<Header />
+							<Mobile />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/createPost"
+					element={
+						<>
+							<Header />
+							<CreatePost />
+							<Footer />
+						</>
+					}
+				/>
 
 				<Route
 					path="/home/activity/:activityId"
-					element={<>
+					element={
+						<>
 							<Header />
 							<ActivityDetailsPage />
 							<Footer />
-						</> }
+						</>
+					}
 				/>
 				<Route
 					path="/home/activity/:activityId/edit"
-					element={<>
+					element={
+						<>
 							<Header />
 							<EditActivityForm />
 							<Footer />
-						</> }
+						</>
+					}
 				/>
 
-				<Route path="/home/post/:postId" element={<PostDetailsPage />} />
-				<Route path="/home/post/:postId/edit" element={<EditPostForm />} />
+				<Route
+					path="/home/post/:postId"
+					element={
+						<>
+							<Header />
+							<PostDetailsPage />
+							<Footer />
+						</>
+					}
+				/>
+				<Route
+					path="/home/post/:postId/edit"
+					element={
+						<>
+							<Header />
+							<EditPostForm />
+							<Footer />
+						</>
+					}
+				/>
 			</Routes>
 		</BrowserRouter>
 	);

@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
@@ -130,10 +131,10 @@ const AthleteStatsTabs = () => {
 							</Button>
 						</Card.Body>
 						<Card.Body className="training-log">
-							<Card.Link href="home" id="goals-log-link">
+							<Link to={"/home/activities"} id="goals-log-link">
 								Manage Your Goals
 								<RiArrowDropDownLine className="trainingLogIcon" />
-							</Card.Link>
+							</Link>
 						</Card.Body>
 					</Card>
 				</Tab>

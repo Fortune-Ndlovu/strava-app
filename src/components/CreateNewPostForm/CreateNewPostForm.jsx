@@ -42,7 +42,7 @@ const CreateNewPostForm = ({ onCreatePost }) => {
 			console.log("createdPost!!: ", createdPost);
 
 			if (createdPost && createdPost.id) {
-				navigate(`/post/${createdPost.id}`);
+				navigate(`/home/post/${createdPost.id}`);
 			}
 		} catch (error) {
 			console.error("Error creating post!:", error);
@@ -53,7 +53,7 @@ const CreateNewPostForm = ({ onCreatePost }) => {
 		// Clear the form fields or perform other actions as needed
 		setNewPost("");
 		setNewPostMessage("");
-		navigate("/profile");
+		navigate("/home/profile");
 	};
 
 	return (

@@ -100,8 +100,6 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 				imageUrls: imageUrls, // Use the outer-scoped imageUrl
 			});
 
-			console.log("Created Activity:", createdActivity);
-
 			// Redirect to the new activity details page using the id from the created activity
 			if (createdActivity && createdActivity.id) {
 				navigate(`/home/activity/${createdActivity.id}`);

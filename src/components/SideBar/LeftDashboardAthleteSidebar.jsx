@@ -86,7 +86,7 @@ function LeftDashboardAthleteSidebar({ athlete }) {
 					/>
 				)}
 				<Card.Body id="athlete-stats-body-wrapper">
-					<Link to={"/activities"} id="athleteName">
+					<Link to={"/home/activities"} id="athleteName">
 						<Card.Title>
 							{" "}
 							{userData.name}
@@ -95,19 +95,19 @@ function LeftDashboardAthleteSidebar({ athlete }) {
 					<div>
 						<ul className="dashboard-stats">
 							<li className="following-stat">
-								<Link to="/activities">
+								<Link to="/home/activities">
 									<span>Following</span>
 									<p className="dashboard-stats-value">0</p>
 								</Link>
 							</li>
 							<li className="followers-stat">
-								<Link to="/activities">
+								<Link to="/home/activities">
 									<span>Followers</span>
 									<p>0</p>
 								</Link>
 							</li>
 							<li className="activities-stat">
-								<Link to="/activities">
+								<Link to="/home/activities">
 									<span>Activities</span>
 									<p>{activities.length}</p>
 								</Link>
@@ -119,7 +119,7 @@ function LeftDashboardAthleteSidebar({ athlete }) {
 					<ListGroup.Item>
 						<span className="latestActivityText">Latest Activity</span>
 						<br></br>
-						<Link to={"/activities"} className="latest-activity-link">
+						<Link to={"/home/activities"} className="latest-activity-link">
 							{activities.length > 0 ? (
 								<>
 									<strong>{activities[0].name}</strong>
@@ -138,7 +138,7 @@ function LeftDashboardAthleteSidebar({ athlete }) {
 					</ListGroup.Item>
 				</ListGroup>
 				<Card.Body className="training-log">
-					<Link to={"/activities"} id="training-log-link">
+					<Link to={"/home/activities"} id="training-log-link">
 						Your Training Log
 						<img
 							src={dropdown_icon}
