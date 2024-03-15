@@ -6,15 +6,13 @@ import { getCurrentUserId } from "../../firebase/firebase";
 import { query, collection, getDocs } from "firebase/firestore";
 import { where, doc, updateDoc } from "firebase/firestore";
 import ProfileComponent from "./ProfileComponent";
-import UserSettingsNav from "../UserSettingsNav/UserSettingsNav";
 
 const UserProfileForm = () => {
 	const [userData, setUserData] = useState({
 		name: "",
 		birthday: "",
+		gender: "",
 		location: "",
-		primaryClub: "",
-		weight: "",
 		profileBio: "",
 	});
 	const [editMode, setEditMode] = useState(""); // Changed to string to track edited field
@@ -110,49 +108,164 @@ const UserProfileForm = () => {
 	};
 
 	return (
-		<div>
-			<UserSettingsNav />
+		<div id="userProfileContainer">
 			<div>
-            <div>
-                <img src={userData.profileImageUrl} alt="" width={70}
-					height={70}
-					style={{
-						objectFit: "cover",
-						marginRight: "10px",
-					}}/>
-                <ProfileComponent updateUserDocument={updateUserDocument} />
-            </div>
-			<Table striped bordered hover>
-				<tbody>
-					<tr>
-						<td>Name</td>
-						<td>
-							{editMode === "name" ? (
-								<input
-								type="text"
-								value={userData.name}
-								onChange={(e) => handleChange("name", e.target.value)}
-								/>
+				<h2>My Profile</h2>
+				<div>
+					<img
+						src={userData.profileImageUrl}
+						alt=""
+						width={70}
+						height={70}
+						style={{
+							objectFit: "cover",
+							marginRight: "10px",
+						}}
+					/>
+					<ProfileComponent updateUserDocument={updateUserDocument} />
+				</div>
+				<Table striped bordered hover>
+					<tbody>
+						<tr>
+							<td>Name</td>
+							<td>
+								{editMode === "name" ? (
+									<input
+										type="text"
+										value={userData.name}
+										onChange={(e) => handleChange("name", e.target.value)}
+									/>
 								) : (
 									<p>{userData.name}</p>
-									)}
-						</td>
-						<td>
-							{editMode === "name" ? (
-								<Button variant="primary" onClick={handleSave}>
-									Save
-								</Button>
-							) : (
-								<Button variant="primary" onClick={() => handleEdit("name")}>
-									Edit
-								</Button>
-							)}
-						</td>
-					</tr>
-					{/* Repeat the same structure for other fields */}
-				</tbody>
-			</Table>
-							</div>
+								)}
+							</td>
+							<td>
+								{editMode === "name" ? (
+									<Button variant="primary" onClick={handleSave}>
+										Save
+									</Button>
+								) : (
+									<Button variant="primary" onClick={() => handleEdit("name")}>
+										Edit
+									</Button>
+								)}
+							</td>
+						</tr>
+						<tr>
+							<td>Birthday</td>
+							<td>
+								{editMode === "birthday" ? (
+									<input
+										type="date"
+										value={userData.birthday}
+										onChange={(e) => handleChange("birthday", e.target.value)}
+									/>
+								) : (
+									<p>{userData.birthday}</p>
+								)}
+							</td>
+							<td>
+								{editMode === "birthday" ? (
+									<Button variant="primary" onClick={handleSave}>
+										Save
+									</Button>
+								) : (
+									<Button
+										variant="primary"
+										onClick={() => handleEdit("birthday")}
+									>
+										Edit
+									</Button>
+								)}
+							</td>
+						</tr>
+						<tr>
+							<td>Gender</td>
+							<td>
+								{editMode === "gender" ? (
+									<input
+										type="text"
+										value={userData.gender}
+										onChange={(e) => handleChange("gender", e.target.value)}
+									/>
+								) : (
+									<p>{userData.gender}</p>
+								)}
+							</td>
+							<td>
+								{editMode === "gender" ? (
+									<Button variant="primary" onClick={handleSave}>
+										Save
+									</Button>
+								) : (
+									<Button
+										variant="primary"
+										onClick={() => handleEdit("gender")}
+									>
+										Edit
+									</Button>
+								)}
+							</td>
+						</tr>
+						<tr>
+							<td>Location</td>
+							<td>
+								{editMode === "location" ? (
+									<input
+										type="text"
+										value={userData.location}
+										onChange={(e) => handleChange("location", e.target.value)}
+									/>
+								) : (
+									<p>{userData.location}</p>
+								)}
+							</td>
+							<td>
+								{editMode === "location" ? (
+									<Button variant="primary" onClick={handleSave}>
+										Save
+									</Button>
+								) : (
+									<Button
+										variant="primary"
+										onClick={() => handleEdit("location")}
+									>
+										Edit
+									</Button>
+								)}
+							</td>
+						</tr>
+						<tr>
+							<td>Profile Bio</td>
+							<td>
+								{editMode === "profileBio" ? (
+									<input
+										type="text"
+										value={userData.profileBio}
+										onChange={(e) => handleChange("profileBio", e.target.value)}
+									/>
+								) : (
+									<p>{userData.profileBio}</p>
+								)}
+							</td>
+							<td>
+								{editMode === "profileBio" ? (
+									<Button variant="primary" onClick={handleSave}>
+										Save
+									</Button>
+								) : (
+									<Button
+										variant="primary"
+										onClick={() => handleEdit("profileBio")}
+									>
+										Edit
+									</Button>
+								)}
+							</td>
+						</tr>
+					</tbody>
+				</Table>
+			</div>
 		</div>
 	);
 };

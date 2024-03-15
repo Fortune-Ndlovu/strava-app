@@ -1,3 +1,18 @@
 .settings-wrapper {
     padding-top: 100px;
 }
+
+.settings-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.settings-wrapper .container {
+    max-width: 1228px !important;
+}
+
+#userSettingsNavCol,
+#UserAccountNavCol {
+    flex: 0.5 0;
+}
