@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import { db } from "../../firebase/firebase";
+import { getCurrentUserId } from "../../firebase/firebase";
 import { query, collection, getDocs } from "firebase/firestore";
 import { where, doc, updateDoc } from "firebase/firestore";
 import ProfileComponent from "./ProfileComponent";
-import { getCurrentUserId } from "../../firebase/firebase";
+import UserSettingsNav from "../UserSettingsNav/UserSettingsNav";
 
 const UserProfileForm = () => {
 	const [userData, setUserData] = useState({
@@ -110,6 +111,8 @@ const UserProfileForm = () => {
 
 	return (
 		<div>
+			<UserSettingsNav />
+			<div>
             <div>
                 <img src={userData.profileImageUrl} alt="" width={70}
 					height={70}
@@ -126,13 +129,13 @@ const UserProfileForm = () => {
 						<td>
 							{editMode === "name" ? (
 								<input
-									type="text"
-									value={userData.name}
-									onChange={(e) => handleChange("name", e.target.value)}
+								type="text"
+								value={userData.name}
+								onChange={(e) => handleChange("name", e.target.value)}
 								/>
-							) : (
-								<p>{userData.name}</p>
-							)}
+								) : (
+									<p>{userData.name}</p>
+									)}
 						</td>
 						<td>
 							{editMode === "name" ? (
@@ -149,6 +152,7 @@ const UserProfileForm = () => {
 					{/* Repeat the same structure for other fields */}
 				</tbody>
 			</Table>
+							</div>
 		</div>
 	);
 };
