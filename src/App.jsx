@@ -48,6 +48,7 @@ import Footer from "./components/Footer/Footer";
 import SignUpHeader from "./components/SignUpHeader/SignUpHeader";
 import SignUpFooter from "./components/SignUpFooter/SignUpFooter";
 import LogInHeader from "./components/LogInHeader/LogInHeader";
+import MySearchUserProfile from "./pages/UserPages/MySearchUserProfile";
 
 function App() {
 	return (
@@ -388,6 +389,17 @@ function App() {
 						<>
 							<Header />
 							<EditActivityForm />
+							<Footer />
+						</>
+					}
+				/>
+
+				<Route
+					path="/home/search/:userId/"
+					element={
+						<>
+							<Header />
+							<MySearchUserProfile />
 							<Footer />
 						</>
 					}
