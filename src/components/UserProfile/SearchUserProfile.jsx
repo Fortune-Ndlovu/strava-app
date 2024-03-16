@@ -3,14 +3,8 @@ import { useParams } from "react-router-dom";
 import { db, getCurrentUserId } from "../../firebase/firebase";
 import {
     doc,
-    where,
-    query,
-    getDocs,
-    collection,
     getDoc,
     updateDoc,
-    arrayUnion,
-    arrayRemove,
 } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 
@@ -46,6 +40,14 @@ const SearchUserProfile = () => {
         fetchUserData();
     }, [userId]);
 
+    useEffect(() => {
+        // Check if the button text was stored in the browser storage
+        const storedIsFollowing = localStorage.getItem(`following_${userId}`);
+        if (storedIsFollowing !== null) {
+            setIsFollowing(JSON.parse(storedIsFollowing));
+        }
+    }, [userId]);
+
     const handleFollow = async () => {
         try {
             const currentUser = getCurrentUserId();
@@ -61,6 +63,7 @@ const SearchUserProfile = () => {
                         followingArray.push(userId);
                         await updateDoc(userRef, { following: followingArray });
                         setIsFollowing(true); // Update state to reflect that the user is now being followed
+                        localStorage.setItem(`following_${userId}`, true); // Store button text in browser storage
                         console.log("User followed successfully!");
                     } else {
                         // Unfollow user
@@ -71,6 +74,7 @@ const SearchUserProfile = () => {
                             following: updatedFollowingArray,
                         });
                         setIsFollowing(false); // Update state to reflect that the user is now unfollowed
+                        localStorage.setItem(`following_${userId}`, false); // Store button text in browser storage
                         console.log("User unfollowed successfully!");
                     }
                 } else {
