@@ -46,6 +46,14 @@ const SearchUserProfile = () => {
 		fetchUserData();
 	}, [userId]);
 
+	useEffect(() => {
+		// Check if the button text was stored in the browser storage
+		const storedIsFollowing = localStorage.getItem(`following_${userId}`);
+		if (storedIsFollowing !== null) {
+			setIsFollowing(JSON.parse(storedIsFollowing));
+		}
+	}, [userId]);
+
 	const handleFollow = async () => {
 		try {
 			// following user logic
@@ -69,6 +77,7 @@ const SearchUserProfile = () => {
 						followingArray.push(userId);
 						await updateDoc(userDoc, { following: followingArray });
 						setIsFollowing(true); // Update state to reflect that the user is now being followed
+						localStorage.setItem(`following_${userId}`, true); // Store button text in browser storage
 						console.log("User followed successfully!");
 
 						// futureFollowersArray of the followed user
@@ -88,6 +97,7 @@ const SearchUserProfile = () => {
 						});
 						setIsFollowing(false); // Update state to reflect that the user is now unfollowed
 						console.log("User unfollowed successfully!");
+						localStorage.setItem(`following_${userId}`, false); // Store button text in browser storage
 
 						// Remove the user's ID from futureFollowersArray of the followed user
 						const updatedFutureFollowersArray = futureFollowersArray.filter(
