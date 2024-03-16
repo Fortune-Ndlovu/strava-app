@@ -13,7 +13,7 @@ const UserProfileForm = () => {
 		birthday: "",
 		gender: "",
 		location: "",
-		profileBio: "",
+		profileBio: ""
 	});
 	const [editMode, setEditMode] = useState(""); // Changed to string to track edited field
 
