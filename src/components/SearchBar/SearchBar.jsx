@@ -24,23 +24,21 @@ const SearchBar = ({ onCancel }) => { // Pass users collection reference as prop
         onCancel();
     }
 
-const handleSearch = async () => {
-    try {
-        const userQuery = query(collection(db, "users"), where("name", "==", searchQuery));
-        const userSnapshot = await getDocs(userQuery);
-        if (!userSnapshot.empty) {
-            const userDoc = userSnapshot.docs[0];
-            const userData = userDoc.data(); // Get the data of the user document
-            const userId = userData.uid; // Extract the uid field from the user document
-            navigate(`/home/search/${userId}`);
-        } else {
-            console.log('User not found');
+    const handleSearch = async () => {
+        try {
+            const userQuery = query(collection(db, "users"), where("name", "==", searchQuery)); // Assuming 'name' is the field where user's name is stored
+            const userSnapshot = await getDocs(userQuery);
+            if (!userSnapshot.empty) {
+                const userDoc = userSnapshot.docs[0];
+                const userId = userDoc.id;
+                navigate(`/home/search/${userId}`); // Navigate to profile component with user's id
+            } else {
+                console.log('User not found');
+            }
+        } catch (error) {
+            console.error('Error searching for user:', error);
         }
-    } catch (error) {
-        console.error('Error searching for user:', error);
     }
-}
-
 
     return (
         <div className="search-bar d-flex align-items-center">
