@@ -28,18 +28,11 @@ const UserActivitiesDropdownToggle = () => {
 					<Dropdown.Item
 						className="userActivities-dropDown-link"
 						onClick={() =>
-							handleSelectedActivityUIChange("Waterford Viking Marathon")
+							handleSelectedActivityUIChange("My Activities")
 						}
-						value="Waterford Viking Marathon"
+						value="My Activities"
 					>
-						Waterford Viking Marathon
-					</Dropdown.Item>
-					<Dropdown.Item
-						className="userActivities-dropDown-link"
-						onClick={() => handleSelectedActivityUIChange("WIT Arena")}
-						value="WIT Arena"
-					>
-						WIT Arena
+						My Activities
 					</Dropdown.Item>
 				</Dropdown.Menu>
 			</Dropdown>
