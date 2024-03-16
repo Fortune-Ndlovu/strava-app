@@ -10,6 +10,7 @@ import {
     getDoc,
     updateDoc,
     arrayUnion,
+    arrayRemove,
 } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 
@@ -56,12 +57,21 @@ const SearchUserProfile = () => {
                     const userData = userDoc.data();
                     const followingArray = userData.following || [];
                     if (!followingArray.includes(userId)) {
+                        // Follow user
                         followingArray.push(userId);
                         await updateDoc(userRef, { following: followingArray });
                         setIsFollowing(true); // Update state to reflect that the user is now being followed
                         console.log("User followed successfully!");
                     } else {
-                        console.log("User already followed");
+                        // Unfollow user
+                        const updatedFollowingArray = followingArray.filter(
+                            (id) => id !== userId
+                        );
+                        await updateDoc(userRef, {
+                            following: updatedFollowingArray,
+                        });
+                        setIsFollowing(false); // Update state to reflect that the user is now unfollowed
+                        console.log("User unfollowed successfully!");
                     }
                 } else {
                     console.log("User document not found");
@@ -70,7 +80,7 @@ const SearchUserProfile = () => {
                 console.error("Current user not found");
             }
         } catch (error) {
-            console.error("Error following user:", error);
+            console.error("Error following/unfollowing user:", error);
         }
     };
 
