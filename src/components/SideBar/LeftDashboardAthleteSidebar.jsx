@@ -103,7 +103,7 @@ function LeftDashboardAthleteSidebar({ athlete }) {
 							<li className="followers-stat">
 								<Link to="/home/activities">
 									<span>Followers</span>
-									<p>{userData.futureFollowers ? userData.futureFollowers.length : 0}</p>
+									<p>{userData.followers ? userData.followers.length : 0}</p>
 								</Link>
 							</li>
 							<li className="activities-stat">

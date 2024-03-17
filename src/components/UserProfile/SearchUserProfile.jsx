@@ -104,23 +104,29 @@ const SearchUserProfile = () => {
 			// followers of the user logic
 
 			if (userId) {
-				const userRef = doc(db, "users", userId);
-				const userDoc = await getDoc(userRef);
+				const userRef = query(
+					collection(db, "users"),
+					where("uid", "==", userId)
+				);
+				const userSnapshot = await getDocs(userRef);
 
-				if (userDoc.exists()) {
-					const userData = userDoc.data();
+				if (!userSnapshot.empty) {
+					const userDoc = userSnapshot.docs[0].ref;
+					const userData = userSnapshot.docs[0].data();
+
 					const followersArray = userData.followers || [];
+					
 					if (!followersArray.includes(currentUser)) {
 						// Follow user
 						followersArray.push(currentUser);
-						await updateDoc(userRef, { followers: followersArray });
+						await updateDoc(userDoc, { followers: followersArray });
 						console.log("follower successfully!");
 					} else {
 						// Unfollow user
 						const updatedFollowersArray = followersArray.filter(
 							(id) => id !== currentUser
 						);
-						await updateDoc(userRef, {
+						await updateDoc(userDoc, {
 							followers: updatedFollowersArray,
 						});
 						console.log("User unfollowed successfully!");
