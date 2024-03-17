@@ -35,7 +35,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 		useState(false);
 	const [userData, setUserData] = useState({});
 	const [followingUsersData, setFollowingUsersData] = useState({});
-	console.log("userData.name", followingUsersData);
+	
 	useEffect(() => {
 		const fetchUserData = async () => {
 			try {

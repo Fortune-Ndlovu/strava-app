@@ -8,9 +8,7 @@ import {
 	getDocs,
 	collection,
 	getDoc,
-	updateDoc,
-	arrayUnion,
-	arrayRemove,
+	updateDoc
 } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 
@@ -70,7 +68,6 @@ const SearchUserProfile = () => {
 					const userData = userSnapshot.docs[0].data();
 
 					const followingArray = userData.following || [];
-					const futureFollowersArray = userData.followers || [];
 
 					if (!followingArray.includes(userId)) {
 						// Follow user
@@ -80,13 +77,6 @@ const SearchUserProfile = () => {
 						localStorage.setItem(`following_${userId}`, true); // Store button text in browser storage
 						console.log("User followed successfully!");
 
-						// futureFollowersArray of the followed user
-						if (!futureFollowersArray.includes(userId)) {
-							futureFollowersArray.push(userId);
-							await updateDoc(userDoc, {
-								futureFollowers: futureFollowersArray,
-							});
-						}
 					} else {
 						// Unfollow user
 						const updatedFollowingArray = followingArray.filter(
@@ -98,14 +88,6 @@ const SearchUserProfile = () => {
 						setIsFollowing(false); // Update state to reflect that the user is now unfollowed
 						console.log("User unfollowed successfully!");
 						localStorage.setItem(`following_${userId}`, false); // Store button text in browser storage
-
-						// Remove the user's ID from futureFollowersArray of the followed user
-						const updatedFutureFollowersArray = futureFollowersArray.filter(
-							(id) => id !== userId
-						);
-						await updateDoc(userDoc, {
-							futureFollowers: updatedFutureFollowersArray,
-						});
 					}
 				} else {
 					console.log("User document not found");
