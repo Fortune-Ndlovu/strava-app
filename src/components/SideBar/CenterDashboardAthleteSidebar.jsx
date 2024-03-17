@@ -28,13 +28,14 @@ import PostsDashboard from "./PostsDashboard";
 
 function CenterDashboardAthleteSidebar({ athlete }) {
 	const [activities, setActivities] = useState([]);
-	const [comments, setComments] = useState([]); 
+	const [comments, setComments] = useState([]);
 	const [showCommentsForActivity, setShowCommentsForActivity] = useState(null);
-	const [commentLikes, setCommentLikes] = useState({}); 
+	const [commentLikes, setCommentLikes] = useState({});
 	const [showCommentsAndGiveKudos, setShowCommentsAndGiveKudos] =
 		useState(false);
 	const [userData, setUserData] = useState({});
-
+	const [followingUsersData, setFollowingUsersData] = useState({});
+	console.log("userData.name", followingUsersData);
 	useEffect(() => {
 		const fetchUserData = async () => {
 			try {
@@ -98,6 +99,139 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 		// Cleanup the listener when the component unmounts
 		return () => unsubscribeActivitiesCollection();
 	}, []);
+
+	// ///////////////////////////////
+
+	///////////////
+	// fetch the uses that the user is following and correspond them with their activities
+	useEffect(() => {
+		const fetchUserData = async () => {
+			try {
+				const currentUser = getCurrentUserId();
+				if (currentUser) {
+					const userQuery = query(
+						collection(db, "users"),
+						where("uid", "==", currentUser)
+					);
+					const userSnapshot = await getDocs(userQuery);
+
+					if (!userSnapshot.empty) {
+						const userData = userSnapshot.docs[0].data();
+						const followingIds = userData.following || []; // Assuming following is an array of user IDs
+
+						// Fetch data of the users the current user is following
+						const followingUsersDataPromises = followingIds.map(
+							async (userId) => {
+								const followingUserQuery = query(
+									collection(db, "users"),
+									where("uid", "==", userId)
+								);
+								const followingUserSnapshot = await getDocs(followingUserQuery);
+								if (!followingUserSnapshot.empty) {
+									const followingUserData =
+										followingUserSnapshot.docs[0].data();
+									return followingUserData;
+								}
+								return null;
+							}
+						);
+
+						// Resolve all promises
+						const followingUsersDataArray = await Promise.all(
+							followingUsersDataPromises
+						);
+
+						// Filter out null values (failed fetches) and create an object with userId as key
+						const filteredFollowingUsersData = followingUsersDataArray.reduce(
+							(acc, user) => {
+								if (user) {
+									acc[user.uid] = user;
+								}
+								return acc;
+							},
+							{}
+						);
+
+						// Set state with the fetched user data
+						setFollowingUsersData(filteredFollowingUsersData);
+					}
+				}
+			} catch (error) {
+				console.error("Error fetching user data:", error);
+			}
+		};
+
+		fetchUserData();
+	}, []);
+	// fetching user data that the current user is following
+
+	useEffect(() => {
+		const fetchActivities = async () => {
+			try {
+				const userId = getCurrentUserId();
+				if (userId) {
+					const userActivitiesRef = collection(db, "userActivities");
+					const userActivitiesQuery = query(
+						userActivitiesRef,
+						where("userId", "==", userId)
+					);
+					const userActivitiesSnapshot = await getDocs(userActivitiesQuery);
+					let userActivities = userActivitiesSnapshot.docs.map((doc) => ({
+						id: doc.id,
+						...doc.data(),
+					}));
+
+					const followingRef = collection(db, "users");
+					const followingQuery = query(
+						followingRef,
+						where("uid", "==", userId)
+					);
+					const followingSnapshot = await getDocs(followingQuery);
+
+					if (!followingSnapshot.empty) {
+						const followingData = followingSnapshot.docs[0].data();
+
+						if (followingData.following && followingData.following.length > 0) {
+							for (const followingUserId of followingData.following) {
+								// Fetch activities of followed users
+								const followingActivitiesQuery = query(
+									userActivitiesRef,
+									where("userId", "==", followingUserId)
+								);
+								const followingActivitiesSnapshot = await getDocs(
+									followingActivitiesQuery
+								);
+								const followingUserActivities =
+									followingActivitiesSnapshot.docs.map((doc) => ({
+										id: doc.id,
+										...doc.data(),
+									}));
+
+								// Add followed user activities to the main activities array
+								userActivities.push(...followingUserActivities);
+							}
+						}
+					}
+
+					// Sort all activities by createdAt timestamp
+					userActivities = userActivities.sort(
+						(a, b) => b.createdAt.toMillis() - a.createdAt.toMillis()
+					);
+
+					// Set activities state
+					setActivities(userActivities);
+				}
+			} catch (error) {
+				console.error("Error fetching activities:", error);
+			}
+		};
+
+		fetchActivities();
+	}, []);
+
+	////////////////
+
+	// ///////////////////////////////
 
 	const handleCommentPost = async (comment, activityId) => {
 		try {
@@ -213,7 +347,11 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 
 												<Col sm={9}>
 													<div className="feed-ui-user-info">
-														<p className="feed-ui-user-name">{userData.name}</p>
+														<p className="feed-ui-user-name">
+															{followingUsersData &&
+																followingUsersData[activity.userId]?.name}
+														</p>
+
 														<p className="feed-ui-user-location">
 															<time data-test id="date_at_time">
 																{activity.createdAt &&
@@ -293,7 +431,9 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									</div>
 									<div className="feed-ui-media-activity">
 										<h4>
-											<Link to={`/home/activity/${activity.id}`}>{activity.name}</Link>
+											<Link to={`/home/activity/${activity.id}`}>
+												{activity.name}
+											</Link>
 										</h4>
 										<p>{activity.description}</p>
 										<div className="feed-ui-media-stats">
@@ -471,7 +611,8 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 				<div className="feed-end">
 					<p>
 						No more recent activity available. <br></br>To see your full
-						activity history, visit your <Link to={"/home/activities"}>Profile</Link> or{" "}
+						activity history, visit your{" "}
+						<Link to={"/home/activities"}>Profile</Link> or{" "}
 						<Link to={"/home/activities"}>Training Calendar</Link>.
 					</p>
 				</div>
