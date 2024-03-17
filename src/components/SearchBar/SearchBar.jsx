@@ -30,7 +30,7 @@ const SearchBar = ({ onCancel }) => { // Pass users collection reference as prop
             const userSnapshot = await getDocs(userQuery);
             if (!userSnapshot.empty) {
                 const userDoc = userSnapshot.docs[0];
-                const userId = userDoc.id;
+                const userId = userDoc.data().uid;
                 navigate(`/home/search/${userId}`); // Navigate to profile component with user's id
             } else {
                 console.log('User not found');

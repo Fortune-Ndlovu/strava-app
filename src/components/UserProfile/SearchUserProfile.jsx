@@ -8,21 +8,27 @@ import {
 	getDocs,
 	collection,
 	getDoc,
-	updateDoc
+	updateDoc,
 } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 
 const SearchUserProfile = () => {
 	const { userId } = useParams();
+	console.log("userId", userId);
 	const [userData, setUserData] = useState(null);
 	const [isFollowing, setIsFollowing] = useState(false); // State to track if user is already being followed
 
 	useEffect(() => {
 		const fetchUserData = async () => {
 			try {
-				const userDoc = await getDoc(doc(db, "users", userId));
-				if (userDoc.exists()) {
-					setUserData(userDoc.data());
+				const userDoc = query(
+					collection(db, "users"),
+					where("uid", "==", userId)
+				);
+				const userSnapshot = await getDocs(userDoc);
+				if (!userSnapshot.empty) {
+					const userDataFromFirestore = userSnapshot.docs[0].data();
+					setUserData(userDataFromFirestore);
 					// Check if the current user is already following this user
 					const currentUser = getCurrentUserId();
 					if (currentUser) {
@@ -76,7 +82,6 @@ const SearchUserProfile = () => {
 						setIsFollowing(true); // Update state to reflect that the user is now being followed
 						localStorage.setItem(`following_${userId}`, true); // Store button text in browser storage
 						console.log("User followed successfully!");
-
 					} else {
 						// Unfollow user
 						const updatedFollowingArray = followingArray.filter(
