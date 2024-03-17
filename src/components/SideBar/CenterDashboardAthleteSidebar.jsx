@@ -325,11 +325,35 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 													style={{ width: "15%" }}
 												>
 													<div className="feed-ui-user-image-wrapper">
-														{userData.profileImageUrl ? (
+														{activity.userId === getCurrentUserId() ? (
+															// Display the current user's profile image
+															userData.profileImageUrl ? (
+																<Card.Img
+																	variant="top"
+																	id="feed-ui-user-image"
+																	src={userData.profileImageUrl}
+																	width={44}
+																	height={44}
+																/>
+															) : (
+																<Card.Img
+																	variant="top"
+																	id="feed-ui-user-image"
+																	src={defaultUserProfile}
+																	width={44}
+																	height={44}
+																/>
+															)
+														) : // Display the profile image of the user who created the activity
+														followingUsersData[activity.userId]
+																?.profileImageUrl ? (
 															<Card.Img
 																variant="top"
 																id="feed-ui-user-image"
-																src={userData.profileImageUrl}
+																src={
+																	followingUsersData[activity.userId]
+																		?.profileImageUrl
+																}
 																width={44}
 																height={44}
 															/>
@@ -348,10 +372,13 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 												<Col sm={9}>
 													<div className="feed-ui-user-info">
 														<p className="feed-ui-user-name">
-															{followingUsersData &&
-																followingUsersData[activity.userId]?.name}
+															{activity.userId === getCurrentUserId()
+																? // Display current user's name if the activity was created by the current user
+																  userData.name
+																: // Display the name of the user they follow if the activity was created by a user they follow
+																  followingUsersData &&
+																  followingUsersData[activity.userId]?.name}
 														</p>
-
 														<p className="feed-ui-user-location">
 															<time data-test id="date_at_time">
 																{activity.createdAt &&
