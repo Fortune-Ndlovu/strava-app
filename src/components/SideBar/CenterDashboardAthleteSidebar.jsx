@@ -35,8 +35,11 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 		useState(false);
 	const [userData, setUserData] = useState({});
 	const [followingUsersData, setFollowingUsersData] = useState({});
+	const [commentUsersData, setCommentUsersData] = useState({});
+
 	console.log("activities", activities);
 	console.log("comments", comments);
+	console.log("commentUsersData", commentUsersData);
 	useEffect(() => {
 		const fetchUserData = async () => {
 			try {
@@ -103,6 +106,54 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 		// Cleanup the listener when the component unmounts
 		return () => unsubscribeActivitiesCollection();
 	}, []);
+ 
+	/////////////////////////////////////////// Fetch user data based on user IDs in comments ///////////////////////////////////////////
+	useEffect(() => {
+		const fetchCommentUsersData = async () => {
+			try {
+				// Get unique user IDs from comments
+				const userIds = Object.values(comments).flatMap((commentList) =>
+					commentList.map((comment) => comment.userId)
+				);
+				const uniqueUserIds = Array.from(new Set(userIds));
+
+				// Fetch user data for each unique user ID
+				const userDataPromises = uniqueUserIds.map(async (userId) => {
+					const userQuery = query(
+						collection(db, "users"),
+						where("uid", "==", userId)
+					);
+					const userSnapshot = await getDocs(userQuery);
+					if (!userSnapshot.empty) {
+						const userData = userSnapshot.docs[0].data();
+						return { userId, userData };
+					}
+					return null;
+				});
+
+				// Resolve all promises
+				const resolvedUserData = await Promise.all(userDataPromises);
+
+				// Convert user data to an object with userId as key
+				const userDataObject = resolvedUserData.reduce(
+					(acc, { userId, userData }) => {
+						if (userData) {
+							acc[userId] = userData;
+						}
+						return acc;
+					},
+					{}
+				);
+
+				// Set state with the fetched user data
+				setCommentUsersData(userDataObject);
+			} catch (error) {
+				console.error("Error fetching user data:", error);
+			}
+		};
+
+		fetchCommentUsersData();
+	}, [comments]); // Trigger fetch on changes in comments
 
 	// ///////////////////////////////
 
@@ -253,31 +304,33 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 	}, []);
 
 	/////////////////////////////////
-
 	const handleCommentPost = async (comment, activityId) => {
 		try {
-			// Clone the activities array
-			const clonedActivities = [...activities]; // Assuming activities is your original array of activities
-
-			// Update the comments state with the new comment for the specific activity
-			setComments((prevComments) => ({
-				...prevComments,
-				[activityId]: [...(prevComments[activityId] || []), comment],
-			}));
-
-			// Obtain the document reference for the specific activity
+			const currentUser = getCurrentUserId();
 			const userDoc = doc(db, "userActivities", activityId);
 
 			// Get the existing comments for the activity
 			const existingComments = (await getDoc(userDoc)).data().comments || [];
 
-			// Update the document with the new comments
-			await updateDoc(userDoc, { comments: [...existingComments, comment] });
+			// Construct the new comment object with userId and text
+			const newComment = {
+				userId: currentUser, // Include userId of the current user
+				text: comment, // Comment text
+			};
 
-			// If everything succeeds, update the activities array
+			// Update the comments state with the new comment for the specific activity
+			setComments((prevComments) => ({
+				...prevComments,
+				[activityId]: [...(prevComments[activityId] || []), newComment],
+			}));
+
+			// Update the document with the new comments
+			await updateDoc(userDoc, { comments: [...existingComments, newComment] });
+
+			// Clone the activities array
+			const clonedActivities = [...activities];
 			setActivities(clonedActivities);
 		} catch (error) {
-			// If an error occurs, log it and handle accordingly
 			console.error("Error saving comment:", error);
 		}
 	};
@@ -678,26 +731,49 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 								</div>
 								{comments[activity.id]?.reverse().map((comment, index) => (
 									<div key={index} className="comment-display">
-										{comment}
-										<Button
-											variant="success"
-											size="sm"
-											onClick={() => handleCommentDelete(index, activity.id)}
-										>
-											Delete
-										</Button>
-										<Button
-											variant="danger"
-											size="sm"
-											id="heartTheComment"
-											onClick={() =>
-												handleCommentLikeToggle(activity.id, index)
-											}
-										>
-											Heart
-										</Button>{" "}
-										{/* Display like count */}
-										<p> {commentLikes[activity.id]?.[index] ? "1 Like" : ""}</p>
+										<div>
+											<img
+												src={
+													commentUsersData[comment.userId]?.profileImageUrl ||
+													defaultUserProfile
+												}
+												alt="User Profile"
+												width={44}
+												height={44}
+											/>
+											<p>
+												<strong>
+													{commentUsersData[comment.userId]?.name}
+												</strong>
+											</p>
+										</div>
+										<div>
+											<p>
+												<strong>Comment:</strong> {comment.text}
+											</p>
+											<Button
+												variant="success"
+												size="sm"
+												onClick={() => handleCommentDelete(index, activity.id)}
+											>
+												Delete
+											</Button>
+											<Button
+												variant="danger"
+												size="sm"
+												id="heartTheComment"
+												onClick={() =>
+													handleCommentLikeToggle(activity.id, index)
+												}
+											>
+												Heart
+											</Button>{" "}
+											{/* Display like count */}
+											<p>
+												{" "}
+												{commentLikes[activity.id]?.[index] ? "1 Like" : ""}
+											</p>
+										</div>
 									</div>
 								))}
 
