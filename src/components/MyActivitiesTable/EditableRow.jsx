@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -71,20 +72,19 @@ const EditableRow = ({
 									Save
 								</Button>
 
-								<a
-									href="#"
+								<Button variant="link"
 									className="link-of-unique-activity"
 									onClick={onCancelClick}
 								>
 									Cancel
-								</a>
+								</Button>
 								<br></br>
-								<a
-									href={`/activity/${editedActivity.id}/edit`}
+								<Link
+									to={`/home/activity/${editedActivity.id}/edit`}
 									className="link-of-unique-activity"
 								>
 									Edit more options
-								</a>
+								</Link>
 							</div>
 						</Col>
 					</Row>

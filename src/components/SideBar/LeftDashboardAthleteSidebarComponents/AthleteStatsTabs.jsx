@@ -1,11 +1,14 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { MdDoubleArrow } from "react-icons/md";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoIosInformationCircleOutline } from "react-icons/io";
+import { collection, onSnapshot } from "firebase/firestore";
+import { db } from "../../../firebase/firebase";
 import recoveryweek from "../../../images/recoveryweek.png";
 import TabsCard from "./TabsCard";
 import RunningShoeSvg from "./RunningShoeSvg";
@@ -13,28 +16,60 @@ import CyclingBikeSvg from "./CyclingBikeSvg";
 import SwimWaveSvg from "./SwimWaveSvg";
 
 const tabContentMap = {
-  profile: <RunningShoeSvg />,
-  cycleBike: <CyclingBikeSvg />,
-  swimWave: <SwimWaveSvg />,
+	profile: <RunningShoeSvg />,
+	cycleBike: <CyclingBikeSvg />,
+	swimWave: <SwimWaveSvg />,
 };
 
 const AthleteStatsTabs = () => {
 	const [activeKey, setActiveKey] = useState("profile");
+	const [mostRecentActivity, setMostRecentActivity] = useState(null);
+	const [profileTotalDistance, setProfileTotalDistance] = useState(0);
 
 	const handleSelect = (key) => {
 		setActiveKey(key);
 	};
 
+	useEffect(() => {
+		// Firestore collection reference
+		const activitiesCollection = collection(db, "userActivities");
+
+		// Setting up a snapshot listener to track changes in the collection
+		const unsubscribe = onSnapshot(activitiesCollection, (snapshot) => {
+			// Get the most recent activity
+			const sortedActivities = snapshot.docs
+				.map((doc) => ({ ...doc.data(), id: doc.id }))
+				.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+			if (sortedActivities.length > 0) {
+				setMostRecentActivity(sortedActivities[0]);
+
+				// Update the profileTotalDistance whenever a new activity is added
+				const distance = sortedActivities.reduce(
+					(total, activity) => total + (activity.distance || 0),
+					0
+				);
+				setProfileTotalDistance(distance);
+			} else {
+				setMostRecentActivity(null);
+				setProfileTotalDistance(0);
+			}
+		});
+
+		// Cleanup the listener when the component unmounts
+		return () => unsubscribe();
+	}, []);
+
 	const weekTextMap = {
-		profile: "0 / 0 km",
-		cycleBike: "0 / 0 km", // Updated text for cycleBike
-		swimWave: "0 / 0 m", // Updated text for swimWave
+		profile: `${profileTotalDistance} km`,
+		cycleBike: `${profileTotalDistance} km`,
+		swimWave: `${profileTotalDistance} km`,
 	};
 
 	const yearTextMap = {
-		profile: "0 / 0 km",
-		cycleBike: "0 / 0 km",
-		swimWave: "0 / 0 km",
+		profile: `${profileTotalDistance} km`,
+		cycleBike: `${profileTotalDistance} km`,
+		swimWave: `${profileTotalDistance} km`,
 	};
 
 	return (
@@ -96,10 +131,10 @@ const AthleteStatsTabs = () => {
 							</Button>
 						</Card.Body>
 						<Card.Body className="training-log">
-							<Card.Link href="home" id="goals-log-link">
+							<Link to={"/home/activities"} id="goals-log-link">
 								Manage Your Goals
 								<RiArrowDropDownLine className="trainingLogIcon" />
-							</Card.Link>
+							</Link>
 						</Card.Body>
 					</Card>
 				</Tab>
@@ -122,12 +157,11 @@ const AthleteStatsTabs = () => {
 						</svg>
 					}
 				>
-                    <TabsCard
-            svgContent={tabContentMap[activeKey]}
-            weekText={weekTextMap[activeKey]}
-            yearText={yearTextMap[activeKey]}
-          />
-                    
+					<TabsCard
+						svgContent={tabContentMap[activeKey]}
+						weekText={weekTextMap[activeKey]}
+						yearText={yearTextMap[activeKey]}
+					/>
 				</Tab>
 
 				{/* Third Tab */}
@@ -148,11 +182,11 @@ const AthleteStatsTabs = () => {
 						</svg>
 					}
 				>
-				 <TabsCard
-            svgContent={tabContentMap[activeKey]}
-            weekText={weekTextMap[activeKey]}
-            yearText={yearTextMap[activeKey]}
-          />
+					<TabsCard
+						svgContent={tabContentMap[activeKey]}
+						weekText={weekTextMap[activeKey]}
+						yearText={yearTextMap[activeKey]}
+					/>
 				</Tab>
 
 				{/* Fourth Tab */}
@@ -173,11 +207,11 @@ const AthleteStatsTabs = () => {
 						</svg>
 					}
 				>
-					 <TabsCard
-            svgContent={tabContentMap[activeKey]}
-            weekText={weekTextMap[activeKey]}
-            yearText={yearTextMap[activeKey]}
-          />
+					<TabsCard
+						svgContent={tabContentMap[activeKey]}
+						weekText={weekTextMap[activeKey]}
+						yearText={yearTextMap[activeKey]}
+					/>
 				</Tab>
 			</Tabs>
 		</div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { RiArrowDropDownLine } from 'react-icons/ri';
@@ -21,11 +22,11 @@ const Footer = () => {
                         <div className="col-md-4 promo">
                             <h4>Your Recent Activities</h4>
                             <p className="light">No recent activities found</p>
-                            <a href="#home" className="promo-link">Upload an activity</a>
+                            <Link to={"/home/manual"} className="promo-link">Upload an activity</Link>
                         </div>
                         <div className="col-md-4 promo">
                             <h4 className="strava-stories-heading">Strava Stories</h4>
-                            <p className="strava-stories-para">With athlete profiles, training tips and advice, and the latest product updates, <a href="home" className="strava-stories-link"> Strava Stories</a> is the place to discover the latest content from Strava.
+                            <p className="strava-stories-para">With athlete profiles, training tips and advice, and the latest product updates, <Link to={"/home"} className="strava-stories-link"> Strava Stories</Link> is the place to discover the latest content from Strava.
                             </p>
                         </div>
                     </div>
@@ -36,44 +37,44 @@ const Footer = () => {
                 <div className="container footerMaxWidth">
                     <div className="row">
                         <div className="col-md-2">
-                            <Navbar.Brand title="Return to the Strava home page" href="#home" id="footer-strava-logo">
+                            <Link to={"/home"} title="Return to the Strava home page" id="footer-strava-logo">
                                 <img src={stravaLogoFooter}
                                     id="strava-logo-footer"
                                     alt="Company brand logo that simply says strava."
                                     width={150}
                                     height={95}/>
-                            </Navbar.Brand>
+                            </Link>
                             <p>&copy; 2023 Strava</p>
                             {/* You can replace this with the Strava logo */} </div>
                         <div className="col-md-2">
                             <h5>About</h5>
                             <ul className="list-unstyled">
                                 <li>
-                                    <a href="/about">About</a>
+                                    <a href="#about">About</a>
                                 </li>
                                 <li>
-                                    <a href="/features">Features</a>
+                                    <a href="#features">Features</a>
                                 </li>
                                 <li>
-                                    <a href="/mobile">Mobile</a>
+                                    <a href="#mobile">Mobile</a>
                                 </li>
                                 <li>
-                                    <a href="/subscribe?cta=subscription&amp;element=nav&amp;source=global_footer">Subscription</a>
+                                    <a href="#subscribe">Subscription</a>
                                 </li>
                                 <li>
-                                    <a href="/student?origin=global_footer">Student Discount</a>
+                                    <a href="#student">Student Discount</a>
                                 </li>
                                 <li>
-                                    <a href="/legal/privacy">Privacy Policy</a>
+                                    <a href="#privacy policy">Privacy Policy</a>
                                 </li>
                                 <li>
                                     <a href="#home">Do Not Share My Personal Information</a>
                                 </li>
                                 <li>
-                                    <a href="/legal/terms">Terms and Conditions</a>
+                                    <a href="#legal">Terms and Conditions</a>
                                 </li>
                                 <li>
-                                    <a href="https://support.strava.com/hc/en-us/articles/216917717-About-Strava-Maps">About Our Maps</a>
+                                    <a href="#maps">About Our Maps</a>
                                 </li>
                             </ul>
                         </div>
@@ -81,19 +82,19 @@ const Footer = () => {
                             <h5>Explore</h5>
                             <ul className="list-unstyled">
                                 <li>
-                                    <a href="/routes/hiking/usa">Routes</a>
+                                    <a href="#routes">Routes</a>
                                 </li>
                                 <li>
-                                    <a href="/events/paris-marathon">Paris 2023 Marathon</a>
+                                    <a href="#paris-marathon">Paris 2023 Marathon</a>
                                 </li>
                                 <li>
-                                    <a href="/events/boston-marathon">Boston 2023 Marathon</a>
+                                    <a href="#boston-marathon">Boston 2023 Marathon</a>
                                 </li>
                                 <li>
-                                    <a href="/events/london-marathon">London 2023 Marathon</a>
+                                    <a href="#london-marathon">London 2023 Marathon</a>
                                 </li>
                                 <li>
-                                    <a href="/events/nyc-marathon">NYC 2023 Marathon</a>
+                                    <a href="#nyc-marathon">NYC 2023 Marathon</a>
                                 </li>
                             </ul>
                         </div>
@@ -116,7 +117,7 @@ const Footer = () => {
                                     <a href="#home">LinkedIn</a>
                                 </li>
                                 <li>
-                                    <a href="https://stories.strava.com">Stories</a>
+                                    <a href="#stories">Stories</a>
                                 </li>
                             </ul>
                         </div>
@@ -124,7 +125,7 @@ const Footer = () => {
                             <h5>Help</h5>
                             <ul className="list-unstyled">
                                 <li>
-                                    <a href="https://strava.zendesk.com/home">Strava Support</a>
+                                    <a href="#strava support">Strava Support</a>
                                 </li>
                             </ul>
                         </div>
@@ -132,22 +133,22 @@ const Footer = () => {
                             <h5>More</h5>
                             <ul className="list-unstyled">
                                 <li>
-                                    <a href="/careers">Careers</a>
+                                    <a href="#careers">Careers</a>
                                 </li>
                                 <li>
-                                    <a href="https://press.strava.com">Press</a>
+                                    <a href="#pass">Press</a>
                                 </li>
                                 <li>
-                                    <a href="https://business.strava.com?utm_source=footer&amp;utm_medium=referral">Business</a>
+                                    <a href="#business">Business</a>
                                 </li>
                                 <li>
-                                    <a href="http://labs.strava.com/developers">Developers</a>
+                                    <a href="#developers">Developers</a>
                                 </li>
                                 <li>
-                                    <a href="http://labs.strava.com">Labs</a>
+                                    <a href="#labs">Labs</a>
                                 </li>
                                 <li>
-                                    <a href="/community-standards">Strava Community standards</a>
+                                    <a href="#community-standards">Strava Community standards</a>
                                 </li>
                                 {/* Render the language dropdown when the button is clicked */}
                                 <li>

@@ -1,0 +1,20 @@
+.user-settings-nav-container {
+    border: 1px solid gainsboro;
+    max-width: 220px;
+    max-height: 540px;
+}
+
+ul.user-settings-nav-list {
+    padding-left: 0px;
+}
+
+ul.user-settings-nav-list li {
+    list-style: none;
+        padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid;
+}
+
+ul.user-settings-nav-list li a {
+    text-decoration: none;
+}

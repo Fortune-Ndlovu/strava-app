@@ -2,90 +2,112 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase/firebase";
 import {
-  collection,
-  addDoc,
-  onSnapshot,
-  doc,
-  writeBatch,
+	collection,
+	addDoc,
+	onSnapshot,
+	doc,
+	writeBatch,
+	serverTimestamp,
+	query,
+	where,
 } from "firebase/firestore";
+import { getCurrentUserId } from "../firebase/firebase";
 
-// Importing components used in this module
 import ManualEntryForm from "../components/ManualEntryForm/ManualEntryForm";
 import MyActivitiesTable from "../components/MyActivitiesTable/MyActivitiesTable";
 
-// Defining the UserActivitiesManager component
-const UserActivitiesManager = ({
-  showForm
-}) => {
-  const [userActivities, setUserActivities] = useState([]);
-  const userActivitiesCollection = collection(db, "userActivities");
+const UserActivitiesManager = ({ showForm }) => {
+	const [userActivities, setUserActivities] = useState([]);
+	const userActivitiesCollection = collection(db, "userActivities");
 
-  const createActivity = async (newActivity) => {
-    // Adding a new doc to the firebase collection, and returning a doc reference object representing the newly created doc
-    const docRef = await addDoc(userActivitiesCollection, newActivity);
+	const currentUserId = getCurrentUserId();
 
-    // Creating a new object by spreading the properties of the doc id
-    // Ensuring the returned object includes both the original activity data and Id assigned by Firestore
-    const createdActivity = { ...newActivity, id: docRef.id };
-    
-    console.log("Created Activity:", createdActivity);
-    
-    return createdActivity;
-  };
+	const createActivity = async (newActivity) => {
+		// Adding the creation date and time to the new activity object
+		const currentTimestamp = serverTimestamp(); // Import serverTimestamp from 'firebase/firestore'
+		newActivity.createdAt = currentTimestamp;
 
-  const editActivity = async (index, updatedActivity) => {
-    // Obtaining the id of doc in Firestore that corresponds to the activity being edited
-    const userDoc = doc(db, "userActivities", userActivities[index].id);
+		// Adding a field for comments to the new activity
+		newActivity.comments = [];
+		newActivity.activityLikes = [];
 
-    const batch = writeBatch(db); // Initializes a batch to write multiple operations together
-    // A writeBatch is a set of operations that are performed atomically(all or none)
+		// Add the user's ID to the activity document
+		const userId = getCurrentUserId();
+		const docRef = await addDoc(userActivitiesCollection, {
+			...newActivity,
+			userId,
+		});
 
-    // Check if userActivities[index].imageUrl is defined
-    const imageUrl = userActivities[index].imageUrl || null;
+		// Creating a new object by spreading the properties of the doc id
+		// Ensuring the returned object includes both the original activity data and Id assigned by Firestore
+		const createdActivity = { ...newActivity, id: docRef.id };
 
-    // Update the document with the new activity details, including the image field
-    batch.update(userDoc, { ...updatedActivity, imageUrl });
+		console.log("Created Activity:", createdActivity);
 
-    // Commit the batch to Firestore, this ensures that all the updates in the batch are applied automatically maintaining data consistency 
-    await batch.commit();
-  };
+		return createdActivity;
+	};
 
-  const deleteActivity = async (index) => {
-    // Obtaining the id of the doc in the Firestore that corresponds to the activity being deleted
-    const userDoc = doc(db, "userActivities", userActivities[index].id);
-    const batch = writeBatch(db); // Initialize a WriteBatch
+	const editActivity = async (index, updatedActivity) => {
+		// Obtaining the id of doc in Firestore that corresponds to the activity being edited
+		const userDoc = doc(db, "userActivities", userActivities[index].id);
 
-    // Delete the activity
-    batch.delete(userDoc);
+		const batch = writeBatch(db); // Initializes a batch to write multiple operations together
+		// A writeBatch is a set of operations that are performed atomically(all or none)
 
-    // Commit the batch
-    await batch.commit();
-  };
+		// Check if userActivities[index].imageUrl is defined
+		const imageUrl = userActivities[index].imageUrl || null;
 
-  // Listening for changes to the collection and get real time updates
-  useEffect(() => {
-    const unsubscribe = onSnapshot(userActivitiesCollection, (snapshot) => {
-    // calling with the updated data obtained from the snapshot
-      setUserActivities(
-        snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-      );
-    });
+		// Update the document with the new activity details, including the image field
+		batch.update(userDoc, { ...updatedActivity, imageUrl });
 
-    return () => unsubscribe();
-  });
+		// Commit the batch to Firestore, this ensures that all the updates in the batch are applied automatically maintaining data consistency
+		await batch.commit();
+	};
 
-  return (
-    <div>
-      {showForm && <ManualEntryForm onCreateActivity={createActivity} />}
-      {!showForm && (
-        <MyActivitiesTable
-          activities={userActivities}
-          onEditActivity={editActivity}
-          onDeleteActivity={deleteActivity}
-        />
-      )}
-    </div>
-  );
+	const deleteActivity = async (index) => {
+		// Obtaining the id of the doc in the Firestore that corresponds to the activity being deleted
+		const userDoc = doc(db, "userActivities", userActivities[index].id);
+		const batch = writeBatch(db); // Initialize a WriteBatch
+
+		// Delete the activity
+		batch.delete(userDoc);
+
+		// Commit the batch
+		await batch.commit();
+	};
+
+	// Listening for changes to the collection and get real-time updates
+	useEffect(() => {
+		if (!currentUserId) return;
+
+		const userActivitiesQuery = query(
+			userActivitiesCollection,
+			where("userId", "==", currentUserId)
+		);
+
+		const unsubscribe = onSnapshot(userActivitiesQuery, (snapshot) => {
+			const sortedActivities = snapshot.docs
+				.map((doc) => ({ ...doc.data(), id: doc.id }))
+				.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+			setUserActivities(sortedActivities);
+		});
+
+		return () => unsubscribe();
+	}, [currentUserId]);
+
+	return (
+		<div>
+			{showForm && <ManualEntryForm onCreateActivity={createActivity} />}
+			{!showForm && (
+				<MyActivitiesTable
+					activities={userActivities}
+					onEditActivity={editActivity}
+					onDeleteActivity={deleteActivity}
+				/>
+			)}
+		</div>
+	);
 };
 
 export default UserActivitiesManager;

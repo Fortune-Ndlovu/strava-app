@@ -27,3 +27,10 @@ label.image-zone-info {
     width: 100%;
     height: 162px;
 }
+
+@media screen and (max-width: 590px) {
+    .edit-activity-form-container.container {
+    padding-left: 15px;
+    padding-right: 30px;
+}
+}

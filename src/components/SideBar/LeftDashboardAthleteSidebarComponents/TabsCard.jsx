@@ -43,11 +43,6 @@ const TabsCard = ({ svgContent, weekText, yearText }) => {
 							{svgContent}
 						</div>
 					</Card.Text>
-					<Card.Text className="weekStats-cardText">
-						<div className="goals-tab-progress">
-							<span id="rangeSpan">--:--</span>
-						</div>
-					</Card.Text>
 					<Card.Text className="weekStats-cardText-second">
 						<div className="goals-tab-stats">
 							<p className="thisWeek-para">THIS YEAR</p>
@@ -56,10 +51,15 @@ const TabsCard = ({ svgContent, weekText, yearText }) => {
 					</Card.Text>
 				</Card.Body>
 				<Card.Body className="training-log">
-					<Link to={"/activities"} id="goals-log-link">
-						Manage Your Goals
-						<img src={dropdown_icon} alt="arrow for helping the user to their activities" className="trainingLogIcon" width={32} height={32}/>
-				</Link>
+					<Link to={"/home/activities"} id="goals-log-link">
+						Manage Your Goals <img
+							src={dropdown_icon}
+							alt="arrow for helping the user to their activities"
+							className="trainingLogIcon"
+							width={32}
+							height={32}
+						/>
+					</Link>
 				</Card.Body>
 			</Card>
 		</div>

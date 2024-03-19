@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import UserProfile from '../../components/UserProfile/UserProfile';
 
 const MyProfile = () => {
     return (
-        <div className="dashboard-container">
-            <h1>MyProfile</h1>
+        <div className="SearchUserProfile-container">
+            <UserProfile />
         </div>
     )
 }
 
-export default MyProfile
+export default MyProfile;

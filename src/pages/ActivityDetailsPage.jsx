@@ -13,7 +13,7 @@ import { IoShareSocialOutline } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
 import "../styles/ActivityDetailsPage.css";
 import "../styles/common/buttons.css";
-import fortunendlovu from "../images/fortunendlovu.jpg";
+import defaultUserProfile from "../images/defaultUserProfile.png";
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
 	<Button
@@ -38,27 +38,25 @@ const ActivityDetailsPage = () => {
 	useEffect(() => {
 		// Fetching activity details from the Firestore
 		const fetchActivityDetails = async () => {
-			const activityDoc = doc(db, "userActivities", activityId);
-			const activitySnapshot = await getDoc(activityDoc);
-
-			// If the doc exists update the state with the fetched activity details
-			if (activitySnapshot.exists()) {
-				setActivityDetails({
-					...activitySnapshot.data(),
-					id: activitySnapshot.id,
-				});
+			const activityDocRef = doc(db, "userActivities", activityId);
+			const activityDocSnapshot = await getDoc(activityDocRef);
+			if (activityDocSnapshot.exists()) {
+				setActivityDetails(activityDocSnapshot.data());
 			}
 		};
-
-		fetchActivityDetails();
+		
+		return () => { 
+			fetchActivityDetails();
+		}
 	});
+
 
 	const handleDeleteActivity = async () => {
 		const userDoc = doc(db, "userActivities", activityId);
 		await deleteDoc(userDoc);
 
 		// Redirect to MyActivities page after deletion
-		navigate("/activities");
+		navigate("/home/activities");
 	};
 
 	return (
@@ -69,7 +67,7 @@ const ActivityDetailsPage = () => {
 						<Row>
 							<Col id="activityDetailButtonGroupCol">
 								<Dropdown as={ButtonGroup}>
-									<Link to={`/activity/${activityId}/edit`}>
+									<Link to={`/home/activity/${activityId}/edit`}>
 										<Button
 											id="activity-details-edit-btn"
 											title="Edit this activity"
@@ -107,10 +105,11 @@ const ActivityDetailsPage = () => {
 										</svg>
 									</Dropdown.Toggle>
 									<Dropdown.Menu id="activityDropdownOptions">
-										<Dropdown.Item href="#/action-1">
-											Refresh Activity Achievements
+										
+										<Dropdown.Item href="#RefreshActivityAchievements">
+											Refresh Activity <br></br> Achievements
 										</Dropdown.Item>
-										<Dropdown.Item href="#/action-2">Flag</Dropdown.Item>
+										<Dropdown.Item href="#Flag">Flag</Dropdown.Item>
 										<Dropdown.Item onClick={handleDeleteActivity}>
 											Delete
 										</Dropdown.Item>
@@ -124,7 +123,7 @@ const ActivityDetailsPage = () => {
 											<Row id="activity-details-book-header-Row">
 												<Col xs="9" id="activity-details-book-header-Col">
 													<div id="activityDetailsTypeInfo">
-														<a href="/activities">Fortune Ndlovu </a> -{" "}
+														<Link to={"/home/activities"}>Fortune Ndlovu </Link> -{" "}
 														{activityDetails.sport}
 													</div>
 												</Col>
@@ -196,7 +195,7 @@ const ActivityDetailsPage = () => {
 																<Col id="activityDetailsLeftPageCol">
 																	<img
 																		id="activity-details-user-image"
-																		src={fortunendlovu}
+																		src={defaultUserProfile}
 																		alt="fortune ndlovu"
 																		width={50}
 																		height={50}

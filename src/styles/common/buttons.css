@@ -19,7 +19,7 @@
 	color: #fff;
 	font-size: 12px;
 	font-weight: 700;
-	padding: 5px 20px 5px 20px;
+	padding: 5px 15px 5px 15px;
 }
 
 /* Dropdown styles for for the languages button in the footer */
@@ -57,9 +57,12 @@ select#languages-select {
 	outline-offset: 1px;
 }
 
+
+
 /* Button styling for the RightDashboardAthleteSidebar component */
 button.view-all-challenges-btn,
-button.view-all-friends-btn {
+button.view-all-friends-btn,
+#activityCommentPostBtn {
 	color: #fc5200;
 	background-color: rgba(0, 0, 0, 0);
 	border: none;
@@ -69,13 +72,15 @@ button.view-all-friends-btn {
 }
 
 button.view-all-challenges-btn:hover,
-button.view-all-friends-btn:hover {
+button.view-all-friends-btn:hover,
+#activityCommentPostBtn:hover {
 	background-color: #ffe1d2;
 	color: #fc5200;
 	border: none;
 }
 
-.manual-entry-form-btn-group button {
+.manual-entry-form-btn-group button,
+#followUserBth {
 	background-color: #fc5200;
 	color: #fff;
 	font-weight: 500;
@@ -96,6 +101,9 @@ button.view-all-friends-btn:hover {
 	--bs-btn-disabled-border-color: #fc5200;
 }
 
+#followUserBth::after,
+#followUserBth:focus,
+#followUserBth:visited,
 button.view-all-challenges-btn::after,
 button.view-all-challenges-btn:focus,
 button.view-all-challenges-btn:visited,
@@ -112,6 +120,7 @@ button.view-all-friends-btn:after {
 
 button#saveRouteBtn,
 button.view-all-clubs-btn,
+a#homeLoginBtn,
 button.view-all-clubs-btn::after {
 	background-color: #fff;
 	border-color: #b6b3ac;
@@ -127,6 +136,14 @@ button.view-all-clubs-btn {
 	margin-bottom: 20px;
 }
 
+a#homeLoginBtn {
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 8px;
+}
+
+a#homeLoginBtn:hover,
+a#homeLoginBtn:focus,
 button#saveRouteBtn:hover,
 button#saveRouteBtn:visited,
 button#saveRouteBtn:focus,
@@ -254,6 +271,21 @@ button#filteringActivitiesBtn {
 
 button#filteringActivitiesBtn:hover {
     background-color: #e6e6e6;
+}
+
+button#activity-details-dropside-btn {
+    width: 86px;
+    background-color: #f9f8f5;
+    border: 1px solid #dfdfe8;
+    border-radius: 0px;
+}
+
+button#activity-details-dropside-btn:hover {
+    background-color: #dfdfe8;
+}
+
+#homeLoginBtn {
+
 }
 
 @media screen and (max-width: 992px) {

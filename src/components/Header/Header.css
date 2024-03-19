@@ -16,6 +16,10 @@ a.navDropdownHeading:hover {
     border-top: none;
 }
 
+.user-dropdown-menu-wrapper {
+  padding-top: 10px !important;
+}
+
 #userUploadDropdownMenu{
   min-width: 188px;
 }
@@ -297,6 +301,10 @@ button.icon-button {
   border: none;
   padding-left: 0px;
   z-index: 999;
+}
+
+#userProfileImg {
+  border-radius: 100px;
 }
 
 @media screen and (max-width: 1200px) {

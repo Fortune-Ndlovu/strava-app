@@ -11,3 +11,10 @@ td.activities-table-buttons {
 .link-of-unique-activity:hover {
     text-decoration: underline;
 }
+
+@media screen and (max-width: 974px) {
+    div#myActivitiesContainer {
+    padding-left: 20px;
+    padding-right: 40px;
+}
+}

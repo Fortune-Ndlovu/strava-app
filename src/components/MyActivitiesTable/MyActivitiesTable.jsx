@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
+import Button from 'react-bootstrap/Button';
 import EditableRow from "./EditableRow";
 import "./MyActivitiesTable.css";
 
@@ -40,7 +41,7 @@ const MyActivitiesTable = ({
   };
 
 	return (
-		<div style={{ overflowX: "auto" }}>
+		<div  className="table-responsive">
 			<h4>{activities.length} Activities </h4>
 			<Table striped bordered hover>
 				<thead>
@@ -60,7 +61,7 @@ const MyActivitiesTable = ({
 								<tr>
 									<td>{activity.sport}</td>
 									<td>{activity.date}</td>
-									<td><a href={`/activity/${activity.id}`} className="link-of-unique-activity">{activity.name}</a></td>
+									<td><a href={`/home/activity/${activity.id}`} className="link-of-unique-activity">{activity.name}</a></td>
 									<td>{activity.time}</td>
 									<td>{activity.distance}</td>
 									<td>{activity.elevation}</td>
@@ -69,8 +70,8 @@ const MyActivitiesTable = ({
 											<></>
 										) : (
 											<>
-													<a href="#" className="link-of-unique-activity" onClick={() => handleEditClick(index)}>Edit</a>
-													<a href="#" className="link-of-unique-activity" onClick={() => handleDeleteClick(index)}>Delete</a>
+													<Button variant="link" className="link-of-unique-activity" onClick={() => handleEditClick(index)}>Edit</Button>
+													<Button variant="link" className="link-of-unique-activity" onClick={() => handleDeleteClick(index)}>Delete</Button>
 
 											</>
 										)}

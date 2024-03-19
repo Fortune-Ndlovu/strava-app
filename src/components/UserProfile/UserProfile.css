@@ -1,0 +1,82 @@
+.searchedUsersHeroImageWrapper {
+    position: relative;
+    width: 100%; 
+    height: 400px; 
+    overflow: hidden;
+}
+
+.searchedUsersHeroImageWrapper img,
+.user-profile-hero-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+
+.searchUsersProfile {
+    position: relative;
+}
+
+.searchedUsersProfileImg {
+    position: absolute;
+    top: 326px;
+    left: 30px;
+    width: 132px; 
+    height: 132px;
+    border-radius: 50%; 
+    overflow: hidden;
+    z-index: 1;
+}
+
+.searchedUsersProfileImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.searchedUsersInfo {   
+    padding-left: 30px;
+}
+.searchedUsersInfoWrapper {
+    display: flex;
+    padding-top: 86px;
+    align-items: baseline;
+    justify-content: left;
+    gap: 200px;
+}
+
+.searchUserActivityCount p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchUserActivityCount h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+h1#totalActivities {
+    font-size: 63px;
+    font-weight: 700;
+}
+
+p.searchUserProfileBio {
+    padding-top: 14px;
+    max-width: 230px;
+}
+
+.socialStats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
