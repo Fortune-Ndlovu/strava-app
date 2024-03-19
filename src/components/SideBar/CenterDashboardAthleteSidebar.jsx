@@ -356,6 +356,10 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 				...prevComments,
 				[activityId]: updatedComments,
 			}));
+
+			// Clone the activities array
+			const clonedActivities = [...activities];
+			setActivities(clonedActivities);
 		} catch (error) {
 			console.error("Error deleting comment:", error);
 		}
@@ -381,6 +385,10 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 				...prevCommentLikes,
 				[activityId]: updatedCommentLikes,
 			}));
+
+			// Clone the activities array
+			const clonedActivities = [...activities];
+			setActivities(clonedActivities);
 		} catch (error) {
 			console.error("Error toggling comment like:", error);
 		}
@@ -798,7 +806,9 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										onLikeComment={(commentIndex) =>
 											handleCommentLikeToggle(activity.id, commentIndex)
 										}
-
+										handleCommentPost={(comment) =>
+											handleCommentPost(comment, activity.id)
+										}
 									/>
 								)}
 							</div>
