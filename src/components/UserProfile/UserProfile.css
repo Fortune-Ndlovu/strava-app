@@ -5,7 +5,8 @@
     overflow: hidden;
 }
 
-.searchedUsersHeroImageWrapper img {
+.searchedUsersHeroImageWrapper img,
+.user-profile-hero-image img {
     position: absolute;
     top: 0;
     left: 0;
@@ -50,12 +51,32 @@
     gap: 200px;
 }
 
-.searchUserActivityCount h1 {
+.searchUserActivityCount p {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.searchUserActivityCount h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+h1#totalActivities {
+    font-size: 63px;
+    font-weight: 700;
+}
+
 p.searchUserProfileBio {
     padding-top: 14px;
+    max-width: 230px;
+}
+
+.socialStats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }

@@ -13,7 +13,7 @@ import "./UserProfile.css";
 const UserProfile = () => {
 	const [userData, setUserData] = useState({});
 	const [activities, setActivities] = useState([]);
-	console.log("activities ", activities);
+	console.log("userData ", userData);
 	useEffect(() => {
 		const fetchUserData = async () => {
 			try {
@@ -58,30 +58,43 @@ const UserProfile = () => {
 	return (
 		<div>
 			{userData ? (
-				<div className="user-profile-wrapper">
-					<div className="user-profile-hero-images">
-						{activities.length ? (
-							activities.slice(0, 3).map((activity, index) => (
-								<div key={index}>
-									<img src={activity.imageUrls} alt="scenic View" />
-								</div>
-							))
-						) : (
-							<img src={scenicView} alt="scenic View" />
-						)}
+				<div className="searchUsersProfile">
+					<div className="searchedUsersHeroImageWrapper">
+						<img src={scenicView} alt="scenicView" />
 					</div>
-					<div className="user-profile-info-wrapper">
-						<div className="user-profile">
-							<div className="user-profile-image">
-								<img
-									src={userData.profileImageUrl}
-									alt={userData.displayName}
-								/>
+					<div className="searchedUsersProfileImg">
+						<img
+							src={userData.profileImageUrl}
+							alt={`${userData.name}s identifier visual`}
+						/>
+					</div>
+					<div className="searchedUsersInfoWrapper">
+						<div className="searchedUsersInfo">
+							<h3>{userData.name}</h3>
+							<p>{userData.location}</p>
+							<p className="searchUserProfileBio">{userData.profileBio}</p>
+						</div>
+						<div className="searchUserActivityCount">
+							<p>Total Activities</p>
+							<h1 id="totalActivities">{activities.length}</h1>
+
+							<div className="socialStats">
+								<div className="follower">
+									<p>Followers</p>
+									<h1>
+										{userData.followers ? userData.followers.length : "0"}
+									</h1>
+								</div>
+								<div className="following">
+									<p>Following</p>
+									<h1>
+										{userData.following ? userData.following.length : "0"}
+									</h1>
+								</div>
 							</div>
-							<div className="user-profile-info">
-								<div className="user-profile-name">{userData.name}</div>
-								<div className="user-profile-bio">{userData.profileBio}</div>
-							</div>
+						</div>
+						<div>
+							<p></p>
 						</div>
 					</div>
 				</div>

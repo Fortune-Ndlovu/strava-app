@@ -3,7 +3,7 @@ import UserProfile from '../../components/UserProfile/UserProfile';
 
 const MyProfile = () => {
     return (
-        <div className="dashboard-container">
+        <div className="SearchUserProfile-container">
             <UserProfile />
         </div>
     )
