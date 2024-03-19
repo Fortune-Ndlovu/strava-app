@@ -17,6 +17,7 @@ const SearchUserProfile = () => {
 	console.log("userId", userId);
 	const [userData, setUserData] = useState(null);
 	const [isFollowing, setIsFollowing] = useState(false); // State to track if user is already being followed
+	const [activitiesCount, setActivitiesCount] = useState(0); // State to store the count of activities
 
 	useEffect(() => {
 		const fetchUserData = async () => {
@@ -142,16 +143,39 @@ const SearchUserProfile = () => {
 		}
 	};
 
+	useEffect(() => {
+    const fetchActivitiesCount = async () => {
+    try {
+        // Fetch the activities of the followed user
+        const userActivitiesQuery = query(
+            collection(db, "userActivities"),
+            where("userId", "==", userId) // Filter by the userId of the followed user
+        );
+        const activitiesSnapshot = await getDocs(userActivitiesQuery);
+
+        // Get the total count of activities
+        const totalCount = activitiesSnapshot.size;
+        setActivitiesCount(totalCount);
+    } catch (error) {
+        console.error("Error fetching activities count:", error);
+    }
+};
+
+    fetchActivitiesCount();
+}, [userId]);
+
 	return (
 		<div>
 			{userData ? (
 				<div>
 					<h2>User Profile</h2>
-					<p>Name: {userData.name}</p>
-					<p>Email: {userData.email}</p>
+					<p>{userData.name}</p>
+					<p>{userData.location}</p>
 					<Button onClick={handleFollow}>
 						{isFollowing ? "Following" : "Follow"}
 					</Button>
+					<p>{userData.profileBio}</p>
+					<p>Total Activities {activitiesCount}</p>
 				</div>
 			) : (
 				<p>Loading...</p>
