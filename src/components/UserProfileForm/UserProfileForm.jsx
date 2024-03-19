@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import { db } from "../../firebase/firebase";
-import { getCurrentUserId } from "../../firebase/firebase";
-import { query, collection, getDocs } from "firebase/firestore";
-import { where, doc, updateDoc } from "firebase/firestore";
+import { db, getCurrentUserId } from "../../firebase/firebase";
+import { query, collection, getDocs, where, doc, updateDoc } from "firebase/firestore";
+import Image from 'react-bootstrap/Image';
 import ProfileComponent from "./ProfileComponent";
+import "./UserProfileForm.css";
 
 const UserProfileForm = () => {
 	const [userData, setUserData] = useState({
@@ -112,15 +112,16 @@ const UserProfileForm = () => {
 			<div>
 				<h2>My Profile</h2>
 				<div>
-					<img
+					<Image
 						src={userData.profileImageUrl}
-						alt=""
+						alt={`${userData.name}s profile`}
 						width={70}
 						height={70}
 						style={{
 							objectFit: "cover",
 							marginRight: "10px",
 						}}
+						roundedCircle 
 					/>
 					<ProfileComponent updateUserDocument={updateUserDocument} />
 				</div>
@@ -132,6 +133,7 @@ const UserProfileForm = () => {
 								{editMode === "name" ? (
 									<input
 										type="text"
+										className="form-control"
 										value={userData.name}
 										onChange={(e) => handleChange("name", e.target.value)}
 									/>
@@ -157,6 +159,7 @@ const UserProfileForm = () => {
 								{editMode === "birthday" ? (
 									<input
 										type="date"
+										className="form-control"
 										value={userData.birthday}
 										onChange={(e) => handleChange("birthday", e.target.value)}
 									/>
@@ -185,6 +188,7 @@ const UserProfileForm = () => {
 								{editMode === "gender" ? (
 									<input
 										type="text"
+										className="form-control"
 										value={userData.gender}
 										onChange={(e) => handleChange("gender", e.target.value)}
 									/>
@@ -213,6 +217,7 @@ const UserProfileForm = () => {
 								{editMode === "location" ? (
 									<input
 										type="text"
+										className="form-control"
 										value={userData.location}
 										onChange={(e) => handleChange("location", e.target.value)}
 									/>
@@ -241,6 +246,7 @@ const UserProfileForm = () => {
 								{editMode === "profileBio" ? (
 									<input
 										type="text"
+										className="form-control"
 										value={userData.profileBio}
 										onChange={(e) => handleChange("profileBio", e.target.value)}
 									/>

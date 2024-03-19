@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import Image from 'react-bootstrap/Image';
 import CompressImage from "../../services/compressImage";
 
 const ProfileComponent = ({ updateUserDocument }) => {
@@ -31,17 +32,18 @@ const ProfileComponent = ({ updateUserDocument }) => {
 
 	return (
 		<div>
-			<input type="file" onChange={handleImageChange} />
+			<input type="file" className="form-control" onChange={handleImageChange} />
 			{selectedImage && (
-				<img
+				<Image
 					src={URL.createObjectURL(selectedImage)}
-					alt="Selected Image"
+					alt="Selected"
 					width={70}
 					height={70}
 					style={{
 						objectFit: "cover",
 						marginRight: "10px",
 					}}
+					thumbnail
 				/>
 			)}
 		</div>

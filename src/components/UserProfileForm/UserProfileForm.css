@@ -1,0 +1,5 @@
+div#userProfileContainer input:focus {
+    outline: none;
+    border: 1px solid rgba(0, 127, 182, 0.5);
+    box-shadow: 0 0 5px rgba(0, 127, 182, 0.5);
+}
