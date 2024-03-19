@@ -36,6 +36,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 	const [userData, setUserData] = useState({});
 	const [followingUsersData, setFollowingUsersData] = useState({});
 	console.log("activities", activities);
+	console.log("comments", comments);
 	useEffect(() => {
 		const fetchUserData = async () => {
 			try {
@@ -61,48 +62,47 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 		fetchUserData();
 	}, []);
 
-useEffect(() => {
-    // Setting up a snapshot listener to track changes in the collection
-    const unsubscribeActivitiesCollection = onSnapshot(
-        collection(db, "userActivities"),
-        (snapshot) => {
-            // Update the state whenever there's a change in the collection
-            // Filtering activities to show only those created by the current user
-            const userActivities = snapshot.docs
-                .map((doc) => ({ ...doc.data(), id: doc.id }))
-                .filter((activity) => activity.userId === getCurrentUserId())
-                .sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis());
+	useEffect(() => {
+		// Setting up a snapshot listener to track changes in the collection
+		const unsubscribeActivitiesCollection = onSnapshot(
+			collection(db, "userActivities"),
+			(snapshot) => {
+				// Update the state whenever there's a change in the collection
+				// Filtering activities to show only those created by the current user
+				const userActivities = snapshot.docs
+					.map((doc) => ({ ...doc.data(), id: doc.id }))
+					.filter((activity) => activity.userId === getCurrentUserId())
+					.sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis());
 
-            // Clone the userActivities array
-            const clonedUserActivities = [...userActivities];
+				// Clone the userActivities array
+				const clonedUserActivities = [...userActivities];
 
-            setActivities(clonedUserActivities);
+				setActivities(clonedUserActivities);
 
-            // Fetch comments for each activity and update the comments state
-            clonedUserActivities.forEach(async (activity) => {
-                const activityId = activity.id;
-                const userDoc = doc(db, "userActivities", activityId);
-                const existingComments =
-                    (await getDoc(userDoc)).data().comments || [];
-                setComments((prevComments) => ({
-                    ...prevComments,
-                    [activityId]: existingComments,
-                }));
+				// Fetch comments for each activity and update the comments state
+				clonedUserActivities.forEach(async (activity) => {
+					const activityId = activity.id;
+					const userDoc = doc(db, "userActivities", activityId);
+					const existingComments =
+						(await getDoc(userDoc)).data().comments || [];
+					setComments((prevComments) => ({
+						...prevComments,
+						[activityId]: existingComments,
+					}));
 
-                const existingCommentLikes =
-                    (await getDoc(userDoc)).data().commentLikes || {};
-                setCommentLikes((prevCommentLikes) => ({
-                    ...prevCommentLikes,
-                    [activityId]: existingCommentLikes,
-                }));
-            });
-        }
-    );
+					const existingCommentLikes =
+						(await getDoc(userDoc)).data().commentLikes || {};
+					setCommentLikes((prevCommentLikes) => ({
+						...prevCommentLikes,
+						[activityId]: existingCommentLikes,
+					}));
+				});
+			}
+		);
 
-    // Cleanup the listener when the component unmounts
-    return () => unsubscribeActivitiesCollection();
-}, []);
-
+		// Cleanup the listener when the component unmounts
+		return () => unsubscribeActivitiesCollection();
+	}, []);
 
 	// ///////////////////////////////
 
@@ -171,95 +171,94 @@ useEffect(() => {
 	// fetching user data that the current user is following
 
 	useEffect(() => {
-    const fetchActivities = async () => {
-        try {
-            const currentUser = getCurrentUserId();
-            if (currentUser) {
-                // Fetch activities of the current user
-                const currentUserActivitiesRef = collection(db, "userActivities");
-                const currentUserActivitiesQuery = query(
-                    currentUserActivitiesRef,
-                    where("userId", "==", currentUser)
-                );
-                const currentUserActivitiesSnapshot = await getDocs(
-                    currentUserActivitiesQuery
-                );
-                let currentUserActivities = currentUserActivitiesSnapshot.docs.map(
-                    (doc) => ({
-                        id: doc.id,
-                        ...doc.data(),
-                    })
-                );
+		const fetchActivities = async () => {
+			try {
+				const currentUser = getCurrentUserId();
+				if (currentUser) {
+					// Fetch activities of the current user
+					const currentUserActivitiesRef = collection(db, "userActivities");
+					const currentUserActivitiesQuery = query(
+						currentUserActivitiesRef,
+						where("userId", "==", currentUser)
+					);
+					const currentUserActivitiesSnapshot = await getDocs(
+						currentUserActivitiesQuery
+					);
+					let currentUserActivities = currentUserActivitiesSnapshot.docs.map(
+						(doc) => ({
+							id: doc.id,
+							...doc.data(),
+						})
+					);
 
-                // Fetch data of the users the current user is following
-                const followingRef = collection(db, "users");
-                const followingQuery = query(
-                    followingRef,
-                    where("uid", "==", currentUser)
-                );
-                const followingSnapshot = await getDocs(followingQuery);
+					// Fetch data of the users the current user is following
+					const followingRef = collection(db, "users");
+					const followingQuery = query(
+						followingRef,
+						where("uid", "==", currentUser)
+					);
+					const followingSnapshot = await getDocs(followingQuery);
 
-                if (!followingSnapshot.empty) {
-                    const followingData = followingSnapshot.docs[0].data();
+					if (!followingSnapshot.empty) {
+						const followingData = followingSnapshot.docs[0].data();
 
-                    if (
-                        followingData.following &&
-                        followingData.following.length > 0
-                    ) {
-                        for (const followingUserId of followingData.following) {
-                            // Fetch activities of followed users
-                            const followingActivitiesQuery = query(
-                                currentUserActivitiesRef,
-                                where("userId", "==", followingUserId)
-                            );
-                            const followingActivitiesSnapshot = await getDocs(
-                                followingActivitiesQuery
-                            );
-                            const followingUserActivities =
-                                followingActivitiesSnapshot.docs.map((doc) => ({
-                                    id: doc.id,
-                                    ...doc.data(),
-                                }));
+						if (followingData.following && followingData.following.length > 0) {
+							for (const followingUserId of followingData.following) {
+								// Fetch activities of followed users
+								const followingActivitiesQuery = query(
+									currentUserActivitiesRef,
+									where("userId", "==", followingUserId)
+								);
+								const followingActivitiesSnapshot = await getDocs(
+									followingActivitiesQuery
+								);
+								const followingUserActivities =
+									followingActivitiesSnapshot.docs.map((doc) => ({
+										id: doc.id,
+										...doc.data(),
+									}));
 
-                            // Merge followed user activities with current user activities
-                            currentUserActivities = currentUserActivities.concat(
-                                followingUserActivities
-                            );
-                        }
-                    }
-                }
+								// Merge followed user activities with current user activities
+								currentUserActivities = currentUserActivities.concat(
+									followingUserActivities
+								);
+							}
+						}
+					}
 
-                // Remove duplicates by using a Set to maintain uniqueness
-                const uniqueActivities = Array.from(
-                    new Set(currentUserActivities.map((activity) => activity.id))
-                ).map((id) =>
-                    currentUserActivities.find((activity) => activity.id === id)
-                );
+					// Remove duplicates by using a Set to maintain uniqueness
+					const uniqueActivities = Array.from(
+						new Set(currentUserActivities.map((activity) => activity.id))
+					).map((id) =>
+						currentUserActivities.find((activity) => activity.id === id)
+					);
 
-                // Sort all activities by createdAt timestamp
-                const sortedActivities = uniqueActivities.sort(
-                    (a, b) => b.createdAt.toMillis() - a.createdAt.toMillis()
-                );
+					// Sort all activities by createdAt timestamp
+					const sortedActivities = uniqueActivities.sort(
+						(a, b) => b.createdAt.toMillis() - a.createdAt.toMillis()
+					);
 
-                // Clone the activities array
-                const updatedActivities = [...sortedActivities];
+					// Clone the activities array
+					const updatedActivities = [...sortedActivities];
 
-                // Set activities state
-                setActivities(updatedActivities);
-            }
-        } catch (error) {
-            console.error("Error fetching activities:", error);
-        }
-    };
+					// Set activities state
+					setActivities(updatedActivities);
+				}
+			} catch (error) {
+				console.error("Error fetching activities:", error);
+			}
+		};
 
-    fetchActivities();
-}, []);
-
+		fetchActivities();
+	}, []);
 
 	/////////////////////////////////
 
 	const handleCommentPost = async (comment, activityId) => {
 		try {
+			// Clone the activities array
+			const clonedActivities = [...activities]; // Assuming activities is your original array of activities
+
 			// Update the comments state with the new comment for the specific activity
 			setComments((prevComments) => ({
 				...prevComments,
@@ -274,7 +273,11 @@ useEffect(() => {
 
 			// Update the document with the new comments
 			await updateDoc(userDoc, { comments: [...existingComments, comment] });
+
+			// If everything succeeds, update the activities array
+			setActivities(clonedActivities);
 		} catch (error) {
+			// If an error occurs, log it and handle accordingly
 			console.error("Error saving comment:", error);
 		}
 	};
