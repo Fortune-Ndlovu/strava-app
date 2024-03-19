@@ -9,18 +9,20 @@ import {
 	doc,
 } from "firebase/firestore";
 
-import { db } from "../../firebase/firebase";
+import { db, getCurrentUserId } from "../../firebase/firebase";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import CommentSection from "./CommentSection";
+import defaultUserProfile from "../../images/defaultUserProfile.png";
 import "./CreateCommentsAndGiveKudos.css";
 
 function CreateCommentsAndGiveKudos({
 	show,
 	handleClose,
 	activity,
+	commentUserData,
 	onDeleteComment,
 	onLikeComment,
 }) {
@@ -28,6 +30,8 @@ function CreateCommentsAndGiveKudos({
 	const [comments, setComments] = useState([]);
 	const [likers, setLikers] = useState([]); // New state to store users who liked the activity
 	console.log("likers", likers);
+	console.log("commentUserData", commentUserData);
+	console.log("activity", activity);
 	// Function to fetch likers of the activity
 	const fetchLikers = async () => {
 		try {
@@ -62,22 +66,28 @@ function CreateCommentsAndGiveKudos({
 	}, [show, key, activity.id]);
 
 	const handleCommentPost = async (comment, activityId) => {
-		console.log("Comment posted:", comment);
 		try {
-			// Update the comments state with the new comment for the specific activity
-			setComments((prevComments) => ({
-				...prevComments,
-				[activityId]: [...(prevComments[activityId] || []), comment],
-			}));
 
-			// Obtain the document reference for the specific activity
+			const currentUser = getCurrentUserId();
 			const userDoc = doc(db, "userActivities", activityId);
 
 			// Get the existing comments for the activity
 			const existingComments = (await getDoc(userDoc)).data().comments || [];
 
+			// Construct the new comment object with userId and text
+			const newComment = {
+				userId: currentUser, // Include userId of the current user
+				text: comment, // Comment text
+			};
+
+			// Update the comments state with the new comment for the specific activity
+			setComments((prevComments) => ({
+				...prevComments,
+				[activityId]: [...(prevComments[activityId] || []), newComment],
+			}));
+
 			// Update the document with the new comments
-			await updateDoc(userDoc, { comments: [...existingComments, comment] });
+			await updateDoc(userDoc, { comments: [...existingComments, newComment] });
 		} catch (error) {
 			console.error("Error saving comment:", error);
 		}
@@ -98,7 +108,11 @@ function CreateCommentsAndGiveKudos({
 						{likers.length > 0 ? (
 							likers.map((liker) => (
 								<div key={liker.id}>
-									<img src={liker.profileImageUrl} alt={liker.name} width={50} />
+									<img
+										src={liker.profileImageUrl}
+										alt={liker.name}
+										width={50}
+									/>
 									<p>{liker.name}</p>
 									<p>{liker.location}</p>
 								</div>
@@ -107,6 +121,7 @@ function CreateCommentsAndGiveKudos({
 							<p>This entry has no kudos yet.</p>
 						)}
 					</Tab>
+
 					<Tab
 						eventKey="Comments"
 						title={`Comments (${activity.comments.length})`}
@@ -114,8 +129,23 @@ function CreateCommentsAndGiveKudos({
 						{activity.comments.length > 0 ? (
 							activity.comments.map((comment, index) => (
 								<div key={index}>
+									<div>
+										<img
+											src={
+												commentUserData[comment.userId]?.profileImageUrl ||
+												defaultUserProfile
+											}
+											alt="User Profile"
+											width={44}
+											height={44}
+										/>
+										<p>
+											<strong>{commentUserData[comment.userId]?.name}</strong>
+										</p>
+									</div>
 									<p>
-										{comment}{" "}
+										{comment.text}{" "}
+										{/* Render the text property of the comment object */}
 										<Button
 											variant="success"
 											size="sm"
