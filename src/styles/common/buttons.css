@@ -57,6 +57,8 @@ select#languages-select {
 	outline-offset: 1px;
 }
 
+
+
 /* Button styling for the RightDashboardAthleteSidebar component */
 button.view-all-challenges-btn,
 button.view-all-friends-btn,
@@ -77,7 +79,8 @@ button.view-all-friends-btn:hover,
 	border: none;
 }
 
-.manual-entry-form-btn-group button {
+.manual-entry-form-btn-group button,
+#followUserBth {
 	background-color: #fc5200;
 	color: #fff;
 	font-weight: 500;
@@ -98,6 +101,9 @@ button.view-all-friends-btn:hover,
 	--bs-btn-disabled-border-color: #fc5200;
 }
 
+#followUserBth::after,
+#followUserBth:focus,
+#followUserBth:visited,
 button.view-all-challenges-btn::after,
 button.view-all-challenges-btn:focus,
 button.view-all-challenges-btn:visited,

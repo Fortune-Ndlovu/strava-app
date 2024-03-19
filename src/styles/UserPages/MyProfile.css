@@ -1,0 +1,6 @@
+.SearchUserProfile-container {
+    max-width: 1260px !important;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
