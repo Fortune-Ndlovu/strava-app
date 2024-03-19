@@ -106,7 +106,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 		// Cleanup the listener when the component unmounts
 		return () => unsubscribeActivitiesCollection();
 	}, []);
- 
+
 	/////////////////////////////////////////// Fetch user data based on user IDs in comments ///////////////////////////////////////////
 	useEffect(() => {
 		const fetchCommentUsersData = async () => {
@@ -344,8 +344,9 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 			const existingComments = (await getDoc(userDoc)).data().comments || [];
 
 			// Remove the comment at the specified index
-			const updatedComments = [...existingComments];
-			updatedComments.splice(commentIndex, 1);
+			const updatedComments = existingComments.filter(
+				(_, index) => index !== commentIndex
+			);
 
 			// Update the document with the new comments (excluding the deleted comment)
 			await updateDoc(userDoc, { comments: updatedComments });
