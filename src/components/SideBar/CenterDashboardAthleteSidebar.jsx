@@ -35,7 +35,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 		useState(false);
 	const [userData, setUserData] = useState({});
 	const [followingUsersData, setFollowingUsersData] = useState({});
-	
+	console.log("activities", activities);
 	useEffect(() => {
 		const fetchUserData = async () => {
 			try {
@@ -61,44 +61,48 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 		fetchUserData();
 	}, []);
 
-	useEffect(() => {
-		// Setting up a snapshot listener to track changes in the collection
-		const unsubscribeActivitiesCollection = onSnapshot(
-			collection(db, "userActivities"),
-			(snapshot) => {
-				// Update the state whenever there's a change in the collection
-				// Filtering activities to show only those created by the current user
-				const userActivities = snapshot.docs
-					.map((doc) => ({ ...doc.data(), id: doc.id }))
-					.filter((activity) => activity.userId === getCurrentUserId())
-					.sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis());
+useEffect(() => {
+    // Setting up a snapshot listener to track changes in the collection
+    const unsubscribeActivitiesCollection = onSnapshot(
+        collection(db, "userActivities"),
+        (snapshot) => {
+            // Update the state whenever there's a change in the collection
+            // Filtering activities to show only those created by the current user
+            const userActivities = snapshot.docs
+                .map((doc) => ({ ...doc.data(), id: doc.id }))
+                .filter((activity) => activity.userId === getCurrentUserId())
+                .sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis());
 
-				setActivities(userActivities);
+            // Clone the userActivities array
+            const clonedUserActivities = [...userActivities];
 
-				// Fetch comments for each activity and update the comments state
-				userActivities.forEach(async (activity) => {
-					const activityId = activity.id;
-					const userDoc = doc(db, "userActivities", activityId);
-					const existingComments =
-						(await getDoc(userDoc)).data().comments || [];
-					setComments((prevComments) => ({
-						...prevComments,
-						[activityId]: existingComments,
-					}));
+            setActivities(clonedUserActivities);
 
-					const existingCommentLikes =
-						(await getDoc(userDoc)).data().commentLikes || {};
-					setCommentLikes((prevCommentLikes) => ({
-						...prevCommentLikes,
-						[activityId]: existingCommentLikes,
-					}));
-				});
-			}
-		);
+            // Fetch comments for each activity and update the comments state
+            clonedUserActivities.forEach(async (activity) => {
+                const activityId = activity.id;
+                const userDoc = doc(db, "userActivities", activityId);
+                const existingComments =
+                    (await getDoc(userDoc)).data().comments || [];
+                setComments((prevComments) => ({
+                    ...prevComments,
+                    [activityId]: existingComments,
+                }));
 
-		// Cleanup the listener when the component unmounts
-		return () => unsubscribeActivitiesCollection();
-	}, []);
+                const existingCommentLikes =
+                    (await getDoc(userDoc)).data().commentLikes || {};
+                setCommentLikes((prevCommentLikes) => ({
+                    ...prevCommentLikes,
+                    [activityId]: existingCommentLikes,
+                }));
+            });
+        }
+    );
+
+    // Cleanup the listener when the component unmounts
+    return () => unsubscribeActivitiesCollection();
+}, []);
+
 
 	// ///////////////////////////////
 
@@ -163,75 +167,96 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 
 		fetchUserData();
 	}, []);
+
 	// fetching user data that the current user is following
 
 	useEffect(() => {
-		const fetchActivities = async () => {
-			try {
-				const userId = getCurrentUserId();
-				if (userId) {
-					const userActivitiesRef = collection(db, "userActivities");
-					const userActivitiesQuery = query(
-						userActivitiesRef,
-						where("userId", "==", userId)
-					);
-					const userActivitiesSnapshot = await getDocs(userActivitiesQuery);
-					let userActivities = userActivitiesSnapshot.docs.map((doc) => ({
-						id: doc.id,
-						...doc.data(),
-					}));
+    const fetchActivities = async () => {
+        try {
+            const currentUser = getCurrentUserId();
+            if (currentUser) {
+                // Fetch activities of the current user
+                const currentUserActivitiesRef = collection(db, "userActivities");
+                const currentUserActivitiesQuery = query(
+                    currentUserActivitiesRef,
+                    where("userId", "==", currentUser)
+                );
+                const currentUserActivitiesSnapshot = await getDocs(
+                    currentUserActivitiesQuery
+                );
+                let currentUserActivities = currentUserActivitiesSnapshot.docs.map(
+                    (doc) => ({
+                        id: doc.id,
+                        ...doc.data(),
+                    })
+                );
 
-					const followingRef = collection(db, "users");
-					const followingQuery = query(
-						followingRef,
-						where("uid", "==", userId)
-					);
-					const followingSnapshot = await getDocs(followingQuery);
+                // Fetch data of the users the current user is following
+                const followingRef = collection(db, "users");
+                const followingQuery = query(
+                    followingRef,
+                    where("uid", "==", currentUser)
+                );
+                const followingSnapshot = await getDocs(followingQuery);
 
-					if (!followingSnapshot.empty) {
-						const followingData = followingSnapshot.docs[0].data();
+                if (!followingSnapshot.empty) {
+                    const followingData = followingSnapshot.docs[0].data();
 
-						if (followingData.following && followingData.following.length > 0) {
-							for (const followingUserId of followingData.following) {
-								// Fetch activities of followed users
-								const followingActivitiesQuery = query(
-									userActivitiesRef,
-									where("userId", "==", followingUserId)
-								);
-								const followingActivitiesSnapshot = await getDocs(
-									followingActivitiesQuery
-								);
-								const followingUserActivities =
-									followingActivitiesSnapshot.docs.map((doc) => ({
-										id: doc.id,
-										...doc.data(),
-									}));
+                    if (
+                        followingData.following &&
+                        followingData.following.length > 0
+                    ) {
+                        for (const followingUserId of followingData.following) {
+                            // Fetch activities of followed users
+                            const followingActivitiesQuery = query(
+                                currentUserActivitiesRef,
+                                where("userId", "==", followingUserId)
+                            );
+                            const followingActivitiesSnapshot = await getDocs(
+                                followingActivitiesQuery
+                            );
+                            const followingUserActivities =
+                                followingActivitiesSnapshot.docs.map((doc) => ({
+                                    id: doc.id,
+                                    ...doc.data(),
+                                }));
 
-								// Add followed user activities to the main activities array
-								userActivities.push(...followingUserActivities);
-							}
-						}
-					}
+                            // Merge followed user activities with current user activities
+                            currentUserActivities = currentUserActivities.concat(
+                                followingUserActivities
+                            );
+                        }
+                    }
+                }
 
-					// Sort all activities by createdAt timestamp
-					userActivities = userActivities.sort(
-						(a, b) => b.createdAt.toMillis() - a.createdAt.toMillis()
-					);
+                // Remove duplicates by using a Set to maintain uniqueness
+                const uniqueActivities = Array.from(
+                    new Set(currentUserActivities.map((activity) => activity.id))
+                ).map((id) =>
+                    currentUserActivities.find((activity) => activity.id === id)
+                );
 
-					// Set activities state
-					setActivities(userActivities);
-				}
-			} catch (error) {
-				console.error("Error fetching activities:", error);
-			}
-		};
+                // Sort all activities by createdAt timestamp
+                const sortedActivities = uniqueActivities.sort(
+                    (a, b) => b.createdAt.toMillis() - a.createdAt.toMillis()
+                );
 
-		fetchActivities();
-	}, []);
+                // Clone the activities array
+                const updatedActivities = [...sortedActivities];
 
-	////////////////
+                // Set activities state
+                setActivities(updatedActivities);
+            }
+        } catch (error) {
+            console.error("Error fetching activities:", error);
+        }
+    };
 
-	// ///////////////////////////////
+    fetchActivities();
+}, []);
+
+
+	/////////////////////////////////
 
 	const handleCommentPost = async (comment, activityId) => {
 		try {
@@ -301,6 +326,151 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 			}));
 		} catch (error) {
 			console.error("Error toggling comment like:", error);
+		}
+	};
+
+	/////////////////////////////// Activity Like ///////////////////////////////
+	// const handleLikeActivity = async (activityId) => {
+	// 	console.log("activityId", activityId);
+	// 	try {
+	// 		const currentUser = getCurrentUserId();
+	// 		// Check if currentUser is defined
+	// 		if (!currentUser) {
+	// 			console.error("Current user not found.");
+	// 			return;
+	// 		}
+
+	// 		// Check if the activity is already liked
+	// 		const userDocRef = doc(db, "userActivities", activityId);
+	// 		const userDocSnapshot = await getDoc(userDocRef);
+	// 		const activityData = userDocSnapshot.data();
+
+	// 		if (
+	// 			!activityData.activityLikes ||
+	// 			!activityData.activityLikes.includes(currentUser)
+	// 		) {
+	// 			// Like the activity
+	// 			const updatedLikes = activityData.activityLikes
+	// 				? [...activityData.activityLikes, currentUser]
+	// 				: [currentUser];
+	// 			await updateDoc(userDocRef, { activityLikes: updatedLikes });
+	// 		} else {
+	// 			// Show the modal if the activity is already liked
+	// 			setShowCommentsAndGiveKudos((prev) =>
+	// 				prev === activityId ? true : activityId
+	// 			);
+	// 		}
+	// 	} catch (error) {
+	// 		console.error("Error liking activity:", error);
+	// 	}
+	// };
+	// const handleLikeActivity = async (activityId) => {
+	// 	try {
+	// 		const currentUser = getCurrentUserId();
+
+	// 		// Get the activity index in the state
+	// 		const activityIndex = activities.findIndex(
+	// 			(activity) => activity.id === activityId
+	// 		);
+
+	// 		if (activityIndex !== -1) {
+	// 			// Check if the current user has already liked the activity
+	// 			const alreadyLiked =
+	// 				activities[activityIndex].activityLikes.includes(currentUser);
+
+	// 			// Update the activity's like status in the state
+	// 			if (alreadyLiked) {
+	// 				// Unlike the activity
+	// 				const updatedLikes = activities[activityIndex].activityLikes.filter(
+	// 					(userId) => userId !== currentUser
+	// 				);
+	// 				setActivities((prevActivities) => {
+	// 					const updatedActivities = [...prevActivities];
+	// 					updatedActivities[activityIndex] = {
+	// 						...updatedActivities[activityIndex],
+	// 						activityLikes: updatedLikes,
+	// 					};
+	// 					return updatedActivities;
+	// 				});
+	// 			} else {
+	// 				// Like the activity
+	// 				const updatedLikes = [
+	// 					...activities[activityIndex].activityLikes,
+	// 					currentUser,
+	// 				];
+	// 				setActivities((prevActivities) => {
+	// 					const updatedActivities = [...prevActivities];
+	// 					updatedActivities[activityIndex] = {
+	// 						...updatedActivities[activityIndex],
+	// 						activityLikes: updatedLikes,
+	// 					};
+	// 					return updatedActivities;
+	// 				});
+	// 			}
+
+	// 			// Update activity likes in the database
+	// 			// (Code to update likes in the database goes here)
+	// 		}
+	// 	} catch (error) {
+	// 		console.error("Error handling like activity:", error);
+	// 	}
+	// };
+	const handleLikeActivity = async (activityId) => {
+		try {
+			const currentUser = getCurrentUserId();
+
+			// Clone the activities array
+			const updatedActivities = [...activities];
+
+			// Get the index of the activity in the cloned array
+			const activityIndex = updatedActivities.findIndex(
+				(activity) => activity.id === activityId
+			);
+
+			if (activityIndex !== -1) {
+				// Check if the current user has already liked the activity
+				const alreadyLiked =
+					updatedActivities[activityIndex].activityLikes.includes(currentUser);
+
+				if (!alreadyLiked) {
+					// Like the activity
+					const updatedLikes = [
+						...updatedActivities[activityIndex].activityLikes,
+						currentUser,
+					];
+					updatedActivities[activityIndex] = {
+						...updatedActivities[activityIndex],
+						activityLikes: updatedLikes,
+					};
+
+					// Update activity likes in the database
+					await updateActivityLikesInDatabase(activityId, updatedLikes);
+
+					// Update the state with the cloned activities array
+					setActivities(updatedActivities);
+				} else {
+					// Show the modal if the activity is already liked
+					setShowCommentsAndGiveKudos((prev) =>
+						prev === activityId ? true : activityId
+					);
+				}
+			}
+		} catch (error) {
+			console.error("Error handling like activity:", error);
+		}
+	};
+
+	const updateActivityLikesInDatabase = async (activityId, updatedLikes) => {
+		try {
+			// Reference to the activity document in the Firestore database
+			const activityRef = doc(db, "userActivities", activityId);
+
+			// Update the activityLikes field in the activity document
+			await updateDoc(activityRef, { activityLikes: updatedLikes });
+
+			console.log("Activity likes updated in the database successfully.");
+		} catch (error) {
+			console.error("Error updating activity likes in the database:", error);
 		}
 	};
 
@@ -533,14 +703,16 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									)}
 								</div>
 								<div className="activity-kudos-reactions">
+									<p>
+										{activity.activityLikes
+											? `${activity.activityLikes.length} Likes`
+											: ""}
+									</p>
+
 									<Button
 										title="View all kudos"
 										id="activityKudosLikeBtn"
-										onClick={() =>
-											setShowCommentsAndGiveKudos((prev) =>
-												prev === activity.id ? true : activity.id
-											)
-										}
+										onClick={() => handleLikeActivity(activity.id)}
 									>
 										<svg
 											fill="currentColor"
