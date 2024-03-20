@@ -2,10 +2,18 @@ import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import { db, getCurrentUserId } from "../../firebase/firebase";
-import { query, collection, getDocs, where, doc, updateDoc } from "firebase/firestore";
-import Image from 'react-bootstrap/Image';
+import {
+	query,
+	collection,
+	getDocs,
+	where,
+	doc,
+	updateDoc,
+} from "firebase/firestore";
+import Image from "react-bootstrap/Image";
 import ProfileComponent from "./ProfileComponent";
 import "./UserProfileForm.css";
+import "../../styles/common/buttons.css";
 
 const UserProfileForm = () => {
 	const [userData, setUserData] = useState({
@@ -13,7 +21,7 @@ const UserProfileForm = () => {
 		birthday: "",
 		gender: "",
 		location: "",
-		profileBio: ""
+		profileBio: "",
 	});
 	const [editMode, setEditMode] = useState(""); // Changed to string to track edited field
 
@@ -121,7 +129,7 @@ const UserProfileForm = () => {
 							objectFit: "cover",
 							marginRight: "10px",
 						}}
-						roundedCircle 
+						roundedCircle
 					/>
 					<ProfileComponent updateUserDocument={updateUserDocument} />
 				</div>
@@ -143,11 +151,21 @@ const UserProfileForm = () => {
 							</td>
 							<td>
 								{editMode === "name" ? (
-									<Button variant="primary" onClick={handleSave}>
+									<Button
+										title="Save"
+										variant="primary"
+										className="userProfileSettingsBtn"
+										onClick={handleSave}
+									>
 										Save
 									</Button>
 								) : (
-									<Button variant="primary" onClick={() => handleEdit("name")}>
+									<Button
+										title="Edit"
+										variant="primary"
+										className="userProfileSettingsBtn"
+										onClick={() => handleEdit("name")}
+									>
 										Edit
 									</Button>
 								)}
@@ -169,12 +187,19 @@ const UserProfileForm = () => {
 							</td>
 							<td>
 								{editMode === "birthday" ? (
-									<Button variant="primary" onClick={handleSave}>
+									<Button
+										title="Save"
+										variant="primary"
+										className="userProfileSettingsBtn"
+										onClick={handleSave}
+									>
 										Save
 									</Button>
 								) : (
 									<Button
+										title="Edit"
 										variant="primary"
+										className="userProfileSettingsBtn"
 										onClick={() => handleEdit("birthday")}
 									>
 										Edit
@@ -198,12 +223,19 @@ const UserProfileForm = () => {
 							</td>
 							<td>
 								{editMode === "gender" ? (
-									<Button variant="primary" onClick={handleSave}>
+									<Button
+										title="Save"
+										variant="primary"
+										className="userProfileSettingsBtn"
+										onClick={handleSave}
+									>
 										Save
 									</Button>
 								) : (
 									<Button
+										title="Edit"
 										variant="primary"
+										className="userProfileSettingsBtn"
 										onClick={() => handleEdit("gender")}
 									>
 										Edit
@@ -227,12 +259,19 @@ const UserProfileForm = () => {
 							</td>
 							<td>
 								{editMode === "location" ? (
-									<Button variant="primary" onClick={handleSave}>
+									<Button
+										title="Save"
+										variant="primary"
+										className="userProfileSettingsBtn"
+										onClick={handleSave}
+									>
 										Save
 									</Button>
 								) : (
 									<Button
+										title="Edit"
 										variant="primary"
+										className="userProfileSettingsBtn"
 										onClick={() => handleEdit("location")}
 									>
 										Edit
@@ -244,9 +283,10 @@ const UserProfileForm = () => {
 							<td>Profile Bio</td>
 							<td>
 								{editMode === "profileBio" ? (
-									<input
-										type="text"
+									<textarea
+										type="textarea"
 										className="form-control"
+										 rows={3}
 										value={userData.profileBio}
 										onChange={(e) => handleChange("profileBio", e.target.value)}
 									/>
@@ -256,12 +296,19 @@ const UserProfileForm = () => {
 							</td>
 							<td>
 								{editMode === "profileBio" ? (
-									<Button variant="primary" onClick={handleSave}>
+									<Button
+										title="Save"
+										variant="primary"
+										className="userProfileSettingsBtn"
+										onClick={handleSave}
+									>
 										Save
 									</Button>
 								) : (
 									<Button
+										title="Edit"
 										variant="primary"
+										className="userProfileSettingsBtn"
 										onClick={() => handleEdit("profileBio")}
 									>
 										Edit
