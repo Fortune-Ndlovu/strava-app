@@ -80,7 +80,8 @@ button.view-all-friends-btn:hover,
 }
 
 .manual-entry-form-btn-group button,
-#followUserBth {
+#followUserBth,
+.startTrialBtn {
 	background-color: #fc5200;
 	color: #fff;
 	font-weight: 500;

@@ -9,41 +9,41 @@ const UserSettingsNav = () => {
 			{" "}
 			<Nav defaultActiveKey="/home" className="flex-column user-settings-nav">
 				<ul className="user-settings-nav-list">
-					<li>
-						<Link to={"/home/myProfile"}>My Profile</Link>
+					<li className="myProfileList">
+						<Link to={"/home/settings"} className="myProfileLink">My Profile</Link>
 					</li>
 					<li>
-						<Link to={"/home/myAccount"}>My Account</Link>
+						<Link to={"/home/settings"}>My Account</Link>
 					</li>
 					<li>
-						<Link to={"/home/myPerformance"}>My Performance</Link>
+						<Link to={"/home/settings"}>My Performance</Link>
 					</li>
 					<li>
-						<Link to={"/home/displayPreferences"}>Display Preferences</Link>
+						<Link to={"/home/settings"}>Display Preferences</Link>
 					</li>
 					<li>
-						<Link to={"/home/Privacy Controls"}>Privacy Controls</Link>
+						<Link to={"/home/settings"}>Privacy Controls</Link>
 					</li>
 					<li>
-						<Link to={"/home/dataPermissions"}>Data Permissions</Link>
+						<Link to={"/home/settings"}>Data Permissions</Link>
 					</li>
 					<li>
-						<Link to={"/home/emailNotifications"}>Email Notifications</Link>
+						<Link to={"/home/settings"}>Email Notifications</Link>
 					</li>
 					<li>
-						<Link to={"/home/myGear"}>My Gear</Link>
+						<Link to={"/home/settings"}>My Gear</Link>
 					</li>
 					<li>
-						<Link to={"/home/myApps"}>My Apps</Link>
+						<Link to={"/home/settings"}>My Apps</Link>
 					</li>
 					<li>
-						<Link to={"/home/partnerIntegrations"}>Partner Integrations</Link>
+						<Link to={"/home/settings"}>Partner Integrations</Link>
 					</li>
 					<li>
-						<Link to={"/home/myBadges"}>My Performance</Link>
+						<Link to={"/home/settings"}>My Performance</Link>
 					</li>
 					<li>
-						<Link to={"/home/myAPIApplication"}>My Performance</Link>
+						<Link to={"/home/settings"}>My Performance</Link>
 					</li>
 				</ul>
 			</Nav>
