@@ -18,13 +18,13 @@ import {
 	where,
 	getDocs,
 } from "firebase/firestore";
-import { getCurrentUserId } from "../../firebase/firebase";
-import { db } from "../../firebase/firebase";
+import { db, getCurrentUserId } from "../../firebase/firebase";
 import CommentSection from "../CreateCommentsAndGiveKudos/CommentSection";
 import CreateCommentsAndGiveKudos from "../CreateCommentsAndGiveKudos/CreateCommentsAndGiveKudos";
 import defaultUserProfile from "../../images/defaultUserProfile.png";
 import "./sidebarStyles/CenterDashboardAthleteSidebar.css";
 import PostsDashboard from "./PostsDashboard";
+import { FaRegHeart } from "react-icons/fa";
 
 function CenterDashboardAthleteSidebar({ athlete }) {
 	const [activities, setActivities] = useState([]);
@@ -37,9 +37,6 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 	const [followingUsersData, setFollowingUsersData] = useState({});
 	const [commentUsersData, setCommentUsersData] = useState({});
 
-	console.log("activities", activities);
-	console.log("comments", comments);
-	console.log("commentUsersData", commentUsersData);
 	useEffect(() => {
 		const fetchUserData = async () => {
 			try {
@@ -739,49 +736,52 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									</Button>
 								</div>
 								{comments[activity.id]?.reverse().map((comment, index) => (
-									<div key={index} className="comment-display">
-										<div>
-											<img
-												src={
-													commentUsersData[comment.userId]?.profileImageUrl ||
-													defaultUserProfile
-												}
-												alt="User Profile"
-												width={44}
-												height={44}
-											/>
-											<p>
-												<strong>
-													{commentUsersData[comment.userId]?.name}
-												</strong>
-											</p>
-										</div>
-										<div>
-											<p>
-												<strong>Comment:</strong> {comment.text}
-											</p>
-											<Button
-												variant="success"
-												size="sm"
-												onClick={() => handleCommentDelete(index, activity.id)}
-											>
-												Delete
-											</Button>
-											<Button
-												variant="danger"
-												size="sm"
-												id="heartTheComment"
-												onClick={() =>
-													handleCommentLikeToggle(activity.id, index)
-												}
-											>
-												Heart
-											</Button>{" "}
-											{/* Display like count */}
-											<p>
-												{" "}
-												{commentLikes[activity.id]?.[index] ? "1 Like" : ""}
-											</p>
+									<div key={index} className="comment-display-container">
+										<div className="comment-display-wrapper">
+											<div className="commenter-info-wrapper">
+												<img
+													src={
+														commentUsersData[comment.userId]?.profileImageUrl ||
+														defaultUserProfile
+													}
+													alt="User Profile"
+													width={44}
+													height={44}
+													className="commenter-info-img"
+												/>
+												<div className="commenterNameTextWrapper">
+													<p className="commenterName">
+														{commentUsersData[comment.userId]?.name}
+													</p>
+													<p className="commenterText">{comment.text}</p>
+												</div>
+											</div>
+											<div className="comment-btn-wrapper">
+												<span>
+													{" "}
+													{commentLikes[activity.id]?.[index] ? "1 Like" : ""}
+												</span>
+												<Button
+													variant="danger"
+													size="sm"
+													id="heartTheComment"
+													onClick={() =>
+														handleCommentLikeToggle(activity.id, index)
+													}
+												>
+													<FaRegHeart />
+												</Button>{" "}
+												<Button
+													variant="link"
+													size="sm"
+													id="deTheComment"
+													onClick={() =>
+														handleCommentDelete(index, activity.id)
+													}
+												>
+													Delete
+												</Button>
+											</div>
 										</div>
 									</div>
 								))}

@@ -24,7 +24,7 @@
 .comment-section.hidden {
     display: none !important;
 }
-/* 
-#activityCommentsWrapper {
-    display: block !important;
-} */
+
+.commenter-info-wrapper-tab {
+    display: flex;
+}
