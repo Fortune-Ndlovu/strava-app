@@ -71,7 +71,7 @@ const UserProfileForm = () => {
 				await updateDoc(doc(db, "users", userId), {
 					...userData,
 				});
-				alert("Profile updated successfully!");
+				// alert("Profile updated successfully!");
 				setEditMode(""); // Reset edit mode after saving
 			} else {
 				console.error("User document not found for current user.");
@@ -141,6 +141,7 @@ const UserProfileForm = () => {
 								{editMode === "name" ? (
 									<input
 										type="text"
+										placeholder="Enter your name"
 										className="form-control"
 										value={userData.name}
 										onChange={(e) => handleChange("name", e.target.value)}
@@ -177,6 +178,7 @@ const UserProfileForm = () => {
 								{editMode === "birthday" ? (
 									<input
 										type="date"
+										placeholder="Enter your date of birth"
 										className="form-control"
 										value={userData.birthday}
 										onChange={(e) => handleChange("birthday", e.target.value)}
@@ -213,6 +215,7 @@ const UserProfileForm = () => {
 								{editMode === "gender" ? (
 									<input
 										type="text"
+										placeholder="Enter your gender (Optional)"
 										className="form-control"
 										value={userData.gender}
 										onChange={(e) => handleChange("gender", e.target.value)}
@@ -249,6 +252,7 @@ const UserProfileForm = () => {
 								{editMode === "location" ? (
 									<input
 										type="text"
+										placeholder="Enter your location"
 										className="form-control"
 										value={userData.location}
 										onChange={(e) => handleChange("location", e.target.value)}
@@ -285,6 +289,7 @@ const UserProfileForm = () => {
 								{editMode === "profileBio" ? (
 									<textarea
 										type="textarea"
+										placeholder="Tell us about your profile"
 										className="form-control"
 										 rows={3}
 										value={userData.profileBio}
