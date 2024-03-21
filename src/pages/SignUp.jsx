@@ -23,7 +23,7 @@ const SignUp = () => {
 
 		if (user && !user.error) {
 			//Successfully signed up
-			navigate("/");
+			navigate("/home");
 		} else {
 			//Failed to sign up
 			console.error(user.error);
