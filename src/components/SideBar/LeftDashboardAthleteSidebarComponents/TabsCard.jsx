@@ -20,7 +20,7 @@ const TabsCard = ({ svgContent, weekText, yearText }) => {
 						<div className="goals-tab-text">
 							<p>
 								Subscribe to stay motivated with custom progress, segment and
-								power goals. <a href="home">Upgrade</a>
+								power goals. <Link to="/home">Upgrade</Link>
 							</p>
 						</div>
 					</Card.Text>
