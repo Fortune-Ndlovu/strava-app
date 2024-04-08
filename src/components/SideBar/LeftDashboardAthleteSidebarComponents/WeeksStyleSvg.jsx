@@ -1,15 +1,11 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 
 const WeeksStyleSvg = () => {
 	// State to store the current day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
-	const [currentDay, setCurrentDay] = useState(new Date().getDay());
-
-	// useEffect hook to set the initial value of currentDay when the component mounts
-	useEffect(() => {
-		setCurrentDay(new Date().getDay());
-	}, []);
-
+	const [currentDay, setCurrentDay] = useState(() => new Date().getDay());
+	
 	const daysOfWeek = ["M", "T", "W", "T", "F", "S", "S"];
+
 	return (
 		<div>
 			{" "}
