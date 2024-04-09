@@ -9,13 +9,13 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
- apiKey: "AIzaSyAg4b3DhzR4NoKC_JWE3T2uVQAlEkkY2pA",
-  authDomain: "strava-one.firebaseapp.com",
-  projectId: "strava-one",
-  storageBucket: "strava-one.appspot.com",
-  messagingSenderId: "890413440195",
-  appId: "1:890413440195:web:552833cec5cc24f433d676",
-  measurementId: "G-PXHFGNW75H"
+  apiKey: "AIzaSyACklxBeZiCfUoFcFOakUU3Mxg7kFOR_Jo",
+  authDomain: "strava-web-application-replica.firebaseapp.com",
+  projectId: "strava-web-application-replica",
+  storageBucket: "strava-web-application-replica.appspot.com",
+  messagingSenderId: "1061110930450",
+  appId: "1:1061110930450:web:2b85608831d9e8a1734ccb",
+  measurementId: "G-FBJTPMR2X9"
 };
 
 const app = initializeApp(firebaseConfig);
