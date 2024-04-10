@@ -1,6 +1,6 @@
 // Importing necessary React hooks and Firebase functions
 import React, { useState, useEffect } from "react";
-import { db } from "../firebase/firebase";
+import { db, getCurrentUserId } from "../firebase/firebase";
 import {
 	collection,
 	addDoc,
@@ -11,7 +11,6 @@ import {
 	query,
 	where,
 } from "firebase/firestore";
-import { getCurrentUserId } from "../firebase/firebase";
 
 import ManualEntryForm from "../components/ManualEntryForm/ManualEntryForm";
 import MyActivitiesTable from "../components/MyActivitiesTable/MyActivitiesTable";
