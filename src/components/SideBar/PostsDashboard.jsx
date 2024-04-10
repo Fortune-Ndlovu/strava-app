@@ -4,8 +4,7 @@ import {
 	onSnapshot,
 	updateDoc,
 	getDoc,
-	doc,
-	getDocs,
+	doc
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import { Link } from "react-router-dom";
