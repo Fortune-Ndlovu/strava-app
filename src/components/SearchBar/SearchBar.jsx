@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { FiSearch } from 'react-icons/fi';
-import { HiOutlineX } from 'react-icons/hi';
-import { useNavigate } from 'react-router-dom'; // Import Navigate for navigation
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
+import { FiSearch } from "react-icons/fi";
+import { HiOutlineX } from "react-icons/hi";
 import { db } from "../../firebase/firebase";
-import { collection, query, where, getDocs } from 'firebase/firestore'; // Import Firestore utilities
-import './SearchBar.css';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import "./SearchBar.css";
 
 const SearchBar = ({ onCancel }) => { // Pass users collection reference as prop
     const [searchQuery, setSearchQuery] = useState("");
@@ -33,7 +33,7 @@ const SearchBar = ({ onCancel }) => { // Pass users collection reference as prop
                 const userId = userDoc.data().uid;
                 navigate(`/home/search/${userId}`); // Navigate to profile component with user's id
             } else {
-                console.log('User not found');
+                console.log("User not found");
             }
         } catch (error) {
             console.error('Error searching for user:', error);
