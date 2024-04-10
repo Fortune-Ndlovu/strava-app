@@ -1,13 +1,11 @@
 import { React, useState } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { IoPersonCircleOutline } from "react-icons/io5";
 import authSignUpWithEmailAndPassword from "../services/authSignUpWithEmailAndPassword";
 import { FcGoogle } from "react-icons/fc";
-import { IoPersonCircleOutline } from "react-icons/io5";
-
 import SignUpStravaPic from "../images/SignUpStravaPic.jpg";
 import "../styles/LogInSignUp.css";
 

@@ -11,7 +11,6 @@ import {
 	query,
 	where,
 } from "firebase/firestore";
-
 import ManualEntryForm from "../components/ManualEntryForm/ManualEntryForm";
 import MyActivitiesTable from "../components/MyActivitiesTable/MyActivitiesTable";
 

@@ -1,4 +1,11 @@
 import { React, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Dropdown from "react-bootstrap/Dropdown";
+import Button from "react-bootstrap/Button";
+import { RiArrowDropDownLine } from "react-icons/ri";
 import {
 	collection,
 	onSnapshot,
@@ -7,13 +14,6 @@ import {
 	doc
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
-import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Dropdown from "react-bootstrap/Dropdown";
-import Button from "react-bootstrap/Button";
-import { RiArrowDropDownLine } from "react-icons/ri";
 import PostCommentsSection from "../CreateCommentsAndGiveKudos/PostCommentsSection";
 import PostsCreateCommentsAndGiveKudos from "../CreateCommentsAndGiveKudos/PostsCreateCommentsAndGiveKudos";
 import defaultUserProfile from "../../images/defaultUserProfile.png";
