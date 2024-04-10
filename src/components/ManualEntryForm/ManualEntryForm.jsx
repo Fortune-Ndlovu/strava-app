@@ -101,7 +101,8 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 			});
 
 			// Redirect to the new activity details page using the id from the created activity
-			if (createdActivity && createdActivity.id) {
+			const createdActivityID = createdActivity?.id;
+			if (createdActivityID) {
 				navigate(`/home/activity/${createdActivity.id}`);
 			}
 		} catch (error) {
