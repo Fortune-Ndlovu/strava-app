@@ -1,4 +1,9 @@
 import { React, useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { db } from "../../firebase/firebase";
 import { doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import {
@@ -8,14 +13,9 @@ import {
 	getDownloadURL,
 	deleteObject,
 } from "firebase/storage";
-import { useParams, useNavigate } from "react-router-dom";
-import { Container } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Breadcrumb from "react-bootstrap/Breadcrumb";
 import defaultUserProfile from "../../images/defaultUserProfile.png";
-import "./EditPostForm.css";
 import compressImage from "../../services/compressImage";
+import "./EditPostForm.css";
 
 const EditPostForm = () => {
 	const { postId } = useParams(); //extract from the URL
