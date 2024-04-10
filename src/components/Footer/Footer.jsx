@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import Navbar from 'react-bootstrap/Navbar';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import stravaLogoFooter from '../../images/stravaLogoFooter.svg'
