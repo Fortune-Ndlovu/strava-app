@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { HiOutlineX } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom'; // Import Navigate for navigation
-import { db, getCurrentUserId } from "../../firebase/firebase";
+import { db } from "../../firebase/firebase";
 import { collection, query, where, getDocs } from 'firebase/firestore'; // Import Firestore utilities
 import './SearchBar.css';
 
