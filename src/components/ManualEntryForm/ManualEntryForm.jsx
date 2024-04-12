@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { app } from "../../firebase/firebase";
 import compressImage from "../../services/compressImage";
@@ -204,7 +204,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 						<Button type="button" onClick={handleCreateActivity}>
 							Create
 						</Button>
-						<a href="/home/">Cancel</a>
+						<Link to={"/home/"}>Cancel</Link>
 					</div>
 				</Form>
 			</Container>
