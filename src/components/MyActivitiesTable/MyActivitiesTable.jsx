@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import Link from "react-router-dom";
+import { Link } from "react-router-dom";
 import EditableRow from "./EditableRow";
 import "./MyActivitiesTable.css";
 
