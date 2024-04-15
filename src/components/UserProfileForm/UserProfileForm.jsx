@@ -106,7 +106,7 @@ const UserProfileForm = () => {
 					...userData,
 					...data,
 				});
-				alert("Profile updated successfully!");
+				// alert("Profile updated successfully!");
 			} else {
 				console.error("User document not found for current user.");
 			}
