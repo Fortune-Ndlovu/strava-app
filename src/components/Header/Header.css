@@ -305,6 +305,7 @@ button.icon-button {
 
 #userProfileImg {
   border-radius: 100px;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 1200px) {
