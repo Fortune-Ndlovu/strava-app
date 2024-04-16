@@ -163,7 +163,6 @@ const Header = () => {
 					{/* Changing the hamburger icon to an X when the menu is open. */}
 					<div
 						// className={isMenuOpen ? "menu-icon" : "menu-icon menu-icon-close"}
-						className={isMenuOpen ? "menu-icon menu-icon-close" : "menu-icon"}
 						id="xHamburger"
 					>
 						<div className="bar1"></div>
@@ -205,7 +204,7 @@ const Header = () => {
 									show={showDashboardItems}
 									title={
 										<div className="d-flex align-items-center">
-											<Link className="navDropdownHeading" to="/home/">
+											<Link className="navDropdownHeading" to="/home/" onClick={handleLinkClick}>
 												Dashboard
 											</Link>
 											<button
@@ -233,12 +232,12 @@ const Header = () => {
 									<div className="dropdownEffect">
 										<ul className="dashboard-link-segments">
 											<li>
-												<Link to="/home/" id="activity-feed">
+												<Link to="/home/" id="activity-feed" onClick={handleLinkClick}>
 													Activity Feed
 												</Link>
 											</li>
 											<li>
-												<Link to="/home/segments">My Segments</Link>
+												<Link to="/home/segments" onClick={handleLinkClick}>My Segments</Link>
 											</li>
 										</ul>
 
@@ -246,10 +245,10 @@ const Header = () => {
 											<h6>SUBSCRIPTION</h6>
 											<ul className="dashboard-goals-heatmaps">
 												<li>
-													<Link to="/home/goals">My Goals</Link>
+													<Link to="/home/goals" onClick={handleLinkClick}>My Goals</Link>
 												</li>
 												<li>
-													<Link to="/home/heatmaps">Heatmaps</Link>
+													<Link to="/home/heatmaps" onClick={handleLinkClick}>Heatmaps</Link>
 												</li>
 											</ul>
 										</div>
@@ -267,7 +266,7 @@ const Header = () => {
 									id="trainingDropdown"
 									title={
 										<div className="d-flex align-items-center nav-title">
-											<Link className="navDropdownHeading" to="/home/training">
+											<Link className="navDropdownHeading" to="/home/training" onClick={handleLinkClick}>
 												Training
 											</Link>
 											<button
@@ -295,12 +294,12 @@ const Header = () => {
 									<div className="dropdownEffect" id="trainingDropdown">
 										<ul className="dashboard-link-segments">
 											<li>
-												<Link to="/home/trainingCalendar">
+												<Link to="/home/trainingCalendar" onClick={handleLinkClick}>
 													Training Calendar
 												</Link>
 											</li>
 											<li>
-												<Link to="/home/activities">My Activities</Link>
+												<Link to="/home/activities" onClick={handleLinkClick}>My Activities</Link>
 											</li>
 										</ul>
 
@@ -308,16 +307,16 @@ const Header = () => {
 											<h6>SUBSCRIPTION</h6>
 											<ul>
 												<li>
-													<Link to="/home/trainingLog">Training Log</Link>
+													<Link to="/home/trainingLog" onClick={handleLinkClick}>Training Log</Link>
 												</li>
 												<li>
-													<Link to="/home/trainingPlans">Training Plans</Link>
+													<Link to="/home/trainingPlans" onClick={handleLinkClick}>Training Plans</Link>
 												</li>
 												<li>
-													<Link to="/home/powerCurve">Power Curve</Link>
+													<Link to="/home/powerCurve" onClick={handleLinkClick}>Power Curve</Link>
 												</li>
 												<li>
-													<Link to="/home/fitnessAndFreshness">
+													<Link to="/home/fitnessAndFreshness" onClick={handleLinkClick}>
 														Fitness & Freshness
 													</Link>
 												</li>
@@ -337,7 +336,7 @@ const Header = () => {
 									id="exploreDropdown"
 									title={
 										<div className="d-flex align-items-center">
-											<Link className="navDropdownHeading" to="/home/explore">
+											<Link className="navDropdownHeading" to="/home/explore" onClick={handleLinkClick}>
 												Explore
 											</Link>
 											<button
@@ -365,34 +364,34 @@ const Header = () => {
 									<div className="dropdownEffect explore">
 										<ul className="dashboard-link-segments">
 											<li>
-												<Link to="/home/segmentExplore">Segment Explore</Link>
+												<Link to="/home/segmentExplore" onClick={handleLinkClick}>Segment Explore</Link>
 											</li>
 											<li>
-												<Link to="/home/segmentSearch">Segment Search</Link>
+												<Link to="/home/segmentSearch" onClick={handleLinkClick}>Segment Search</Link>
 											</li>
 											<li>
-												<Link to="/home/athleteSearch">Athlete Search</Link>
+												<Link to="/home/athleteSearch" onClick={handleLinkClick}>Athlete Search</Link>
 											</li>
 											<li>
-												<Link to="/home/fitnessAndFreshness">
+												<Link to="/home/fitnessAndFreshness" onClick={handleLinkClick}>
 													Fitness & Freshness
 												</Link>
 											</li>
 											<li>
-												<Link to="/home/clubs">Clubs</Link>
+												<Link to="/home/clubs" onClick={handleLinkClick}>Clubs</Link>
 											</li>
 											<li>
-												<Link to="/home/apps">Apps</Link>
+												<Link to="/home/apps" onClick={handleLinkClick}>Apps</Link>
 											</li>
 										</ul>
 										<div className="explore-dropdown-subscription">
 											<h6>SUBSCRIPTION</h6>
 											<ul>
 												<li>
-													<Link to="/home/createRoute">Create a Route</Link>
+													<Link to="/home/createRoute" onClick={handleLinkClick}>Create a Route</Link>
 												</li>
 												<li>
-													<Link to="/home/subscriberPerks">
+													<Link to="/home/subscriberPerks" onClick={handleLinkClick}>
 														Subscriber Perks
 													</Link>
 												</li>
@@ -404,6 +403,7 @@ const Header = () => {
 									id="challengesLink"
 									className="d-flex align-items-center"
 									to="/home/challenges"
+									onClick={handleLinkClick}
 								>
 									Challenges
 								</Link>
@@ -421,6 +421,7 @@ const Header = () => {
 							<Nav.Link
 								href="#home"
 								className="experiment btn btn-sm btn-primary d-flex align-items-center"
+								onClick={handleLinkClick}
 							>
 								Start Trial
 							</Nav.Link>
@@ -497,13 +498,13 @@ const Header = () => {
 								<div className="dropdownEffect" id="userDropdownMenu">
 									<ul className="user-dropdown-menu-wrapper">
 										<li>
-											<Link to="/home/findFriends">Find Friends</Link>
+											<Link to="/home/findFriends" onClick={handleLinkClick}>Find Friends</Link>
 										</li>
 										<li>
-											<Link to="/home/profile">My Profile</Link>
+											<Link to="/home/profile" onClick={handleLinkClick}>My Profile</Link>
 										</li>
 										<li>
-											<Link to="/home/settings">Settings</Link>
+											<Link to="/home/settings" onClick={handleLinkClick}>Settings</Link>
 										</li>
 										<li>
 											<Link to="/home/SignUp" onClick={handleSignOut}>
@@ -574,7 +575,7 @@ const Header = () => {
 								<div className="dropdownEffect" id="userUploadDropdownMenu">
 									<ul className="user-dropdown-menu-wrapper">
 										<li>
-											<Link to="/home/file">
+											<Link to="/home/file" onClick={handleLinkClick}>
 												<div className="upload-center-wrapper">
 													<BsArrowUpCircle className="upload-icons" /> Upload
 													activity
@@ -590,14 +591,14 @@ const Header = () => {
 											</Link>
 										</li>
 										<li>
-											<Link to="/home/createRoute">
+											<Link to="/home/createRoute" onClick={handleLinkClick}>
 												<div className="upload-center-wrapper">
 													<TbRoute className="upload-icons" /> Create route
 												</div>
 											</Link>
 										</li>
 										<li>
-											<Link to="/home/createPost">
+											<Link to="/home/createPost" onClick={handleLinkClick}>
 												<div className="upload-center-wrapper">
 													<BsLayoutTextWindow className="upload-icons" /> Create
 													post
