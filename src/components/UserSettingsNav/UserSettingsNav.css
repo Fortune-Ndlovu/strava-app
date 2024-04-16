@@ -41,3 +41,19 @@ p.currentUserEmailLabel {
 .currentUserHeading {
 	padding-bottom: 14px;
 }
+
+@media screen and (max-width: 1024px) {
+	div#userSettingsNavCol {
+    display: none;
+}
+
+div#UserAccountNavCol {
+    display: none;
+}
+
+div#userProfileFormCol {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+}

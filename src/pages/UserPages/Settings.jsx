@@ -15,7 +15,7 @@ const Settings = () => {
 					<Col id="userSettingsNavCol">
 						<UserSettingsNav />
 					</Col>
-					<Col xs={6}>
+					<Col id="userProfileFormCol">
 						<UserProfileForm />
 					</Col>
 					<Col id="UserAccountNavCol">
