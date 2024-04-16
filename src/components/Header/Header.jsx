@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { query, collection, where, getDocs } from "firebase/firestore";
 import { getCurrentUserId } from "../../firebase/firebase";
 import { db } from "../../firebase/firebase";
@@ -34,6 +34,7 @@ const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [userData, setUserData] = useState({});
 	const navigate = useNavigate();
+	const collapseRef = useRef(null); // Add a ref for the Navbar.Collapse component
 
 	useEffect(() => {
 		const fetchUserData = async () => {
@@ -127,6 +128,14 @@ const Header = () => {
 		}
 	};
 
+	const handleLinkClick = () => {
+		// Close the collapse when a link is clicked
+		if (collapseRef.current) {
+			collapseRef.current.classList.remove("show");
+			setIsMenuOpen(false);
+		}
+	};
+
 	return (
 		<Navbar expand="lg" className="bg-body-tertiary">
 			<Container fluid>
@@ -153,6 +162,7 @@ const Header = () => {
 				>
 					{/* Changing the hamburger icon to an X when the menu is open. */}
 					<div
+						// className={isMenuOpen ? "menu-icon" : "menu-icon menu-icon-close"}
 						className={isMenuOpen ? "menu-icon menu-icon-close" : "menu-icon"}
 						id="xHamburger"
 					>
@@ -162,7 +172,7 @@ const Header = () => {
 					</div>
 				</Navbar.Toggle>
 
-				<Navbar.Collapse id="basic-navbar-nav">
+				<Navbar.Collapse id="basic-navbar-nav" ref={collapseRef}>
 					<Nav className="me-auto">
 						{/* When we are on both small and large view-ports we want to show the search component. */}
 						{(showSearch || isHamburger) && (
@@ -572,7 +582,7 @@ const Header = () => {
 											</Link>
 										</li>
 										<li>
-											<Link to="/home/manual">
+											<Link to="/home/manual" onClick={handleLinkClick}>
 												<div className="upload-center-wrapper">
 													<MdMonitorHeart className="upload-icons" /> Add manual
 													entry

@@ -247,8 +247,13 @@ div#basic-navbar-nav {
   background-color: #f8f9fa;
   padding-left: 20px !important;
   padding-right: 14px;
+  max-height: 800px;
+  overflow-y: auto;
 
 }
+
+
+
 
 /* CSS styles for the hamburger icon and the X icon. */
 .menu-icon {
