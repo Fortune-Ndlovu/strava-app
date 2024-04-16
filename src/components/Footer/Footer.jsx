@@ -19,8 +19,7 @@ const Footer = () => {
                 <div className="container footerMaxWidth">
                     <div className="row">
                         <div className="col-md-4 promo">
-                            <h4>Your Recent Activities</h4>
-                            <p className="light">No recent activities found</p>
+                            <Link to={"/home/activities"} ><h4>Your Activities</h4></Link><br></br>
                             <Link to={"/home/manual"} className="promo-link">Upload an activity</Link>
                         </div>
                         <div className="col-md-4 promo">
