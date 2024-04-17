@@ -55,7 +55,7 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				<Route
-					path="/login"
+					path="/strava-app/login"
 					element={
 						<>
 							<LogInHeader />
@@ -65,7 +65,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/signUp"
+					path="/strava-app/signUp"
 					element={
 						<>
 							<SignUpHeader />
@@ -75,7 +75,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/"
+					path="/strava-app/"
 					element={
 						<>
 							<SignUpHeader />
