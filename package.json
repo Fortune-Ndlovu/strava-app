@@ -1,5 +1,6 @@
 {
   "name": "strava-app",
+  "homepage": "https://github.com/Fortune-Ndlovu/strava-app/signup",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +10,7 @@
     "bootstrap": "^5.3.1",
     "browser-image-compression": "^2.0.2",
     "firebase": "^10.8.0",
+    "gh-pages": "^6.1.1",
     "image-size": "^1.1.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
@@ -19,6 +21,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
