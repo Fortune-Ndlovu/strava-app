@@ -80,7 +80,8 @@ button.view-all-friends-btn:hover,
 }
 
 .manual-entry-form-btn-group button,
-#followUserBth {
+#followUserBth,
+.startTrialBtn {
 	background-color: #fc5200;
 	color: #fff;
 	font-weight: 500;
@@ -121,7 +122,8 @@ button.view-all-friends-btn:after {
 button#saveRouteBtn,
 button.view-all-clubs-btn,
 a#homeLoginBtn,
-button.view-all-clubs-btn::after {
+button.view-all-clubs-btn::after,
+.userProfileSettingsBtn {
 	background-color: #fff;
 	border-color: #b6b3ac;
 	color: #2b2b2b;
@@ -149,13 +151,20 @@ button#saveRouteBtn:visited,
 button#saveRouteBtn:focus,
 button.view-all-clubs-btn:hover,
 button.view-all-clubs-btn:visited,
-button.view-all-clubs-btn:focus {
+button.view-all-clubs-btn:focus,
+.userProfileSettingsBtn:hover {
 	background-color: #e6e6e6;
 	border-color: #d3d1cd;
 	color: #2b2b2b;
 	--bs-btn-active-color: #2b2b2b;
 	--bs-btn-active-bg: #d3d1cd;
 	--bs-btn-active-border-color: #d3d1cd;
+}
+
+button.userProfileSettingsBtn.btn.btn-primary {
+    margin-top: 0px;
+    width: -webkit-fill-available;
+    height: 40px;
 }
 
 button#saveRouteBtn {

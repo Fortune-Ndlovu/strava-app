@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from 'react-bootstrap/Navbar';
-import Dropdown from 'react-bootstrap/Dropdown';
-import { RiArrowDropDownLine } from 'react-icons/ri';
-import stravaLogoFooter from '../../images/stravaLogoFooter.svg'
-import './Footer.css';
+import Dropdown from "react-bootstrap/Dropdown";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import stravaLogoFooter from "../../images/stravaLogoFooter.svg";
+import "./Footer.css";
 
 const Footer = () => {
 
-    const [selectedLanguage, setSelectedLanguage] = useState('English (US)');
+    const [selectedLanguage, setSelectedLanguage] = useState("English (US)");
 
     const handleLanguageChange = (value) => {
       setSelectedLanguage(value);
@@ -20,8 +19,7 @@ const Footer = () => {
                 <div className="container footerMaxWidth">
                     <div className="row">
                         <div className="col-md-4 promo">
-                            <h4>Your Recent Activities</h4>
-                            <p className="light">No recent activities found</p>
+                            <Link to={"/home/activities"} ><h4>Your Activities</h4></Link><br></br>
                             <Link to={"/home/manual"} className="promo-link">Upload an activity</Link>
                         </div>
                         <div className="col-md-4 promo">
@@ -159,19 +157,19 @@ const Footer = () => {
                                         </Dropdown.Toggle>
 
                                         <Dropdown.Menu id="module-btn-list-dropdown">
-                                            <Dropdown.Item href="#/action-1" onClick={() => handleLanguageChange('English (US)')} value="English (US)">English (US)</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-1" onClick={() => handleLanguageChange('British English')} value="British English">British English</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('español')} value="español">español</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('español latinoamericano')} value="español latinoamericano">Deutsch</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('français')} value="français">français</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('italiano')} value="italiano">italiano</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('Nederlands')} value="Nederlands">Nederlands</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('português')} value="português">português</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('português do Brasil')} value="português do Brasil">português do Brasil</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('русский')} value="русский">русский</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('日本語')} value="日本語">日本語</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('简体中文')} value="简体中文">简体中文</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange('繁體中文')} value="繁體中文">繁體中文</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-1" onClick={() => handleLanguageChange("English (US)")} value="English (US)">English (US)</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-1" onClick={() => handleLanguageChange("British English")} value="British English">British English</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange("español")} value="español">español</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange("español latinoamericano")} value="español latinoamericano">Deutsch</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange("français")} value="français">français</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange("italiano")} value="italiano">italiano</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange("Nederlands")} value="Nederlands">Nederlands</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange("português")} value="português">português</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange("português do Brasil")} value="português do Brasil">português do Brasil</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange("русский")} value="русский">русский</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange("日本語")} value="日本語">日本語</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange("简体中文")} value="简体中文">简体中文</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2" onClick={() => handleLanguageChange("繁體中文")} value="繁體中文">繁體中文</Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown>
                                 </li>

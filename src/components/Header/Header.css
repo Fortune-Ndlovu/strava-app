@@ -247,8 +247,10 @@ div#basic-navbar-nav {
   background-color: #f8f9fa;
   padding-left: 20px !important;
   padding-right: 14px;
-
 }
+
+
+
 
 /* CSS styles for the hamburger icon and the X icon. */
 .menu-icon {
@@ -305,6 +307,7 @@ button.icon-button {
 
 #userProfileImg {
   border-radius: 100px;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 1200px) {
@@ -333,5 +336,15 @@ button.icon-button {
 @media screen and (max-width: 991px) {
  div.container-fluid {
     width: 752px;
+}
+
+/* dropdown styles */
+div#basic-navbar-nav {
+  background-color: #f8f9fa;
+  padding-left: 20px !important;
+  padding-right: 14px;
+  max-height: 800px;
+  overflow-y: auto;
+
 }
 }

@@ -13,7 +13,7 @@ import {
 import { getCurrentUserId } from "../../firebase/firebase";
 import { db } from "../../firebase/firebase";
 import "./sidebarStyles/LeftDashboardAthleteSidebar.css";
-import ActivityStatsTabs from "./LeftDashboardAthleteSidebarComponents/AthleteStatsTabs";
+import AthleteStatsTabs from "./LeftDashboardAthleteSidebarComponents/AthleteStatsTabs";
 import defaultUserProfile from "../../images/defaultUserProfile.png";
 import dropdown_icon from "../../images/dropdown_icon.svg";
 
@@ -151,7 +151,7 @@ function LeftDashboardAthleteSidebar({ athlete }) {
 				</Card.Body>
 			</Card>
 
-			<ActivityStatsTabs />
+			<AthleteStatsTabs />
 		</div>
 	);
 }

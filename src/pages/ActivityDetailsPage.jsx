@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { db } from "../firebase/firebase";
-import { doc, getDoc, deleteDoc } from "firebase/firestore";
+import { db, getCurrentUserId } from "../firebase/firebase";
+import { doc, getDoc, deleteDoc, query, collection, getDocs, where} from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import Accordion from "react-bootstrap/Accordion";
 import { Container, Row, Col } from "react-bootstrap";
-import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
 import "../styles/ActivityDetailsPage.css";
@@ -34,6 +33,32 @@ const ActivityDetailsPage = () => {
 	const { activityId } = useParams();
 	const navigate = useNavigate();
 	const [activityDetails, setActivityDetails] = useState(null);
+		const [currentUserData, setCurrentUserData] = useState(null);
+
+	useEffect(() => {
+		const fetchCurrentUser = async () => {
+			try {
+				const userId = getCurrentUserId();
+				if (userId) {
+					const usersQuery = query(
+						collection(db, "users"),
+						where("uid", "==", userId)
+					);
+					const userSnapshot = await getDocs(usersQuery);
+					if (!userSnapshot.empty) {
+						const userDataFromFirestore = userSnapshot.docs[0].data();
+						setCurrentUserData(userDataFromFirestore);
+					} else {
+						console.error("User document not found for current user.");
+					}
+				}
+			} catch (error) {
+				console.error("Error fetching user data:", error);
+			}
+		};
+
+		fetchCurrentUser();
+	}, []);
 
 	useEffect(() => {
 		// Fetching activity details from the Firestore
@@ -123,7 +148,7 @@ const ActivityDetailsPage = () => {
 											<Row id="activity-details-book-header-Row">
 												<Col xs="9" id="activity-details-book-header-Col">
 													<div id="activityDetailsTypeInfo">
-														<Link to={"/home/activities"}>Fortune Ndlovu </Link> -{" "}
+														<Link to={"/home/activities"}>{currentUserData.name} </Link> -{" "}
 														{activityDetails.sport}
 													</div>
 												</Col>
@@ -193,13 +218,23 @@ const ActivityDetailsPage = () => {
 														<div className="activity-details-left-page-text">
 															<Row>
 																<Col id="activityDetailsLeftPageCol">
-																	<img
+																	{currentUserData ? (
+																		
+																		<img
 																		id="activity-details-user-image"
-																		src={defaultUserProfile}
-																		alt="fortune ndlovu"
+																		src={currentUserData.profileImageUrl}
+																		alt="user profile"
 																		width={50}
 																		height={50}
-																	/>
+																		/>
+																		) : 	
+																		<img
+																		id="activity-details-user-image"
+																		src={defaultUserProfile}
+																		alt="user profile"
+																		width={50}
+																		height={50}
+																		/>}
 																</Col>
 																<Col>
 																	<p>

@@ -1,20 +1,59 @@
 .user-settings-nav-container {
-    border: 1px solid gainsboro;
-    max-width: 220px;
-    max-height: 540px;
+	border: 1px solid gainsboro;
+	max-width: 220px;
+	max-height: 540px;
 }
 
 ul.user-settings-nav-list {
-    padding-left: 0px;
+	padding-left: 0px;
 }
 
 ul.user-settings-nav-list li {
-    list-style: none;
-        padding-bottom: 10px;
-    padding-top: 10px;
-    border-bottom: 1px solid;
+	list-style: none;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	border-bottom: 1px solid gainsboro;
 }
 
 ul.user-settings-nav-list li a {
-    text-decoration: none;
+	text-decoration: none;
+	padding-left: 14px;
+	color: #000;
+}
+
+li.myProfileList {
+    background-color: #fc5200;
+}
+
+a.myProfileLink {
+    color: #fff !important;
+}
+
+p.currentUserEmailLabel {
+    margin-bottom: 0px;
+}
+
+.currentUserMyAccount h3 {
+    font-size: x-large;
+    font-weight: 400;
+}
+
+.currentUserHeading {
+	padding-bottom: 14px;
+}
+
+@media screen and (max-width: 1024px) {
+	div#userSettingsNavCol {
+    display: none;
+}
+
+div#UserAccountNavCol {
+    display: none;
+}
+
+div#userProfileFormCol {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
 }

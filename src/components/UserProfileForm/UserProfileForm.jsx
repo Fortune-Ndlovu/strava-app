@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import { db } from "../../firebase/firebase";
-import { getCurrentUserId } from "../../firebase/firebase";
-import { query, collection, getDocs } from "firebase/firestore";
-import { where, doc, updateDoc } from "firebase/firestore";
+import { db, getCurrentUserId } from "../../firebase/firebase";
+import {
+	query,
+	collection,
+	getDocs,
+	where,
+	doc,
+	updateDoc,
+} from "firebase/firestore";
+import Image from "react-bootstrap/Image";
 import ProfileComponent from "./ProfileComponent";
+import "./UserProfileForm.css";
+import "../../styles/common/buttons.css";
 
 const UserProfileForm = () => {
 	const [userData, setUserData] = useState({
@@ -13,7 +21,7 @@ const UserProfileForm = () => {
 		birthday: "",
 		gender: "",
 		location: "",
-		profileBio: ""
+		profileBio: "",
 	});
 	const [editMode, setEditMode] = useState(""); // Changed to string to track edited field
 
@@ -63,7 +71,7 @@ const UserProfileForm = () => {
 				await updateDoc(doc(db, "users", userId), {
 					...userData,
 				});
-				alert("Profile updated successfully!");
+				// alert("Profile updated successfully!");
 				setEditMode(""); // Reset edit mode after saving
 			} else {
 				console.error("User document not found for current user.");
@@ -98,7 +106,7 @@ const UserProfileForm = () => {
 					...userData,
 					...data,
 				});
-				alert("Profile updated successfully!");
+				// alert("Profile updated successfully!");
 			} else {
 				console.error("User document not found for current user.");
 			}
@@ -112,15 +120,16 @@ const UserProfileForm = () => {
 			<div>
 				<h2>My Profile</h2>
 				<div>
-					<img
+					<Image
 						src={userData.profileImageUrl}
-						alt=""
+						alt={`${userData.name}s profile`}
 						width={70}
 						height={70}
 						style={{
 							objectFit: "cover",
 							marginRight: "10px",
 						}}
+						roundedCircle
 					/>
 					<ProfileComponent updateUserDocument={updateUserDocument} />
 				</div>
@@ -132,6 +141,8 @@ const UserProfileForm = () => {
 								{editMode === "name" ? (
 									<input
 										type="text"
+										placeholder="Enter your name"
+										className="form-control"
 										value={userData.name}
 										onChange={(e) => handleChange("name", e.target.value)}
 									/>
@@ -141,11 +152,21 @@ const UserProfileForm = () => {
 							</td>
 							<td>
 								{editMode === "name" ? (
-									<Button variant="primary" onClick={handleSave}>
+									<Button
+										title="Save"
+										variant="primary"
+										className="userProfileSettingsBtn"
+										onClick={handleSave}
+									>
 										Save
 									</Button>
 								) : (
-									<Button variant="primary" onClick={() => handleEdit("name")}>
+									<Button
+										title="Edit"
+										variant="primary"
+										className="userProfileSettingsBtn"
+										onClick={() => handleEdit("name")}
+									>
 										Edit
 									</Button>
 								)}
@@ -157,6 +178,8 @@ const UserProfileForm = () => {
 								{editMode === "birthday" ? (
 									<input
 										type="date"
+										placeholder="Enter your date of birth"
+										className="form-control"
 										value={userData.birthday}
 										onChange={(e) => handleChange("birthday", e.target.value)}
 									/>
@@ -166,12 +189,19 @@ const UserProfileForm = () => {
 							</td>
 							<td>
 								{editMode === "birthday" ? (
-									<Button variant="primary" onClick={handleSave}>
+									<Button
+										title="Save"
+										variant="primary"
+										className="userProfileSettingsBtn"
+										onClick={handleSave}
+									>
 										Save
 									</Button>
 								) : (
 									<Button
+										title="Edit"
 										variant="primary"
+										className="userProfileSettingsBtn"
 										onClick={() => handleEdit("birthday")}
 									>
 										Edit
@@ -185,6 +215,8 @@ const UserProfileForm = () => {
 								{editMode === "gender" ? (
 									<input
 										type="text"
+										placeholder="Enter your gender (Optional)"
+										className="form-control"
 										value={userData.gender}
 										onChange={(e) => handleChange("gender", e.target.value)}
 									/>
@@ -194,12 +226,19 @@ const UserProfileForm = () => {
 							</td>
 							<td>
 								{editMode === "gender" ? (
-									<Button variant="primary" onClick={handleSave}>
+									<Button
+										title="Save"
+										variant="primary"
+										className="userProfileSettingsBtn"
+										onClick={handleSave}
+									>
 										Save
 									</Button>
 								) : (
 									<Button
+										title="Edit"
 										variant="primary"
+										className="userProfileSettingsBtn"
 										onClick={() => handleEdit("gender")}
 									>
 										Edit
@@ -213,6 +252,8 @@ const UserProfileForm = () => {
 								{editMode === "location" ? (
 									<input
 										type="text"
+										placeholder="Enter your location"
+										className="form-control"
 										value={userData.location}
 										onChange={(e) => handleChange("location", e.target.value)}
 									/>
@@ -222,12 +263,19 @@ const UserProfileForm = () => {
 							</td>
 							<td>
 								{editMode === "location" ? (
-									<Button variant="primary" onClick={handleSave}>
+									<Button
+										title="Save"
+										variant="primary"
+										className="userProfileSettingsBtn"
+										onClick={handleSave}
+									>
 										Save
 									</Button>
 								) : (
 									<Button
+										title="Edit"
 										variant="primary"
+										className="userProfileSettingsBtn"
 										onClick={() => handleEdit("location")}
 									>
 										Edit
@@ -239,8 +287,11 @@ const UserProfileForm = () => {
 							<td>Profile Bio</td>
 							<td>
 								{editMode === "profileBio" ? (
-									<input
-										type="text"
+									<textarea
+										type="textarea"
+										placeholder="Tell us about your profile"
+										className="form-control"
+										 rows={3}
 										value={userData.profileBio}
 										onChange={(e) => handleChange("profileBio", e.target.value)}
 									/>
@@ -250,12 +301,19 @@ const UserProfileForm = () => {
 							</td>
 							<td>
 								{editMode === "profileBio" ? (
-									<Button variant="primary" onClick={handleSave}>
+									<Button
+										title="Save"
+										variant="primary"
+										className="userProfileSettingsBtn"
+										onClick={handleSave}
+									>
 										Save
 									</Button>
 								) : (
 									<Button
+										title="Edit"
 										variant="primary"
+										className="userProfileSettingsBtn"
 										onClick={() => handleEdit("profileBio")}
 									>
 										Edit

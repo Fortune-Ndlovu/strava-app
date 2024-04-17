@@ -2,6 +2,7 @@
 
 #userProfileCommentsImg {
     border-radius: 100px;
+    object-fit: cover;
 }
 
 #activityCommentsWrapper {
@@ -24,7 +25,7 @@
 .comment-section.hidden {
     display: none !important;
 }
-/* 
-#activityCommentsWrapper {
-    display: block !important;
-} */
+
+.commenter-info-wrapper-tab {
+    display: flex;
+}

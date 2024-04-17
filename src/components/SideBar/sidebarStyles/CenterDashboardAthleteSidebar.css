@@ -9,6 +9,7 @@ img#feed-ui-user-image {
 	border-radius: 50%;
 	width: 44px;
 	margin-right: 18px;
+	object-fit: cover;
 }
 
 p.feed-ui-user-name {
@@ -172,6 +173,44 @@ div#module-btn-list-dropdown a {
   margin-right: 10px;
 }
 
+.comment-display-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 24px;
+}
+
+.commenter-info-wrapper {
+    display: flex;
+    align-items: self-start;
+    justify-content: center;
+}
+
+.commenterNameTextWrapper {
+    padding-left: 12px;
+}
+
+p.commenterName {
+    margin-bottom: auto;
+    font-weight: 600;
+}
+
+img.commenter-info-img {
+    border-radius: 100%;
+	object-fit: cover;
+}
+
+.comment-btn-wrapper {
+    display: flex;
+}
+
+button#heartTheComment {
+    border: transparent;
+}
+
+button#deleteTheComment {
+    color: #000000;
+}
 
 @media screen and (max-width: 1200px) {
 	.centerResize.col-lg-6.col-md-12.col-12 {

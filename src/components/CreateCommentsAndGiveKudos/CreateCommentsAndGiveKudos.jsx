@@ -16,6 +16,7 @@ import Tabs from "react-bootstrap/Tabs";
 import CommentSection from "./CommentSection";
 import defaultUserProfile from "../../images/defaultUserProfile.png";
 import "./CreateCommentsAndGiveKudos.css";
+import { FaRegHeart } from "react-icons/fa";
 
 function CreateCommentsAndGiveKudos({
 	show,
@@ -99,14 +100,18 @@ function CreateCommentsAndGiveKudos({
 					<Tab eventKey="Kudos" title={`Kudos (${likers.length})`}>
 						{likers.length > 0 ? (
 							likers.map((liker) => (
-								<div key={liker.id}>
+								<div key={liker.id} className="commenter-info-wrapper-tab">
 									<img
 										src={liker.profileImageUrl}
 										alt={liker.name}
-										width={50}
+										width={44}
+										height={44}
+										className="commenter-info-img"
 									/>
-									<p>{liker.name}</p>
-									<p>{liker.location}</p>
+									<div className="commenterNameTextWrapper">
+										<p className="commenterName">{liker.name}</p>
+										<p className="commenterText">{liker.location}</p>
+									</div>
 								</div>
 							))
 						) : (
@@ -117,8 +122,8 @@ function CreateCommentsAndGiveKudos({
 					<Tab eventKey="Comments" title={`Comments (${comments.length})`}>
 						{comments.length > 0 ? (
 							comments.map((comment, index) => (
-								<div key={index}>
-									<div>
+								<div key={index} className="comment-display-wrapper">
+									<div className="commenter-info-wrapper">
 										<img
 											src={
 												commentUserData[comment.userId]?.profileImageUrl ||
@@ -127,29 +132,36 @@ function CreateCommentsAndGiveKudos({
 											alt="User Profile"
 											width={44}
 											height={44}
+											className="commenter-info-img"
 										/>
-										<p>
-											<strong>{commentUserData[comment.userId]?.name}</strong>
-										</p>
+										<div className="commenterNameTextWrapper">
+											<p className="commenterName">
+												{commentUserData[comment.userId]?.name}
+											</p>
+											<p className="commenterText">{comment.text} </p>
+										</div>
 									</div>
-									<p>
-										{comment.text}{" "}
+									<div className="comment-btn-wrapper">
+										<span>
+											{activity.commentLikes?.[index] ? "1 Like" : ""}
+										</span>
 										<Button
-											variant="success"
+											variant="danger"
 											size="sm"
+											id="heartTheComment"
+											onClick={() => onLikeComment(index)}
+										>
+											<FaRegHeart />
+										</Button>
+										<Button
+											variant="link"
+											size="sm"
+											id="deTheComment"
 											onClick={() => onDeleteComment(index)}
 										>
 											Delete
 										</Button>{" "}
-										<Button
-											variant="danger"
-											size="sm"
-											onClick={() => onLikeComment(index)}
-										>
-											Like
-										</Button>
-										<p>{activity.commentLikes?.[index] ? "1 Like" : ""}</p>
-									</p>
+									</div>
 								</div>
 							))
 						) : (
@@ -163,14 +175,6 @@ function CreateCommentsAndGiveKudos({
 					onCommentPost={handleCommentPost}
 				/>
 			</Modal.Body>
-			<Modal.Footer>
-				<Button variant="secondary" onClick={handleClose}>
-					Close
-				</Button>
-				<Button variant="primary" onClick={handleClose}>
-					Save Changes
-				</Button>
-			</Modal.Footer>
 		</Modal>
 	);
 }

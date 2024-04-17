@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 import EditableRow from "./EditableRow";
 import "./MyActivitiesTable.css";
 
@@ -61,7 +62,7 @@ const MyActivitiesTable = ({
 								<tr>
 									<td>{activity.sport}</td>
 									<td>{activity.date}</td>
-									<td><a href={`/home/activity/${activity.id}`} className="link-of-unique-activity">{activity.name}</a></td>
+									<td><Link to={`/home/activity/${activity.id}`} className="link-of-unique-activity">{activity.name}</Link></td>
 									<td>{activity.time}</td>
 									<td>{activity.distance}</td>
 									<td>{activity.elevation}</td>
