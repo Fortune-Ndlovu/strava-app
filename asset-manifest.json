@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/Fortune-Ndlovu/strava-app/signup/static/css/main.e5971b7c.css",
-    "main.js": "/Fortune-Ndlovu/strava-app/signup/static/js/main.8b270ceb.js",
-    "static/media/scenicView.jpg": "/Fortune-Ndlovu/strava-app/signup/static/media/scenicView.9fd3c34100f73ce6648c.jpg",
-    "static/media/SignUpStravaPic.jpg": "/Fortune-Ndlovu/strava-app/signup/static/media/SignUpStravaPic.1a666adbb106085ff401.jpg",
-    "static/media/LoginStravaPic.jpg": "/Fortune-Ndlovu/strava-app/signup/static/media/LoginStravaPic.2a3be1bda6d11300ca5a.jpg",
-    "static/media/Download_on_the_App_Store_logo.png": "/Fortune-Ndlovu/strava-app/signup/static/media/Download_on_the_App_Store_logo.4bc811d887010296ae6b.png",
-    "static/media/Get_it_on_Google_Play_Logo.png": "/Fortune-Ndlovu/strava-app/signup/static/media/Get_it_on_Google_Play_Logo.eb4f576bd3f0f2c0c6f8.png",
-    "static/media/stravaLogoFooter.svg": "/Fortune-Ndlovu/strava-app/signup/static/media/stravaLogoFooter.13dc223715f45133ee046440a0b31746.svg",
-    "static/media/strava_logo.svg": "/Fortune-Ndlovu/strava-app/signup/static/media/strava_logo.e75f0970575bfdf7a2f36b462fcdaa92.svg",
-    "index.html": "/Fortune-Ndlovu/strava-app/signup/index.html",
-    "static/media/dropdown_icon.svg": "/Fortune-Ndlovu/strava-app/signup/static/media/dropdown_icon.80862692be04d51ac8490e5065a66a9c.svg",
-    "main.e5971b7c.css.map": "/Fortune-Ndlovu/strava-app/signup/static/css/main.e5971b7c.css.map",
-    "main.8b270ceb.js.map": "/Fortune-Ndlovu/strava-app/signup/static/js/main.8b270ceb.js.map"
+    "main.css": "/Fortune-Ndlovu/strava-app/static/css/main.e5971b7c.css",
+    "main.js": "/Fortune-Ndlovu/strava-app/static/js/main.0c79e260.js",
+    "static/media/scenicView.jpg": "/Fortune-Ndlovu/strava-app/static/media/scenicView.9fd3c34100f73ce6648c.jpg",
+    "static/media/SignUpStravaPic.jpg": "/Fortune-Ndlovu/strava-app/static/media/SignUpStravaPic.1a666adbb106085ff401.jpg",
+    "static/media/LoginStravaPic.jpg": "/Fortune-Ndlovu/strava-app/static/media/LoginStravaPic.2a3be1bda6d11300ca5a.jpg",
+    "static/media/Download_on_the_App_Store_logo.png": "/Fortune-Ndlovu/strava-app/static/media/Download_on_the_App_Store_logo.4bc811d887010296ae6b.png",
+    "static/media/Get_it_on_Google_Play_Logo.png": "/Fortune-Ndlovu/strava-app/static/media/Get_it_on_Google_Play_Logo.eb4f576bd3f0f2c0c6f8.png",
+    "static/media/stravaLogoFooter.svg": "/Fortune-Ndlovu/strava-app/static/media/stravaLogoFooter.13dc223715f45133ee046440a0b31746.svg",
+    "static/media/strava_logo.svg": "/Fortune-Ndlovu/strava-app/static/media/strava_logo.e75f0970575bfdf7a2f36b462fcdaa92.svg",
+    "index.html": "/Fortune-Ndlovu/strava-app/index.html",
+    "static/media/dropdown_icon.svg": "/Fortune-Ndlovu/strava-app/static/media/dropdown_icon.80862692be04d51ac8490e5065a66a9c.svg",
+    "main.e5971b7c.css.map": "/Fortune-Ndlovu/strava-app/static/css/main.e5971b7c.css.map",
+    "main.0c79e260.js.map": "/Fortune-Ndlovu/strava-app/static/js/main.0c79e260.js.map"
   },
   "entrypoints": [
     "static/css/main.e5971b7c.css",
-    "static/js/main.8b270ceb.js"
+    "static/js/main.0c79e260.js"
   ]
 }
