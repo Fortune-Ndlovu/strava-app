@@ -606,7 +606,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									</div>
 									<div className="feed-ui-media-activity">
 										<h4>
-											<Link to={`/home/activity/${activity.id}`}>
+											<Link to={`/strava-app/home/activity/${activity.id}`}>
 												{activity.name}
 											</Link>
 										</h4>
@@ -649,7 +649,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										<>
 											{activity.imageUrls.map((imageUrl, index) => (
 												<div className="feed-ui-activity-imageLeft" key={index}>
-													<Link to={`/home/activity/${activity.id}`}>
+													<Link to={`/strava-app/home/activity/${activity.id}`}>
 														<Card.Img
 															variant="top"
 															src={imageUrl}
@@ -819,8 +819,8 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 					<p>
 						No more recent activity available. <br></br>To see your full
 						activity history, visit your{" "}
-						<Link to={"/home/activities"}>Profile</Link> or{" "}
-						<Link to={"/home/activities"}>Training Calendar</Link>.
+						<Link to={"/strava-app/home/activities"}>Profile</Link> or{" "}
+						<Link to={"/strava-app/home/activities"}>Training Calendar</Link>.
 					</p>
 				</div>
 			</Container>

@@ -114,7 +114,7 @@ const PostDetailsPage = () => {
 	const handleDeletePost = async () => {
 		const userDoc = doc(db, "userPosts", postId);
 		await deleteDoc(userDoc);
-		navigate("/profile");
+		navigate("/strava-app/profile");
 	};
 
 	return (
@@ -123,14 +123,14 @@ const PostDetailsPage = () => {
 				{postDetails && (
 					<div className="post-details-wrapper">
 						<Breadcrumb>
-							<Breadcrumb.Item href="/athleteSearch">Athletes</Breadcrumb.Item>
-							<Breadcrumb.Item href="/profile">Fortune Ndlovu</Breadcrumb.Item>
+							<Breadcrumb.Item href="/strava-app/athleteSearch">Athletes</Breadcrumb.Item>
+							<Breadcrumb.Item href="/strava-app/profile">Fortune Ndlovu</Breadcrumb.Item>
 							<Breadcrumb.Item active>{postDetails.post}</Breadcrumb.Item>
 						</Breadcrumb>
 						<div className="post-details-data">
 							<div className="post-details-data-user-header">
 								<div className="post-details-data-user">
-									<Link to={"/home/profile"}>
+									<Link to={"/strava-app/home/profile"}>
 										<img
 											src={defaultUserProfile}
 											alt="user profile"
@@ -140,7 +140,7 @@ const PostDetailsPage = () => {
 										/>
 									</Link>
 									<div>
-										<Link to={"/home/profile"}>
+										<Link to={"/strava-app/home/profile"}>
 											<p className="post-details-user-name">Fortune Ndlovu</p>
 										</Link>
 										<p>Saturday, 24 February 2024 at 15:31</p>
@@ -203,7 +203,7 @@ const PostDetailsPage = () => {
 										<Dropdown.Menu id="module-btn-list-dropdown">
 											{/* <Dropdown.Item */}
 											<Link
-												to={`/home/post/${postId}/edit`}
+												to={`/strava-app/home/post/${postId}/edit`}
 												className="uiSocialsBtn-dropDown-link"
 											>
 												Edit

@@ -19,8 +19,8 @@ const Footer = () => {
                 <div className="container footerMaxWidth">
                     <div className="row">
                         <div className="col-md-4 promo">
-                            <Link to={"/home/activities"} ><h4>Your Activities</h4></Link><br></br>
-                            <Link to={"/home/manual"} className="promo-link">Upload an activity</Link>
+                            <Link to={"/strava-app/home/activities"} ><h4>Your Activities</h4></Link><br></br>
+                            <Link to={"/strava-app/home/manual"} className="promo-link">Upload an activity</Link>
                         </div>
                         <div className="col-md-4 promo">
                             <h4 className="strava-stories-heading">Strava Stories</h4>
@@ -35,7 +35,7 @@ const Footer = () => {
                 <div className="container footerMaxWidth">
                     <div className="row">
                         <div className="col-md-2">
-                            <Link to={"/home"} title="Return to the Strava home page" id="footer-strava-logo">
+                            <Link to={"/strava-app/home"} title="Return to the Strava home page" id="footer-strava-logo">
                                 <img src={stravaLogoFooter}
                                     id="strava-logo-footer"
                                     alt="Company brand logo that simply says strava."

@@ -85,7 +85,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/"
+					path="/strava-app/home/"
 					element={
 						<>
 							<Header />
@@ -96,9 +96,9 @@ function App() {
 				/>
 
 				{/* Dashboard Dropdown Routers */}
-				<Route path="/home/" element={<Home />} />
+				<Route path="/strava-app/home/" element={<Home />} />
 				<Route
-					path="/home/segments"
+					path="/strava-app/home/segments"
 					element={
 						<>
 							<Header /> <MySegments />
@@ -107,7 +107,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/goals"
+					path="/strava-app/home/goals"
 					element={
 						<>
 							<Header />
@@ -116,7 +116,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/heatmaps"
+					path="/strava-app/home/heatmaps"
 					element={
 						<>
 							<Header /> <Heatmaps />
@@ -127,7 +127,7 @@ function App() {
 
 				{/* Training Dropdown Routers */}
 				<Route
-					path="/home/training"
+					path="/strava-app/home/training"
 					element={
 						<>
 							<Header />
@@ -137,7 +137,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/trainingCalendar"
+					path="/strava-app/home/trainingCalendar"
 					element={
 						<>
 							<Header />
@@ -146,7 +146,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/activities"
+					path="/strava-app/home/activities"
 					element={
 						<>
 							<Header />
@@ -156,7 +156,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/trainingLog"
+					path="/strava-app/home/trainingLog"
 					element={
 						<>
 							<Header />
@@ -166,7 +166,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/trainingPlans"
+					path="/strava-app/home/trainingPlans"
 					element={
 						<>
 							<Header />
@@ -176,7 +176,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/powerCurve"
+					path="/strava-app/home/powerCurve"
 					element={
 						<>
 							<Header />
@@ -186,7 +186,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/fitnessAndFreshness"
+					path="/strava-app/home/fitnessAndFreshness"
 					element={
 						<>
 							<Header />
@@ -198,7 +198,7 @@ function App() {
 
 				{/* Explore Dropdown Routers */}
 				<Route
-					path="/home/explore"
+					path="/strava-app/home/explore"
 					element={
 						<>
 							<Header />
@@ -208,7 +208,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/segmentExplore"
+					path="/strava-app/home/segmentExplore"
 					element={
 						<>
 							<Header />
@@ -218,7 +218,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/segmentSearch"
+					path="/strava-app/home/segmentSearch"
 					element={
 						<>
 							<Header />
@@ -228,7 +228,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/athleteSearch"
+					path="/strava-app/home/athleteSearch"
 					element={
 						<>
 							<Header />
@@ -238,7 +238,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/clubs"
+					path="/strava-app/home/clubs"
 					element={
 						<>
 							<Header />
@@ -248,7 +248,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/apps"
+					path="/strava-app/home/apps"
 					element={
 						<>
 							<Header />
@@ -258,7 +258,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/createRoute"
+					path="/strava-app/home/createRoute"
 					element={
 						<>
 							<Header />
@@ -268,7 +268,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/subscriberPerks"
+					path="/strava-app/home/subscriberPerks"
 					element={
 						<>
 							<Header />
@@ -279,7 +279,7 @@ function App() {
 				/>
 
 				<Route
-					path="/home/challenges"
+					path="/strava-app/home/challenges"
 					element={
 						<>
 							<Header />
@@ -291,7 +291,7 @@ function App() {
 
 				{/* User Dropdown Routers */}
 				<Route
-					path="/home/findFriends"
+					path="/strava-app/home/findFriends"
 					element={
 						<>
 							<Header />
@@ -301,7 +301,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/profile"
+					path="/strava-app/home/profile"
 					element={
 						<>
 							<Header />
@@ -311,7 +311,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/settings"
+					path="/strava-app/home/settings"
 					element={
 						<>
 							<Header />
@@ -323,7 +323,7 @@ function App() {
 
 				{/* Upload Dropdown Routers */}
 				<Route
-					path="/home/device"
+					path="/strava-app/home/device"
 					element={
 						<>
 							<Header />
@@ -333,7 +333,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/file"
+					path="/strava-app/home/file"
 					element={
 						<>
 							<Header />
@@ -343,7 +343,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/manual"
+					path="/strava-app/home/manual"
 					element={
 						<>
 							<Header />
@@ -353,7 +353,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/Mobile"
+					path="/strava-app/home/Mobile"
 					element={
 						<>
 							<Header />
@@ -363,7 +363,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/createPost"
+					path="/strava-app/home/createPost"
 					element={
 						<>
 							<Header />
@@ -374,7 +374,7 @@ function App() {
 				/>
 
 				<Route
-					path="/home/activity/:activityId"
+					path="/strava-app/home/activity/:activityId"
 					element={
 						<>
 							<Header />
@@ -384,7 +384,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/activity/:activityId/edit"
+					path="/strava-app/home/activity/:activityId/edit"
 					element={
 						<>
 							<Header />
@@ -395,7 +395,7 @@ function App() {
 				/>
 
 				<Route
-					path="/home/search/:userId/"
+					path="/strava-app/home/search/:userId/"
 					element={
 						<>
 							<Header />
@@ -406,7 +406,7 @@ function App() {
 				/>
 
 				<Route
-					path="/home/post/:postId"
+					path="/strava-app/home/post/:postId"
 					element={
 						<>
 							<Header />
@@ -416,7 +416,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/home/post/:postId/edit"
+					path="/strava-app/home/post/:postId/edit"
 					element={
 						<>
 							<Header />

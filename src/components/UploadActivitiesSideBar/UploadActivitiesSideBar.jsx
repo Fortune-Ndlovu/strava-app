@@ -8,7 +8,7 @@ const UploadActivitiesSideBar = () => {
 			<ListGroup className="flex-column" defaultActiveKey="#link1">
 				<ListGroup.Item action>
 					<Link
-						to="/home/device"
+						to="/strava-app/home/device"
 						data-rr-ui-event-key="/device"
 						className="nav-link"
 					>
@@ -16,13 +16,13 @@ const UploadActivitiesSideBar = () => {
 					</Link>
 				</ListGroup.Item>
 				<ListGroup.Item action>
-					<Link to="/home/file" data-rr-ui-event-key="/file" className="nav-link">
+					<Link to="/strava-app/home/file" data-rr-ui-event-key="/file" className="nav-link">
 						File
 					</Link>
 				</ListGroup.Item>
 				<ListGroup.Item action>
 					<Link
-						to="/home/manual"
+						to="/strava-app/home/manual"
 						data-rr-ui-event-key="/manual"
 						className="nav-link"
 					>
@@ -31,7 +31,7 @@ const UploadActivitiesSideBar = () => {
 				</ListGroup.Item>
 				<ListGroup.Item action>
 					<Link
-						to="/home/mobile"
+						to="/strava-app/home/mobile"
 						data-rr-ui-event-key="/mobile"
 						className="nav-link"
 					>

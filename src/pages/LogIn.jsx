@@ -17,7 +17,7 @@ const LogIn = () => {
 		e.preventDefault();
 		const user = await authSignInWithEmailAndPassword(email, password);
 		if (user && !user.error) {
-			navigate("/home");
+			navigate("/strava-app/home");
 			console.log("The user is being Logged in: ", user);
 		} else {
 			console.error("The user is not logged in: ", user.error);
@@ -25,7 +25,7 @@ const LogIn = () => {
 	};
 
 	const handleSignUpAsGuestBtn = () => { 
-		navigate("/home");
+		navigate("/strava-app/home");
 	}
 
 	return (

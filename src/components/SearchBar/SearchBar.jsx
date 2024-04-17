@@ -31,7 +31,7 @@ const SearchBar = ({ onCancel }) => { // Pass users collection reference as prop
             if (!userSnapshot.empty) {
                 const userDoc = userSnapshot.docs[0];
                 const userId = userDoc.data().uid;
-                navigate(`/home/search/${userId}`); // Navigate to profile component with user's id
+                navigate(`/strava-app/home/search/${userId}`); // Navigate to profile component with user's id
             } else {
                 console.log("User not found");
             }

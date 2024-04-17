@@ -131,7 +131,7 @@ const AthleteStatsTabs = () => {
 							</Button>
 						</Card.Body>
 						<Card.Body className="training-log">
-							<Link to={"/home/activities"} id="goals-log-link">
+							<Link to={"/strava-app/home/activities"} id="goals-log-link">
 								Manage Your Goals
 								<RiArrowDropDownLine className="trainingLogIcon" />
 							</Link>

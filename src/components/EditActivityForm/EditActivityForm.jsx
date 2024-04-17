@@ -99,7 +99,7 @@ const EditActivityForm = () => {
 		const userDoc = doc(db, "userActivities", activityId);
 		await updateDoc(userDoc, editedActivity);
 
-		navigate(`/home/activity/${activityId}`);
+		navigate(`/strava-app/home/activity/${activityId}`);
 	};
 
 	// func triggered when the user selects an image file using the file input

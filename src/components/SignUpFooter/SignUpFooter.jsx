@@ -121,7 +121,7 @@ const SignUpFooter = () => {
 										<a href="#information">Do Not Share My Personal Information</a>
 									</li>
 									<li>
-										<Link to={"/login"} className="signUpFooterLink">
+										<Link to={"/strava-app/login"} className="signUpFooterLink">
 											Log In
 										</Link>
 									</li>

@@ -20,7 +20,7 @@ const SignUp = () => {
 
 		if (user && !user.error) {
 			//Successfully signed up
-			navigate("/home");
+			navigate("/strava-app/home");
 		} else {
 			//Failed to sign up
 			console.error(user.error);
@@ -101,7 +101,7 @@ const SignUp = () => {
 					<div>
 						<p>
 							Already a Member?{" "}
-							<Link to={"/login"} className="signUpFormFooterLogInLink">
+							<Link to={"/strava-app/login"} className="signUpFormFooterLogInLink">
 								Log in
 							</Link>
 						</p>

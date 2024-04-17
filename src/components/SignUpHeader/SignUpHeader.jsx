@@ -34,7 +34,7 @@ const SignUpHeader = () => {
 					</Navbar.Collapse>
 
 					<Link
-						to="/login"
+						to="/strava-app/login"
 						title="Log In"
 						id="homeLoginBtn"
 						className="mr-auto btn btn-sm btn-primary d-flex align-items-center"
