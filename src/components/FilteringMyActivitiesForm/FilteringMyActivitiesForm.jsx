@@ -12,7 +12,8 @@ const FilteringMyActivitiesForm = ({ onFilterChange }) => {
 		setKeywords(event.target.value);
 	};
 
-	const handleFilterSubmit = () => {
+	const handleFilterSubmit = (event) => {
+		event.preventDefault();
 		// Prepare filters object
 		const filters = {
 			sport: selectedOption,
@@ -24,7 +25,7 @@ const FilteringMyActivitiesForm = ({ onFilterChange }) => {
 
 	return (
 		<div>
-			<Form className="my-activities-form">
+			<Form className="my-activities-form" onSubmit={handleFilterSubmit}>
 				<Row className="mb-3">
 					<Col md={6}>
 						<Form.Group id="formBasicKeywords">
@@ -43,7 +44,6 @@ const FilteringMyActivitiesForm = ({ onFilterChange }) => {
 								<Button
 									variant="primary"
 									type="button"
-									onClick={handleFilterSubmit}
 								id="filteringActivitiesBtn"
                                 >
 									Search
