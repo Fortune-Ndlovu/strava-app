@@ -81,7 +81,7 @@ const ActivityDetailsPage = () => {
 		await deleteDoc(userDoc);
 
 		// Redirect to MyActivities page after deletion
-		navigate("/home/activities");
+		navigate("/strava-app/home/activities");
 	};
 
 	return (
@@ -92,7 +92,7 @@ const ActivityDetailsPage = () => {
 						<Row>
 							<Col id="activityDetailButtonGroupCol">
 								<Dropdown as={ButtonGroup}>
-									<Link to={`/home/activity/${activityId}/edit`}>
+									<Link to={`/strava-app/home/activity/${activityId}/edit`}>
 										<Button
 											id="activity-details-edit-btn"
 											title="Edit this activity"
@@ -148,7 +148,7 @@ const ActivityDetailsPage = () => {
 											<Row id="activity-details-book-header-Row">
 												<Col xs="9" id="activity-details-book-header-Col">
 													<div id="activityDetailsTypeInfo">
-														<Link to={"/home/activities"}>{currentUserData.name} </Link> -{" "}
+														<Link to={"/strava-app/home/activities"}>{currentUserData.name} </Link> -{" "}
 														{activityDetails.sport}
 													</div>
 												</Col>

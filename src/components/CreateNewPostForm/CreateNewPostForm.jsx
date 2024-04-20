@@ -53,7 +53,7 @@ const CreateNewPostForm = ({ onCreatePost }) => {
 		// Clear the form fields or perform other actions as needed
 		setNewPost("");
 		setNewPostMessage("");
-		navigate("/home/profile");
+		navigate("/strava-app/home/profile");
 	};
 
 	return (

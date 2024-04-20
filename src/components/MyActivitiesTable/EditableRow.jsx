@@ -80,7 +80,7 @@ const EditableRow = ({
 								</Button>
 								<br></br>
 								<Link
-									to={`/home/activity/${editedActivity.id}/edit`}
+									to={`/strava-app/home/activity/${editedActivity.id}/edit`}
 									className="link-of-unique-activity"
 								>
 									Edit more options

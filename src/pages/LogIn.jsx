@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import authSignInWithEmailAndPassword from "../services/authSignInWithEmailAndPassword";
+import authSignInWithGoogle  from "../services/authSignInWithGoogle";
 import { FcGoogle } from "react-icons/fc";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import LoginStravaPic from "../images/LoginStravaPic.jpg";
@@ -17,15 +18,25 @@ const LogIn = () => {
 		e.preventDefault();
 		const user = await authSignInWithEmailAndPassword(email, password);
 		if (user && !user.error) {
-			navigate("/home");
+			navigate("/strava-app/home");
 			console.log("The user is being Logged in: ", user);
 		} else {
 			console.error("The user is not logged in: ", user.error);
 		}
 	};
 
+	const handleGoogleLogin = async () => {
+    const user = await authSignInWithGoogle();
+    if (user && !user.error) {
+      navigate("/strava-app/home");
+      console.log("Logged in with Google: ", user);
+    } else {
+      console.error("Google login error: ", user.error);
+    }
+  };
+
 	const handleSignUpAsGuestBtn = () => { 
-		navigate("/home");
+		navigate("/strava-app/home");
 	}
 
 	return (
@@ -42,7 +53,7 @@ const LogIn = () => {
 					<div className="SignH3UpWrapper">
 						<h3>LogIn</h3>
 					</div>
-					<Button variant="primary" id="signUpWithGoogleBtn">
+					<Button variant="primary" id="signUpWithGoogleBtn" onClick={handleGoogleLogin}>
 						{" "}
 						<FcGoogle id="FcGoogle" />
 						Log in using Google

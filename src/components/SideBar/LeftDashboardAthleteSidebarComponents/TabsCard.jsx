@@ -20,7 +20,7 @@ const TabsCard = ({ svgContent, weekText, yearText }) => {
 						<div className="goals-tab-text">
 							<p>
 								Subscribe to stay motivated with custom progress, segment and
-								power goals. <Link to="/home">Upgrade</Link>
+								power goals. <Link to="/strava-app/home">Upgrade</Link>
 							</p>
 						</div>
 					</Card.Text>
@@ -51,7 +51,7 @@ const TabsCard = ({ svgContent, weekText, yearText }) => {
 					</Card.Text>
 				</Card.Body>
 				<Card.Body className="training-log">
-					<Link to={"/home/activities"} id="goals-log-link">
+					<Link to={"/strava-app/home/activities"} id="goals-log-link">
 						Manage Your Goals <img
 							src={dropdown_icon}
 							alt="arrow for helping the user to their activities"

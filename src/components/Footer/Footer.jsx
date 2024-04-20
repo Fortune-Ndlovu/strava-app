@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import stravaLogoFooter from "../../images/stravaLogoFooter.svg";
+import stravaLogoFooter from "../../images/fortuneLogoFooter.svg";
 import "./Footer.css";
 
 const Footer = () => {
@@ -19,12 +19,12 @@ const Footer = () => {
                 <div className="container footerMaxWidth">
                     <div className="row">
                         <div className="col-md-4 promo">
-                            <Link to={"/home/activities"} ><h4>Your Activities</h4></Link><br></br>
-                            <Link to={"/home/manual"} className="promo-link">Upload an activity</Link>
+                            <Link to={"/strava-app/home/activities"} ><h4>Your Activities</h4></Link><br></br>
+                            <Link to={"/strava-app/home/manual"} className="promo-link">Upload an activity</Link>
                         </div>
                         <div className="col-md-4 promo">
-                            <h4 className="strava-stories-heading">Strava Stories</h4>
-                            <p className="strava-stories-para">With athlete profiles, training tips and advice, and the latest product updates, <Link to={"/home"} className="strava-stories-link"> Strava Stories</Link> is the place to discover the latest content from Strava.
+                            <h4 className="strava-stories-heading">Fortune Stories</h4>
+                            <p className="strava-stories-para">With athlete profiles, training tips and advice, and the latest product updates, <Link to={"/home"} className="strava-stories-link">Fortune Stories</Link> is the place to discover the latest content from Fortune.
                             </p>
                         </div>
                     </div>
@@ -35,14 +35,14 @@ const Footer = () => {
                 <div className="container footerMaxWidth">
                     <div className="row">
                         <div className="col-md-2">
-                            <Link to={"/home"} title="Return to the Strava home page" id="footer-strava-logo">
+                            <Link to={"/strava-app/home"} title="Return to the Strava home page" id="footer-strava-logo">
                                 <img src={stravaLogoFooter}
                                     id="strava-logo-footer"
-                                    alt="Company brand logo that simply says strava."
+                                    alt="Company brand logo that simply says Fortune."
                                     width={150}
                                     height={95}/>
                             </Link>
-                            <p>&copy; 2023 Strava</p>
+                            <p>&copy; 2024 Fortune - A software development contribution into the software development community, through the implementation of a complex web app replica.</p>
                             {/* You can replace this with the Strava logo */} </div>
                         <div className="col-md-2">
                             <h5>About</h5>
@@ -123,7 +123,7 @@ const Footer = () => {
                             <h5>Help</h5>
                             <ul className="list-unstyled">
                                 <li>
-                                    <a href="#strava support">Strava Support</a>
+                                    <a href="#strava support">Fortune Support</a>
                                 </li>
                             </ul>
                         </div>
@@ -146,7 +146,7 @@ const Footer = () => {
                                     <a href="#labs">Labs</a>
                                 </li>
                                 <li>
-                                    <a href="#community-standards">Strava Community standards</a>
+                                    <a href="#community-standards">Fortune Community standards</a>
                                 </li>
                                 {/* Render the language dropdown when the button is clicked */}
                                 <li>

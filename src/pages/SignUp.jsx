@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import authSignUpWithEmailAndPassword from "../services/authSignUpWithEmailAndPassword";
+import authSignUpWithGoogle from "../services/authSignUpWithGoogle";
 import { FcGoogle } from "react-icons/fc";
 import SignUpStravaPic from "../images/SignUpStravaPic.jpg";
 import "../styles/LogInSignUp.css";
@@ -20,11 +21,27 @@ const SignUp = () => {
 
 		if (user && !user.error) {
 			//Successfully signed up
-			navigate("/home");
+			navigate("/strava-app/home");
 		} else {
 			//Failed to sign up
 			console.error(user.error);
 		}
+	};
+
+	const handleGoogleSignUp = async () => {
+		const user = await authSignUpWithGoogle();
+		if (user && !user.error) {
+			// Successfully signed up with Google
+			navigate("/strava-app/home");
+			console.log("Signed up with Google: ", user);
+		} else {
+			// Handle sign-up error
+			console.error("Google sign-up error: ", user.error);
+		}
+	};
+
+	const handleSignUpAsGuestBtn = () => {
+		navigate("/strava-app/home");
 	};
 
 	return (
@@ -49,14 +66,18 @@ const SignUp = () => {
 							</p>
 						</div>
 						<div>
-							<Button variant="primary" id="signUpWithGoogleBtn">
+							<Button
+								variant="primary"
+								id="signUpWithGoogleBtn"
+								onClick={handleGoogleSignUp}
+							>
 								{" "}
 								<FcGoogle id="FcGoogle" />
 								Sign Up With Google
 							</Button>
 						</div>
 						<div>
-							<Button variant="primary" id="signUpAsGuestBtn">
+							<Button variant="primary" id="signUpAsGuestBtn" onClick={handleSignUpAsGuestBtn}>
 								<IoPersonCircleOutline id="IoPersonCircleOutline" />
 								Proceed as a Guest
 							</Button>
@@ -101,7 +122,10 @@ const SignUp = () => {
 					<div>
 						<p>
 							Already a Member?{" "}
-							<Link to={"/login"} className="signUpFormFooterLogInLink">
+							<Link
+								to={"/strava-app/login"}
+								className="signUpFormFooterLogInLink"
+							>
 								Log in
 							</Link>
 						</p>

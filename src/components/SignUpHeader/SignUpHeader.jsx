@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
-import stravaLogo from "../../images/strava_logo.svg";
+import stravaLogo from "../../images/fortune_logo.svg";
 import "../../styles/common/buttons.css";
 const SignUpHeader = () => {
 	return (
@@ -34,7 +34,7 @@ const SignUpHeader = () => {
 					</Navbar.Collapse>
 
 					<Link
-						to="/login"
+						to="/strava-app/login"
 						title="Log In"
 						id="homeLoginBtn"
 						className="mr-auto btn btn-sm btn-primary d-flex align-items-center"

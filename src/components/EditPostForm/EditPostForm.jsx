@@ -117,14 +117,14 @@ const EditPostForm = () => {
 	const handleDeletePost = async () => {
 		const userDoc = doc(db, "userPosts", postId);
 		await deleteDoc(userDoc);
-		navigate("/home/profile");
+		navigate("/strava-app/home/profile");
 	};
 
 	const handleSaveChanges = async () => {
 		const userDoc = doc(db, "userPosts", postId);
 		await updateDoc(userDoc, editedPost);
 
-		navigate(`/home/post/${postId}`);
+		navigate(`/strava-app/home/post/${postId}`);
 	};
 
 	return (

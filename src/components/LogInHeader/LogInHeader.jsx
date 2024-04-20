@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
-import stravaLogo from "../../images/strava_logo.svg";
+import stravaLogo from "../../images/fortune_logo.svg";
 
 const LogInHeader = () => {
 	return (
@@ -10,7 +10,7 @@ const LogInHeader = () => {
 			LogInHeader
 			<Navbar expand="lg" className="bg-body-tertiary">
 				<Container fluid>
-				<Link to="/" title="Return to the Strava home page" className="mr-auto">
+				<Link to="/strava-app/" title="Return to the Strava home page" className="mr-auto">
 					<img
 						src={stravaLogo}
 						id="strava-logo"
@@ -20,7 +20,7 @@ const LogInHeader = () => {
 					/>
 				</Link>
 
-						<Link to="/SignUp" title="Sign Up" className="mr-auto experiment btn btn-sm btn-primary d-flex align-items-center">
+						<Link to="/strava-app/SignUp" title="Sign Up" className="mr-auto experiment btn btn-sm btn-primary d-flex align-items-center">
 						Sign Up
 				</Link>
 			  </Container>

@@ -216,7 +216,7 @@ const PostsDashboard = ({ athlete }) => {
 									</div>
 									<div className="feed-ui-media-activity">
 										<h4>
-											<Link to={`/home/activity/${post.id}`}>{post.post}</Link>
+											<Link to={`/strava-app/home/activity/${post.id}`}>{post.post}</Link>
 										</h4>
 										<p>{post.message}</p>
 									</div>
@@ -234,7 +234,7 @@ const PostsDashboard = ({ athlete }) => {
 														className="feed-ui-activity-imageLeft"
 														key={index}
 													>
-														<Link to={`/home/post/${post.id}`}>
+														<Link to={`/strava-app/home/post/${post.id}`}>
 															<Card.Img
 																variant="top"
 																src={imageUrl}

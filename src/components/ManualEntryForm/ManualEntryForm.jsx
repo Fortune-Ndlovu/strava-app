@@ -103,7 +103,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 			// Redirect to the new activity details page using the id from the created activity
 			const createdActivityID = createdActivity?.id;
 			if (createdActivityID) {
-				navigate(`/home/activity/${createdActivity.id}`);
+				navigate(`/strava-app/home/activity/${createdActivity.id}`);
 			}
 		} catch (error) {
 			console.error("Error creating activity:", error);
@@ -204,7 +204,7 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 						<Button type="button" onClick={handleCreateActivity}>
 							Create
 						</Button>
-						<Link to={"/home/"}>Cancel</Link>
+						<Link to={"/strava-app/home/"}>Cancel</Link>
 					</div>
 				</Form>
 			</Container>

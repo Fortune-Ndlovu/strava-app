@@ -62,7 +62,7 @@ const MyActivitiesTable = ({
 								<tr>
 									<td>{activity.sport}</td>
 									<td>{activity.date}</td>
-									<td><Link to={`/home/activity/${activity.id}`} className="link-of-unique-activity">{activity.name}</Link></td>
+									<td><Link to={`/strava-app/home/activity/${activity.id}`} className="link-of-unique-activity">{activity.name}</Link></td>
 									<td>{activity.time}</td>
 									<td>{activity.distance}</td>
 									<td>{activity.elevation}</td>

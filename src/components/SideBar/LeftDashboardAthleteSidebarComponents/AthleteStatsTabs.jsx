@@ -5,15 +5,15 @@ import Button from "react-bootstrap/Button";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { MdDoubleArrow } from "react-icons/md";
-import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoIosInformationCircleOutline } from "react-icons/io";
-import { collection, onSnapshot } from "firebase/firestore";
-import { db } from "../../../firebase/firebase";
+import { collection, onSnapshot, query, where, getDocs } from "firebase/firestore";
+import { db, getCurrentUserId } from "../../../firebase/firebase";
 import recoveryweek from "../../../images/recoveryweek.png";
 import TabsCard from "./TabsCard";
 import RunningShoeSvg from "./RunningShoeSvg";
 import CyclingBikeSvg from "./CyclingBikeSvg";
 import SwimWaveSvg from "./SwimWaveSvg";
+import dropdown_icon from "../../../images/dropdown_icon.svg";
 
 const tabContentMap = {
 	profile: <RunningShoeSvg />,
@@ -23,7 +23,6 @@ const tabContentMap = {
 
 const AthleteStatsTabs = () => {
 	const [activeKey, setActiveKey] = useState("profile");
-	const [mostRecentActivity, setMostRecentActivity] = useState(null);
 	const [profileTotalDistance, setProfileTotalDistance] = useState(0);
 
 	const handleSelect = (key) => {
@@ -31,33 +30,30 @@ const AthleteStatsTabs = () => {
 	};
 
 	useEffect(() => {
-		// Firestore collection reference
-		const activitiesCollection = collection(db, "userActivities");
 
-		// Setting up a snapshot listener to track changes in the collection
-		const unsubscribe = onSnapshot(activitiesCollection, (snapshot) => {
-			// Get the most recent activity
-			const sortedActivities = snapshot.docs
-				.map((doc) => ({ ...doc.data(), id: doc.id }))
-				.sort((a, b) => new Date(b.date) - new Date(a.date));
+		const fetchActivities = async () => {
+			// Firestore collection reference
+			const activitiesCollection = collection(db, "userActivities");
 
-			if (sortedActivities.length > 0) {
-				setMostRecentActivity(sortedActivities[0]);
+			const currentUserActivitiesQuery = query(activitiesCollection, where("userId", "==", getCurrentUserId()));
 
-				// Update the profileTotalDistance whenever a new activity is added
-				const distance = sortedActivities.reduce(
-					(total, activity) => total + (activity.distance || 0),
-					0
-				);
-				setProfileTotalDistance(distance);
-			} else {
-				setMostRecentActivity(null);
-				setProfileTotalDistance(0);
-			}
-		});
-
+			// Setting up a snapshot listener to track changes in the collection
+			const currentUserActivitiesSnapshot = await getDocs(
+				currentUserActivitiesQuery
+			);
+			let currentUserActivities = currentUserActivitiesSnapshot.docs.map(
+				(doc) => ({
+					id: doc.id,
+					...doc.data()
+				})
+			);
+			
+			let totalDistance = currentUserActivities.reduce((total, activity) => parseInt(total) + parseInt(activity.distance), 0);
+			
+			setProfileTotalDistance(totalDistance.toString());
+		}
 		// Cleanup the listener when the component unmounts
-		return () => unsubscribe();
+		return () => fetchActivities();
 	}, []);
 
 	const weekTextMap = {
@@ -131,10 +127,15 @@ const AthleteStatsTabs = () => {
 							</Button>
 						</Card.Body>
 						<Card.Body className="training-log">
-							<Link to={"/home/activities"} id="goals-log-link">
-								Manage Your Goals
-								<RiArrowDropDownLine className="trainingLogIcon" />
-							</Link>
+							<Link to={"/strava-app/home/activities"} id="goals-log-link">
+							Manage Your Goals <img
+								src={dropdown_icon}
+								alt="arrow for helping the user to their activities"
+								className="trainingLogIcon"
+								width={32}
+								height={32}
+						/>
+					</Link>
 						</Card.Body>
 					</Card>
 				</Tab>
