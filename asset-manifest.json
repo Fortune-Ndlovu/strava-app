@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/strava-app/static/css/main.4bf122d0.css",
-    "main.js": "/strava-app/static/js/main.3635f827.js",
+    "main.css": "/strava-app/static/css/main.55ddd564.css",
+    "main.js": "/strava-app/static/js/main.5126f0c0.js",
     "static/media/scenicView.jpg": "/strava-app/static/media/scenicView.9fd3c34100f73ce6648c.jpg",
     "static/media/SignUpStravaPic.jpg": "/strava-app/static/media/SignUpStravaPic.1a666adbb106085ff401.jpg",
     "static/media/LoginStravaPic.jpg": "/strava-app/static/media/LoginStravaPic.2a3be1bda6d11300ca5a.jpg",
     "static/media/Download_on_the_App_Store_logo.png": "/strava-app/static/media/Download_on_the_App_Store_logo.4bc811d887010296ae6b.png",
     "static/media/Get_it_on_Google_Play_Logo.png": "/strava-app/static/media/Get_it_on_Google_Play_Logo.eb4f576bd3f0f2c0c6f8.png",
-    "static/media/stravaLogoFooter.svg": "/strava-app/static/media/stravaLogoFooter.13dc223715f45133ee046440a0b31746.svg",
-    "static/media/strava_logo.svg": "/strava-app/static/media/strava_logo.e75f0970575bfdf7a2f36b462fcdaa92.svg",
+    "static/media/fortuneLogoFooter.svg": "/strava-app/static/media/fortuneLogoFooter.27f54a51f170ebe5457190dcec8796ed.svg",
+    "static/media/fortune_logo.svg": "/strava-app/static/media/fortune_logo.f175b980cffbb9ac8f890f88cf3d3bee.svg",
     "index.html": "/strava-app/index.html",
     "static/media/dropdown_icon.svg": "/strava-app/static/media/dropdown_icon.80862692be04d51ac8490e5065a66a9c.svg",
-    "main.4bf122d0.css.map": "/strava-app/static/css/main.4bf122d0.css.map",
-    "main.3635f827.js.map": "/strava-app/static/js/main.3635f827.js.map"
+    "main.55ddd564.css.map": "/strava-app/static/css/main.55ddd564.css.map",
+    "main.5126f0c0.js.map": "/strava-app/static/js/main.5126f0c0.js.map"
   },
   "entrypoints": [
-    "static/css/main.4bf122d0.css",
-    "static/js/main.3635f827.js"
+    "static/css/main.55ddd564.css",
+    "static/js/main.5126f0c0.js"
   ]
 }
