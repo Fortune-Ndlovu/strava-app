@@ -6,7 +6,7 @@ import { CiInstagram } from "react-icons/ci";
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 import getItOnGooglePlayLogo from "../../images/Get_it_on_Google_Play_Logo.png";
-import stravaLogoFooter from "../../images/strava_logo.svg";
+import stravaLogoFooter from "../../images/fortune_logo.svg";
 import DownloadOnTheAppleStore from "../../images/Download_on_the_App_Store_logo.png";
 import "./SignUpFooter.css";
 const SignUpFooter = () => {
@@ -28,7 +28,7 @@ const SignUpFooter = () => {
 									</li>
 									<li>
 										<p>
-											Strava protects your data. Read more in our <a href="#Privacy Policy">Privacy Policy.</a>
+											A software development contribution into the software development community, through the implementation of a complex web app replica.
 										</p>
 									</li>
 									<div className="signUpFooterIcons">

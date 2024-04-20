@@ -100,6 +100,7 @@ button.activity-details-kudos.btn.btn-secondary {
 	width: 100px;
 	height: 100px;
 	display: block;
+	object-fit: cover;
 }
 
 #activityDetailsLeftPageCol {

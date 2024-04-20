@@ -817,10 +817,8 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 				))}
 				<div className="feed-end">
 					<p>
-						No more recent activity available. <br></br>To see your full
-						activity history, visit your{" "}
-						<Link to={"/strava-app/home/activities"}>Profile</Link> or{" "}
-						<Link to={"/strava-app/home/activities"}>Training Calendar</Link>.
+						No more recent activity available. <br></br>To create new activities, visit the{" "}
+						<Link to={"/strava-app/home/manual"}>Manual Entry Form</Link>.
 					</p>
 				</div>
 			</Container>

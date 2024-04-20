@@ -74,7 +74,7 @@ function RightDashboardAthleteSidebar() {
                             <div className="find-Friends-wrapper">
                                 <h5 className="find-Friends-heading">Find Your Friends</h5>
                                 <p>
-                                    Connect with your friends already on Strava or invite your training buddy to be part of the action!
+                                    Connect with your friends already on Fortune or invite your training buddy to be part of the action!
                                 </p>
                                 <div className="view-all-friends-btn-wrapper">
                                     <Button variant="outline-primary" className="view-all-friends-btn">Find and Invite Your Friends</Button>
@@ -219,7 +219,7 @@ function RightDashboardAthleteSidebar() {
                                         <Dropdown.Item href="#/action-2" className="control-dropDown-link">Stories</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
-                                <p className="strava-copy-right">© 2023 Strava</p>
+                                <p className="strava-copy-right">© 2024 Fortune</p>
                             </li>
                         </ul>
                     </ListGroup.Item>

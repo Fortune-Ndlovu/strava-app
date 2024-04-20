@@ -52,11 +52,11 @@ const UserAccountNav = () => {
 					</div>
 					<div className="sc-wrapper">
 						<p>Connect with Facebook</p>
-						<p>Automatic uploads and Strava Live Segments</p>
+						<p>Automatic uploads and Fortune Live Segments</p>
 					</div>
 					<div className="sc-wrapper">
 						<p>Connect with MyFitnessPal</p>
-						<p>Share your Strava activities on MyFitnessPal</p>
+						<p>Share your Fortune activities on MyFitnessPal</p>
 					</div>
 				</div>
 			</div>

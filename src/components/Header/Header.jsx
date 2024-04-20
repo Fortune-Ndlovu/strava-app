@@ -18,7 +18,7 @@ import {
 } from "react-icons/bs";
 import { TbRoute } from "react-icons/tb";
 import SearchBar from "../SearchBar/SearchBar";
-import stravaLogo from "../../images/strava_logo.svg";
+import stravaLogo from "../../images/fortune_logo.svg";
 import dropdown_icon from "../../images/dropdown_icon.svg";
 import defaultUserProfile from "../../images/defaultUserProfile.png";
 import "./Header.css";

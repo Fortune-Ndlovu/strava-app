@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { MdDoubleArrow } from "react-icons/md";
-import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
@@ -14,6 +13,7 @@ import TabsCard from "./TabsCard";
 import RunningShoeSvg from "./RunningShoeSvg";
 import CyclingBikeSvg from "./CyclingBikeSvg";
 import SwimWaveSvg from "./SwimWaveSvg";
+import dropdown_icon from "../../../images/dropdown_icon.svg";
 
 const tabContentMap = {
 	profile: <RunningShoeSvg />,
@@ -132,9 +132,14 @@ const AthleteStatsTabs = () => {
 						</Card.Body>
 						<Card.Body className="training-log">
 							<Link to={"/strava-app/home/activities"} id="goals-log-link">
-								Manage Your Goals
-								<RiArrowDropDownLine className="trainingLogIcon" />
-							</Link>
+							Manage Your Goals <img
+								src={dropdown_icon}
+								alt="arrow for helping the user to their activities"
+								className="trainingLogIcon"
+								width={32}
+								height={32}
+						/>
+					</Link>
 						</Card.Body>
 					</Card>
 				</Tab>
