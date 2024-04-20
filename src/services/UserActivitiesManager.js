@@ -14,11 +14,34 @@ import {
 import ManualEntryForm from "../components/ManualEntryForm/ManualEntryForm";
 import MyActivitiesTable from "../components/MyActivitiesTable/MyActivitiesTable";
 
-const UserActivitiesManager = ({ showForm }) => {
+const UserActivitiesManager = ({ showForm, filters }) => {
 	const [userActivities, setUserActivities] = useState([]);
 	const userActivitiesCollection = collection(db, "userActivities");
 
 	const currentUserId = getCurrentUserId();
+
+	// Filtered query based on user ID and additional filters
+	const userActivitiesQuery = query(
+		userActivitiesCollection,
+		where("userId", "==", currentUserId),
+		...(filters.sport ? [where("sport", "==", filters.sport)] : []),
+		...(filters.keywords ? [where("name", "==", filters.keywords)] : [])
+	);
+
+	// Listening for changes to the filtered collection and get real-time updates
+	useEffect(() => {
+		if (!currentUserId) return;
+
+		const unsubscribe = onSnapshot(userActivitiesQuery, (snapshot) => {
+			const sortedActivities = snapshot.docs.map((doc) => ({
+				...doc.data(),
+				id: doc.id,
+			}));
+			setUserActivities(sortedActivities);
+		});
+
+		return () => unsubscribe();
+	}, [currentUserId, userActivitiesQuery]);
 
 	const createActivity = async (newActivity) => {
 		// Adding the creation date and time to the new activity object
