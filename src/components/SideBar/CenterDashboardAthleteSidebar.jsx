@@ -736,7 +736,10 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 									</Button>
 								</div>
 								{comments[activity.id]?.reverse().map((comment, index) => (
-									<div key={index} className="comment-display-container">
+									<div
+										key={`${comment.id}_${index}`}
+										className="comment-display-container"
+									>
 										<div className="comment-display-wrapper">
 											<div className="commenter-info-wrapper">
 												<img
@@ -817,7 +820,8 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 				))}
 				<div className="feed-end">
 					<p>
-						No more recent activity available. <br></br>To create new activities, visit the{" "}
+						No more recent activity available. <br></br>To create new
+						activities, visit the{" "}
 						<Link to={"/strava-app/home/manual"}>Manual Entry Form</Link>.
 					</p>
 				</div>
