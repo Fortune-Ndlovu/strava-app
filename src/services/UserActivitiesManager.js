@@ -20,19 +20,28 @@ const UserActivitiesManager = ({ showForm, filters }) => {
 
 	const currentUserId = getCurrentUserId();
 
-	// Construct filtered query based on user ID and additional filters
-  let userActivitiesQuery = collection(db, 'userActivities');
-  if (currentUserId) {
-    userActivitiesQuery = query(userActivitiesCollection, where('userId', '==', currentUserId));
+	// Construct filtered query based on user ID and additional filters for sorting purposes
+	let userActivitiesQuery = collection(db, "userActivities");
+	if (currentUserId) {
+		userActivitiesQuery = query(
+			userActivitiesCollection,
+			where("userId", "==", currentUserId)
+		);
 
-    if (filters?.sport) {
-      userActivitiesQuery = query(userActivitiesQuery, where('sport', '==', filters.sport));
-    }
+		if (filters?.sport) {
+			userActivitiesQuery = query(
+				userActivitiesQuery,
+				where("sport", "==", filters.sport)
+			);
+		}
 
-    if (filters?.keywords) {
-      userActivitiesQuery = query(userActivitiesQuery, where('name', '==', filters.keywords));
-    }
-  }
+		if (filters?.keywords) {
+			userActivitiesQuery = query(
+				userActivitiesQuery,
+				where("name", "==", filters.keywords)
+			);
+		}
+	}
 	// Listening for changes to the filtered collection and get real-time updates
 	useEffect(() => {
 		if (!currentUserId) return;
