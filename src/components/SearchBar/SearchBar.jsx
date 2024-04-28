@@ -51,7 +51,7 @@ const SearchBar = ({ onCancel }) => { // Pass users collection reference as prop
                         <option value="Segments">Segments</option>
                     </select>
                 </div>
-                <input type="text" className="form-control" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
+                <input type="text" className="form-control" id="searchBarInput" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
                 <button type="button" title="Search" className="btn" onClick={handleSearch}><FiSearch className="open-search-icon" /></button>
             </div>
             <button type="button" title="Cancel" onClick={handleCancel} className="cancel-search-btn"><HiOutlineX className="cancel-search-icon" /></button>
