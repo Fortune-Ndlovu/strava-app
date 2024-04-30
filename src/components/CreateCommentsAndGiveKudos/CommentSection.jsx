@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { query, collection, where, getDocs } from "firebase/firestore";
-import { getCurrentUserId } from "../../firebase/firebase";
-import { db } from "../../firebase/firebase";
+import { db, getCurrentUserId } from "../../firebase/firebase";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./CreateCommentsAndGiveKudos.css";
