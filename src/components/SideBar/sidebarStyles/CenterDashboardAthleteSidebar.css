@@ -212,6 +212,10 @@ button#deleteTheComment {
     color: #000000;
 }
 
+#deTheComment {
+	color: #007FB6;
+}
+
 @media screen and (max-width: 1200px) {
 	.centerResize.col-lg-6.col-md-12.col-12 {
 		width: 54%;

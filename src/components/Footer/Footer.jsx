@@ -43,7 +43,7 @@ const Footer = () => {
                                     height={95}/>
                             </Link>
                             <p>&copy; 2024 Fortune - A software development contribution into the software development community, through the implementation of a complex web app replica.</p>
-                            {/* You can replace this with the Strava logo */} </div>
+                           </div>
                         <div className="col-md-2">
                             <h5>About</h5>
                             <ul className="list-unstyled">
