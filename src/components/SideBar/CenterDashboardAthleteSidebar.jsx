@@ -764,16 +764,12 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 													{" "}
 													{commentLikes[activity.id]?.[index] ? "1 Like" : ""}
 												</span>
-												<Button
-													variant="danger"
-													size="sm"
+											
+													<FaRegHeart 
 													id="heartTheComment"
 													onClick={() =>
 														handleCommentLikeToggle(activity.id, index)
-													}
-												>
-													<FaRegHeart />
-												</Button>{" "}
+													} />
 												<Button
 													variant="link"
 													size="sm"
