@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/strava-app/static/css/main.834311a1.css",
-    "main.js": "/strava-app/static/js/main.d7fc903e.js",
+    "main.css": "/strava-app/static/css/main.d3dcd15e.css",
+    "main.js": "/strava-app/static/js/main.b83c942c.js",
     "static/media/scenicView.jpg": "/strava-app/static/media/scenicView.9fd3c34100f73ce6648c.jpg",
     "static/media/SignUpStravaPic.jpg": "/strava-app/static/media/SignUpStravaPic.1a666adbb106085ff401.jpg",
     "static/media/LoginStravaPic.jpg": "/strava-app/static/media/LoginStravaPic.2a3be1bda6d11300ca5a.jpg",
@@ -11,11 +11,11 @@
     "static/media/fortune_logo.svg": "/strava-app/static/media/fortune_logo.f175b980cffbb9ac8f890f88cf3d3bee.svg",
     "index.html": "/strava-app/index.html",
     "static/media/dropdown_icon.svg": "/strava-app/static/media/dropdown_icon.80862692be04d51ac8490e5065a66a9c.svg",
-    "main.834311a1.css.map": "/strava-app/static/css/main.834311a1.css.map",
-    "main.d7fc903e.js.map": "/strava-app/static/js/main.d7fc903e.js.map"
+    "main.d3dcd15e.css.map": "/strava-app/static/css/main.d3dcd15e.css.map",
+    "main.b83c942c.js.map": "/strava-app/static/js/main.b83c942c.js.map"
   },
   "entrypoints": [
-    "static/css/main.834311a1.css",
-    "static/js/main.d7fc903e.js"
+    "static/css/main.d3dcd15e.css",
+    "static/js/main.b83c942c.js"
   ]
 }
