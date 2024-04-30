@@ -86,7 +86,6 @@ const ManualEntryForm = ({ onCreateActivity }) => {
 
 			//Triggering the creation of a new activity doc in Firestore
 			const createdActivity = await onCreateActivity({
-				// Passing an object as an argument containing details needed for the activity
 				distance: newDistance,
 				hour: newHour,
 				minute: newMinute,
