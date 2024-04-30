@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/strava-app/static/css/main.d3dcd15e.css",
-    "main.js": "/strava-app/static/js/main.b83c942c.js",
+    "main.js": "/strava-app/static/js/main.74706dd1.js",
     "static/media/scenicView.jpg": "/strava-app/static/media/scenicView.9fd3c34100f73ce6648c.jpg",
     "static/media/SignUpStravaPic.jpg": "/strava-app/static/media/SignUpStravaPic.1a666adbb106085ff401.jpg",
     "static/media/LoginStravaPic.jpg": "/strava-app/static/media/LoginStravaPic.2a3be1bda6d11300ca5a.jpg",
@@ -12,10 +12,10 @@
     "index.html": "/strava-app/index.html",
     "static/media/dropdown_icon.svg": "/strava-app/static/media/dropdown_icon.80862692be04d51ac8490e5065a66a9c.svg",
     "main.d3dcd15e.css.map": "/strava-app/static/css/main.d3dcd15e.css.map",
-    "main.b83c942c.js.map": "/strava-app/static/js/main.b83c942c.js.map"
+    "main.74706dd1.js.map": "/strava-app/static/js/main.74706dd1.js.map"
   },
   "entrypoints": [
     "static/css/main.d3dcd15e.css",
-    "static/js/main.b83c942c.js"
+    "static/js/main.74706dd1.js"
   ]
 }
