@@ -24,7 +24,7 @@ import CreateCommentsAndGiveKudos from "../CreateCommentsAndGiveKudos/CreateComm
 import defaultUserProfile from "../../images/defaultUserProfile.png";
 import "./sidebarStyles/CenterDashboardAthleteSidebar.css";
 import PostsDashboard from "./PostsDashboard";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 function CenterDashboardAthleteSidebar({ athlete }) {
 	const [activities, setActivities] = useState([]);
@@ -765,22 +765,32 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 													{commentLikes[activity.id]?.[index] ? "1 Like" : ""}
 												</span>
 												<div id="commentsBtnsWrapper">
-													<FaRegHeart 
-													id="heartTheComment"
-													onClick={() =>
-														handleCommentLikeToggle(activity.id, index)
-													} />
-												<Button
-													variant="link"
-													size="sm"
-													id="deTheComment"
-													onClick={() =>
-														handleCommentDelete(index, activity.id)
-													}
+													{commentLikes[activity.id]?.[index] ? (
+														<FaHeart
+															id="heartTheComment"
+															onClick={() =>
+																handleCommentLikeToggle(activity.id, index)
+															}
+														/>
+													) : (
+														<FaRegHeart
+															id="heartTheComment"
+															onClick={() =>
+																handleCommentLikeToggle(activity.id, index)
+															}
+														/>
+													)}
+													<Button
+														variant="link"
+														size="sm"
+														id="deTheComment"
+														onClick={() =>
+															handleCommentDelete(index, activity.id)
+														}
 													>
-													Delete
-												</Button>
-													</div>
+														Delete
+													</Button>
+												</div>
 											</div>
 										</div>
 									</div>
