@@ -216,6 +216,12 @@ button#deleteTheComment {
 	color: #007FB6;
 }
 
+.comment-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media screen and (max-width: 1200px) {
 	.centerResize.col-lg-6.col-md-12.col-12 {
 		width: 54%;

@@ -764,7 +764,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 													{" "}
 													{commentLikes[activity.id]?.[index] ? "1 Like" : ""}
 												</span>
-											
+												<div id="commentsBtnsWrapper">
 													<FaRegHeart 
 													id="heartTheComment"
 													onClick={() =>
@@ -777,9 +777,10 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 													onClick={() =>
 														handleCommentDelete(index, activity.id)
 													}
-												>
+													>
 													Delete
 												</Button>
+													</div>
 											</div>
 										</div>
 									</div>
