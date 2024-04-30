@@ -200,10 +200,6 @@ img.commenter-info-img {
 	object-fit: cover;
 }
 
-.comment-btn-wrapper {
-    display: flex;
-}
-
 button#heartTheComment {
     border: transparent;
 }
