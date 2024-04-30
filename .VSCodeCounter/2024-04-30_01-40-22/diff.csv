@@ -1,0 +1,153 @@
+"filename", "language", "JSON", "CSS", "Markdown", "HTML", "JavaScript JSX", "JavaScript", "XML", "comment", "blank", "total"
+"c:\Users\ndlov\Documents\strava-app\README.md", "Markdown", 0, 0, 58, 0, 0, 0, 0, 0, 35, 93
+"c:\Users\ndlov\Documents\strava-app\package-lock.json", "JSON", 18730, 0, 0, 0, 0, 0, 0, 0, 1, 18731
+"c:\Users\ndlov\Documents\strava-app\package.json", "JSON", 52, 0, 0, 0, 0, 0, 0, 0, 1, 53
+"c:\Users\ndlov\Documents\strava-app\public\index.html", "HTML", 0, 0, 0, 20, 0, 0, 0, 0, 0, 20
+"c:\Users\ndlov\Documents\strava-app\public\manifest.json", "JSON", 15, 0, 0, 0, 0, 0, 0, 0, 1, 16
+"c:\Users\ndlov\Documents\strava-app\src\App.jsx", "JavaScript JSX", 0, 0, 0, 0, 408, 0, 0, 5, 21, 434
+"c:\Users\ndlov\Documents\strava-app\src\components\CreateCommentsAndGiveKudos\CommentSection.jsx", "JavaScript JSX", 0, 0, 0, 0, 82, 0, 0, 2, 6, 90
+"c:\Users\ndlov\Documents\strava-app\src\components\CreateCommentsAndGiveKudos\CreateCommentsAndGiveKudos.css", "CSS", 0, 24, 0, 0, 0, 0, 0, 0, 7, 31
+"c:\Users\ndlov\Documents\strava-app\src\components\CreateCommentsAndGiveKudos\CreateCommentsAndGiveKudos.jsx", "JavaScript JSX", 0, 0, 0, 0, 167, 0, 0, 4, 12, 183
+"c:\Users\ndlov\Documents\strava-app\src\components\CreateCommentsAndGiveKudos\PostCommentsSection.jsx", "JavaScript JSX", 0, 0, 0, 0, 45, 0, 0, 2, 4, 51
+"c:\Users\ndlov\Documents\strava-app\src\components\CreateCommentsAndGiveKudos\PostsCreateCommentsAndGiveKudos.jsx", "JavaScript JSX", 0, 0, 0, 0, 91, 0, 0, 4, 8, 103
+"c:\Users\ndlov\Documents\strava-app\src\components\CreateNewPostForm\CreateNewPostForm.css", "CSS", 0, 11, 0, 0, 0, 0, 0, 0, 2, 13
+"c:\Users\ndlov\Documents\strava-app\src\components\CreateNewPostForm\CreateNewPostForm.jsx", "JavaScript JSX", 0, 0, 0, 0, 111, 0, 0, 1, 10, 122
+"c:\Users\ndlov\Documents\strava-app\src\components\CreatePostsTable\CreatePostsTable.jsx", "JavaScript JSX", 0, 0, 0, 0, 108, 0, 0, 1, 11, 120
+"c:\Users\ndlov\Documents\strava-app\src\components\EditActivityForm\EditActivityForm.css", "CSS", 0, 30, 0, 0, 0, 0, 0, 0, 6, 36
+"c:\Users\ndlov\Documents\strava-app\src\components\EditActivityForm\EditActivityForm.jsx", "JavaScript JSX", 0, 0, 0, 0, 248, 0, 0, 31, 19, 298
+"c:\Users\ndlov\Documents\strava-app\src\components\EditPostForm\EditPostForm.css", "CSS", 0, 32, 0, 0, 0, 0, 0, 0, 7, 39
+"c:\Users\ndlov\Documents\strava-app\src\components\EditPostForm\EditPostForm.jsx", "JavaScript JSX", 0, 0, 0, 0, 187, 0, 0, 16, 21, 224
+"c:\Users\ndlov\Documents\strava-app\src\components\FilteringMyActivitiesForm\FilteringMyActivitiesForm.css", "CSS", 0, 35, 0, 0, 0, 0, 0, 0, 7, 42
+"c:\Users\ndlov\Documents\strava-app\src\components\FilteringMyActivitiesForm\FilteringMyActivitiesForm.jsx", "JavaScript JSX", 0, 0, 0, 0, 62, 0, 0, 2, 6, 70
+"c:\Users\ndlov\Documents\strava-app\src\components\FilteringMyActivitiesForm\SportSelection.jsx", "JavaScript JSX", 0, 0, 0, 0, 60, 0, 0, 0, 3, 63
+"c:\Users\ndlov\Documents\strava-app\src\components\Footer\Footer.css", "CSS", 0, 91, 0, 0, 0, 0, 0, 1, 20, 112
+"c:\Users\ndlov\Documents\strava-app\src\components\Footer\Footer.jsx", "JavaScript JSX", 0, 0, 0, 0, 177, 0, 0, 1, 8, 186
+"c:\Users\ndlov\Documents\strava-app\src\components\Header\Header.css", "CSS", 0, 273, 0, 0, 0, 0, 0, 13, 65, 351
+"c:\Users\ndlov\Documents\strava-app\src\components\Header\Header.jsx", "JavaScript JSX", 0, 0, 0, 0, 572, 0, 0, 22, 26, 620
+"c:\Users\ndlov\Documents\strava-app\src\components\LogInHeader\LogInHeader.jsx", "JavaScript JSX", 0, 0, 0, 0, 29, 0, 0, 0, 4, 33
+"c:\Users\ndlov\Documents\strava-app\src\components\ManualEntryForm\ManualEntryForm.css", "CSS", 0, 122, 0, 0, 0, 0, 0, 0, 22, 144
+"c:\Users\ndlov\Documents\strava-app\src\components\ManualEntryForm\ManualEntryForm.jsx", "JavaScript JSX", 0, 0, 0, 0, 181, 0, 0, 17, 18, 216
+"c:\Users\ndlov\Documents\strava-app\src\components\ManualEntryForm\ManualEntryFormComponents\ActivityDetails.jsx", "JavaScript JSX", 0, 0, 0, 0, 79, 0, 0, 0, 4, 83
+"c:\Users\ndlov\Documents\strava-app\src\components\ManualEntryForm\ManualEntryFormComponents\ActivityStats.jsx", "JavaScript JSX", 0, 0, 0, 0, 125, 0, 0, 0, 7, 132
+"c:\Users\ndlov\Documents\strava-app\src\components\MyActivitiesTable\EditableRow.jsx", "JavaScript JSX", 0, 0, 0, 0, 93, 0, 0, 0, 5, 98
+"c:\Users\ndlov\Documents\strava-app\src\components\MyActivitiesTable\MyActivitiesTable.css", "CSS", 0, 17, 0, 0, 0, 0, 0, 0, 4, 21
+"c:\Users\ndlov\Documents\strava-app\src\components\MyActivitiesTable\MyActivitiesTable.jsx", "JavaScript JSX", 0, 0, 0, 0, 93, 0, 0, 0, 10, 103
+"c:\Users\ndlov\Documents\strava-app\src\components\SearchBar\SearchBar.css", "CSS", 0, 20, 0, 0, 0, 0, 0, 0, 5, 25
+"c:\Users\ndlov\Documents\strava-app\src\components\SearchBar\SearchBar.jsx", "JavaScript JSX", 0, 0, 0, 0, 55, 0, 0, 0, 7, 62
+"c:\Users\ndlov\Documents\strava-app\src\components\SideBar\CenterDashboardAthleteSidebar.jsx", "JavaScript JSX", 0, 0, 0, 0, 711, 0, 0, 58, 71, 840
+"c:\Users\ndlov\Documents\strava-app\src\components\SideBar\LeftDashboardAthleteSidebar.jsx", "JavaScript JSX", 0, 0, 0, 0, 153, 0, 0, 5, 12, 170
+"c:\Users\ndlov\Documents\strava-app\src\components\SideBar\LeftDashboardAthleteSidebarComponents\AthleteStatsTabs.jsx", "JavaScript JSX", 0, 0, 0, 0, 200, 0, 0, 6, 17, 223
+"c:\Users\ndlov\Documents\strava-app\src\components\SideBar\LeftDashboardAthleteSidebarComponents\CyclingBikeSvg.jsx", "JavaScript JSX", 0, 0, 0, 0, 64, 0, 0, 0, 3, 67
+"c:\Users\ndlov\Documents\strava-app\src\components\SideBar\LeftDashboardAthleteSidebarComponents\RunningShoeSvg.jsx", "JavaScript JSX", 0, 0, 0, 0, 64, 0, 0, 0, 3, 67
+"c:\Users\ndlov\Documents\strava-app\src\components\SideBar\LeftDashboardAthleteSidebarComponents\SwimWaveSvg.jsx", "JavaScript JSX", 0, 0, 0, 0, 64, 0, 0, 0, 3, 67
+"c:\Users\ndlov\Documents\strava-app\src\components\SideBar\LeftDashboardAthleteSidebarComponents\TabsCard.jsx", "JavaScript JSX", 0, 0, 0, 0, 66, 0, 0, 1, 3, 70
+"c:\Users\ndlov\Documents\strava-app\src\components\SideBar\LeftDashboardAthleteSidebarComponents\WeeksStyleSvg.jsx", "JavaScript JSX", 0, 0, 0, 0, 138, 0, 0, 5, 8, 151
+"c:\Users\ndlov\Documents\strava-app\src\components\SideBar\PostsDashboard.jsx", "JavaScript JSX", 0, 0, 0, 0, 336, 0, 0, 18, 20, 374
+"c:\Users\ndlov\Documents\strava-app\src\components\SideBar\RightDashboardAthleteSidebar.jsx", "JavaScript JSX", 0, 0, 0, 0, 221, 0, 0, 0, 12, 233
+"c:\Users\ndlov\Documents\strava-app\src\components\SideBar\index.js", "JavaScript", 0, 0, 0, 0, 0, 8, 0, 0, 2, 10
+"c:\Users\ndlov\Documents\strava-app\src\components\SideBar\sidebarStyles\CenterDashboardAthleteSidebar.css", "CSS", 0, 194, 0, 0, 0, 0, 0, 2, 41, 237
+"c:\Users\ndlov\Documents\strava-app\src\components\SideBar\sidebarStyles\LeftDashboardAthleteSidebar.css", "CSS", 0, 314, 0, 0, 0, 0, 0, 3, 67, 384
+"c:\Users\ndlov\Documents\strava-app\src\components\SideBar\sidebarStyles\RightDashboardAthleteSidebar.css", "CSS", 0, 190, 0, 0, 0, 0, 0, 4, 32, 226
+"c:\Users\ndlov\Documents\strava-app\src\components\SignUpFooter\SignUpFooter.css", "CSS", 0, 8, 0, 0, 0, 0, 0, 0, 1, 9
+"c:\Users\ndlov\Documents\strava-app\src\components\SignUpFooter\SignUpFooter.jsx", "JavaScript JSX", 0, 0, 0, 0, 144, 0, 0, 0, 6, 150
+"c:\Users\ndlov\Documents\strava-app\src\components\SignUpHeader\SignUpHeader.jsx", "JavaScript JSX", 0, 0, 0, 0, 47, 0, 0, 0, 4, 51
+"c:\Users\ndlov\Documents\strava-app\src\components\UploadActivitiesSideBar\UploadActivitiesSideBar.css", "CSS", 0, 7, 0, 0, 0, 0, 0, 0, 1, 8
+"c:\Users\ndlov\Documents\strava-app\src\components\UploadActivitiesSideBar\UploadActivitiesSideBar.jsx", "JavaScript JSX", 0, 0, 0, 0, 44, 0, 0, 0, 3, 47
+"c:\Users\ndlov\Documents\strava-app\src\components\UserActivitiesDropdownToggle\UserActivitiesDropdownToggle.css", "CSS", 0, 6, 0, 0, 0, 0, 0, 0, 3, 9
+"c:\Users\ndlov\Documents\strava-app\src\components\UserActivitiesDropdownToggle\UserActivitiesDropdownToggle.jsx", "JavaScript JSX", 0, 0, 0, 0, 39, 0, 0, 0, 5, 44
+"c:\Users\ndlov\Documents\strava-app\src\components\UserProfileForm\ProfileComponent.jsx", "JavaScript JSX", 0, 0, 0, 0, 41, 0, 0, 4, 9, 54
+"c:\Users\ndlov\Documents\strava-app\src\components\UserProfileForm\UserProfileForm.css", "CSS", 0, 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\ndlov\Documents\strava-app\src\components\UserProfileForm\UserProfileForm.jsx", "JavaScript JSX", 0, 0, 0, 0, 310, 0, 0, 8, 14, 332
+"c:\Users\ndlov\Documents\strava-app\src\components\UserProfile\SearchUserProfile.jsx", "JavaScript JSX", 0, 0, 0, 0, 176, 0, 0, 10, 19, 205
+"c:\Users\ndlov\Documents\strava-app\src\components\UserProfile\UserProfile.css", "CSS", 0, 120, 0, 0, 0, 0, 0, 0, 18, 138
+"c:\Users\ndlov\Documents\strava-app\src\components\UserProfile\UserProfile.jsx", "JavaScript JSX", 0, 0, 0, 0, 100, 0, 0, 0, 9, 109
+"c:\Users\ndlov\Documents\strava-app\src\components\UserSettingsNav\UserAccountNav.jsx", "JavaScript JSX", 0, 0, 0, 0, 62, 0, 0, 0, 6, 68
+"c:\Users\ndlov\Documents\strava-app\src\components\UserSettingsNav\UserSettingsNav.css", "CSS", 0, 47, 0, 0, 0, 0, 0, 0, 12, 59
+"c:\Users\ndlov\Documents\strava-app\src\components\UserSettingsNav\UserSettingsNav.jsx", "JavaScript JSX", 0, 0, 0, 0, 52, 0, 0, 0, 3, 55
+"c:\Users\ndlov\Documents\strava-app\src\data\config.json", "JSON", 7, 0, 0, 0, 0, 0, 0, 0, 0, 7
+"c:\Users\ndlov\Documents\strava-app\src\firebase\firebase.js", "JavaScript", 0, 0, 0, 0, 0, 22, 0, 5, 5, 32
+"c:\Users\ndlov\Documents\strava-app\src\images\celebration_bronze_icon.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 1
+"c:\Users\ndlov\Documents\strava-app\src\images\dropdown_icon.svg", "XML", 0, 0, 0, 0, 0, 0, 3, 0, 0, 3
+"c:\Users\ndlov\Documents\strava-app\src\images\fortuneLogoFooter.svg", "XML", 0, 0, 0, 0, 0, 0, 8, 0, 1, 9
+"c:\Users\ndlov\Documents\strava-app\src\images\fortune_logo.svg", "XML", 0, 0, 0, 0, 0, 0, 8, 0, 1, 9
+"c:\Users\ndlov\Documents\strava-app\src\images\stravaLogoFooter.svg", "XML", 0, 0, 0, 0, 0, 0, 15, 0, 2, 17
+"c:\Users\ndlov\Documents\strava-app\src\images\strava_logo.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 1
+"c:\Users\ndlov\Documents\strava-app\src\index.css", "CSS", 0, 43, 0, 0, 0, 0, 0, 2, 8, 53
+"c:\Users\ndlov\Documents\strava-app\src\index.js", "JavaScript", 0, 0, 0, 0, 0, 11, 0, 0, 1, 12
+"c:\Users\ndlov\Documents\strava-app\src\pages\ActivityDetailsPage.jsx", "JavaScript JSX", 0, 0, 0, 0, 291, 0, 0, 2, 16, 309
+"c:\Users\ndlov\Documents\strava-app\src\pages\Challenges.jsx", "JavaScript JSX", 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"c:\Users\ndlov\Documents\strava-app\src\pages\DashboardPages\Heatmaps.jsx", "JavaScript JSX", 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"c:\Users\ndlov\Documents\strava-app\src\pages\DashboardPages\Home.jsx", "JavaScript JSX", 0, 0, 0, 0, 79, 0, 0, 15, 15, 109
+"c:\Users\ndlov\Documents\strava-app\src\pages\DashboardPages\MyGoals.jsx", "JavaScript JSX", 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"c:\Users\ndlov\Documents\strava-app\src\pages\DashboardPages\MyRoutes.jsx", "JavaScript JSX", 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"c:\Users\ndlov\Documents\strava-app\src\pages\DashboardPages\MySegments.jsx", "JavaScript JSX", 0, 0, 0, 0, 11, 0, 0, 0, 3, 14
+"c:\Users\ndlov\Documents\strava-app\src\pages\ExplorePages\Apps.jsx", "JavaScript JSX", 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"c:\Users\ndlov\Documents\strava-app\src\pages\ExplorePages\AthleteSearch.jsx", "JavaScript JSX", 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"c:\Users\ndlov\Documents\strava-app\src\pages\ExplorePages\Clubs.jsx", "JavaScript JSX", 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"c:\Users\ndlov\Documents\strava-app\src\pages\ExplorePages\CreateRoute.jsx", "JavaScript JSX", 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"c:\Users\ndlov\Documents\strava-app\src\pages\ExplorePages\Explore.jsx", "JavaScript JSX", 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"c:\Users\ndlov\Documents\strava-app\src\pages\ExplorePages\SegmentExplore.jsx", "JavaScript JSX", 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"c:\Users\ndlov\Documents\strava-app\src\pages\ExplorePages\SegmentSearch.jsx", "JavaScript JSX", 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"c:\Users\ndlov\Documents\strava-app\src\pages\ExplorePages\SubscriberPerks.jsx", "JavaScript JSX", 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"c:\Users\ndlov\Documents\strava-app\src\pages\LogIn.jsx", "JavaScript JSX", 0, 0, 0, 0, 91, 0, 0, 0, 10, 101
+"c:\Users\ndlov\Documents\strava-app\src\pages\PostDetailsPage.jsx", "JavaScript JSX", 0, 0, 0, 0, 300, 0, 0, 15, 23, 338
+"c:\Users\ndlov\Documents\strava-app\src\pages\SignUp.jsx", "JavaScript JSX", 0, 0, 0, 0, 127, 0, 0, 4, 9, 140
+"c:\Users\ndlov\Documents\strava-app\src\pages\TrainingPages\FitnessAndFreshness.jsx", "JavaScript JSX", 0, 0, 0, 0, 11, 0, 0, 0, 3, 14
+"c:\Users\ndlov\Documents\strava-app\src\pages\TrainingPages\MyActivities.jsx", "JavaScript JSX", 0, 0, 0, 0, 19, 0, 0, 2, 6, 27
+"c:\Users\ndlov\Documents\strava-app\src\pages\TrainingPages\PowerCurve.jsx", "JavaScript JSX", 0, 0, 0, 0, 11, 0, 0, 0, 3, 14
+"c:\Users\ndlov\Documents\strava-app\src\pages\TrainingPages\Training.jsx", "JavaScript JSX", 0, 0, 0, 0, 11, 0, 0, 0, 3, 14
+"c:\Users\ndlov\Documents\strava-app\src\pages\TrainingPages\TrainingCalendar.jsx", "JavaScript JSX", 0, 0, 0, 0, 11, 0, 0, 0, 3, 14
+"c:\Users\ndlov\Documents\strava-app\src\pages\TrainingPages\TrainingLog.jsx", "JavaScript JSX", 0, 0, 0, 0, 11, 0, 0, 0, 3, 14
+"c:\Users\ndlov\Documents\strava-app\src\pages\TrainingPages\TrainingPlans.jsx", "JavaScript JSX", 0, 0, 0, 0, 11, 0, 0, 0, 3, 14
+"c:\Users\ndlov\Documents\strava-app\src\pages\UserPages\FindFriends.jsx", "JavaScript JSX", 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"c:\Users\ndlov\Documents\strava-app\src\pages\UserPages\MyProfile.jsx", "JavaScript JSX", 0, 0, 0, 0, 10, 0, 0, 0, 3, 13
+"c:\Users\ndlov\Documents\strava-app\src\pages\UserPages\MySearchUserProfile.jsx", "JavaScript JSX", 0, 0, 0, 0, 11, 0, 0, 0, 3, 14
+"c:\Users\ndlov\Documents\strava-app\src\pages\UserPages\Settings.jsx", "JavaScript JSX", 0, 0, 0, 0, 28, 0, 0, 0, 3, 31
+"c:\Users\ndlov\Documents\strava-app\src\pages\UserUploadPages\CreatePost.jsx", "JavaScript JSX", 0, 0, 0, 0, 10, 0, 0, 2, 2, 14
+"c:\Users\ndlov\Documents\strava-app\src\pages\UserUploadPages\Device.jsx", "JavaScript JSX", 0, 0, 0, 0, 10, 0, 0, 2, 3, 15
+"c:\Users\ndlov\Documents\strava-app\src\pages\UserUploadPages\File.jsx", "JavaScript JSX", 0, 0, 0, 0, 10, 0, 0, 2, 3, 15
+"c:\Users\ndlov\Documents\strava-app\src\pages\UserUploadPages\Manual.jsx", "JavaScript JSX", 0, 0, 0, 0, 13, 0, 0, 1, 3, 17
+"c:\Users\ndlov\Documents\strava-app\src\pages\UserUploadPages\Mobile.jsx", "JavaScript JSX", 0, 0, 0, 0, 10, 0, 0, 2, 3, 15
+"c:\Users\ndlov\Documents\strava-app\src\services\UserActivitiesManager.js", "JavaScript", 0, 0, 0, 0, 0, 103, 0, 17, 29, 149
+"c:\Users\ndlov\Documents\strava-app\src\services\UserPostsManager.js", "JavaScript", 0, 0, 0, 0, 0, 56, 0, 0, 14, 70
+"c:\Users\ndlov\Documents\strava-app\src\services\authSignInWithEmailAndPassword.js", "JavaScript", 0, 0, 0, 0, 0, 16, 0, 1, 5, 22
+"c:\Users\ndlov\Documents\strava-app\src\services\authSignInWithGoogle.js", "JavaScript", 0, 0, 0, 0, 0, 24, 0, 4, 7, 35
+"c:\Users\ndlov\Documents\strava-app\src\services\authSignUpWithEmailAndPassword.js", "JavaScript", 0, 0, 0, 0, 0, 18, 0, 1, 5, 24
+"c:\Users\ndlov\Documents\strava-app\src\services\authSignUpWithGoogle.js", "JavaScript", 0, 0, 0, 0, 0, 24, 0, 5, 9, 38
+"c:\Users\ndlov\Documents\strava-app\src\services\compressImage.js", "JavaScript", 0, 0, 0, 0, 0, 15, 0, 3, 5, 23
+"c:\Users\ndlov\Documents\strava-app\src\services\stravaApi.js", "JavaScript", 0, 0, 0, 0, 0, 14, 0, 4, 2, 20
+"c:\Users\ndlov\Documents\strava-app\src\styles\ActivityDetailsPage.css", "CSS", 0, 173, 0, 0, 0, 0, 0, 0, 38, 211
+"c:\Users\ndlov\Documents\strava-app\src\styles\Challenges.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\DashboardPages\Heatmaps.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\DashboardPages\Home.css", "CSS", 0, 63, 0, 0, 0, 0, 0, 3, 13, 79
+"c:\Users\ndlov\Documents\strava-app\src\styles\DashboardPages\MyGoals.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\DashboardPages\MyRoutes.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\DashboardPages\MySegments.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\ExplorePages\Apps.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\ExplorePages\AthleteSearch.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\ExplorePages\Clubs.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\ExplorePages\CreateRoute.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\ExplorePages\Explore.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\ExplorePages\SegmentExplore.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\ExplorePages\SegmentSearch.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\ExplorePages\SubscriberPerks.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\LogInSignUp.css", "CSS", 0, 109, 0, 0, 0, 0, 0, 0, 15, 124
+"c:\Users\ndlov\Documents\strava-app\src\styles\PostDetailsPage.css", "CSS", 0, 42, 0, 0, 0, 0, 0, 0, 9, 51
+"c:\Users\ndlov\Documents\strava-app\src\styles\TrainingPages\FitnessAndFreshness.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\TrainingPages\MyActivities.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\TrainingPages\PowerCurve.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\TrainingPages\Training.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\TrainingPages\TrainingCalendar.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\TrainingPages\TrainingLog.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\TrainingPages\TrainingPlans.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\UserPages\FindFriends.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\UserPages\LogOut.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\UserPages\MyProfile.css", "CSS", 0, 6, 0, 0, 0, 0, 0, 0, 0, 6
+"c:\Users\ndlov\Documents\strava-app\src\styles\UserPages\Settings.css", "CSS", 0, 15, 0, 0, 0, 0, 0, 0, 3, 18
+"c:\Users\ndlov\Documents\strava-app\src\styles\UserUploadPages\CreatePost.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\UserUploadPages\Device.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\UserUploadPages\File.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\UserUploadPages\Manual.css", "CSS", 0, 21, 0, 0, 0, 0, 0, 0, 3, 24
+"c:\Users\ndlov\Documents\strava-app\src\styles\UserUploadPages\Mobile.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ndlov\Documents\strava-app\src\styles\common\buttons.css", "CSS", 0, 278, 0, 0, 0, 0, 0, 8, 41, 327
+"Total", "-", 18804, 2300, 58, 20, 7208, 311, 36, 346, 1205, 30288
