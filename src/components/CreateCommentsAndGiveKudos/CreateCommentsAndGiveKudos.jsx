@@ -16,7 +16,7 @@ import Tabs from "react-bootstrap/Tabs";
 import CommentSection from "./CommentSection";
 import defaultUserProfile from "../../images/defaultUserProfile.png";
 import "./CreateCommentsAndGiveKudos.css";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 function CreateCommentsAndGiveKudos({
 	show,
@@ -145,14 +145,17 @@ function CreateCommentsAndGiveKudos({
 										<span>
 											{activity.commentLikes?.[index] ? "1 Like" : ""}
 										</span>
-										<Button
-											variant="danger"
-											size="sm"
-											id="heartTheComment"
-											onClick={() => onLikeComment(index)}
-										>
-											<FaRegHeart />
-										</Button>
+										{activity.commentLikes?.[index] ? (
+														<FaHeart
+															id="heartTheComment"
+															onClick={() => onLikeComment(index)}
+														/>
+													) : (
+														<FaRegHeart
+															id="heartTheComment"
+															onClick={() => onLikeComment(index)}
+														/>
+													)}
 										<Button
 											variant="link"
 											size="sm"

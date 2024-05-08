@@ -155,7 +155,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 	// ///////////////////////////////
 
 	///////////////
-	// fetch the uses that the user is following and correspond them with their activities
+	// fetch the users data that the current user is following and correspond them with their activities
 	useEffect(() => {
 		const fetchUserData = async () => {
 			try {
@@ -265,6 +265,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 										id: doc.id,
 										...doc.data(),
 									}));
+								console.log("followingUserActivities", followingUserActivities);
 
 								// Merge followed user activities with current user activities
 								currentUserActivities = currentUserActivities.concat(
@@ -826,6 +827,7 @@ function CenterDashboardAthleteSidebar({ athlete }) {
 					</Card>
 				))}
 				<div className="feed-end">
+					<p>Update your profile settings if you have not done so already for a personalized experience - visit your <Link to={"/strava-app/home/settings"}>Settings</Link>.</p>
 					<p>
 						No more recent activity available. <br></br>To create new
 						activities, visit the{" "}
