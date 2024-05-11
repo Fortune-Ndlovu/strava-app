@@ -62,7 +62,7 @@ const SignUp = () => {
 						<div>
 							<p className="signUpForFreePara">
 								Track your progress and reach goals. Join 100 million active
-								people on Strava.
+								people on Fortune.
 							</p>
 						</div>
 						<div>
@@ -115,7 +115,7 @@ const SignUp = () => {
 							Sign Up
 						</Button>
 						<p className="text-muted" id="signUpFormMutedText">
-							By signing up for Strava, you agree to the Terms of Service. View
+							By signing up for Fortune, you agree to the Terms of Service. View
 							our Privacy Policy.
 						</p>
 					</Form>
