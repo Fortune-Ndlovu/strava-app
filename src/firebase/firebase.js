@@ -29,4 +29,4 @@ const getCurrentUserId = () => {
   return user ? user.uid : null;
 };
 
-export { app, db, storage, auth, getCurrentUserId }
+export { app, db, storage, auth, getCurrentUserId };
