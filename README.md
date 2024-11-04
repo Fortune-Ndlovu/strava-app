@@ -89,4 +89,4 @@ If you'd like to contribute to this project, please follow these guidelines:
 
 If you encounter any issues or have feedback on the project, please feel free to [create an issue](https://github.com/yourusername/strava-app/issues). Your input is valuable in making this project better!
 
-Thank you for your interest and contribution to the Strava Replica project. Let's work together to create an amazing application for sports and fitness enthusiasts!
+Thank you for your interest and contribution to the Strava Replica project.
