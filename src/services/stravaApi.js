@@ -11,7 +11,7 @@ export async function getActivities(accessToken) {
   return data;
 }
 
-// Fetching our athlete data and parsing it into json format
+// Fetching our athlete data and parsing it into json format.
 export async function getAthleteData(accessToken) {
   const response = await fetch(`${callAthlete}?access_token=${accessToken}`);
   const data = await response.json();
